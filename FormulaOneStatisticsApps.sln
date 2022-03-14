@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormulaOneStatistics", "FormulaOneStatistics\FormulaOneStatistics.csproj", "{4A8CECEE-1C13-4B2B-8E52-E4DD904A8AEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormulaOneStatistics", "FormulaOneStatistics\FormulaOneStatistics.csproj", "{4A8CECEE-1C13-4B2B-8E52-E4DD904A8AEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{6D44A085-5AC2-417F-A05B-86C6359A6F2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{6D44A085-5AC2-417F-A05B-86C6359A6F2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{C9BAA7C7-F3A4-4AD4-8F52-7B97EE830A2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{C9BAA7C7-F3A4-4AD4-8F52-7B97EE830A2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{E67251B9-E6A2-4739-9E28-8948587859B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{E67251B9-E6A2-4739-9E28-8948587859B6}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactprojectapi", "reactprojectapi\reactprojectapi.esproj", "{32982FDE-4E6B-4B45-AD8A-7C830B80111F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,12 @@ Global
 		{E67251B9-E6A2-4739-9E28-8948587859B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E67251B9-E6A2-4739-9E28-8948587859B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E67251B9-E6A2-4739-9E28-8948587859B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32982FDE-4E6B-4B45-AD8A-7C830B80111F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32982FDE-4E6B-4B45-AD8A-7C830B80111F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32982FDE-4E6B-4B45-AD8A-7C830B80111F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{32982FDE-4E6B-4B45-AD8A-7C830B80111F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32982FDE-4E6B-4B45-AD8A-7C830B80111F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32982FDE-4E6B-4B45-AD8A-7C830B80111F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
