@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class ImageForCreationDto
+    public record ImageForCreationDto
     {
         [Required(ErrorMessage = "Link is required")]
         public string Link { get; set; }

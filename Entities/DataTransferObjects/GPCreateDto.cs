@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class GPCreateDto
+    public record GPCreateDto
     {
         public Guid IdTrackСonfiguration { get; set; }
         public int Num { get; set; }

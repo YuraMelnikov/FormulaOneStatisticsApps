@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class QualificationUpdateDto
+    public record QualificationUpdateDto
     {
         public Guid Id { get; set; }
         public Guid IdParticipant { get; set; }

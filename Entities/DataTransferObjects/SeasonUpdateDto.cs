@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class SeasonUpdateDto
+    public record SeasonUpdateDto
     {
         public Guid Id { get; set; }
         public int Year { get; set; }

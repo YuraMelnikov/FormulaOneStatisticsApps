@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class ImageDto
+    public record ImageDto
     {
         public Guid Id;
         public string Link { get; set; }

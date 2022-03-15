@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Entities.DataTransferObjects
 {
-    public class ManufacturerCreateDto
+    public record ManufacturerCreateDto
     {
         public Guid IdCountry { get; set; }
         public Guid IdImage { get; set; }

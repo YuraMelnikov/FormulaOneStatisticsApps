@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class GPDto
+    public record GPDto
     { 
         public Guid Id { get; set; }
         public int Num { get; set; }

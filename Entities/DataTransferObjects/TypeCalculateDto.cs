@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class TypeCalculateDto
+    public record TypeCalculateDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

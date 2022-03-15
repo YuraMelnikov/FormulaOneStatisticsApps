@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class FastLapDto
+    public record FastLapDto
     {
         public Guid Id { get; set; }
         public int Lap { get; set; }

@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class GPResultDto
+    public record GPResultDto
     {
         public Guid Id { get; set; }
         public TimeSpan Time { get; set; }

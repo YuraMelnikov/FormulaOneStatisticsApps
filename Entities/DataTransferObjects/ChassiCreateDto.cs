@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class ChassiCreateDto
+    public record ChassiCreateDto
     {
         public Guid IdManufacturer { get; set; }
         public string Name { get; set; }

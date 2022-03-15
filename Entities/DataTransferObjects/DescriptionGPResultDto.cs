@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class DescriptionGPResultDto
+    public record DescriptionGPResultDto
     {
         public Guid Id { get; set; }
         public string Description { get; set; }

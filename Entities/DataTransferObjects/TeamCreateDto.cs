@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class TeamCreateDto
+    public record TeamCreateDto
     {
         public Guid IdCountry { get; set; }
         public string ShortName { get; set; }

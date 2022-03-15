@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class QualificationDto
+    public record QualificationDto
     {
         public Guid Id { get; set; }
         public int Position { get; set; }

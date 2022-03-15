@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class RacerCreateDto
+    public record RacerCreateDto
     {
         public Guid IdCountry { get; set; }
         public DateTime Born { get; set; }

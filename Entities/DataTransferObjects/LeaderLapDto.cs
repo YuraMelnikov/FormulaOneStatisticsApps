@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class LeaderLapDto
+    public record LeaderLapDto
     {
         public Guid Id { get; set; }
         public int First { get; set; }

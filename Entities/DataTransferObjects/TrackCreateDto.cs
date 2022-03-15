@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class TrackCreateDto
+    public record TrackCreateDto
     {
         public Guid IdCountry { get; set; }
         public Guid IdImage { get; set; }

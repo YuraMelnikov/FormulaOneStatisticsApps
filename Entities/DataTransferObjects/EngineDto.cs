@@ -2,7 +2,7 @@
 
 namespace Entities.DataTransferObjects
 {
-    public class EngineDto
+    public record EngineDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
