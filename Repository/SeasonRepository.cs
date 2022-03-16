@@ -2,10 +2,6 @@
 using Entities;
 using Entities.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Repository
 {
@@ -24,6 +20,8 @@ namespace Repository
 
         public async Task<IEnumerable<Season>> GetAllSeasonAsync(bool trackChanges) =>
             await FindAll(trackChanges)
+            .AsNoTracking()
+            .Include(c => c.Image)
             .OrderBy(c => c.Year)
             .ToListAsync();
 

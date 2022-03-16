@@ -24,6 +24,8 @@ namespace Repository
 
         public async Task<IEnumerable<Track>> GetAllTrackAsync(bool trackChanges) =>
             await FindAll(trackChanges)
+            .AsNoTracking()
+            .Include(a => a.Image)
             .OrderBy(c => c.Name)
             .ToListAsync();
 

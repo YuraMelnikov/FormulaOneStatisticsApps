@@ -40,7 +40,9 @@ namespace FormulaOneStatistics
             CreateMap<LeaderLapCreateDto, LeaderLap>();
             CreateMap<LeaderLapUpdateDto, LeaderLap>();
 
-            CreateMap<Manufacturer, ManufacturerDto>();
+            CreateMap<Manufacturer, ManufacturerDto>()
+                .ForMember(to => to.ImageLink,
+                    from => from.MapFrom(x => x.Image.Link)); ;
             CreateMap<ManufacturerCreateDto, Manufacturer>();
             CreateMap<ManufacturerUpdateDto, Manufacturer>();
 
@@ -52,11 +54,15 @@ namespace FormulaOneStatistics
             CreateMap<QualificationCreateDto, Qualification>();
             CreateMap<QualificationUpdateDto, Qualification>();
 
-            CreateMap<Racer, RacerDto>();
+            CreateMap<Racer, RacerDto>()
+                .ForMember(to => to.ImageLink,
+                    from => from.MapFrom(x => x.Image.Link));
             CreateMap<RacerCreateDto, Racer>();
             CreateMap<RacerUpdateDto, Racer>();
 
-            CreateMap<Season, SeasonDto>();
+            CreateMap<Season, SeasonDto>()
+                .ForMember(to => to.ImageLink, 
+                    from => from.MapFrom(x => x.Image.Link));
             CreateMap<SeasonCreateDto, Season>();
             CreateMap<SeasonUpdateDto, Season>();
 
@@ -68,7 +74,9 @@ namespace FormulaOneStatistics
             CreateMap<TeamNameCreateDto, TeamName>();
             CreateMap<TeamNameUpdateDto, TeamName>();
 
-            CreateMap<Track, TrackDto>();
+            CreateMap<Track, TrackDto>()
+                .ForMember(to => to.ImageLink,
+                    from => from.MapFrom(x => x.Image.Link)); ;
             CreateMap<TrackCreateDto, Track>();
             CreateMap<TrackUpdateDto, Track>();
 

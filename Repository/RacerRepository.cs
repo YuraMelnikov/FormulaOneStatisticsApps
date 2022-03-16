@@ -24,7 +24,9 @@ namespace Repository
 
         public async Task<IEnumerable<Racer>> GetAllRacerAsync(bool trackChanges) =>
             await FindAll(trackChanges)
-            .OrderBy(c => c.FirstName)
+            .AsNoTracking()
+            .Include(a => a.Image)
+            .OrderBy(c => c.SecondName)
             .ToListAsync();
 
         public async Task<Racer> GetRacerAsync(Guid racerId, bool trackChanges) =>

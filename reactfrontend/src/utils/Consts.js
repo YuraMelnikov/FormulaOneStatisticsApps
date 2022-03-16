@@ -1,0 +1,12 @@
+export const ABOUTAPI_ROUTE = '/aboutapi';
+export const ABOUTUS_ROUTE = '/aboutus';
+export const GRANDPRIX_ROUTE = '/grandprix';
+export const MANUFACTURER_ROUTE = '/manufacturer';
+export const MANUFACTURERS_ROUTE = '/manufacturers';
+export const RACER_ROUTE = '/racer';
+export const RACERS_ROUTE = '/racers';
+export const SEASON_ROUTE = '/season';
+export const SEASONS_ROUTE = '/seasons';
+export const STATISTICS_ROUTE = '/statistics';
+export const TRACK_ROUTE = '/track';
+export const TRACKS_ROUTE = '/tracks';

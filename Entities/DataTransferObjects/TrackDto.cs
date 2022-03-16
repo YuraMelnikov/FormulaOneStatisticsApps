@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace Entities.DataTransferObjects
+﻿namespace Entities.DataTransferObjects
 {
     public record TrackDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public CountryDto CountryDto { get; set; }
-        public ImageDto ImagedDto { get; set; }
+        public string ImageLink { get; set; }
     }
 }
