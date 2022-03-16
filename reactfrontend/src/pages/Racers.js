@@ -1,8 +1,14 @@
 import React from "react";
+import { Container, Row } from "react-bootstrap";
+import RacersList from "../components/RacersList";
 
 const Racers = () => {
     return (
-        <div>racers</div>
+        <Container>
+            <Row>
+                <RacersList/>
+            </Row>
+        </Container>
     );
 }
 

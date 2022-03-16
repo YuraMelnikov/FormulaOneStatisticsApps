@@ -31,7 +31,7 @@ export default class MockStore {
     }
 
     get racers() {
-        return this.racers
+        return this._racers
     }
 
     setTracks(tracks) {

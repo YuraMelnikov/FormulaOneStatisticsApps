@@ -1,8 +1,14 @@
 import React from "react";
+import { Container, Row } from "react-bootstrap";
+import ManufacturersList from "../components/ManufacturersList";
 
 const Manufacturers = () => {
     return (
-        <div>manuf</div>
+        <Container>
+            <Row>
+                <ManufacturersList/>
+            </Row>
+        </Container>
     );
 }
 

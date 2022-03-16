@@ -55,8 +55,8 @@ namespace FormulaOneStatistics
             CreateMap<QualificationUpdateDto, Qualification>();
 
             CreateMap<Racer, RacerDto>()
-                .ForMember(to => to.ImageLink,
-                    from => from.MapFrom(x => x.Image.Link));
+                .ForMember(to => to.ImageLink,from => from.MapFrom(x => x.Image.Link))
+                .ForMember(to => to.Name, from => from.MapFrom(x => x.SecondName));
             CreateMap<RacerCreateDto, Racer>();
             CreateMap<RacerUpdateDto, Racer>();
 

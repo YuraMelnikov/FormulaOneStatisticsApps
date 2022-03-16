@@ -1,8 +1,14 @@
 import React from "react";
+import { Container, Row } from "react-bootstrap";
+import TracksList from "../components/TracksList";
 
 const Tracks = () => {
     return (
-        <div>tracks</div>
+        <Container>
+            <Row>
+                <TracksList/>
+            </Row>
+        </Container>
     );
 }
 
