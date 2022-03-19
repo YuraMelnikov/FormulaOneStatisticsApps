@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Entities.Common;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models
 {
     [Table("Participant")]
-    public class Participant : EntityId
+    public class Participant : Entity
     {
         [Required(ErrorMessage = "Grand prix is required")]
         public Guid IdGrandPrix { get; set; }

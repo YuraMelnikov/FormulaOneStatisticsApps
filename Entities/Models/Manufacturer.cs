@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Entities.Common;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models
 {
     [Table("Manufacturer")]
-    public class Manufacturer : EntityId
+    public class Manufacturer : Entity
     {
         [Required(ErrorMessage = "Country is required")]
         public Guid IdCountry { get; set; }

@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Entities.Common;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models
 {
     [Table("TeamName")]
-    public class TeamName : EntityId
+    public class TeamName : Entity
     {
         [Required(ErrorMessage = "Team is required")]
         public Guid IdTeam { get; set; }

@@ -1,14 +1,11 @@
-﻿using Entities.Common;
+﻿using Entities.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Entities.Models
+namespace Entities.Common
 {
-    [Table("Season")]
-    public class Season : Entity
+    public class EntityImg : Entity
     {
-        [Required(ErrorMessage = "Year is required")]
-        public int Year { get; set; }
         [Required(ErrorMessage = "Image is required")]
         public Guid IdImage { get; set; }
 

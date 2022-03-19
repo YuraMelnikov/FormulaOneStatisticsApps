@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System;
+using Entities.Common;
 
 namespace Entities.Models
 {
     [Table("GrandPrix")]
-    public class GrandPrix : EntityId
+    public class GrandPrix : Entity
     {
         [Required(ErrorMessage = "Season is required")]
         public Guid IdSeason { get; set; }

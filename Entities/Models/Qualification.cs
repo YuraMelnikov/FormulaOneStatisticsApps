@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Entities.Common;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models
 {
     [Table("Qualification")]
-    public class Qualification : EntityId
+    public class Qualification : Entity
     {
         [Required(ErrorMessage = "Participant is required")]
         public Guid IdParticipant { get; set; }

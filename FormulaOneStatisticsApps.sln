@@ -5,8 +5,6 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormulaOneStatistics", "FormulaOneStatistics\FormulaOneStatistics.csproj", "{4A8CECEE-1C13-4B2B-8E52-E4DD904A8AEB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{6D44A085-5AC2-417F-A05B-86C6359A6F2C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{C9BAA7C7-F3A4-4AD4-8F52-7B97EE830A2E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{E67251B9-E6A2-4739-9E28-8948587859B6}"
@@ -23,10 +21,6 @@ Global
 		{4A8CECEE-1C13-4B2B-8E52-E4DD904A8AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A8CECEE-1C13-4B2B-8E52-E4DD904A8AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A8CECEE-1C13-4B2B-8E52-E4DD904A8AEB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D44A085-5AC2-417F-A05B-86C6359A6F2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D44A085-5AC2-417F-A05B-86C6359A6F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D44A085-5AC2-417F-A05B-86C6359A6F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D44A085-5AC2-417F-A05B-86C6359A6F2C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C9BAA7C7-F3A4-4AD4-8F52-7B97EE830A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C9BAA7C7-F3A4-4AD4-8F52-7B97EE830A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9BAA7C7-F3A4-4AD4-8F52-7B97EE830A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU

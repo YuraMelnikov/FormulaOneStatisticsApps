@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Entities.Common;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models
 {
     [Table("LeaderLap")]
-    public class LeaderLap : EntityId
+    public class LeaderLap : Entity
     {
         [Required(ErrorMessage = "Participant is required")]
         public Guid IdParticipant { get; set; }

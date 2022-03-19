@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Entities.Common;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models
 {
     [Table("FastLap")]
-    public class FastLap : EntityId
+    public class FastLap : Entity
     {
         [Required(ErrorMessage = "Participant prix is required")]
         public Guid IdParticipant { get; set; }
