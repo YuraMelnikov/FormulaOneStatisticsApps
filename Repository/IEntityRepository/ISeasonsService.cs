@@ -1,5 +1,4 @@
-﻿using Entities.Models;
-using Repository.DTO;
+﻿using Repository.DTO;
 
 namespace Repository.IEntityRepository
 {

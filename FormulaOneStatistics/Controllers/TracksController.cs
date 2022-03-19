@@ -5,11 +5,11 @@ namespace FormulaOneStatistics.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SeasonsController : ControllerBase
+    public class TracksController : ControllerBase
     {
         private readonly IServiceManager _repository;
 
-        public SeasonsController(IServiceManager repository)
+        public TracksController(IServiceManager repository)
         {
             _repository = repository;
         }
@@ -17,8 +17,8 @@ namespace FormulaOneStatistics.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var seasons = await _repository.Seasons.GetSeasonsList();
-            return Ok(seasons);
+            var tracks = await _repository.Tracks.GetTracksList();
+            return Ok(tracks);
         }
     }
 }

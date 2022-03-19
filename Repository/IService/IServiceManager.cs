@@ -17,6 +17,9 @@ namespace Repository.IService
         //IQualificationRepository Qualification { get; }
         //IRacerRepository Racer { get; }
         ISeasonsService Seasons { get; }
+        IManufacturersService Manufacturers { get; }
+        ITracksServices Tracks { get; }
+        IRacersService Racers { get; }
         //ITeamNameRepository TeamName { get; }
         //ITeamRepository Team { get; }
         //ITrackСonfigurationRepository TrackConfiguration { get; }

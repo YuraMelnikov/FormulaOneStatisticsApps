@@ -1,33 +1,33 @@
 ﻿using AutoMapper;
 using Entities.Contexts;
 using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using Repository.DTO;
 using Repository.IEntityRepository;
 using Repository.Service;
-using Microsoft.EntityFrameworkCore;
 
 namespace Repository.EntityRepository
 {
-    public class SeasonsService : RepositoryBase<Season, SeasonsDto>, ISeasonsService
+    public class RacersService : RepositoryBase<Racer, RacersDto>, IRacersService
     {
         private readonly RepositoryContext _repositoryContext;
         private readonly IMapper _mapper;
 
-        public SeasonsService(RepositoryContext repositoryContext, IMapper mapper)
+        public RacersService(RepositoryContext repositoryContext, IMapper mapper)
             : base(repositoryContext, mapper)
         {
             _repositoryContext = repositoryContext;
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<SeasonsDto>> GetSeasonsList()
+        public async Task<IEnumerable<RacersDto>> GetRacersList()
         {
-            var sesonsList = await _repositoryContext.Seasons
+            var racersList = await _repositoryContext.Racers
                 .AsNoTracking()
                 .Include(a => a.Image)
-                .OrderBy(a => a.Year)
+                .OrderBy(a => a.SecondName)
                 .ToArrayAsync();
-            return _mapper.Map<IEnumerable<SeasonsDto>>(sesonsList);
+            return _mapper.Map<IEnumerable<RacersDto>>(racersList);
         }
     }
 }
