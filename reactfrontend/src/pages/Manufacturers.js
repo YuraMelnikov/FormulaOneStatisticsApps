@@ -4,7 +4,7 @@ import ManufacturersList from "../components/ManufacturersList";
 
 const Manufacturers = () => {
     return (
-        <Container>
+        <Container fluid>
             <Row>
                 <ManufacturersList/>
             </Row>

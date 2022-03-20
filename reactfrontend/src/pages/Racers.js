@@ -4,7 +4,7 @@ import RacersList from "../components/RacersList";
 
 const Racers = () => {
     return (
-        <Container>
+        <Container fluid>
             <Row>
                 <RacersList/>
             </Row>

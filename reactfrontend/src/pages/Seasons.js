@@ -4,7 +4,7 @@ import SeasonsList from "../components/SeasonsList";
 
 const Seasons = () => {
     return (
-        <Container>
+        <Container fluid>
             <Row>
                 <SeasonsList/>
             </Row>

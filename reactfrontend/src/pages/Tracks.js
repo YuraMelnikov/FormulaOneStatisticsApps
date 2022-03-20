@@ -4,7 +4,7 @@ import TracksList from "../components/TracksList";
 
 const Tracks = () => {
     return (
-        <Container>
+        <Container fluid>
             <Row>
                 <TracksList/>
             </Row>
