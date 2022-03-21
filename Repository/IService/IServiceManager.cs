@@ -1,6 +1,6 @@
-﻿using Repository.IEntityRepository;
+﻿using Services.IEntityRepository;
 
-namespace Repository.IService
+namespace Services.IService
 {
     public interface IServiceManager
     {

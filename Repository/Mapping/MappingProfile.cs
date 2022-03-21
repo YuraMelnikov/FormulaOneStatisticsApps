@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using System.Reflection;
 
-namespace Repository.Mapping
+namespace Services.Mapping
 {
     public class MappingProfile : Profile
     {

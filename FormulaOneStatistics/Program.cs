@@ -1,5 +1,5 @@
 using Microsoft.OpenApi.Models;
-using Repository;
+using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

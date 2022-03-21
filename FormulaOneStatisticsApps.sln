@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormulaOneStatistics", "For
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{C9BAA7C7-F3A4-4AD4-8F52-7B97EE830A2E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{E67251B9-E6A2-4739-9E28-8948587859B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Repository\Services.csproj", "{E67251B9-E6A2-4739-9E28-8948587859B6}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactfrontend", "reactfrontend\reactfrontend.esproj", "{DAD350A9-FE01-4D67-BB8F-FF581F68C6D2}"
 EndProject

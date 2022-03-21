@@ -2,11 +2,11 @@
 using Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Repository.IService;
-using Repository.Mapping;
-using Repository.Service;
+using Services.IService;
+using Services.Mapping;
+using Services.Service;
 
-namespace Repository
+namespace Services
 {
     public static class DependencyInjection
     {

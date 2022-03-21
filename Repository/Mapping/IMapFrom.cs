@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Repository.Mapping
+namespace Services.Mapping
 {
     public interface IMapFrom
     {

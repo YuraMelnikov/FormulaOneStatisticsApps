@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Entities.Models;
-using Repository.DTO.Common;
-using Repository.Mapping;
+using Services.DTO.Common;
+using Services.Mapping;
 
-namespace Repository.DTO
+namespace Services.DTO
 {
     public class RacersDto : CardItemDto, IMapFrom
     {

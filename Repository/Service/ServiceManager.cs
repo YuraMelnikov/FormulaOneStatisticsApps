@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Entities.Contexts;
-using Repository.EntityRepository;
-using Repository.IEntityRepository;
-using Repository.IService;
+using Services.EntityRepository;
+using Services.IEntityRepository;
+using Services.IService;
 
-namespace Repository.Service
+namespace Services.Service
 {
     public class ServiceManager : IServiceManager
     {

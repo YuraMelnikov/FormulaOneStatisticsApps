@@ -1,6 +1,6 @@
-﻿using Repository.DTO;
+﻿using Services.DTO;
 
-namespace Repository.IEntityRepository
+namespace Services.IEntityRepository
 {
     public interface IRacersService
     {

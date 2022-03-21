@@ -1,4 +1,4 @@
-﻿namespace Repository.DTO.Common
+﻿namespace Services.DTO.Common
 {
     public class EntityDto
     {

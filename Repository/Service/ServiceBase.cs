@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Entities.Contexts;
 using Entities.Common;
-using Repository.IService;
-using Repository.DTO.Common;
+using Services.IService;
+using Services.DTO.Common;
 using AutoMapper;
 
-namespace Repository.Service
+namespace Services.Service
 {
     public class ServiceBase<TEntity, TDto> : IServiceBase<TEntity, TDto> where TDto : EntityDto where TEntity : Entity
     {

@@ -1,4 +1,4 @@
-﻿namespace Repository.IService
+﻿namespace Services.IService
 {
     public interface IServiceBase<TEntity, TDto>
     {

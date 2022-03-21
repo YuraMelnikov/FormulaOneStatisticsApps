@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
-using Repository.DTO;
-using Repository.IEntityRepository;
+using Services.DTO;
+using Services.IEntityRepository;
 
-namespace Repository.EntityRepository
+namespace Services.EntityRepository
 {
     public class TracksServices :  ITracksServices
     {
