@@ -7,17 +7,17 @@ namespace FormulaOneStatistics.Controllers
     [ApiController]
     public class TracksController : ControllerBase
     {
-        private readonly IServiceManager _repository;
+        private readonly IServiceManager _service;
 
-        public TracksController(IServiceManager repository)
+        public TracksController(IServiceManager service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var tracks = await _repository.Tracks.GetTracksList();
+            var tracks = await _service.Tracks.GetTracksList();
             return Ok(tracks);
         }
     }

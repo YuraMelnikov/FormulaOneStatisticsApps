@@ -7,12 +7,12 @@ using AutoMapper;
 
 namespace Repository.Service
 {
-    public class RepositoryBase<TEntity, TDto> : IRepositoryBase<TEntity, TDto> where TDto : EntityDto where TEntity : Entity
+    public class ServiceBase<TEntity, TDto> : IServiceBase<TEntity, TDto> where TDto : EntityDto where TEntity : Entity
     {
         private readonly RepositoryContext _repositoryContext;
         private readonly IMapper _mapper;
 
-        public RepositoryBase(RepositoryContext repositoryContext, IMapper mapper)
+        public ServiceBase(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repositoryContext = repositoryContext;
             _mapper = mapper;

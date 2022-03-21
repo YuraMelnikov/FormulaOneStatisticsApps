@@ -7,17 +7,17 @@ namespace FormulaOneStatistics.Controllers
     [ApiController]
     public class SeasonsController : ControllerBase
     {
-        private readonly IServiceManager _repository;
+        private readonly IServiceManager _service;
 
-        public SeasonsController(IServiceManager repository)
+        public SeasonsController(IServiceManager service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var seasons = await _repository.Seasons.GetSeasonsList();
+            var seasons = await _service.Seasons.GetSeasonsList();
             return Ok(seasons);
         }
     }

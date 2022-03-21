@@ -7,17 +7,17 @@ namespace FormulaOneStatistics.Controllers
     [ApiController]
     public class ManufacturersController : ControllerBase
     {
-        private readonly IServiceManager _repository;
+        private readonly IServiceManager _service;
 
-        public ManufacturersController(IServiceManager repository)
+        public ManufacturersController(IServiceManager service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var manufacturers = await _repository.Manufacturers.GetManufacturersList();
+            var manufacturers = await _service.Manufacturers.GetManufacturersList();
             return Ok(manufacturers);
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Repository.IService
 {
-    public interface IRepositoryBase<TEntity, TDto>
+    public interface IServiceBase<TEntity, TDto>
     {
         IQueryable<TDto> GetAll();
         Task Add(TDto tDto);

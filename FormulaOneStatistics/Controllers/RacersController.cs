@@ -7,17 +7,17 @@ namespace FormulaOneStatistics.Controllers
     [ApiController]
     public class RacersController : ControllerBase
     {
-        private readonly IServiceManager _repository;
+        private readonly IServiceManager _service;
 
-        public RacersController(IServiceManager repository)
+        public RacersController(IServiceManager service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var racers = await _repository.Racers.GetRacersList();
+            var racers = await _service.Racers.GetRacersList();
             return Ok(racers);
         }
     }

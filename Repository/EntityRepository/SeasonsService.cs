@@ -1,20 +1,17 @@
 ﻿using AutoMapper;
 using Entities.Contexts;
-using Entities.Models;
 using Repository.DTO;
 using Repository.IEntityRepository;
-using Repository.Service;
 using Microsoft.EntityFrameworkCore;
 
 namespace Repository.EntityRepository
 {
-    public class SeasonsService : RepositoryBase<Season, SeasonsDto>, ISeasonsService
+    public class SeasonsService : ISeasonsService
     {
         private readonly RepositoryContext _repositoryContext;
         private readonly IMapper _mapper;
 
         public SeasonsService(RepositoryContext repositoryContext, IMapper mapper)
-            : base(repositoryContext, mapper)
         {
             _repositoryContext = repositoryContext;
             _mapper = mapper;
