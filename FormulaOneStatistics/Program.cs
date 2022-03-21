@@ -1,10 +1,5 @@
-using AutoMapper.Extensions.ExpressionMapping;
-using Entities.Contexts;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Repository.IService;
-using Repository.Mapping;
-using Repository.Service;
+using Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddService(builder.Configuration);
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
@@ -21,11 +17,6 @@ builder.Services.AddSwaggerGen(options =>
         Description = "An ASP.NET Core Web API for managing FormulaOneStatistics items",
     });
 });
-builder.Services.AddScoped<IServiceManager, ServiceManager>();
-builder.Services.AddDbContext<RepositoryContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("BloggingDatabase")));
-//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-builder.Services.AddAutoMapper(cfg => { cfg.AddExpressionMapping(); }, typeof(MappingProfile).Assembly);
 
 var app = builder.Build();
 
