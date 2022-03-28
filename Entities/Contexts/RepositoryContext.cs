@@ -12,9 +12,16 @@ namespace Entities.Contexts
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Season>(entity => {
+            builder.Entity<Season>(entity => { 
                 entity.HasIndex(e => e.Year).IsUnique();
+                entity.Property(p => p.Year).IsRequired();
+                entity.Property(p => p.IdImage).IsRequired();
             });
+
+
+
+            //modelBuilder.Entity<Phone>().Property(p => p.Name).HasColumnType("varchar");
+            //modelBuilder.Entity<Phone>().Property(p => p.Name).HasMaxLength(50);
         }
 
         public DbSet<Chassis> Chassis { get; set; }
