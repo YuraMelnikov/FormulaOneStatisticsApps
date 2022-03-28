@@ -1,12 +1,7 @@
 ﻿using Entities.Models;
-using Services.DTO;
-using Services.EntityService;
-using Services.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace XTestProject.Models
@@ -33,16 +28,18 @@ namespace XTestProject.Models
                 new Season() { Id = Guid.NewGuid(), IdImage = Guid.NewGuid(), Year = 1950 },
             };
 
-
-            var season = new Season { Id = id, IdImage = idImage, Year = year };
-            _context.Seasons.Add(season);
-            _context.SaveChanges();
+            foreach(var data in seasonsAddedList)
+            {
+                _context.Seasons.Add(data);
+                _context.SaveChanges();
+            }
 
             var p = _context.Seasons.Count();
+            var t = _context.Seasons.First();
 
-            Assert.Equal(id, season.Id);
-            Assert.Equal(idImage, season.IdImage);
-            Assert.Equal(year, season.Year);
+            Assert.Equal(id, t.Id);
+            Assert.Equal(idImage, t.IdImage);
+            Assert.Equal(year, t.Year);
         }
 
 

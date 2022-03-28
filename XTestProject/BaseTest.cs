@@ -2,10 +2,8 @@
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Moq;
 using Services.IService;
 using Services.Mapping;
-using Services.Service;
 
 namespace XTestProject
 {
