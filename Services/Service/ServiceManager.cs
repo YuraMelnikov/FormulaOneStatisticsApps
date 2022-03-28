@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Entities.Contexts;
-using Services.EntityRepository;
-using Services.IEntityRepository;
+using Services.EntityService;
+using Services.IEntityService;
 using Services.IService;
 
 namespace Services.Service
@@ -15,11 +15,22 @@ namespace Services.Service
         private ITracksServices _tracks;
         private IRacersService _racers;
         private IManufacturersService _manufacturers;
+        private ISeasonService _season;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+        public ISeasonService Season
+        {
+            get
+            {
+                if(_season == null)
+                    _season = new SeasonService(_repoContext, _mapper);
+                return _season;
+            }
         }
 
         public ISeasonsService Seasons

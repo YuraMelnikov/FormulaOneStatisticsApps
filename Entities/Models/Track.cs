@@ -12,6 +12,7 @@ namespace Entities.Models
         [Required(ErrorMessage = "Image is required")]
         public Guid IdImage { get; set; }
         [Required(ErrorMessage = "Name is required")]
+
         public string Name { get; set; }
         [Required(ErrorMessage = "NameRus is required")]
         public string NameRus { get; set; }

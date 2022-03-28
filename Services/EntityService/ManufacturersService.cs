@@ -2,9 +2,9 @@
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Services.DTO;
-using Services.IEntityRepository;
+using Services.IEntityService;
 
-namespace Services.EntityRepository
+namespace Services.EntityService
 {
     public class ManufacturersService : IManufacturersService
     {

@@ -1,6 +1,6 @@
 ﻿using Services.DTO;
 
-namespace Services.IEntityRepository
+namespace Services.IEntityService
 {
     public interface IManufacturersService
     {

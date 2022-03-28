@@ -2,29 +2,29 @@
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Services.DTO;
-using Services.IEntityRepository;
+using Services.IEntityService;
 
-namespace Services.EntityRepository
+namespace Services.EntityService
 {
-    public class TracksServices :  ITracksServices
+    public class RacersService :  IRacersService
     {
         private readonly RepositoryContext _repositoryContext;
         private readonly IMapper _mapper;
 
-        public TracksServices(RepositoryContext repositoryContext, IMapper mapper)
+        public RacersService(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repositoryContext = repositoryContext;
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<TracksDto>> GetTracksList()
+        public async Task<IEnumerable<RacersDto>> GetRacersList()
         {
-            var tracksList = await _repositoryContext.Tracks
+            var racersList = await _repositoryContext.Racers
                 .AsNoTracking()
                 .Include(a => a.Image)
-                .OrderBy(a => a.Name)
+                .OrderBy(a => a.SecondName)
                 .ToArrayAsync();
-            return _mapper.Map<IEnumerable<TracksDto>>(tracksList);
+            return _mapper.Map<IEnumerable<RacersDto>>(racersList);
         }
     }
 }

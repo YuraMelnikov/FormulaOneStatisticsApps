@@ -10,6 +10,13 @@ namespace Entities.Contexts
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Season>(entity => {
+                entity.HasIndex(e => e.Year).IsUnique();
+            });
+        }
+
         public DbSet<Chassis> Chassis { get; set; }
         public DbSet<ChassisImg> ChassisImgs { get; set; }
         public DbSet<Country> Countries { get; set; }

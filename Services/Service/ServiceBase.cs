@@ -9,7 +9,7 @@ namespace Services.Service
 {
     public class ServiceBase<TEntity, TDto> : IServiceBase<TEntity, TDto> where TDto : EntityDto where TEntity : Entity
     {
-        private readonly RepositoryContext _repositoryContext;
+        protected readonly RepositoryContext _repositoryContext;
         private readonly IMapper _mapper;
 
         public ServiceBase(RepositoryContext repositoryContext, IMapper mapper)

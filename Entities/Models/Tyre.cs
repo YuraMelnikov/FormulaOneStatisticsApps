@@ -10,7 +10,9 @@ namespace Entities.Models
         [Required(ErrorMessage = "Manufacturer is required")]
         public Guid IdManufacturer { get; set; }
         [Required(ErrorMessage = "Name is required")]
+
         public string Name { get; set; }
+
         [Required(ErrorMessage = "Image is required")]
         public Guid IdImage { get; set; }
 

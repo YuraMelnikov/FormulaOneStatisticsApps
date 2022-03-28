@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Entities.Contexts;
 using Services.DTO;
-using Services.IEntityRepository;
+using Services.IEntityService;
 using Microsoft.EntityFrameworkCore;
 
-namespace Services.EntityRepository
+namespace Services.EntityService
 {
     public class SeasonsService : ISeasonsService
     {
