@@ -1,8 +1,9 @@
 import React from "react";
+import Title from "../components/Title";
 
 const AboutUs = () =>{
     return (
-        <div>aboutus</div>
+        <Title name="About us"/>
     );
 }
 

@@ -1,8 +1,9 @@
 import React from "react";
+import Title from "../components/Title";
 
 const Track = () =>{
     return (
-        <div></div>
+        <Title name="Track"/>
     );
 }
 

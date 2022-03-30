@@ -17,8 +17,8 @@ namespace Services.DTO
             profile.CreateMap<GrandPrixResult, WinnerDto>()
                 .ForMember(to => to.IdWinnerRacer, from => from.MapFrom(x => x.Participant.IdRacer))
                 .ForMember(to => to.RacerWinner, from => from.MapFrom(x => x.Participant.Racer.SecondName))
-                .ForMember(to => to.IdWinnerTeam, from => from.MapFrom(x => x.Participant.IdTeam))
-                .ForMember(to => to.TeamWinner, from => from.MapFrom(x => x.Participant.Team.Name));
+                .ForMember(to => to.IdWinnerTeam, from => from.MapFrom(x => x.Participant.Chassis.IdManufacturer))
+                .ForMember(to => to.TeamWinner, from => from.MapFrom(x => x.Participant.Chassis.Name));
         }
     }
 }

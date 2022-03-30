@@ -1,5 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import { MANUFACTURERS_MOCK, RACERS_MOCK, SEASONS_MOCK, TRACKS_MOCK } from "../utils/MockData";
+import { MANUFACTURERS_MOCK, RACERS_MOCK, SEASONS_MOCK, TRACKS_MOCK, SEASONCALENDAR_MOCK,
+    SEASONPARCIPIENT_MOCK, SEASONCHAMPIONSIPRACERS_MOCK, SEASONCHAMPIONSHIPTEAMS_MOCK
+ } from "../utils/MockData";
 
 export default class MockStore {
     constructor() {
@@ -7,7 +9,43 @@ export default class MockStore {
         this._manufacturers = MANUFACTURERS_MOCK
         this._racers = RACERS_MOCK
         this._tracks = TRACKS_MOCK
+        this._seasonCalendar = SEASONCALENDAR_MOCK
+        this._seasonParcipient = SEASONPARCIPIENT_MOCK
+        this._seasonChampRacers = SEASONCHAMPIONSIPRACERS_MOCK
+        this._seasonChampTeams = SEASONCHAMPIONSHIPTEAMS_MOCK
         makeAutoObservable(this)
+    }
+
+    setSeasonChampTeams(seasonChampTeams) {
+        this._seasonChampTeams = seasonChampTeams
+    }
+
+    get seasonChampTeams () {
+        return this._seasonChampTeams
+    }
+
+    setSeasonChampRacers(seasonChampRacers) {
+        this._seasonChampRacers = seasonChampRacers
+    }
+
+    get seasonChampRacers() {
+        return this._seasonChampRacers
+    }
+
+    setSeasonParcipient(seasonParcipient){
+        this._seasonParcipient = seasonParcipient
+    }
+
+    get seasonParcipient(){
+        return this._seasonParcipient
+    }
+
+    setSeasonCalendar(seasonCalendar) {
+        this._seasonCalendar = seasonCalendar
+    }
+
+    get seasonCalendar() {
+        return this._seasonCalendar
     }
 
     setSeasons(seasons) {

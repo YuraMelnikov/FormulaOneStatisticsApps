@@ -7,7 +7,7 @@ const CardItem = ({mockData}) => {
     const history = useHistory()
 
     return (
-        <Col md={2} className='mt-3' onClick={() => history.push(SEASON_ROUTE + '/' + mockData.id)}>
+        <Col md={2} className='mt-3' onClick={() => history.push({pathname: SEASON_ROUTE + '/' + mockData.id }, mockData.name )}>
             <Card style={{cursor: 'pointer'}} className="text-center" border="light">
                 <Card.Img variant="top" src={mockData.imageLink}/>
                 <Card.Body>

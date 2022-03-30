@@ -1,8 +1,9 @@
 import React from "react";
+import Title from "../components/Title";
 
 const Statistics = () => {
     return (
-        <div>statistics</div>
+        <Title name="Statistics"/>
     );
 }
 

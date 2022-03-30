@@ -75,7 +75,7 @@ namespace Services.EntityService
                 .AsNoTracking()
                 .Where(a => a.IdSeason == seasonId)
                 .Select(a => new CalendarSeasonDto { 
-                    Date = a.Date, 
+                    Date = a.Date.ToString().Substring(0, 10),
                     Distance = (decimal)a.TrackСonfiguration.Length * a.NumberOfLap, 
                     IdGrandPrix = a.Id, 
                     IdTrack = a.TrackСonfiguration.IdTrack, 

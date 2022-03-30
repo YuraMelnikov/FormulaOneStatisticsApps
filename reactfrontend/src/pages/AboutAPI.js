@@ -1,8 +1,9 @@
 import React from "react";
+import Title from "../components/Title";
 
 const AboutAPI = () => {
     return (
-        <p>aboutapi</p>
+        <Title name="AboutAPI"/>
     );
 }
 

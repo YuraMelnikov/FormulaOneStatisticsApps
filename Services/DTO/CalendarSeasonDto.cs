@@ -7,7 +7,7 @@ namespace Services.DTO
     public record CalendarSeasonDto : WinnerDto, IMapFrom
     {
         public Guid IdGrandPrix { get;set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public Guid IdTrack { get; set; }
         public string TrackName { get; set; }
         public int Lap { get; set; }

@@ -1,8 +1,9 @@
 import React from "react";
+import Title from "../components/Title";
 
 const Racer = () => {
     return (
-        <div></div>
+        <Title name="Racer"/>
     );
 }
 
