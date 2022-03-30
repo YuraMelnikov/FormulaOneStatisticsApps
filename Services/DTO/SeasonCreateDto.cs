@@ -5,7 +5,7 @@ using Services.Mapping;
 
 namespace Services.DTO
 {
-    public class SeasonCreateDto : EntityDto, IMapFrom
+    public record SeasonCreateDto : EntityDto, IMapFrom
     {
         public int Year { get; set; }
         public Guid IdImage { get; set; }

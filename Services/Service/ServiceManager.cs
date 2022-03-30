@@ -16,6 +16,9 @@ namespace Services.Service
         private IRacersService _racers;
         private IManufacturersService _manufacturers;
         private ISeasonService _season;
+        private IGrandPrixResultService _grandPrixResult;
+        private ITeamSeasonService _teamSeason;
+
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
@@ -38,7 +41,7 @@ namespace Services.Service
             get
             {
                 if (_seasons == null)
-                    _seasons = new SeasonsService(_repoContext, _mapper);
+                    _seasons = new SeasonsService(_repoContext);
                 return _seasons;
             }
         }
@@ -48,7 +51,7 @@ namespace Services.Service
             get
             {
                 if (_manufacturers == null)
-                    _manufacturers = new ManufacturersService(_repoContext, _mapper);
+                    _manufacturers = new ManufacturersService(_repoContext);
                 return _manufacturers;
             }
         }
@@ -58,7 +61,7 @@ namespace Services.Service
             get
             {
                 if (_tracks == null)
-                    _tracks = new TracksServices(_repoContext, _mapper);
+                    _tracks = new TracksServices(_repoContext);
                 return _tracks;
             }
         }
@@ -68,8 +71,28 @@ namespace Services.Service
             get
             {
                 if (_racers == null)
-                    _racers = new RacersService(_repoContext, _mapper);
+                    _racers = new RacersService(_repoContext);
                 return _racers;
+            }
+        }
+
+        public IGrandPrixResultService GrandPrixResult
+        {
+            get
+            {
+                if (_grandPrixResult == null)
+                    _grandPrixResult = new GrandPrixResultService(_repoContext, _mapper);
+                return _grandPrixResult;
+            }
+        }
+
+        public ITeamSeasonService TeamSeason
+        {
+            get
+            {
+                if (_teamSeason == null)
+                    _teamSeason = new TeamSeasonService(_repoContext);
+                return _teamSeason;
             }
         }
 

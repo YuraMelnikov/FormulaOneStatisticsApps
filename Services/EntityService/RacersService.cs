@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Entities.Contexts;
+﻿using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Services.DTO;
 using Services.IEntityService;
@@ -9,22 +8,17 @@ namespace Services.EntityService
     public class RacersService :  IRacersService
     {
         private readonly RepositoryContext _repositoryContext;
-        private readonly IMapper _mapper;
 
-        public RacersService(RepositoryContext repositoryContext, IMapper mapper)
+        public RacersService(RepositoryContext repositoryContext)
         {
             _repositoryContext = repositoryContext;
-            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<RacersDto>> GetRacersList()
-        {
-            var racersList = await _repositoryContext.Racers
+        public async Task<IEnumerable<RacersDto>> GetRacersList() =>
+            await _repositoryContext.Racers
                 .AsNoTracking()
-                .Include(a => a.Image)
-                .OrderBy(a => a.SecondName)
+                .Select(a => new RacersDto { Id = a.Id, Name = a.SecondName, ImageLink = a.Image.Link })
+                .OrderBy(a => a.Name)
                 .ToArrayAsync();
-            return _mapper.Map<IEnumerable<RacersDto>>(racersList);
-        }
     }
 }

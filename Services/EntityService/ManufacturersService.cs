@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Entities.Contexts;
+﻿using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Services.DTO;
 using Services.IEntityService;
@@ -9,22 +8,17 @@ namespace Services.EntityService
     public class ManufacturersService : IManufacturersService
     {
         private readonly RepositoryContext _repositoryContext;
-        private readonly IMapper _mapper;
 
-        public ManufacturersService(RepositoryContext repositoryContext, IMapper mapper)
+        public ManufacturersService(RepositoryContext repositoryContext)
         {
             _repositoryContext = repositoryContext;
-            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<ManufacturersDto>> GetManufacturersList()
-        {
-            var manufacturersList = await _repositoryContext.Manufacturers
+        public async Task<IEnumerable<ManufacturersDto>> GetManufacturersList() =>
+            await _repositoryContext.Manufacturers
                 .AsNoTracking()
-                .Include(a => a.Image)
+                .Select(a => new ManufacturersDto { Id = a.Id, Name = a.Name, ImageLink = a.Image.Link })
                 .OrderBy(a => a.Name)
                 .ToArrayAsync();
-            return _mapper.Map<IEnumerable<ManufacturersDto>>(manufacturersList);
-        }
     }
 }

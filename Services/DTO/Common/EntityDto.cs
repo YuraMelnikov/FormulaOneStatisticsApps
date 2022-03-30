@@ -1,6 +1,6 @@
 ﻿namespace Services.DTO.Common
 {
-    public class EntityDto
+    public record EntityDto
     {
     }
 }

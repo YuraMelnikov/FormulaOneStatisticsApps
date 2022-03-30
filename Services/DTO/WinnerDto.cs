@@ -5,7 +5,7 @@ using Services.Mapping;
 
 namespace Services.DTO
 {
-    public class WinnerDto : EntityDto, IMapFrom
+    public record WinnerDto : EntityDto, IMapFrom
     {
         public Guid IdWinnerRacer { get; set; }
         public string RacerWinner { get; set; }

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Entities.Contexts;
+﻿using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Services.DTO;
 using Services.IEntityService;
@@ -9,22 +8,17 @@ namespace Services.EntityService
     public class TracksServices :  ITracksServices
     {
         private readonly RepositoryContext _repositoryContext;
-        private readonly IMapper _mapper;
 
-        public TracksServices(RepositoryContext repositoryContext, IMapper mapper)
+        public TracksServices(RepositoryContext repositoryContext)
         {
             _repositoryContext = repositoryContext;
-            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<TracksDto>> GetTracksList()
-        {
-            var tracksList = await _repositoryContext.Tracks
+        public async Task<IEnumerable<TracksDto>> GetTracksList() =>
+            await _repositoryContext.Tracks
                 .AsNoTracking()
-                .Include(a => a.Image)
+                .Select(a => new TracksDto { Id = a.Id, Name = a.Name, ImageLink = a.Image.Link })
                 .OrderBy(a => a.Name)
                 .ToArrayAsync();
-            return _mapper.Map<IEnumerable<TracksDto>>(tracksList);
-        }
     }
 }

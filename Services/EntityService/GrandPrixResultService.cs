@@ -21,8 +21,8 @@ namespace Services.EntityService
         {
             var winner = await _repositoryContext.GrandPrixResults
                 .AsNoTracking()
-                .Include(a => a.Participant.Racer)
                 .Include(a => a.Participant.Team)
+                .Include(a => a.Participant.Racer)
                 .FirstOrDefaultAsync(a => a.Participant.GrandPrix.Id == idGrandPrix && a.Position == 1);
 
             return _mapper.Map<WinnerDto>(winner);

@@ -1,9 +1,9 @@
 ﻿namespace Services.DTO.Common
 {
-    public class CardItemDto : EntityDto
+    public record CardItemDto : EntityDto
     {
         public Guid Id { get; set; }
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public string ImageLink { get; set; }
     }
 }

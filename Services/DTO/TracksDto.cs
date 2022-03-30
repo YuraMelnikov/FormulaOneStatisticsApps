@@ -5,7 +5,7 @@ using Services.Mapping;
 
 namespace Services.DTO
 {
-    public class TracksDto : CardItemDto, IMapFrom
+    public record TracksDto : CardItemDto, IMapFrom
     {
         public void Mapping(Profile profile)
         {
