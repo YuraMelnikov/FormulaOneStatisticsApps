@@ -17,6 +17,15 @@ namespace Services.EntityService
             _mapper = mapper;
         }
 
+        public async Task<GrandPrixResultRacerDto> GetRacerResult(Guid idParticipant)
+        {
+            var participant = await _repositoryContext.GrandPrixResults
+                .AsNoTracking()
+                .FirstOrDefaultAsync(a => a.IdParticipant == idParticipant);
+            var p = _mapper.Map<GrandPrixResultRacerDto>(participant);
+            return _mapper.Map<GrandPrixResultRacerDto>(participant);
+        }
+
         public async Task<WinnerDto> GetWinner(Guid idGrandPrix)
         {
             var winner = await _repositoryContext.GrandPrixResults

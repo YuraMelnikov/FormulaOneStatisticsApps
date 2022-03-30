@@ -21,6 +21,54 @@ namespace Services.EntityService
             _manager = new ServiceManager(_repositoryContext, _mapper);
         }
 
+        public async Task<IEnumerable<ChampionshipResultDto>> GetChampionshipRacers(Guid seasonId)
+        {
+            var participants = await _repositoryContext.Participants
+                .AsNoTracking()
+                .Where(a => a.GrandPrix.IdSeason == seasonId)
+                .Select(a => new ChampionshipResultDto
+                {
+                    Id = a.IdRacer,
+                    IdParticipant = a.Id,
+                    Name = a.Racer.SecondName,
+                    NumGrandPrix = a.GrandPrix.NumberInSeason,
+                    GrandPrixName = a.GrandPrix.Name
+                }).ToArrayAsync();
+
+            foreach(var partipiant in participants)
+            {
+                var raceResult = await _manager.GrandPrixResult.GetRacerResult(partipiant.IdParticipant);
+                partipiant.RacePosition = raceResult.RacePosition;
+                partipiant.Point = raceResult.Point;
+            }
+
+            return participants;
+        }
+
+        public async Task<IEnumerable<ChampionshipResultDto>> GetChampionshipTeams(Guid seasonId)
+        {
+            var participants = await _repositoryContext.Participants
+                .AsNoTracking()
+                .Where(a => a.GrandPrix.IdSeason == seasonId)
+                .Select(a => new ChampionshipResultDto
+                {
+                    Id = a.IdRacer,
+                    IdParticipant = a.Id,
+                    Name = a.Team.Name,
+                    NumGrandPrix = a.GrandPrix.NumberInSeason,
+                    GrandPrixName = a.GrandPrix.Name
+                }).ToArrayAsync();
+
+            foreach (var partipiant in participants)
+            {
+                var raceResult = await _manager.GrandPrixResult.GetRacerResult(partipiant.IdParticipant);
+                partipiant.RacePosition = raceResult.RacePosition;
+                partipiant.Point = raceResult.Point;
+            }
+
+            return participants;
+        }
+
         public async Task<IEnumerable<CalendarSeasonDto>> GetClendarSeason(Guid seasonId)
         {
             var calendar = await _repositoryContext.GrandPrixes
