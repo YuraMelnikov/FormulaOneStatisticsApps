@@ -9,7 +9,7 @@ namespace Services.DTO
     {
         public Guid IdTeam { get; set; }
         public string Name { get; set; }
-        public IEnumerable<LabelItemWhisId> Chassies { get; set; }
+        public IEnumerable<LabelItemWhisId> Chassis { get; set; }
         public IEnumerable<LabelItemWhisId> Racers { get; set; }
         public IEnumerable<LabelItemWhisId> Engines { get; set; }
         public IEnumerable<LabelItemWhisId> Tyres { get; set; }

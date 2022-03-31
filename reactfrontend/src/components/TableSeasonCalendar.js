@@ -4,7 +4,8 @@ import {Context} from "../index";
 import { Container, Row } from 'react-bootstrap';
 import NumberFormat from 'react-number-format';
 import { useHistory } from "react-router-dom";
-import {RACER_ROUTE, MANUFACTURER_ROUTE, TRACK_ROUTE, GRANDPRIX_ROUTE} from '../utils/Consts';
+import {RACER_ROUTE, MANUFACTURER_ROUTE, TRACK_ROUTE, GRANDPRIX_ROUTE} from '../utils/Constants';
+import TitleSmall from './TitleSmall';
 
 const TableSeasonCalendar = () => {
     const {mockData} = useContext(Context)
@@ -13,9 +14,10 @@ const TableSeasonCalendar = () => {
     return (
         <Container>
             <Row>
+                <TitleSmall name="Calendar"/>
                 <Table striped bordered hover size="sm">
                     <thead>
-                        <tr classname="text-center">
+                        <tr className="text-center">
                             <th>Date</th>
                             <th>Track</th>
                             <th>Lap</th>
@@ -27,10 +29,10 @@ const TableSeasonCalendar = () => {
                     <tbody>
                         {mockData.seasonCalendar.map(mockData =>
                             <tr key={mockData.idGrandPrix}>
-                                <td style={{cursor: 'pointer'}} onClick={() => history.push(GRANDPRIX_ROUTE + '/' + mockData.idGrandPrix)} classname="text-center">{mockData.date}</td>
+                                <td style={{cursor: 'pointer'}} onClick={() => history.push(GRANDPRIX_ROUTE + '/' + mockData.idGrandPrix)} className="text-center">{mockData.date}</td>
                                 <td style={{cursor: 'pointer'}} onClick={() => history.push(TRACK_ROUTE + '/' + mockData.idTrack)}>{mockData.trackName}</td>
-                                <td classname="text-center">{mockData.lap}</td>
-                                <td classname="text-center">
+                                <td className="text-center">{mockData.lap}</td>
+                                <td className="text-center">
                                     <NumberFormat 
                                         value={mockData.distance} 
                                         displayType={'text'} 

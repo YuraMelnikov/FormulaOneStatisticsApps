@@ -4,6 +4,7 @@ import {Context} from "../index";
 import { Container, Row } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import {RACER_ROUTE, MANUFACTURER_ROUTE } from '../utils/Constants';
+import TitleSmall from './TitleSmall';
 
 const TableSeasonPercipient = () => {
     const {mockData} = useContext(Context)
@@ -12,6 +13,7 @@ const TableSeasonPercipient = () => {
     return (
         <Container>
             <Row>
+                <TitleSmall name="Percipient"/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">

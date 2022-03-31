@@ -1,23 +1,20 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import TableSeasonCalendar from '../components/TableSeasonCalendar';
-import TableSeasonParcipiant from '../components/TableSeasonParcipiant';
+import TableSeasonPercipient from '../components/TableSeasonPercipient';
 import TableSeasonChampRacers from '../components/TableSeasonChampRacers';
+import TableSeasonChampConstructors from '../components/TableSeasonChampConstructors';
 import Title from "../components/Title";
 
 const Season = (name) => {
 
     return (
-        <Container fluid>
+        <Container>
             <Title name={ name.location.state +  " Formula One Season"}/>
-            <Title name="Calendar"/>
             <TableSeasonCalendar/>
-            <Title name="Parcipiant"/>
-            <TableSeasonParcipiant/>
-            <Title name="World Championship for Drivers"/>
-
-            <Title name="World Championship for Constructors"/>
-
+            <TableSeasonPercipient/>
+            <TableSeasonChampRacers/>
+            <TableSeasonChampConstructors/>
         </Container>
     );
 }

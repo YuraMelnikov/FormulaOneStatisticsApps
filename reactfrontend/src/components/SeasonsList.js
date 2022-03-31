@@ -10,7 +10,7 @@ const SeasonsList = observer(() => {
     return (
         <Row className="d-flex">
             {mockData.seasons.map(mockData =>
-                <CardItem key={mockData.id} mockData={mockData}/>
+                <CardItem key={mockData.id} mockData={mockData} />
             )}
         </Row>
     );

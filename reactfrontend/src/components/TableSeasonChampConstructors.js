@@ -1,12 +1,12 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import Table from 'react-bootstrap/Table';
-import {Context} from "../index";
+import { Context } from "../index";
 import { Container, Row } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
-import {RACER_ROUTE, GRANDPRIX_ROUTE } from '../utils/Constants';
+import { RACER_ROUTE, GRANDPRIX_ROUTE } from '../utils/Constants';
 import TitleSmall from './TitleSmall';
 
-const TableSeasonChampRacers = () => {
+const TableSeasonChampConstructors = () => {
     const {mockData} = useContext(Context)
     const history = useHistory()
     let step = 0
@@ -14,10 +14,12 @@ const TableSeasonChampRacers = () => {
     return(
         <Container>
             <Row>
-                <TitleSmall name="World Championship for Drivers"/>
+                <TitleSmall name="World Championship for Constructors"/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
+
+                            
                             <th>Position</th>
                             <th>Driver</th>
                             {mockData.seasonCalendar.map(mockData => 
@@ -27,7 +29,7 @@ const TableSeasonChampRacers = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {mockData.seasonChampRacers.map(mockData =>
+                        {mockData.seasonChampTeams.map(mockData =>
                             <tr key={ mockData.id }>
                                 <td className="text-center">{mockData.position}</td>
                                 <td style={{cursor: 'pointer'}} onClick={() => history.push(RACER_ROUTE + '/' + mockData.id)}>{mockData.name}</td>
@@ -44,4 +46,4 @@ const TableSeasonChampRacers = () => {
     );
 }
 
-export default TableSeasonChampRacers;
+export default TableSeasonChampConstructors;

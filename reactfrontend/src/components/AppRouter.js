@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { publicRoutes } from '../Routes';
-import { SEASONS_ROUTE } from "../utils/Consts";
+import { SEASONS_ROUTE } from "../utils/Constants";
 
 const AppRouter = () => {
     return (

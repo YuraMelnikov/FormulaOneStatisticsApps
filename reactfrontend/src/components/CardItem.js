@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap"; 
 import { useHistory } from "react-router-dom";
-import {SEASON_ROUTE} from '../utils/Consts';
+import {SEASON_ROUTE} from '../utils/Constants';
 
 const CardItem = ({mockData}) => {
     const history = useHistory()

@@ -10,7 +10,7 @@ export default class MockStore {
         this._racers = RACERS_MOCK
         this._tracks = TRACKS_MOCK
         this._seasonCalendar = SEASONCALENDAR_MOCK
-        this._seasonParcipient = SEASONPARCIPIENT_MOCK
+        this._seasonPercipient = SEASONPARCIPIENT_MOCK
         this._seasonChampRacers = SEASONCHAMPIONSIPRACERS_MOCK
         this._seasonChampTeams = SEASONCHAMPIONSHIPTEAMS_MOCK
         makeAutoObservable(this)
@@ -32,12 +32,12 @@ export default class MockStore {
         return this._seasonChampRacers
     }
 
-    setSeasonParcipient(seasonParcipient){
-        this._seasonParcipient = seasonParcipient
+    setSeasonPercipient(seasonPercipient){
+        this._seasonPercipient = seasonPercipient
     }
 
-    get seasonParcipient(){
-        return this._seasonParcipient
+    get seasonPercipient(){
+        return this._seasonPercipient
     }
 
     setSeasonCalendar(seasonCalendar) {
