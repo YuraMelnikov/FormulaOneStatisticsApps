@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import TableSeasonCalendar from '../components/TableSeasonCalendar';
 import TableSeasonParcipiant from '../components/TableSeasonParcipiant';
+import TableSeasonChampRacers from '../components/TableSeasonChampRacers';
 import Title from "../components/Title";
 
 const Season = (name) => {
@@ -14,7 +15,9 @@ const Season = (name) => {
             <Title name="Parcipiant"/>
             <TableSeasonParcipiant/>
             <Title name="World Championship for Drivers"/>
+
             <Title name="World Championship for Constructors"/>
+
         </Container>
     );
 }
