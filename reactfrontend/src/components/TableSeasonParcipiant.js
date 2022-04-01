@@ -19,13 +19,13 @@ const TableSeasonPercipient = () => {
                             <th>Chassis</th>
                             <th>Engines</th>
                             <th>Racers</th>
-                            <th>Tyres</th>
+                            <th>Tyres1333</th>
                         </tr>
                     </thead>
-                    <tbody >
+                    <tbody>
                         {mockData.seasonPercipient.map(mockData =>
                             <tr key={mockData.idTeam} >
-                                <td className="col-sm-3" style={{cursor: 'pointer'}} onClick={() => history.push(MANUFACTURER_ROUTE + '/' + mockData.idTeam)}>{mockData.name}</td>
+                                <td className="col-sm-3">{mockData.name}</td>
                                 <td className="col-sm-3">
                                     {mockData.chassis.map(mockDataChassis =>
                                         <p style={{cursor: 'pointer'}} onClick={() => history.push(MANUFACTURER_ROUTE + '/' + mockDataChassis.id)}>{mockDataChassis.name}</p>
@@ -43,7 +43,7 @@ const TableSeasonPercipient = () => {
                                 </td>
                                 <td className="col-sm-1">
                                     {mockData.tyres.map(mockDataTyres =>
-                                        <p style={{cursor: 'pointer'}} onClick={() => history.push(RACER_ROUTE + '/' + mockDataTyres.id)}>{mockDataTyres.name}</p>
+                                        <p style={{cursor: 'pointer'}} onClick={() => history.push(MANUFACTURER_ROUTE + '/' + mockDataTyres.id)}>{mockDataTyres.name}</p>
                                     )}
                                 </td>
                             </tr>

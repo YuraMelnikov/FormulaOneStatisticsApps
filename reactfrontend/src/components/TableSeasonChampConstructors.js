@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import { Context } from "../index";
 import { Container, Row } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
-import { RACER_ROUTE, GRANDPRIX_ROUTE } from '../utils/Constants';
+import { RACER_ROUTE, MANUFACTURER_ROUTE } from '../utils/Constants';
 import TitleSmall from './TitleSmall';
 
 const TableSeasonChampConstructors = () => {
@@ -23,7 +23,7 @@ const TableSeasonChampConstructors = () => {
                             <th>Position</th>
                             <th>Driver</th>
                             {mockData.seasonCalendar.map(mockData => 
-                                <th style={{cursor: 'pointer'}} onClick={() => history.push(GRANDPRIX_ROUTE + '/' + mockData.idGrandPrix)} className="text-center">{step += 1}</th>
+                                <th style={{cursor: 'pointer'}} onClick={() => history.push(MANUFACTURER_ROUTE + '/' + mockData.idGrandPrix)} className="text-center">{step += 1}</th>
                             )}
                             <th>Points</th>
                         </tr>

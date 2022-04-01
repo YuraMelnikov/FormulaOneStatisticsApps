@@ -6737,1048 +6737,1076 @@ export const TRACKS_MOCK = [
 
 export const SEASONCALENDAR_MOCK = [
     {
-        "idGrandPrix": "9dbdefea-e41d-4253-ac5e-4a8121722ef8",
-        "date": "1972-01-23",
-        "idTrack": "445aee16-e088-4ad0-8f12-5d389c06cb33",
+        "idGrandPrix": "eeb99195-3646-4dc5-81ee-f21dcef2ee2a",
+        "date": "1973-01-28",
+        "idTrack": "639aa310-baaa-429a-90c7-0611527b3a90",
         "trackName": "Buenos Aires",
-        "lap": 95,
-        "distance": 317775,
-        "idWinnerRacer": "e525e7f4-bed6-4387-bbae-e6498c09f37e",
-        "racerWinner": "Stewart, Jackie",
-        "idWinnerTeam": "88b2710d-b822-4514-a221-2713bbab25ea",
-        "teamWinner": "Tyrrell 003"
+        "lap": 96,
+        "distance": 321120,
+        "idWinnerRacer": "934e82fe-653e-4876-9894-09d61c475158",
+        "racerWinner": "Fittipaldi, Emerson",
+        "idWinnerTeam": "3d000965-4a21-46da-989c-955add5a62cb",
+        "teamWinner": "Lotus 72D"
     },
     {
-        "idGrandPrix": "6667e677-c211-4287-b185-f93744cfc224",
-        "date": "1972-03-04",
-        "idTrack": "fad48c92-327a-48a1-8f7d-bcd247a94b83",
+        "idGrandPrix": "40e8c957-9987-4288-8b8f-82c05979f52f",
+        "date": "1973-02-11",
+        "idTrack": "831b0d3c-f7ac-4c9d-a3ea-82f6725e2af4",
+        "trackName": "Interlagos",
+        "lap": 40,
+        "distance": 318400,
+        "idWinnerRacer": "934e82fe-653e-4876-9894-09d61c475158",
+        "racerWinner": "Fittipaldi, Emerson",
+        "idWinnerTeam": "3d000965-4a21-46da-989c-955add5a62cb",
+        "teamWinner": "Lotus 72D"
+    },
+    {
+        "idGrandPrix": "6717569a-043e-4720-a0b2-7f3d9b6292c4",
+        "date": "1973-03-03",
+        "idTrack": "a3ae0d16-4395-46ff-ac0a-651f9d7b9c66",
         "trackName": "Kyalami",
         "lap": 79,
         "distance": 324216,
-        "idWinnerRacer": "d8dc426b-cdb5-4c09-a537-526357fb107b",
-        "racerWinner": "Hulme, Denny",
-        "idWinnerTeam": "2a850810-3370-4499-bc78-6eaaa5025801",
-        "teamWinner": "McLaren M19A"
-    },
-    {
-        "idGrandPrix": "b171bfc9-463e-485c-a0d0-3f76b0c1dd87",
-        "date": "1972-05-01",
-        "idTrack": "9b4c85e0-58c7-428e-adaa-c62c7046bafa",
-        "trackName": "Járama",
-        "lap": 90,
-        "distance": 306360,
-        "idWinnerRacer": "abbfed30-f504-4e5e-8e5e-e5b7861f94d6",
-        "racerWinner": "Fittipaldi, Emerson",
-        "idWinnerTeam": "8786abf2-e83a-44ab-82cb-cb8aa5cfd379",
-        "teamWinner": "Lotus 72D"
-    },
-    {
-        "idGrandPrix": "b1d03b76-56e9-43b5-a802-04aae0e6d731",
-        "date": "1972-05-14",
-        "idTrack": "33ecdaac-5be8-4470-872b-809b04e9ec7d",
-        "trackName": "Monte Carlo",
-        "lap": 80,
-        "distance": 251600,
-        "idWinnerRacer": "cb4e20f5-72ce-4f8b-a5ee-fc78756f5ac1",
-        "racerWinner": "Beltoise, Jean Pierre",
-        "idWinnerTeam": "19ba591e-960a-4988-aef0-29e8be4ba740",
-        "teamWinner": "BRM P160B"
-    },
-    {
-        "idGrandPrix": "e6b0fac4-72cc-4bdf-a58a-52133e498885",
-        "date": "1972-06-04",
-        "idTrack": "01b71d84-0ff7-45f8-8e6d-236972e9bbab",
-        "trackName": "Nivelles-Baulers",
-        "lap": 85,
-        "distance": 316540,
-        "idWinnerRacer": "abbfed30-f504-4e5e-8e5e-e5b7861f94d6",
-        "racerWinner": "Fittipaldi, Emerson",
-        "idWinnerTeam": "8786abf2-e83a-44ab-82cb-cb8aa5cfd379",
-        "teamWinner": "Lotus 72D"
-    },
-    {
-        "idGrandPrix": "b929ac09-f404-43cd-81f1-3f9d790a8756",
-        "date": "1972-07-02",
-        "idTrack": "2d95a686-56da-4583-aa28-6a64a33b29b6",
-        "trackName": "Clermont Ferrand",
-        "lap": 38,
-        "distance": 306090,
-        "idWinnerRacer": "e525e7f4-bed6-4387-bbae-e6498c09f37e",
+        "idWinnerRacer": "c5966552-8005-4e27-a96c-a1fc47893c88",
         "racerWinner": "Stewart, Jackie",
-        "idWinnerTeam": "88b2710d-b822-4514-a221-2713bbab25ea",
-        "teamWinner": "Tyrrell 003"
+        "idWinnerTeam": "51d1bc22-8e61-40db-802d-516b02e4df5f",
+        "teamWinner": "Tyrrell 006"
     },
     {
-        "idGrandPrix": "9b95f5a4-d970-4da2-b7cb-9498366fd9e1",
-        "date": "1972-07-15",
-        "idTrack": "d5ddbd2c-fca5-4f49-8d17-cb1ec14b610f",
-        "trackName": "Brands Hatch",
-        "lap": 76,
-        "distance": 324140,
-        "idWinnerRacer": "abbfed30-f504-4e5e-8e5e-e5b7861f94d6",
+        "idGrandPrix": "68819299-f677-4585-b686-c32bad876800",
+        "date": "1973-04-29",
+        "idTrack": "0c8235a5-b70a-4f34-bc5a-5592c80dc56a",
+        "trackName": "Montjuich Park",
+        "lap": 75,
+        "distance": 284250,
+        "idWinnerRacer": "934e82fe-653e-4876-9894-09d61c475158",
         "racerWinner": "Fittipaldi, Emerson",
-        "idWinnerTeam": "8786abf2-e83a-44ab-82cb-cb8aa5cfd379",
-        "teamWinner": "Lotus 72D"
+        "idWinnerTeam": "3d000965-4a21-46da-989c-955add5a62cb",
+        "teamWinner": "Lotus 72E"
     },
     {
-        "idGrandPrix": "b2609f5d-9e6e-4fc5-bc32-bf3a3b689927",
-        "date": "1972-07-30",
-        "idTrack": "ceaa731b-76de-4735-b9f6-63584702aa47",
+        "idGrandPrix": "9578471d-c1ca-4b16-9af3-d5865a675a0f",
+        "date": "1973-05-20",
+        "idTrack": "bd86c8af-c290-4c4a-a735-ca33f17e2994",
+        "trackName": "Zolder",
+        "lap": 70,
+        "distance": 295400,
+        "idWinnerRacer": "c5966552-8005-4e27-a96c-a1fc47893c88",
+        "racerWinner": "Stewart, Jackie",
+        "idWinnerTeam": "51d1bc22-8e61-40db-802d-516b02e4df5f",
+        "teamWinner": "Tyrrell 006"
+    },
+    {
+        "idGrandPrix": "13edbd2b-38b8-4425-9bd6-55c67ea6c32e",
+        "date": "1973-06-03",
+        "idTrack": "ac59114b-67fe-4bfd-8d3d-77ad086b2fa8",
+        "trackName": "Monte Carlo",
+        "lap": 78,
+        "distance": 255684,
+        "idWinnerRacer": "c5966552-8005-4e27-a96c-a1fc47893c88",
+        "racerWinner": "Stewart, Jackie",
+        "idWinnerTeam": "51d1bc22-8e61-40db-802d-516b02e4df5f",
+        "teamWinner": "Tyrrell 006"
+    },
+    {
+        "idGrandPrix": "ccc07bdb-fdc0-4091-a641-92533b9ebf52",
+        "date": "1973-06-17",
+        "idTrack": "55a258f9-89c0-408b-8ad5-59dd1eb9ad48",
+        "trackName": "Anderstorp",
+        "lap": 80,
+        "distance": 321440,
+        "idWinnerRacer": "d16f440e-1760-443b-b75b-6054319d05b6",
+        "racerWinner": "Hulme, Denny",
+        "idWinnerTeam": "a197b8f0-2fb9-4f6d-83b9-7c5b55b23581",
+        "teamWinner": "McLaren M23"
+    },
+    {
+        "idGrandPrix": "0c280634-b401-446f-bd9e-42104e6137dd",
+        "date": "1973-07-01",
+        "idTrack": "edb07639-fb71-40db-83a9-ae434db050de",
+        "trackName": "Paul Ricard",
+        "lap": 54,
+        "distance": 313740,
+        "idWinnerRacer": "e61730e6-c4dd-432a-a30f-dc1f58788f10",
+        "racerWinner": "Peterson, Ronnie",
+        "idWinnerTeam": "3d000965-4a21-46da-989c-955add5a62cb",
+        "teamWinner": "Lotus 72E"
+    },
+    {
+        "idGrandPrix": "80e97f22-4f79-4de0-a0e2-8c73b4c5fc77",
+        "date": "1973-07-14",
+        "idTrack": "6254f3d2-fc57-4314-9ef2-97b7af78f76b",
+        "trackName": "Silverstone",
+        "lap": 67,
+        "distance": 315637,
+        "idWinnerRacer": "e0cf5d5c-5e40-4440-a072-57a57597bb10",
+        "racerWinner": "Revson, Peter",
+        "idWinnerTeam": "a197b8f0-2fb9-4f6d-83b9-7c5b55b23581",
+        "teamWinner": "McLaren M23"
+    },
+    {
+        "idGrandPrix": "b4cb5c9a-994e-4539-ba74-eb6a436b6b23",
+        "date": "1973-07-29",
+        "idTrack": "22876732-7071-4a0c-814f-7355fbe2dbf0",
+        "trackName": "Zandvoort",
+        "lap": 72,
+        "distance": 304272,
+        "idWinnerRacer": "c5966552-8005-4e27-a96c-a1fc47893c88",
+        "racerWinner": "Stewart, Jackie",
+        "idWinnerTeam": "51d1bc22-8e61-40db-802d-516b02e4df5f",
+        "teamWinner": "Tyrrell 005"
+    },
+    {
+        "idGrandPrix": "daca5778-f7ae-4956-83a9-5730e8813f41",
+        "date": "1973-08-05",
+        "idTrack": "39c1d978-8526-4f20-9fb0-4c90ce777719",
         "trackName": "Nürburgring",
         "lap": 14,
         "distance": 319690,
-        "idWinnerRacer": "1a42576d-c097-4a65-bcb8-40b5e15da6df",
-        "racerWinner": "Ickx, Jacky",
-        "idWinnerTeam": "6fc2e995-1d66-4e5c-a3d0-602b41d1f24b",
-        "teamWinner": "Ferrari 312B2"
+        "idWinnerRacer": "c5966552-8005-4e27-a96c-a1fc47893c88",
+        "racerWinner": "Stewart, Jackie",
+        "idWinnerTeam": "51d1bc22-8e61-40db-802d-516b02e4df5f",
+        "teamWinner": "Tyrrell 006"
     },
     {
-        "idGrandPrix": "0af5ae1f-6491-44fb-9cc0-71055aa7f987",
-        "date": "1972-08-13",
-        "idTrack": "c32b0546-ee2c-4f64-a221-1a7c43fdbb6a",
+        "idGrandPrix": "bfda5d14-7c5f-4ab6-9ad5-7aff4d6bec7a",
+        "date": "1973-08-19",
+        "idTrack": "d45c68d2-595c-446e-9356-bc8fb13d79bb",
         "trackName": "Österreichring",
         "lap": 54,
         "distance": 319194,
-        "idWinnerRacer": "abbfed30-f504-4e5e-8e5e-e5b7861f94d6",
-        "racerWinner": "Fittipaldi, Emerson",
-        "idWinnerTeam": "8786abf2-e83a-44ab-82cb-cb8aa5cfd379",
-        "teamWinner": "Lotus 72D"
+        "idWinnerRacer": "e61730e6-c4dd-432a-a30f-dc1f58788f10",
+        "racerWinner": "Peterson, Ronnie",
+        "idWinnerTeam": "3d000965-4a21-46da-989c-955add5a62cb",
+        "teamWinner": "Lotus 72E"
     },
     {
-        "idGrandPrix": "b69f4262-1a02-4be6-a361-bd5e59f41eda",
-        "date": "1972-09-10",
-        "idTrack": "078ac6e9-fae2-4ba2-9192-29d05fdc98ce",
+        "idGrandPrix": "4767e894-69c0-454b-83c3-c65f74267b63",
+        "date": "1973-09-09",
+        "idTrack": "c529f747-6ab0-4910-9089-36090a9c59a4",
         "trackName": "Monza",
         "lap": 55,
         "distance": 317625,
-        "idWinnerRacer": "abbfed30-f504-4e5e-8e5e-e5b7861f94d6",
-        "racerWinner": "Fittipaldi, Emerson",
-        "idWinnerTeam": "8786abf2-e83a-44ab-82cb-cb8aa5cfd379",
-        "teamWinner": "Lotus 72D"
+        "idWinnerRacer": "e61730e6-c4dd-432a-a30f-dc1f58788f10",
+        "racerWinner": "Peterson, Ronnie",
+        "idWinnerTeam": "3d000965-4a21-46da-989c-955add5a62cb",
+        "teamWinner": "Lotus 72E"
     },
     {
-        "idGrandPrix": "da9af00f-359b-4471-a91b-6197abb07d07",
-        "date": "1972-09-24",
-        "idTrack": "fec1bfab-0946-4fc4-a5f8-7b8311247c19",
+        "idGrandPrix": "d52234ec-ae80-446a-8720-77ba57ae7cbc",
+        "date": "1973-09-23",
+        "idTrack": "6aa99570-2918-4a95-9e16-ce71422b8a5b",
         "trackName": "Mosport Park",
         "lap": 80,
         "distance": 316560,
-        "idWinnerRacer": "e525e7f4-bed6-4387-bbae-e6498c09f37e",
-        "racerWinner": "Stewart, Jackie",
-        "idWinnerTeam": "88b2710d-b822-4514-a221-2713bbab25ea",
-        "teamWinner": "Tyrrell 005"
+        "idWinnerRacer": "e0cf5d5c-5e40-4440-a072-57a57597bb10",
+        "racerWinner": "Revson, Peter",
+        "idWinnerTeam": "a197b8f0-2fb9-4f6d-83b9-7c5b55b23581",
+        "teamWinner": "McLaren M23"
     },
     {
-        "idGrandPrix": "dce17899-458f-44ce-9ded-4734b20e61a0",
-        "date": "1972-10-08",
-        "idTrack": "59695e72-53ea-4f02-b9d5-3c672fce3910",
+        "idGrandPrix": "609d06ea-25fb-405f-8790-db9ee0eb505a",
+        "date": "1973-10-07",
+        "idTrack": "9d1af77a-edb9-49ca-a35c-c895a671d0b1",
         "trackName": "Watkins Glen",
         "lap": 59,
         "distance": 320665,
-        "idWinnerRacer": "e525e7f4-bed6-4387-bbae-e6498c09f37e",
-        "racerWinner": "Stewart, Jackie",
-        "idWinnerTeam": "88b2710d-b822-4514-a221-2713bbab25ea",
-        "teamWinner": "Tyrrell 005"
+        "idWinnerRacer": "e61730e6-c4dd-432a-a30f-dc1f58788f10",
+        "racerWinner": "Peterson, Ronnie",
+        "idWinnerTeam": "3d000965-4a21-46da-989c-955add5a62cb",
+        "teamWinner": "Lotus 72E"
     }
 ];
 
 export const SEASONPARCIPIENT_MOCK = [
     {
-        "idTeam": "411905bf-3bec-4334-bbd5-567e5be9621a",
-        "name": "Team Williams-Motul",
+        "idTeam": "ae587e79-fa39-4129-8ae0-e7f093f7b5a1",
+        "name": "UOP Shadow Racing Team",
         "chassis": [
             {
-                "id": "275b9955-6266-4507-9cc6-078f88da28f2",
-                "name": "Politoys FX3"
-            },
-            {
-                "id": "c514ae9a-e1ee-4020-ad18-8fbeb861bcf5",
-                "name": "March 711"
-            },
-            {
-                "id": "e62482a7-dc97-4ec2-88d0-28609e5b969f",
-                "name": "March 721"
+                "id": "6d37ca19-4471-4da4-9c25-5b3488ea716a",
+                "name": "Shadow DN1"
             }
         ],
         "racers": [
             {
-                "id": "680bfca8-9998-488b-a3c3-2bc532c47b76",
-                "name": "Pescarolo, Henri"
+                "id": "118cecb4-1999-4949-9bb3-96183cf4d964",
+                "name": "Oliver, Jackie"
             },
             {
-                "id": "f62d84b7-61fa-4002-96a5-7bd19128c491",
-                "name": "Pace, Carlos"
+                "id": "8676b5e1-7bae-4e9e-9e0a-120ea4e16609",
+                "name": "Follmer, George"
             }
         ],
         "engines": [
             {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
                 "name": "Ford Cosworth DFV 3.0 V8"
             }
         ],
         "tyres": [
             {
-                "id": "1eea86c4-1c34-4747-ad36-bb83f366a93a",
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
                 "name": "Goodyear"
             }
         ]
     },
     {
-        "idTeam": "35a4f6b0-c1fb-4adf-bcc0-3e1bdae1b5c1",
-        "name": "World Wide Racing",
+        "idTeam": "ea5ac8ba-2375-446e-bfe3-28d19749534d",
+        "name": "Blignaut-Lucky Strike Racing",
         "chassis": [
             {
-                "id": "f87918f8-a3ec-4f0d-85d1-d68c3e3433b4",
-                "name": "Lotus 72D"
+                "id": "0cc2b8d3-1c21-4ab3-ba0b-8e6d23273fb5",
+                "name": "Tyrrell 004"
             }
         ],
         "racers": [
             {
-                "id": "abbfed30-f504-4e5e-8e5e-e5b7861f94d6",
-                "name": "Fittipaldi, Emerson"
+                "id": "3b41eefc-181d-44c8-b681-221d0e3a5b3c",
+                "name": "Keizan, Eddie"
             }
         ],
         "engines": [
             {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
                 "name": "Ford Cosworth DFV 3.0 V8"
             }
         ],
         "tyres": [
             {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
                 "name": "Firestone"
             }
         ]
     },
     {
-        "idTeam": "0ef4d307-2253-4fb7-b45c-7cafa572280c",
-        "name": "Ceramica Pagnossin Team Surtees",
-        "chassis": [
-            {
-                "id": "9d36a849-86f8-41fc-aece-78c1755ac770",
-                "name": "Surtees TS9B"
-            }
-        ],
-        "racers": [
-            {
-                "id": "384e7d86-5d93-4734-9dec-af775af70c9d",
-                "name": "Adamich, Andrea de"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
-            }
-        ]
-    },
-    {
-        "idTeam": "273f67d0-cd92-41d0-8789-00b9a0613e11",
-        "name": "Clarke-Mordaunt-Guthrie Racing",
-        "chassis": [
-            {
-                "id": "27f5b5b6-471d-49aa-b978-2a1514801df1",
-                "name": "March 721G"
-            }
-        ],
-        "racers": [
-            {
-                "id": "458a6ece-2e8f-4c24-bdb4-fdd3191ce6f1",
-                "name": "Beuttler, Mike"
-            },
-            {
-                "id": "8692ada2-e34b-4901-9726-c008f85e46c1",
-                "name": "Lauda, Niki"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "1eea86c4-1c34-4747-ad36-bb83f366a93a",
-                "name": "Goodyear"
-            },
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
-            }
-        ]
-    },
-    {
-        "idTeam": "3bebeba7-4b8b-4b5b-a6fc-c734839f84fa",
-        "name": "Scuderia Scribante - Lucky Strike Racing",
-        "chassis": [
-            {
-                "id": "f87918f8-a3ec-4f0d-85d1-d68c3e3433b4",
-                "name": "Lotus 72D"
-            }
-        ],
-        "racers": [
-            {
-                "id": "5ada53d6-337f-4713-9054-bc39b73e2919",
-                "name": "Charlton, Dave"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
-            }
-        ]
-    },
-    {
-        "idTeam": "23722e2e-7f26-4def-9833-8964113617b2",
-        "name": "Martini Racing Team",
-        "chassis": [
-            {
-                "id": "74ce006b-3b01-4748-84e0-f2fd1e7e9213",
-                "name": "Tecno PA123"
-            }
-        ],
-        "racers": [
-            {
-                "id": "2753e6e9-c26c-479c-857e-4834ac8f1cad",
-                "name": "Galli, Nanni"
-            },
-            {
-                "id": "4efdfd95-11d4-4b19-9b08-3e421d9bd908",
-                "name": "Bell, Derek"
-            }
-        ],
-        "engines": [
-            {
-                "id": "3571fb9f-1fa5-4c32-b700-e19328fcb65c",
-                "name": "Tecno Series-P 3.0 B12"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
-            }
-        ]
-    },
-    {
-        "idTeam": "97ec9c9b-f246-4fcc-bc40-67815e757c5c",
-        "name": "Brooke Bond Oxo Racing/Rob Walker Team",
-        "chassis": [
-            {
-                "id": "024df445-2bc6-46d1-b22a-54d140f0dc5c",
-                "name": "Surtees TS14"
-            },
-            {
-                "id": "9d36a849-86f8-41fc-aece-78c1755ac770",
-                "name": "Surtees TS9B"
-            }
-        ],
-        "racers": [
-            {
-                "id": "152291fc-ef42-4cf7-b022-a9f141bf5521",
-                "name": "Hailwood, Mike"
-            },
-            {
-                "id": "c34b2630-a8ea-4282-be47-12d171bb6a37",
-                "name": "Schenken, Tim"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
-            }
-        ]
-    },
-    {
-        "idTeam": "49fb887e-aaab-4a3a-83ae-a6c29a09f56f",
-        "name": "Yardley Team McLaren",
-        "chassis": [
-            {
-                "id": "302ccf6d-9e80-4b4f-a492-5609c797635e",
-                "name": "McLaren M19A"
-            },
-            {
-                "id": "e4457957-5757-464f-ab07-d8e0e8c9efc3",
-                "name": "McLaren M19C"
-            }
-        ],
-        "racers": [
-            {
-                "id": "2d242b7f-b53e-478f-bb58-f970b77e07f7",
-                "name": "Scheckter, Jody"
-            },
-            {
-                "id": "617bc2cb-2de1-44dc-bd2c-26fe7e49c511",
-                "name": "Redman, Brian"
-            },
-            {
-                "id": "6a791cee-aa06-459b-a970-0e2688a3ad55",
-                "name": "Revson, Peter"
-            },
-            {
-                "id": "d8dc426b-cdb5-4c09-a537-526357fb107b",
-                "name": "Hulme, Denny"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "1eea86c4-1c34-4747-ad36-bb83f366a93a",
-                "name": "Goodyear"
-            }
-        ]
-    },
-    {
-        "idTeam": "b096cb27-a254-49bf-8c35-fed4abdd4dd1",
-        "name": "Team Surtees",
-        "chassis": [
-            {
-                "id": "024df445-2bc6-46d1-b22a-54d140f0dc5c",
-                "name": "Surtees TS14"
-            },
-            {
-                "id": "9d36a849-86f8-41fc-aece-78c1755ac770",
-                "name": "Surtees TS9B"
-            }
-        ],
-        "racers": [
-            {
-                "id": "c34b2630-a8ea-4282-be47-12d171bb6a37",
-                "name": "Schenken, Tim"
-            },
-            {
-                "id": "fb20369c-e710-4915-8a12-54937e47f69b",
-                "name": "Surtees, John"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
-            }
-        ]
-    },
-    {
-        "idTeam": "5462fccc-2805-4ae7-b3df-43635b81ccc8",
-        "name": "Gold Leaf Team Lotus",
-        "chassis": [
-            {
-                "id": "f87918f8-a3ec-4f0d-85d1-d68c3e3433b4",
-                "name": "Lotus 72D"
-            }
-        ],
-        "racers": [
-            {
-                "id": "ebb45f18-e738-4eb0-8ba1-e05ec927c20c",
-                "name": "Wisell, Reine"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
-            }
-        ]
-    },
-    {
-        "idTeam": "aafe6ec1-8905-4411-9e98-ca83eaa523b6",
-        "name": "John Player Team Lotus",
-        "chassis": [
-            {
-                "id": "f87918f8-a3ec-4f0d-85d1-d68c3e3433b4",
-                "name": "Lotus 72D"
-            }
-        ],
-        "racers": [
-            {
-                "id": "abbfed30-f504-4e5e-8e5e-e5b7861f94d6",
-                "name": "Fittipaldi, Emerson"
-            },
-            {
-                "id": "b51df2c5-fda7-4c5f-af1f-64d2b0b8cb32",
-                "name": "Walker, Dave"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
-            }
-        ]
-    },
-    {
-        "idTeam": "4b8c5e86-719b-4fa2-be01-4500e5cef7b2",
-        "name": "Team Gunston",
-        "chassis": [
-            {
-                "id": "7384c69c-6c7a-46e4-8c5e-cae8fe65b1bc",
-                "name": "Brabham BT33"
-            },
-            {
-                "id": "cc491082-e88e-4132-a88c-04ee73584684",
-                "name": "Surtees TS9"
-            }
-        ],
-        "racers": [
-            {
-                "id": "7754514c-116d-44eb-b7df-eb134b0a1355",
-                "name": "Ferguson, William"
-            },
-            {
-                "id": "f846b54c-1610-459e-9a58-32b8e822bf2c",
-                "name": "Love, John"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
-            }
-        ]
-    },
-    {
-        "idTeam": "4c7ad4a8-1b43-45c1-a07a-9f05556ac3a0",
-        "name": "Gene Mason Racing",
-        "chassis": [
-            {
-                "id": "c514ae9a-e1ee-4020-ad18-8fbeb861bcf5",
-                "name": "March 711"
-            }
-        ],
-        "racers": [
-            {
-                "id": "f8c2a0ce-5fa8-486a-9bfe-37a595240d3d",
-                "name": "Barber, Skip"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "1eea86c4-1c34-4747-ad36-bb83f366a93a",
-                "name": "Goodyear"
-            }
-        ]
-    },
-    {
-        "idTeam": "42b8e147-954d-4537-9679-327a893fc883",
-        "name": "Austria Marlboro BRM",
-        "chassis": [
-            {
-                "id": "3626eae1-68fd-4a87-b560-93539576fd9d",
-                "name": "BRM P153"
-            },
-            {
-                "id": "b9594f2b-d659-408f-8d13-4cc16b525787",
-                "name": "BRM P160B"
-            },
-            {
-                "id": "cc599835-2687-4d5d-b839-8f45acfd0f71",
-                "name": "BRM P153B"
-            }
-        ],
-        "racers": [
-            {
-                "id": "a8fbca46-3112-4a9b-8c72-89774f1df088",
-                "name": "Marko, Helmut"
-            },
-            {
-                "id": "ebb45f18-e738-4eb0-8ba1-e05ec927c20c",
-                "name": "Wisell, Reine"
-            }
-        ],
-        "engines": [
-            {
-                "id": "d7887d7e-3a75-41c5-abf7-70ad731ca940",
-                "name": "BRM P142 3.0 V12"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
-            }
-        ]
-    },
-    {
-        "idTeam": "c130cd47-7b0c-4005-81b1-a70c90694519",
+        "idTeam": "6d67b42e-4b39-400e-a505-ef583b737b95",
         "name": "Scuderia Ferrari SpA SEFAC",
         "chassis": [
             {
-                "id": "b630a982-085b-4daf-8dd7-3f5b7c4ea57c",
+                "id": "418ffb9b-4ce1-4452-a6d0-ec0b18893401",
                 "name": "Ferrari 312B2"
+            },
+            {
+                "id": "7aa1f87e-6241-4d74-a27b-6bcd5c3a0362",
+                "name": "Ferrari 312B3"
             }
         ],
         "racers": [
             {
-                "id": "1a42576d-c097-4a65-bcb8-40b5e15da6df",
-                "name": "Ickx, Jacky"
-            },
-            {
-                "id": "2753e6e9-c26c-479c-857e-4834ac8f1cad",
-                "name": "Galli, Nanni"
-            },
-            {
-                "id": "4c9a0481-935f-4662-a6cc-c29997a6f0f4",
-                "name": "Andretti, Mario"
-            },
-            {
-                "id": "4ddf9817-601c-445e-874e-d19b03bbdfcd",
+                "id": "a00cc223-a3a0-4af5-b2d8-262d3ab0f512",
                 "name": "Merzario, Arturo"
             },
             {
-                "id": "a469336f-27b4-4c3c-be03-3425629079d6",
-                "name": "Regazzoni, Clay"
+                "id": "b1d58d50-f072-4988-97a1-b027e1705bc6",
+                "name": "Ickx, Jacky"
             }
         ],
         "engines": [
             {
-                "id": "df0f4017-0096-4d91-bd60-2947b42b63c1",
+                "id": "541cf877-7404-4788-ba6a-e45901835482",
+                "name": "Ferrari 001/11 3.0 B12"
+            },
+            {
+                "id": "efc28c51-53a9-41a3-9515-6498a76c3757",
                 "name": "Ferrari 001/1 3.0 B12"
             }
         ],
         "tyres": [
             {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
             }
         ]
     },
     {
-        "idTeam": "1829910a-2cc4-4fc7-969b-a4d3de6f7296",
-        "name": "Marlboro BRM",
+        "idTeam": "45f62ea7-cad9-4505-ab1a-5e0103d50d38",
+        "name": "Ceramica Pagnossin Team MRD",
         "chassis": [
             {
-                "id": "3626eae1-68fd-4a87-b560-93539576fd9d",
-                "name": "BRM P153"
+                "id": "24fee78c-d3f0-4637-b4b4-1a842efb14f7",
+                "name": "Brabham BT42"
             },
             {
-                "id": "65265492-70fa-41bb-b3dc-0829be3a5d2b",
-                "name": "BRM P160C"
-            },
-            {
-                "id": "9ba92dd2-2d74-412e-a14e-fc8920a3469a",
-                "name": "BRM P180"
-            },
-            {
-                "id": "b9594f2b-d659-408f-8d13-4cc16b525787",
-                "name": "BRM P160B"
-            },
-            {
-                "id": "cc599835-2687-4d5d-b839-8f45acfd0f71",
-                "name": "BRM P153B"
+                "id": "b8b17e6a-8516-491b-b18f-7ddab93216ba",
+                "name": "Brabham BT37"
             }
         ],
         "racers": [
             {
-                "id": "36ac00fa-8016-4ba5-9243-fb42ab0dba29",
-                "name": "Gethin, Peter"
+                "id": "0987e003-7cb0-47bc-94b0-cd5da327f1fa",
+                "name": "Stommelen, Rolf"
             },
             {
-                "id": "5aa8e360-f2e9-4acd-a5be-ac310eb13dd9",
-                "name": "Brack, Bill"
+                "id": "9d3eb44e-161f-4a3a-a5b3-f928818dd7b1",
+                "name": "Adamich, Andrea de"
             },
             {
-                "id": "5b793bdc-c530-49c6-b08f-21b92a8820d0",
-                "name": "Ganley, Howden"
+                "id": "e0d610d8-cd0c-4996-9217-bac3c319c672",
+                "name": "Watson, John"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
+            }
+        ]
+    },
+    {
+        "idTeam": "c9f3e457-39bd-43af-b73c-1ff74bf15dda",
+        "name": "Clarke-Mordaunt-Guthrie-Durlacher",
+        "chassis": [
+            {
+                "id": "9eb0042d-a5a8-4cf4-a8f1-3a2d6a984d3e",
+                "name": "March 731"
             },
             {
-                "id": "617bc2cb-2de1-44dc-bd2c-26fe7e49c511",
-                "name": "Redman, Brian"
+                "id": "aeb85014-d88a-4b89-ab4f-9428951f9611",
+                "name": "March 721G"
+            }
+        ],
+        "racers": [
+            {
+                "id": "698d3831-699d-4778-8d54-acd3f92e572d",
+                "name": "Beuttler, Mike"
             },
             {
-                "id": "687a6184-d56b-49c4-a8de-07efe33a5e2b",
-                "name": "Schuppan, Vern"
-            },
-            {
-                "id": "7c0c332f-906c-4afd-9d1c-0da1dbb1b4a1",
-                "name": "Oliver, Jackie"
-            },
-            {
-                "id": "cb4e20f5-72ce-4f8b-a5ee-fc78756f5ac1",
-                "name": "Beltoise, Jean Pierre"
-            },
-            {
-                "id": "ebb45f18-e738-4eb0-8ba1-e05ec927c20c",
+                "id": "8edc8f85-1d69-4320-ada4-a5b56d664af4",
                 "name": "Wisell, Reine"
             }
         ],
         "engines": [
             {
-                "id": "d7887d7e-3a75-41c5-abf7-70ad731ca940",
-                "name": "BRM P142 3.0 V12"
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
             }
         ],
         "tyres": [
             {
-                "id": "1eea86c4-1c34-4747-ad36-bb83f366a93a",
-                "name": "Goodyear"
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
+                "name": "Firestone"
             },
             {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
+            }
+        ]
+    },
+    {
+        "idTeam": "87710c25-c63a-473b-9d99-703828a2f0f3",
+        "name": "Hesketh Racing",
+        "chassis": [
+            {
+                "id": "9eb0042d-a5a8-4cf4-a8f1-3a2d6a984d3e",
+                "name": "March 731"
+            }
+        ],
+        "racers": [
+            {
+                "id": "e208981f-7567-4a6e-9364-1b2c994ef40f",
+                "name": "Hunt, James"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
                 "name": "Firestone"
             }
         ]
     },
     {
-        "idTeam": "e2dccaea-8f18-4dc5-9983-cb29fe20ad22",
-        "name": "Elf Team Tyrrell",
+        "idTeam": "c934d272-d1e2-4800-8dd7-4cc75c14fd06",
+        "name": "John Player Team Lotus",
         "chassis": [
             {
-                "id": "4ec7efe4-18fa-4f45-bb3b-bec13058b8e2",
-                "name": "Tyrrell 004"
+                "id": "a309be62-b9c8-4f37-b1f4-88502ec5e2c9",
+                "name": "Lotus 72E"
             },
             {
-                "id": "4eef0868-c461-434d-9216-9542989051e9",
-                "name": "Tyrrell 002"
-            },
-            {
-                "id": "5366a186-a08d-46a4-8509-22a4f08ae119",
-                "name": "Tyrrell 005"
-            },
-            {
-                "id": "57d39eac-3b33-4865-affb-6bd1ebe28a76",
-                "name": "Tyrrell 006"
-            },
-            {
-                "id": "7c6659c3-75cc-4ad8-ad86-bdf766302d54",
-                "name": "Tyrrell 003"
+                "id": "c05bc6b2-d112-416d-8674-5d4b66437276",
+                "name": "Lotus 72D"
             }
         ],
         "racers": [
             {
-                "id": "5003be7f-c0a1-41d2-ab9e-a36d65f8cf0a",
-                "name": "Depailler, Patrick"
+                "id": "934e82fe-653e-4876-9894-09d61c475158",
+                "name": "Fittipaldi, Emerson"
             },
             {
-                "id": "c0bcca2d-c7bb-4da5-ba6a-ea7b7e4799f2",
-                "name": "Cévert, François"
-            },
-            {
-                "id": "e525e7f4-bed6-4387-bbae-e6498c09f37e",
-                "name": "Stewart, Jackie"
+                "id": "e61730e6-c4dd-432a-a30f-dc1f58788f10",
+                "name": "Peterson, Ronnie"
             }
         ],
         "engines": [
             {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
                 "name": "Ford Cosworth DFV 3.0 V8"
             }
         ],
         "tyres": [
             {
-                "id": "1eea86c4-1c34-4747-ad36-bb83f366a93a",
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
                 "name": "Goodyear"
             }
         ]
     },
     {
-        "idTeam": "7fc9403a-d505-4508-ba7a-e3a27db0501a",
-        "name": "Team Eifelland Caravans",
+        "idTeam": "43abea9c-feae-46c4-9301-fcd286197457",
+        "name": "Martini Racing Team",
         "chassis": [
             {
-                "id": "5040836e-e6ca-4a9b-b6cf-1f62a2a047e6",
-                "name": "Eifelland 21"
-            }
-        ],
-        "racers": [
-            {
-                "id": "58ca439c-4d32-4c24-8279-09982e941668",
-                "name": "Stommelen, Rolf"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "1eea86c4-1c34-4747-ad36-bb83f366a93a",
-                "name": "Goodyear"
-            }
-        ]
-    },
-    {
-        "idTeam": "8d5e5153-ee5e-400a-a82b-9a51f394c756",
-        "name": "Champcarr Inc",
-        "chassis": [
-            {
-                "id": "9d36a849-86f8-41fc-aece-78c1755ac770",
-                "name": "Surtees TS9B"
-            }
-        ],
-        "racers": [
-            {
-                "id": "a08fc982-f2cf-4205-9785-1d998f74529c",
-                "name": "Posey, Sam"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "1eea86c4-1c34-4747-ad36-bb83f366a93a",
-                "name": "Goodyear"
-            }
-        ]
-    },
-    {
-        "idTeam": "1d5b0724-0b16-4ed5-9f87-e0258252485f",
-        "name": "España Marlboro BRM",
-        "chassis": [
-            {
-                "id": "b9594f2b-d659-408f-8d13-4cc16b525787",
-                "name": "BRM P160B"
-            }
-        ],
-        "racers": [
-            {
-                "id": "ec41e1d6-37ea-46b6-8127-66ebd03fec59",
-                "name": "Soler-Roig, Alex"
-            }
-        ],
-        "engines": [
-            {
-                "id": "d7887d7e-3a75-41c5-abf7-70ad731ca940",
-                "name": "BRM P142 3.0 V12"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
-                "name": "Firestone"
-            }
-        ]
-    },
-    {
-        "idTeam": "d4135247-e8a2-4a08-b77c-835fbf49f6ff",
-        "name": "Equipe Matra",
-        "chassis": [
-            {
-                "id": "092e398a-7914-432b-864f-6905658fae69",
-                "name": "Matra Simca MS120D"
+                "id": "4f539054-f9aa-4c97-83c5-83107bbd89ce",
+                "name": "Tecno E731"
             },
             {
-                "id": "d483a71c-20c2-4847-9ea4-f617588d50ed",
-                "name": "Matra Simca MS120C"
+                "id": "6da05df0-996c-4986-a05b-45c6aa0d4110",
+                "name": "Tecno PA123B"
             }
         ],
         "racers": [
             {
-                "id": "b4be9d1a-016e-4642-9bae-32d320c6debe",
+                "id": "0619d3c0-564a-46ad-9808-2e85320f7043",
                 "name": "Amon, Chris"
             }
         ],
         "engines": [
             {
-                "id": "bdb7526c-abee-4038-906a-0a79a4164441",
-                "name": "Matra MS72 3.0 V12"
+                "id": "4e2554fd-1737-44b2-9687-07364720709d",
+                "name": "Tecno Series-P 3.0 B12"
             }
         ],
         "tyres": [
             {
-                "id": "1eea86c4-1c34-4747-ad36-bb83f366a93a",
-                "name": "Goodyear"
-            }
-        ]
-    },
-    {
-        "idTeam": "462fa134-caff-4387-9cbd-4471a3972498",
-        "name": "Motor Racing Developments",
-        "chassis": [
-            {
-                "id": "1efb4e59-0df7-49d7-90e5-eec7e9bfe767",
-                "name": "Brabham BT37"
-            },
-            {
-                "id": "7384c69c-6c7a-46e4-8c5e-cae8fe65b1bc",
-                "name": "Brabham BT33"
-            },
-            {
-                "id": "c6c8ccea-de64-4c46-a011-8bf4304b35d5",
-                "name": "Brabham BT34"
-            }
-        ],
-        "racers": [
-            {
-                "id": "02710023-946a-4a1d-9230-47dc48e102d0",
-                "name": "Hill, Graham"
-            },
-            {
-                "id": "05877099-5dfa-4076-9ad2-2581fa5b35a2",
-                "name": "Fittipaldi, Wilson"
-            },
-            {
-                "id": "2bef75bc-08ef-4cf3-8265-1e9831d86d47",
-                "name": "Reutemann, Carlos"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "1eea86c4-1c34-4747-ad36-bb83f366a93a",
-                "name": "Goodyear"
-            }
-        ]
-    },
-    {
-        "idTeam": "39beda42-0da8-4e70-bab5-5c2b0b007329",
-        "name": "STP March Racing Team",
-        "chassis": [
-            {
-                "id": "27f5b5b6-471d-49aa-b978-2a1514801df1",
-                "name": "March 721G"
-            },
-            {
-                "id": "3c26f788-b050-4621-aba0-8fdeb9958169",
-                "name": "March 721X"
-            },
-            {
-                "id": "e62482a7-dc97-4ec2-88d0-28609e5b969f",
-                "name": "March 721"
-            }
-        ],
-        "racers": [
-            {
-                "id": "57c8dbe6-8f1b-47e9-82f5-39a204a91ac8",
-                "name": "Peterson, Ronnie"
-            },
-            {
-                "id": "8692ada2-e34b-4901-9726-c008f85e46c1",
-                "name": "Lauda, Niki"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "1eea86c4-1c34-4747-ad36-bb83f366a93a",
-                "name": "Goodyear"
-            }
-        ]
-    },
-    {
-        "idTeam": "6e52c436-d384-451d-8d40-ec4188a59c04",
-        "name": "Darnvall Connew Racing Team",
-        "chassis": [
-            {
-                "id": "dba11fea-1857-4def-af93-1591d7da4f2c",
-                "name": "Connew PC1"
-            }
-        ],
-        "racers": [
-            {
-                "id": "dce9a0c7-7f28-418f-9247-1c7f31c70247",
-                "name": "Migault, François"
-            }
-        ],
-        "engines": [
-            {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
-                "name": "Ford Cosworth DFV 3.0 V8"
-            }
-        ],
-        "tyres": [
-            {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
                 "name": "Firestone"
             }
         ]
     },
     {
-        "idTeam": "87e93eae-0c3d-432a-95c2-ee3991c402b4",
-        "name": "Flame Out Team Surtees",
+        "idTeam": "6d12013f-c2a5-4faf-bdf8-27d881c37b1a",
+        "name": "Yardley Team McLaren",
         "chassis": [
             {
-                "id": "9d36a849-86f8-41fc-aece-78c1755ac770",
-                "name": "Surtees TS9B"
+                "id": "3aee75e8-f8ab-46ee-b412-c7e6b04299a4",
+                "name": "McLaren M23"
+            },
+            {
+                "id": "c7750d61-7288-48cf-9580-a759e084ca24",
+                "name": "McLaren M19C"
             }
         ],
         "racers": [
             {
-                "id": "c34b2630-a8ea-4282-be47-12d171bb6a37",
-                "name": "Schenken, Tim"
+                "id": "8df76088-8206-43f7-9704-c7f3d38b27c5",
+                "name": "Scheckter, Jody"
+            },
+            {
+                "id": "b1d58d50-f072-4988-97a1-b027e1705bc6",
+                "name": "Ickx, Jacky"
+            },
+            {
+                "id": "d16f440e-1760-443b-b75b-6054319d05b6",
+                "name": "Hulme, Denny"
+            },
+            {
+                "id": "e0cf5d5c-5e40-4440-a072-57a57597bb10",
+                "name": "Revson, Peter"
             }
         ],
         "engines": [
             {
-                "id": "6feed56a-5a2b-47cf-ae44-4bd525448206",
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
                 "name": "Ford Cosworth DFV 3.0 V8"
             }
         ],
         "tyres": [
             {
-                "id": "58d47b6a-985a-4c33-8942-73dd4c3d10dc",
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
+            }
+        ]
+    },
+    {
+        "idTeam": "5e5d6220-e4bb-46ed-bb0e-be988eba64b7",
+        "name": "Marlboro BRM",
+        "chassis": [
+            {
+                "id": "8442e685-85e5-43ba-a214-d9b322985a04",
+                "name": "BRM P160E"
+            },
+            {
+                "id": "9c80422b-b6c7-4fdf-9d6b-a6f9bd7becd6",
+                "name": "BRM P160C"
+            },
+            {
+                "id": "c1d9ca01-da18-47c3-b680-5d46abb3f93e",
+                "name": "BRM P160D"
+            }
+        ],
+        "racers": [
+            {
+                "id": "45318e0a-d110-46f2-9961-5282efc3440b",
+                "name": "Beltoise, Jean Pierre"
+            },
+            {
+                "id": "6e91b26e-1fa2-4eae-8030-da4c535bd3f0",
+                "name": "Regazzoni, Clay"
+            },
+            {
+                "id": "bf4c8da8-8cdc-495d-995c-4013f47fb031",
+                "name": "Gethin, Peter"
+            },
+            {
+                "id": "fdf10627-bb7d-4335-b100-5b8268353060",
+                "name": "Lauda, Niki"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dec0c0a8-8b5a-4f58-9d39-df71e21ad131",
+                "name": "BRM P142 3.0 V12"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
+                "name": "Firestone"
+            }
+        ]
+    },
+    {
+        "idTeam": "a8918215-b073-4a3e-88a0-18d0b2ee998c",
+        "name": "Shadow Racing Team",
+        "chassis": [
+            {
+                "id": "6d37ca19-4471-4da4-9c25-5b3488ea716a",
+                "name": "Shadow DN1"
+            }
+        ],
+        "racers": [
+            {
+                "id": "6abff071-bd82-4fcf-8139-17e9cde3d150",
+                "name": "Redman, Brian"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
+            }
+        ]
+    },
+    {
+        "idTeam": "2a0c347e-0d68-4325-ad46-dfc4c68b964c",
+        "name": "Team Surtees",
+        "chassis": [
+            {
+                "id": "10887ca5-f8a8-426d-bd1f-44346690f602",
+                "name": "Surtees TS9B"
+            },
+            {
+                "id": "7eaf5d5d-d669-4851-a1e0-596a01545cd7",
+                "name": "Surtees TS14A"
+            }
+        ],
+        "racers": [
+            {
+                "id": "c8323d3e-1700-4be7-9730-d48804904a55",
+                "name": "Bueno, Luis"
+            },
+            {
+                "id": "e1ab43cf-fe7f-4aa6-a3d7-5b283d15185d",
+                "name": "Mass, Jochen"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
+                "name": "Firestone"
+            }
+        ]
+    },
+    {
+        "idTeam": "20a2f263-a267-4fcb-8ec4-ff864fe42c80",
+        "name": "Embassy Racing",
+        "chassis": [
+            {
+                "id": "6d37ca19-4471-4da4-9c25-5b3488ea716a",
+                "name": "Shadow DN1"
+            }
+        ],
+        "racers": [
+            {
+                "id": "8f16d81f-338b-475b-9512-20b8cbb807bd",
+                "name": "Hill, Graham"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
+            }
+        ]
+    },
+    {
+        "idTeam": "c9bd556e-377b-457d-a051-49ddc89fd25a",
+        "name": "Elf Team Tyrrell",
+        "chassis": [
+            {
+                "id": "2f1783ad-eb94-4f9b-a493-f96e7e4bae81",
+                "name": "Tyrrell 006"
+            },
+            {
+                "id": "48dc202b-f9d8-4788-94bb-54cb9f827871",
+                "name": "Tyrrell 005"
+            }
+        ],
+        "racers": [
+            {
+                "id": "0619d3c0-564a-46ad-9808-2e85320f7043",
+                "name": "Amon, Chris"
+            },
+            {
+                "id": "c5966552-8005-4e27-a96c-a1fc47893c88",
+                "name": "Stewart, Jackie"
+            },
+            {
+                "id": "db43e295-9f43-4712-a311-8e8b52fb09ed",
+                "name": "Cévert, François"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
+            }
+        ]
+    },
+    {
+        "idTeam": "48eeefb9-d1b3-4c05-ba40-52d818cab962",
+        "name": "LEC Refrigeration Racing",
+        "chassis": [
+            {
+                "id": "9eb0042d-a5a8-4cf4-a8f1-3a2d6a984d3e",
+                "name": "March 731"
+            }
+        ],
+        "racers": [
+            {
+                "id": "74ede6c3-b9e1-4621-960a-77a90b1c0f05",
+                "name": "Purley, David"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
+                "name": "Firestone"
+            }
+        ]
+    },
+    {
+        "idTeam": "0ba29b25-6be2-4b09-a71f-2a091cde26fa",
+        "name": "Team Pierre Robert",
+        "chassis": [
+            {
+                "id": "9eb0042d-a5a8-4cf4-a8f1-3a2d6a984d3e",
+                "name": "March 731"
+            }
+        ],
+        "racers": [
+            {
+                "id": "8edc8f85-1d69-4320-ada4-a5b56d664af4",
+                "name": "Wisell, Reine"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
+            }
+        ]
+    },
+    {
+        "idTeam": "cd9ffd89-f403-4823-9008-2328e5679182",
+        "name": "March Racing Team",
+        "chassis": [
+            {
+                "id": "9eb0042d-a5a8-4cf4-a8f1-3a2d6a984d3e",
+                "name": "March 731"
+            }
+        ],
+        "racers": [
+            {
+                "id": "4870d880-1192-4e54-b3fc-333196d5df10",
+                "name": "Jarier, Jean Pierre"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
+            }
+        ]
+    },
+    {
+        "idTeam": "1681b925-62e2-42fe-98bf-5860d7b8bace",
+        "name": "STP March Racing Team",
+        "chassis": [
+            {
+                "id": "9eb0042d-a5a8-4cf4-a8f1-3a2d6a984d3e",
+                "name": "March 731"
+            },
+            {
+                "id": "aeb85014-d88a-4b89-ab4f-9428951f9611",
+                "name": "March 721G"
+            }
+        ],
+        "racers": [
+            {
+                "id": "23ce13d3-458a-4280-803f-7aa64f923136",
+                "name": "Williamson, Roger"
+            },
+            {
+                "id": "4870d880-1192-4e54-b3fc-333196d5df10",
+                "name": "Jarier, Jean Pierre"
+            },
+            {
+                "id": "d21e422b-8ad1-4436-a222-0e2a56f70323",
+                "name": "Pescarolo, Henri"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
+            }
+        ]
+    },
+    {
+        "idTeam": "2115f414-a640-4003-bc70-6c6401d18202",
+        "name": "Team Surtees-Brooke Bond Oxo Racing/Rob Walker",
+        "chassis": [
+            {
+                "id": "7eaf5d5d-d669-4851-a1e0-596a01545cd7",
+                "name": "Surtees TS14A"
+            }
+        ],
+        "racers": [
+            {
+                "id": "2410e0eb-4550-4ccd-a471-a305f9f7ad75",
+                "name": "Hailwood, Mike"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
+                "name": "Firestone"
+            }
+        ]
+    },
+    {
+        "idTeam": "64521ad4-efa3-4254-9b63-720ae1ab80ae",
+        "name": "Team Ensign",
+        "chassis": [
+            {
+                "id": "ef941765-b4c7-4106-aa14-73d8653bb545",
+                "name": "Ensign N173"
+            }
+        ],
+        "racers": [
+            {
+                "id": "3b645a11-1f2e-4d45-927c-dce501beda7d",
+                "name": "Opel, Rikky von"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
+                "name": "Firestone"
+            }
+        ]
+    },
+    {
+        "idTeam": "a50cead4-0c0f-4402-ab32-960764d5e8a7",
+        "name": "Scuderia Scribante - Lucky Strike Racing",
+        "chassis": [
+            {
+                "id": "c05bc6b2-d112-416d-8674-5d4b66437276",
+                "name": "Lotus 72D"
+            }
+        ],
+        "racers": [
+            {
+                "id": "a6de52ac-88f0-43f3-8eec-4a4947f3117b",
+                "name": "Charlton, Dave"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
+                "name": "Firestone"
+            }
+        ]
+    },
+    {
+        "idTeam": "a3e2a7f2-6abd-4216-9e50-3bc91c04c1e8",
+        "name": "Ceramica Pagnossin Team Surtees",
+        "chassis": [
+            {
+                "id": "7eaf5d5d-d669-4851-a1e0-596a01545cd7",
+                "name": "Surtees TS14A"
+            }
+        ],
+        "racers": [
+            {
+                "id": "9d3eb44e-161f-4a3a-a5b3-f928818dd7b1",
+                "name": "Adamich, Andrea de"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
+                "name": "Firestone"
+            }
+        ]
+    },
+    {
+        "idTeam": "1fdc1b71-eb6f-4a5b-9c0a-28a614fef6cb",
+        "name": "STP March Racing/Wheatcroft Racing",
+        "chassis": [
+            {
+                "id": "9eb0042d-a5a8-4cf4-a8f1-3a2d6a984d3e",
+                "name": "March 731"
+            }
+        ],
+        "racers": [
+            {
+                "id": "23ce13d3-458a-4280-803f-7aa64f923136",
+                "name": "Williamson, Roger"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
+            }
+        ]
+    },
+    {
+        "idTeam": "213678b3-2979-4139-aa13-6cdc366003f6",
+        "name": "Motor Racing Developments",
+        "chassis": [
+            {
+                "id": "24fee78c-d3f0-4637-b4b4-1a842efb14f7",
+                "name": "Brabham BT42"
+            },
+            {
+                "id": "b8b17e6a-8516-491b-b18f-7ddab93216ba",
+                "name": "Brabham BT37"
+            }
+        ],
+        "racers": [
+            {
+                "id": "404b2828-9c7a-40cd-b10d-7ca15fbaeedb",
+                "name": "Fittipaldi, Wilson"
+            },
+            {
+                "id": "dff97ee9-32f1-4968-b7f2-6dc17fd6d664",
+                "name": "Reutemann, Carlos"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "54bb9966-d2d9-4d07-9e77-b7274d77ed89",
+                "name": "Goodyear"
+            }
+        ]
+    },
+    {
+        "idTeam": "df42937b-a265-43c2-b697-568a8e3621f6",
+        "name": "Frank Williams Racing Cars",
+        "chassis": [
+            {
+                "id": "cb848aae-788e-4394-9380-6115bb129c89",
+                "name": "Iso Marlboro FX3B"
+            },
+            {
+                "id": "e18c22a5-0ec4-4668-a449-3b8231c2a6bf",
+                "name": "Iso Marlboro IR"
+            }
+        ],
+        "racers": [
+            {
+                "id": "1449a23f-94b7-46ea-934f-62921d98e4b1",
+                "name": "Belso, Tom"
+            },
+            {
+                "id": "1a24b7f3-d499-44db-b918-f3a92759facd",
+                "name": "Ganley, Howden"
+            },
+            {
+                "id": "499eb8e3-47fb-45e3-8982-e7839c86a4ee",
+                "name": "Pretorius, Jackie"
+            },
+            {
+                "id": "7a5fd707-9380-4f7a-a7ba-11b4b0fe7132",
+                "name": "McRae, Graham"
+            },
+            {
+                "id": "a3a247af-7f29-4df9-bb93-5762f1f38cb1",
+                "name": "Schenken, Tim"
+            },
+            {
+                "id": "b1d58d50-f072-4988-97a1-b027e1705bc6",
+                "name": "Ickx, Jacky"
+            },
+            {
+                "id": "b453760a-7277-482a-bcde-5d93b89ca639",
+                "name": "Lennep, Gijs van"
+            },
+            {
+                "id": "b95c8876-5fc8-4c0b-8e96-1d64a595d1fc",
+                "name": "Galli, Nanni"
+            },
+            {
+                "id": "d21e422b-8ad1-4436-a222-0e2a56f70323",
+                "name": "Pescarolo, Henri"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
+                "name": "Firestone"
+            }
+        ]
+    },
+    {
+        "idTeam": "bc5107a0-93c2-4075-bc94-92bae155a708",
+        "name": "Team Surtees Brooke Bond Oxo",
+        "chassis": [
+            {
+                "id": "7eaf5d5d-d669-4851-a1e0-596a01545cd7",
+                "name": "Surtees TS14A"
+            }
+        ],
+        "racers": [
+            {
+                "id": "1f534bad-71e5-4e6b-82d3-a17509eaec1f",
+                "name": "Pace, Carlos"
+            }
+        ],
+        "engines": [
+            {
+                "id": "dff502c6-dd13-41a5-b6c8-bea4b3b5bc2b",
+                "name": "Ford Cosworth DFV 3.0 V8"
+            }
+        ],
+        "tyres": [
+            {
+                "id": "3c34fd9c-bbdb-408f-93ab-f9dd34199937",
                 "name": "Firestone"
             }
         ]
@@ -7787,52 +7815,114 @@ export const SEASONPARCIPIENT_MOCK = [
 
 export const SEASONCHAMPIONSIPRACERS_MOCK = [
     {
-        "id": "8692ada2-e34b-4901-9726-c008f85e46c1",
-        "name": "Lauda, Niki",
+        "id": "6e91b26e-1fa2-4eae-8030-da4c535bd3f0",
+        "name": "Regazzoni, Clay",
+        "points": 2,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "9"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "9"
+            },
+            {
+                "racePosition": "12"
+            },
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "8"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "8"
+            }
+        ]
+    },
+    {
+        "id": "4870d880-1192-4e54-b3fc-333196d5df10",
+        "name": "Jarier, Jean Pierre",
         "points": 0,
         "position": 0,
         "result": [
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
                 "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "дк"
             },
             {
                 "racePosition": "нк"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нк"
+            },
+            {
+                "racePosition": "нф"
             }
         ]
     },
     {
-        "id": "7c0c332f-906c-4afd-9d1c-0da1dbb1b4a1",
-        "name": "Oliver, Jackie",
+        "id": "8edc8f85-1d69-4320-ada4-a5b56d664af4",
+        "name": "Wisell, Reine",
         "points": 0,
         "position": 0,
         "result": [
@@ -7854,204 +7944,37 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
             {
                 "racePosition": "-"
             },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            }
-        ]
-    },
-    {
-        "id": "4ddf9817-601c-445e-874e-d19b03bbdfcd",
-        "name": "Merzario, Arturo",
-        "points": 1,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            }
-        ]
-    },
-    {
-        "id": "05877099-5dfa-4076-9ad2-2581fa5b35a2",
-        "name": "Fittipaldi, Wilson",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            }
-        ]
-    },
-    {
-        "id": "a08fc982-f2cf-4205-9785-1d998f74529c",
-        "name": "Posey, Sam",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            }
-        ]
-    },
-    {
-        "id": "b4be9d1a-016e-4642-9bae-32d320c6debe",
-        "name": "Amon, Chris",
-        "points": 12,
-        "position": 0,
-        "result": [
             {
                 "racePosition": "нс"
             },
             {
-                "racePosition": ""
-            },
-            {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
+                "racePosition": "-"
             }
         ]
     },
     {
-        "id": "58ca439c-4d32-4c24-8279-09982e941668",
+        "id": "0987e003-7cb0-47bc-94b0-cd5da327f1fa",
         "name": "Stommelen, Rolf",
         "points": 0,
         "position": 0,
@@ -8060,34 +7983,43 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
                 "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
                 "racePosition": "-"
             },
             {
                 "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "11"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "12"
+            },
+            {
+                "racePosition": "12"
             },
             {
                 "racePosition": "-"
@@ -8095,298 +8027,255 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
         ]
     },
     {
-        "id": "02710023-946a-4a1d-9230-47dc48e102d0",
-        "name": "Hill, Graham",
-        "points": 4,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            }
-        ]
-    },
-    {
-        "id": "5aa8e360-f2e9-4acd-a5be-ac310eb13dd9",
-        "name": "Brack, Bill",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            }
-        ]
-    },
-    {
-        "id": "e525e7f4-bed6-4387-bbae-e6498c09f37e",
+        "id": "c5966552-8005-4e27-a96c-a1fc47893c88",
         "name": "Stewart, Jackie",
-        "points": 45,
+        "points": 71,
         "position": 0,
         "result": [
             {
-                "racePosition": ""
+                "racePosition": "3"
             },
             {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            }
-        ]
-    },
-    {
-        "id": "687a6184-d56b-49c4-a8de-07efe33a5e2b",
-        "name": "Schuppan, Vern",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
+                "racePosition": "2"
             },
             {
                 "racePosition": "нс"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нф"
             },
             {
-                "racePosition": "-"
+                "racePosition": "1"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нс"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нс"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нс"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нс"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "5"
+            },
+            {
+                "racePosition": "нс"
             }
         ]
     },
     {
-        "id": "57c8dbe6-8f1b-47e9-82f5-39a204a91ac8",
-        "name": "Peterson, Ronnie",
-        "points": 12,
+        "id": "2410e0eb-4550-4ccd-a471-a305f9f7ad75",
+        "name": "Hailwood, Mike",
+        "points": 0,
         "position": 0,
         "result": [
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
+                "racePosition": "нф"
             },
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
+                "racePosition": "нф"
             },
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "8"
             },
             {
-                "racePosition": ""
+                "racePosition": "нф"
             },
             {
-                "racePosition": "дк"
+                "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "14"
+            },
+            {
+                "racePosition": "10"
+            },
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "9"
+            },
+            {
+                "racePosition": "нф"
             }
         ]
     },
     {
-        "id": "458a6ece-2e8f-4c24-bdb4-fdd3191ce6f1",
+        "id": "934e82fe-653e-4876-9894-09d61c475158",
+        "name": "Fittipaldi, Emerson",
+        "points": 55,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "1"
+            },
+            {
+                "racePosition": "1"
+            },
+            {
+                "racePosition": "3"
+            },
+            {
+                "racePosition": "1"
+            },
+            {
+                "racePosition": "3"
+            },
+            {
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "6"
+            }
+        ]
+    },
+    {
+        "id": "a00cc223-a3a0-4af5-b2d8-262d3ab0f512",
+        "name": "Merzario, Arturo",
+        "points": 6,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "9"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "15"
+            },
+            {
+                "racePosition": "16"
+            }
+        ]
+    },
+    {
+        "id": "698d3831-699d-4778-8d54-acd3f92e572d",
         "name": "Beuttler, Mike",
         "points": 0,
         "position": 0,
         "result": [
             {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нкв"
-            },
-            {
-                "racePosition": ""
-            },
-            {
                 "racePosition": "нф"
             },
             {
                 "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
             },
             {
                 "racePosition": "нк"
             },
             {
-                "racePosition": ""
-            }
-        ]
-    },
-    {
-        "id": "a469336f-27b4-4c3c-be03-3425629079d6",
-        "name": "Regazzoni, Clay",
-        "points": 15,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
+                "racePosition": "7"
             },
             {
                 "racePosition": "нф"
             },
             {
                 "racePosition": "нф"
+            },
+            {
+                "racePosition": "8"
             },
             {
                 "racePosition": "-"
             },
             {
-                "racePosition": "-"
+                "racePosition": "11"
             },
             {
-                "racePosition": ""
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "16"
             },
             {
                 "racePosition": "нф"
@@ -8395,83 +8284,83 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "10"
             }
         ]
     },
     {
-        "id": "4c9a0481-935f-4662-a6cc-c29997a6f0f4",
-        "name": "Andretti, Mario",
-        "points": 4,
+        "id": "45318e0a-d110-46f2-9961-5282efc3440b",
+        "name": "Beltoise, Jean Pierre",
+        "points": 9,
         "position": 0,
         "result": [
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "нф"
             },
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": "-"
+                "racePosition": "5"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нф"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нф"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нф"
             },
             {
-                "racePosition": "-"
+                "racePosition": "11"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нс"
             },
             {
-                "racePosition": ""
+                "racePosition": "5"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "5"
+            },
+            {
+                "racePosition": "13"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "9"
             }
         ]
     },
     {
-        "id": "2bef75bc-08ef-4cf3-8265-1e9831d86d47",
-        "name": "Reutemann, Carlos",
+        "id": "404b2828-9c7a-40cd-b10d-7ca15fbaeedb",
+        "name": "Fittipaldi, Wilson",
         "points": 3,
         "position": 0,
         "result": [
             {
-                "racePosition": ""
+                "racePosition": "6"
             },
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нф"
             },
             {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
+                "racePosition": "10"
             },
             {
                 "racePosition": "нф"
@@ -8483,16 +8372,34 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "нф"
             },
             {
                 "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "5"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "11"
+            },
+            {
+                "racePosition": "нк"
             }
         ]
     },
     {
-        "id": "fb20369c-e710-4915-8a12-54937e47f69b",
-        "name": "Surtees, John",
+        "id": "e1ab43cf-fe7f-4aa6-a3d7-5b283d15185d",
+        "name": "Mass, Jochen",
         "points": 0,
         "position": 0,
         "result": [
@@ -8516,56 +8423,21 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
             },
             {
                 "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
             },
             {
                 "racePosition": "-"
             },
             {
                 "racePosition": "нс"
-            }
-        ]
-    },
-    {
-        "id": "b51df2c5-fda7-4c5f-af1f-64d2b0b8cb32",
-        "name": "Walker, Dave",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "нф/дк"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": "нф"
+                "racePosition": "7"
             },
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
+                "racePosition": "-"
             },
             {
                 "racePosition": "-"
@@ -8579,110 +8451,467 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
         ]
     },
     {
-        "id": "ebb45f18-e738-4eb0-8ba1-e05ec927c20c",
-        "name": "Wisell, Reine",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            }
-        ]
-    },
-    {
-        "id": "152291fc-ef42-4cf7-b022-a9f141bf5521",
-        "name": "Hailwood, Mike",
-        "points": 13,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
-            }
-        ]
-    },
-    {
-        "id": "36ac00fa-8016-4ba5-9243-fb42ab0dba29",
-        "name": "Gethin, Peter",
+        "id": "b453760a-7277-482a-bcde-5d93b89ca639",
+        "name": "Lennep, Gijs van",
         "points": 1,
         "position": 0,
         "result": [
             {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "9"
+            },
+            {
                 "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            }
+        ]
+    },
+    {
+        "id": "23ce13d3-458a-4280-803f-7aa64f923136",
+        "name": "Williamson, Roger",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            }
+        ]
+    },
+    {
+        "id": "b95c8876-5fc8-4c0b-8e96-1d64a595d1fc",
+        "name": "Galli, Nanni",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "9"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "11"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            }
+        ]
+    },
+    {
+        "id": "9d3eb44e-161f-4a3a-a5b3-f928818dd7b1",
+        "name": "Adamich, Andrea de",
+        "points": 3,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "8"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            }
+        ]
+    },
+    {
+        "id": "3b41eefc-181d-44c8-b681-221d0e3a5b3c",
+        "name": "Keizan, Eddie",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
             },
             {
                 "racePosition": "нк"
             },
             {
-                "racePosition": "нф"
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            }
+        ]
+    },
+    {
+        "id": "6abff071-bd82-4fcf-8139-17e9cde3d150",
+        "name": "Redman, Brian",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
             },
             {
                 "racePosition": "нф/дк"
+            }
+        ]
+    },
+    {
+        "id": "e0d610d8-cd0c-4996-9217-bac3c319c672",
+        "name": "Watson, John",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            }
+        ]
+    },
+    {
+        "id": "0619d3c0-564a-46ad-9808-2e85320f7043",
+        "name": "Amon, Chris",
+        "points": 1,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "10"
+            },
+            {
+                "racePosition": "нс"
+            }
+        ]
+    },
+    {
+        "id": "e208981f-7567-4a6e-9364-1b2c994ef40f",
+        "name": "Hunt, James",
+        "points": 14,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "3"
+            },
+            {
+                "racePosition": "-"
             },
             {
                 "racePosition": "нф"
@@ -8691,203 +8920,15 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
                 "racePosition": "нс"
             },
             {
-                "racePosition": "нф"
+                "racePosition": "7"
             },
             {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
+                "racePosition": "2"
             }
         ]
     },
     {
-        "id": "dce9a0c7-7f28-418f-9247-1c7f31c70247",
-        "name": "Migault, François",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нс"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            }
-        ]
-    },
-    {
-        "id": "617bc2cb-2de1-44dc-bd2c-26fe7e49c511",
-        "name": "Redman, Brian",
-        "points": 4,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
-            }
-        ]
-    },
-    {
-        "id": "ec41e1d6-37ea-46b6-8127-66ebd03fec59",
-        "name": "Soler-Roig, Alex",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            }
-        ]
-    },
-    {
-        "id": "5ada53d6-337f-4713-9054-bc39b73e2919",
-        "name": "Charlton, Dave",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нкв"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            }
-        ]
-    },
-    {
-        "id": "2d242b7f-b53e-478f-bb58-f970b77e07f7",
+        "id": "8df76088-8206-43f7-9704-c7f3d38b27c5",
         "name": "Scheckter, Jody",
         "points": 0,
         "position": 0,
@@ -8899,75 +8940,40 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
                 "racePosition": "-"
             },
             {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            }
-        ]
-    },
-    {
-        "id": "abbfed30-f504-4e5e-8e5e-e5b7861f94d6",
-        "name": "Fittipaldi, Emerson",
-        "points": 61,
-        "position": 0,
-        "result": [
-            {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "нс"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
             },
             {
                 "racePosition": "нф"
@@ -8975,52 +8981,220 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
         ]
     },
     {
-        "id": "384e7d86-5d93-4734-9dec-af775af70c9d",
-        "name": "Adamich, Andrea de",
-        "points": 3,
+        "id": "db43e295-9f43-4712-a311-8e8b52fb09ed",
+        "name": "Cévert, François",
+        "points": 47,
         "position": 0,
         "result": [
             {
-                "racePosition": "нф"
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "10"
             },
             {
                 "racePosition": "нк"
             },
             {
-                "racePosition": ""
+                "racePosition": "2"
             },
             {
-                "racePosition": ""
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нс"
             },
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
+                "racePosition": "нс"
             }
         ]
     },
     {
-        "id": "5003be7f-c0a1-41d2-ab9e-a36d65f8cf0a",
-        "name": "Depailler, Patrick",
+        "id": "d16f440e-1760-443b-b75b-6054319d05b6",
+        "name": "Hulme, Denny",
+        "points": 26,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "5"
+            },
+            {
+                "racePosition": "3"
+            },
+            {
+                "racePosition": "5"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "1"
+            },
+            {
+                "racePosition": "8"
+            },
+            {
+                "racePosition": "3"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "12"
+            },
+            {
+                "racePosition": "8"
+            },
+            {
+                "racePosition": "15"
+            },
+            {
+                "racePosition": "13"
+            },
+            {
+                "racePosition": "4"
+            }
+        ]
+    },
+    {
+        "id": "e61730e6-c4dd-432a-a30f-dc1f58788f10",
+        "name": "Peterson, Ronnie",
+        "points": 52,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "11"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "3"
+            },
+            {
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "1"
+            },
+            {
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "1"
+            },
+            {
+                "racePosition": "1"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "1"
+            }
+        ]
+    },
+    {
+        "id": "a6de52ac-88f0-43f3-8eec-4a4947f3117b",
+        "name": "Charlton, Dave",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            }
+        ]
+    },
+    {
+        "id": "74ede6c3-b9e1-4621-960a-77a90b1c0f05",
+        "name": "Purley, David",
         "points": 0,
         "position": 0,
         "result": [
@@ -9040,7 +9214,7 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
                 "racePosition": "-"
             },
             {
-                "racePosition": "нк"
+                "racePosition": "нф"
             },
             {
                 "racePosition": "-"
@@ -9049,77 +9223,493 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
                 "racePosition": "-"
             },
             {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "15"
+            },
+            {
                 "racePosition": "-"
+            },
+            {
+                "racePosition": "9"
             },
             {
                 "racePosition": "-"
             },
             {
                 "racePosition": "-"
-            },
-            {
-                "racePosition": ""
             }
         ]
     },
     {
-        "id": "cb4e20f5-72ce-4f8b-a5ee-fc78756f5ac1",
-        "name": "Beltoise, Jean Pierre",
-        "points": 9,
+        "id": "118cecb4-1999-4949-9bb3-96183cf4d964",
+        "name": "Oliver, Jackie",
+        "points": 4,
         "position": 0,
         "result": [
             {
                 "racePosition": "-"
             },
             {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
                 "racePosition": "нф"
             },
             {
                 "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "10"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "8"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "11"
+            },
+            {
+                "racePosition": "3"
+            },
+            {
+                "racePosition": "15"
             }
         ]
     },
     {
-        "id": "680bfca8-9998-488b-a3c3-2bc532c47b76",
+        "id": "bf4c8da8-8cdc-495d-995c-4013f47fb031",
+        "name": "Gethin, Peter",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            }
+        ]
+    },
+    {
+        "id": "e0cf5d5c-5e40-4440-a072-57a57597bb10",
+        "name": "Revson, Peter",
+        "points": 38,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "8"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "2"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "5"
+            },
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "1"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "9"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "3"
+            },
+            {
+                "racePosition": "1"
+            },
+            {
+                "racePosition": "5"
+            }
+        ]
+    },
+    {
+        "id": "8676b5e1-7bae-4e9e-9e0a-120ea4e16609",
+        "name": "Follmer, George",
+        "points": 5,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "3"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "14"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "10"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "10"
+            },
+            {
+                "racePosition": "17"
+            },
+            {
+                "racePosition": "14"
+            }
+        ]
+    },
+    {
+        "id": "b1d58d50-f072-4988-97a1-b027e1705bc6",
+        "name": "Ickx, Jacky",
+        "points": 12,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "5"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "12"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "5"
+            },
+            {
+                "racePosition": "8"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "3"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "8"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "7"
+            }
+        ]
+    },
+    {
+        "id": "1449a23f-94b7-46ea-934f-62921d98e4b1",
+        "name": "Belso, Tom",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            }
+        ]
+    },
+    {
+        "id": "499eb8e3-47fb-45e3-8982-e7839c86a4ee",
+        "name": "Pretorius, Jackie",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            }
+        ]
+    },
+    {
+        "id": "d21e422b-8ad1-4436-a222-0e2a56f70323",
         "name": "Pescarolo, Henri",
         "points": 0,
         "position": 0,
         "result": [
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "8"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "10"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            }
+        ]
+    },
+    {
+        "id": "3b645a11-1f2e-4d45-927c-dce501beda7d",
+        "name": "Opel, Rikky von",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "15"
+            },
+            {
+                "racePosition": "13"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
             },
             {
                 "racePosition": "нф"
@@ -9128,236 +9718,74 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
                 "racePosition": "нк"
             },
             {
-                "racePosition": "нс"
-            },
-            {
                 "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нс"
-            },
-            {
-                "racePosition": "нкв"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
             }
         ]
     },
     {
-        "id": "c34b2630-a8ea-4282-be47-12d171bb6a37",
-        "name": "Schenken, Tim",
+        "id": "1a24b7f3-d499-44db-b918-f3a92759facd",
+        "name": "Ganley, Howden",
+        "points": 1,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "нк"
+            },
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "10"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "11"
+            },
+            {
+                "racePosition": "14"
+            },
+            {
+                "racePosition": "9"
+            },
+            {
+                "racePosition": "9"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "нк"
+            },
+            {
+                "racePosition": "нк"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "12"
+            }
+        ]
+    },
+    {
+        "id": "fdf10627-bb7d-4335-b100-5b8268353060",
+        "name": "Lauda, Niki",
         "points": 2,
         "position": 0,
         "result": [
             {
-                "racePosition": ""
-            },
-            {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            }
-        ]
-    },
-    {
-        "id": "7754514c-116d-44eb-b7df-eb134b0a1355",
-        "name": "Ferguson, William",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нс"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            }
-        ]
-    },
-    {
-        "id": "f8c2a0ce-5fa8-486a-9bfe-37a595240d3d",
-        "name": "Barber, Skip",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нк"
-            },
-            {
-                "racePosition": ""
-            }
-        ]
-    },
-    {
-        "id": "a8fbca46-3112-4a9b-8c72-89774f1df088",
-        "name": "Marko, Helmut",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            }
-        ]
-    },
-    {
-        "id": "c0bcca2d-c7bb-4da5-ba6a-ea7b7e4799f2",
-        "name": "Cévert, François",
-        "points": 15,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нк"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
+                "racePosition": "8"
             },
             {
                 "racePosition": "нф"
@@ -9366,359 +9794,355 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
-            }
-        ]
-    },
-    {
-        "id": "d8dc426b-cdb5-4c09-a537-526357fb107b",
-        "name": "Hulme, Denny",
-        "points": 39,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
+                "racePosition": "5"
             },
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "13"
             },
             {
-                "racePosition": ""
+                "racePosition": "9"
             },
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
+                "racePosition": "12"
             },
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            }
-        ]
-    },
-    {
-        "id": "4efdfd95-11d4-4b19-9b08-3e421d9bd908",
-        "name": "Bell, Derek",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нкв"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
                 "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нкв"
             },
             {
                 "racePosition": "нс"
             },
             {
                 "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
             }
         ]
     },
     {
-        "id": "5b793bdc-c530-49c6-b08f-21b92a8820d0",
-        "name": "Ganley, Howden",
-        "points": 4,
+        "id": "7a5fd707-9380-4f7a-a7ba-11b4b0fe7132",
+        "name": "McRae, Graham",
+        "points": 0,
         "position": 0,
         "result": [
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нк"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нс"
+                "racePosition": "-"
             },
             {
                 "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
             },
             {
                 "racePosition": "нф"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
             }
         ]
     },
     {
-        "id": "1a42576d-c097-4a65-bcb8-40b5e15da6df",
-        "name": "Ickx, Jacky",
-        "points": 27,
+        "id": "c8323d3e-1700-4be7-9730-d48804904a55",
+        "name": "Bueno, Luis",
+        "points": 0,
         "position": 0,
         "result": [
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "12"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": "нф"
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": "нф"
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": "нф"
+                "racePosition": "-"
             },
             {
-                "racePosition": "нф"
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
             },
             {
-                "racePosition": ""
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
             }
         ]
     },
     {
-        "id": "f62d84b7-61fa-4002-96a5-7bd19128c491",
+        "id": "8f16d81f-338b-475b-9512-20b8cbb807bd",
+        "name": "Hill, Graham",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "9"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "10"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нк"
+            },
+            {
+                "racePosition": "13"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "14"
+            },
+            {
+                "racePosition": "16"
+            },
+            {
+                "racePosition": "13"
+            }
+        ]
+    },
+    {
+        "id": "dff97ee9-32f1-4968-b7f2-6dc17fd6d664",
+        "name": "Reutemann, Carlos",
+        "points": 16,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "11"
+            },
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "3"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "8"
+            },
+            {
+                "racePosition": "3"
+            }
+        ]
+    },
+    {
+        "id": "a3a247af-7f29-4df9-bb93-5762f1f38cb1",
+        "name": "Schenken, Tim",
+        "points": 0,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "-"
+            },
+            {
+                "racePosition": "14"
+            },
+            {
+                "racePosition": "-"
+            }
+        ]
+    },
+    {
+        "id": "1f534bad-71e5-4e6b-82d3-a17509eaec1f",
         "name": "Pace, Carlos",
-        "points": 3,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нк"
-            },
-            {
-                "racePosition": "нк"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "нф"
-            }
-        ]
-    },
-    {
-        "id": "f846b54c-1610-459e-9a58-32b8e822bf2c",
-        "name": "Love, John",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "нф"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            }
-        ]
-    },
-    {
-        "id": "6a791cee-aa06-459b-a970-0e2688a3ad55",
-        "name": "Revson, Peter",
-        "points": 23,
+        "points": 7,
         "position": 0,
         "result": [
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
                 "racePosition": "нф"
-            }
-        ]
-    },
-    {
-        "id": "2753e6e9-c26c-479c-857e-4834ac8f1cad",
-        "name": "Galli, Nanni",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
-            },
-            {
-                "racePosition": "-"
             },
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": ""
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "8"
             },
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": "-"
+                "racePosition": "10"
             },
             {
-                "racePosition": "нк"
+                "racePosition": "13"
+            },
+            {
+                "racePosition": "нс"
+            },
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "4"
+            },
+            {
+                "racePosition": "3"
             },
             {
                 "racePosition": "нф"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нф"
             },
             {
-                "racePosition": "-"
+                "racePosition": "нф"
             }
         ]
     }
@@ -9726,536 +10150,432 @@ export const SEASONCHAMPIONSIPRACERS_MOCK = [
 
 export const SEASONCHAMPIONSHIPTEAMS_MOCK = [
     {
-        "id": "6fc2e995-1d66-4e5c-a3d0-602b41d1f24b",
-        "name": "Ferrari",
-        "points": 47,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": " / /нф /"
-            },
-            {
-                "racePosition": " / / /"
-            },
-            {
-                "racePosition": " / /нф /"
-            },
-            {
-                "racePosition": " /нф /"
-            },
-            {
-                "racePosition": "нф /нф /"
-            },
-            {
-                "racePosition": " / /"
-            },
-            {
-                "racePosition": "нф / /"
-            },
-            {
-                "racePosition": " / / /"
-            },
-            {
-                "racePosition": "нф /нф /"
-            },
-            {
-                "racePosition": " /нф /нф /"
-            },
-            {
-                "racePosition": " / /"
-            },
-            {
-                "racePosition": " / / /"
-            }
-        ]
-    },
-    {
-        "id": "3dc157cd-e3e8-4dee-88f2-06b7d55d968b",
-        "name": "Matra",
-        "points": 12,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "нс /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": "нф /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": " /нс /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": " /нс /"
-            },
-            {
-                "racePosition": "нф /нс /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": " /"
-            }
-        ]
-    },
-    {
-        "id": "19ba591e-960a-4988-aef0-29e8be4ba740",
-        "name": "BRM",
-        "points": 14,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": " /нф /нф /нф / /"
-            },
-            {
-                "racePosition": "нф /нк /нк / /"
-            },
-            {
-                "racePosition": "нф /нф /нф /нс /нф /нф /"
-            },
-            {
-                "racePosition": " /нф/дк /нф / /нф /"
-            },
-            {
-                "racePosition": "нф /нф / /нс / /"
-            },
-            {
-                "racePosition": " /нс /нс /нс /нф /нф /"
-            },
-            {
-                "racePosition": " /нс /нф /нф /"
-            },
-            {
-                "racePosition": " / /нф /"
-            },
-            {
-                "racePosition": " / / /"
-            },
-            {
-                "racePosition": " / / / /"
-            },
-            {
-                "racePosition": "нф / /нф /нф /"
-            },
-            {
-                "racePosition": "нф /нф /нф /нф /"
-            }
-        ]
-    },
-    {
-        "id": "fb608c57-a3c1-4674-b874-915d04545ed9",
-        "name": "Surtees",
-        "points": 18,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": " /нф /"
-            },
-            {
-                "racePosition": "нф /нф /нк /нф /нс /нс /"
-            },
-            {
-                "racePosition": " /нф / /"
-            },
-            {
-                "racePosition": "нф /нф / /"
-            },
-            {
-                "racePosition": " /нф /нф /"
-            },
-            {
-                "racePosition": " / / /"
-            },
-            {
-                "racePosition": "нф /нф /нф /"
-            },
-            {
-                "racePosition": "нф / / /"
-            },
-            {
-                "racePosition": " / / /"
-            },
-            {
-                "racePosition": "нф /нф /нф / /"
-            },
-            {
-                "racePosition": " /нф /"
-            },
-            {
-                "racePosition": "нф /нс /нф /нс /нф / /"
-            }
-        ]
-    },
-    {
-        "id": "8786abf2-e83a-44ab-82cb-cb8aa5cfd379",
-        "name": "Lotus",
-        "points": 61,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": "нф /нф/дк /"
-            },
-            {
-                "racePosition": " / /нф /"
-            },
-            {
-                "racePosition": " /нф /"
-            },
-            {
-                "racePosition": " / /"
-            },
-            {
-                "racePosition": " / /"
-            },
-            {
-                "racePosition": " /нф /нкв /"
-            },
-            {
-                "racePosition": " /нф /нф /"
-            },
-            {
-                "racePosition": "нф /нф /нф /"
-            },
-            {
-                "racePosition": "нф / /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": " /нф /"
-            },
-            {
-                "racePosition": "нф /нф / /"
-            }
-        ]
-    },
-    {
-        "id": "ab0051cd-4b12-4a02-bf0a-336bd9c8e459",
-        "name": "Politoys",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф /"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            }
-        ]
-    },
-    {
-        "id": "88b2710d-b822-4514-a221-2713bbab25ea",
-        "name": "Tyrrell",
-        "points": 60,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": " /нф /"
-            },
-            {
-                "racePosition": "нф /нс / /"
-            },
-            {
-                "racePosition": "нф /нс /нф /"
-            },
-            {
-                "racePosition": " /нс /нк /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": " / /нс /нк /"
-            },
-            {
-                "racePosition": " /нс /нф /"
-            },
-            {
-                "racePosition": "нф / /нс /"
-            },
-            {
-                "racePosition": " / /"
-            },
-            {
-                "racePosition": "нф /нс /нф /нс /"
-            },
-            {
-                "racePosition": " /нс /нс /нф /"
-            },
-            {
-                "racePosition": " / / /"
-            }
-        ]
-    },
-    {
-        "id": "60ccb27a-2fbe-42e2-a5f2-a6447e39e845",
-        "name": "Connew",
-        "points": 0,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нс /"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": "нф /"
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            },
-            {
-                "racePosition": ""
-            }
-        ]
-    },
-    {
-        "id": "4754be9e-3813-48f4-8e2f-e3cbe63c4097",
+        "id": "45f9c48b-6b21-428b-9c78-8e8e02e7c74f",
         "name": "Brabham",
+        "points": 22,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "нф/6"
+            },
+            {
+                "racePosition": "11/нф"
+            },
+            {
+                "racePosition": "7/нф"
+            },
+            {
+                "racePosition": "10/нф/нф"
+            },
+            {
+                "racePosition": "4/нф/нф"
+            },
+            {
+                "racePosition": "7/нф/нф"
+            },
+            {
+                "racePosition": "4/нф"
+            },
+            {
+                "racePosition": "нф/3/нф"
+            },
+            {
+                "racePosition": "нс/6/нф/нф"
+            },
+            {
+                "racePosition": "нф/нф"
+            },
+            {
+                "racePosition": "11/нф/5"
+            },
+            {
+                "racePosition": "нф/4/нф"
+            },
+            {
+                "racePosition": "12/6/нф"
+            },
+            {
+                "racePosition": "12/8/11"
+            },
+            {
+                "racePosition": "нф/3/нк"
+            }
+        ]
+    },
+    {
+        "id": "2416bb3d-c3c6-48fa-81ed-d8aa62bb3bd2",
+        "name": "Surtees",
         "points": 7,
         "position": 0,
         "result": [
             {
-                "racePosition": "нф / /"
+                "racePosition": "нф/нф"
             },
             {
-                "racePosition": " /нф /"
+                "racePosition": "нф/нф/12"
             },
             {
-                "racePosition": " / /"
+                "racePosition": "нф/нф/8"
             },
             {
-                "racePosition": " / /"
+                "racePosition": "нф/нф"
             },
             {
-                "racePosition": "нф /нф / /"
+                "racePosition": "нф/8"
             },
             {
-                "racePosition": " / / /"
+                "racePosition": "8/нф"
             },
             {
-                "racePosition": "нф / /нф /"
+                "racePosition": "нф/10"
             },
             {
-                "racePosition": " /нф / /"
+                "racePosition": "нф/13"
             },
             {
-                "racePosition": "нф /нф /нф /"
+                "racePosition": "нс/нс/нс"
             },
             {
-                "racePosition": " /нф /нф /"
+                "racePosition": "нф/7"
             },
             {
-                "racePosition": " / /нф /"
+                "racePosition": "14/4/7"
             },
             {
-                "racePosition": " /нф /нф /"
+                "racePosition": "10/3"
+            },
+            {
+                "racePosition": "7/нф"
+            },
+            {
+                "racePosition": "9/нф"
+            },
+            {
+                "racePosition": "нф/нф/нф"
             }
         ]
     },
     {
-        "id": "b88a5cc0-9c9e-4521-b517-2b8aa281a0c4",
-        "name": "Eifelland",
-        "points": 0,
+        "id": "e70474ad-9179-471d-ae78-40552413cac1",
+        "name": "BRM",
+        "points": 13,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "нф/7/нф"
+            },
+            {
+                "racePosition": "6/нф/8"
+            },
+            {
+                "racePosition": "нф/нф/нф"
+            },
+            {
+                "racePosition": "9/5/нф"
+            },
+            {
+                "racePosition": "нф/нф/5"
+            },
+            {
+                "racePosition": "нф/нф/нф"
+            },
+            {
+                "racePosition": "9/нф/13"
+            },
+            {
+                "racePosition": "12/11/9"
+            },
+            {
+                "racePosition": "7/нс/12"
+            },
+            {
+                "racePosition": "8/5/нф"
+            },
+            {
+                "racePosition": "нф/нф/нф"
+            },
+            {
+                "racePosition": "6/5/нс"
+            },
+            {
+                "racePosition": "нф/13/нф"
+            },
+            {
+                "racePosition": "нф/4/нф"
+            },
+            {
+                "racePosition": "8/9/нф"
+            }
+        ]
+    },
+    {
+        "id": "3d000965-4a21-46da-989c-955add5a62cb",
+        "name": "Lotus",
+        "points": 107,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "1/нф"
+            },
+            {
+                "racePosition": "1/нф"
+            },
+            {
+                "racePosition": "3/11/нф"
+            },
+            {
+                "racePosition": "1/нф"
+            },
+            {
+                "racePosition": "3/нф"
+            },
+            {
+                "racePosition": "2/3"
+            },
+            {
+                "racePosition": "нф/2"
+            },
+            {
+                "racePosition": "нф/1"
+            },
+            {
+                "racePosition": "нф/2"
+            },
+            {
+                "racePosition": "нф/нф"
+            },
+            {
+                "racePosition": "6/нф"
+            },
+            {
+                "racePosition": "нф/1"
+            },
+            {
+                "racePosition": "2/1"
+            },
+            {
+                "racePosition": "2/нф"
+            },
+            {
+                "racePosition": "6/1"
+            }
+        ]
+    },
+    {
+        "id": "3ad333d0-51dd-4161-9b67-305a199532d6",
+        "name": "Shadow",
+        "points": 9,
         "position": 0,
         "result": [
             {
                 "racePosition": ""
             },
             {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": "нф /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
-                "racePosition": "нф /"
-            },
-            {
-                "racePosition": " /"
-            },
-            {
                 "racePosition": ""
             },
             {
-                "racePosition": ""
+                "racePosition": "нф/6"
             },
             {
-                "racePosition": ""
+                "racePosition": "нф/3/нф"
+            },
+            {
+                "racePosition": "9/нф/нф"
+            },
+            {
+                "racePosition": "нф/нс/10"
+            },
+            {
+                "racePosition": "нф/14/нф"
+            },
+            {
+                "racePosition": "10/нф/нф"
+            },
+            {
+                "racePosition": "нф/нс/нс"
+            },
+            {
+                "racePosition": "нк/10/нф"
+            },
+            {
+                "racePosition": "13/нф/8"
+            },
+            {
+                "racePosition": "нф/нф/нф"
+            },
+            {
+                "racePosition": "14/10/11"
+            },
+            {
+                "racePosition": "16/17/3"
+            },
+            {
+                "racePosition": "13/14/15/нф/дк"
             }
         ]
     },
     {
-        "id": "9c90b7b3-4ffc-4929-b85c-93f5be0951f2",
-        "name": "March",
-        "points": 15,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": " / / /"
-            },
-            {
-                "racePosition": " / / / /"
-            },
-            {
-                "racePosition": "нф / /нкв /нф / /"
-            },
-            {
-                "racePosition": " /нс / / /нф / /"
-            },
-            {
-                "racePosition": " / /нс /нф /нк / /"
-            },
-            {
-                "racePosition": " /нф /нф /нс /нф /"
-            },
-            {
-                "racePosition": "нф / /нф / /"
-            },
-            {
-                "racePosition": " /нф /нк /нф / /"
-            },
-            {
-                "racePosition": "нф / / /нс /нк /"
-            },
-            {
-                "racePosition": " / / /нкв /нф /"
-            },
-            {
-                "racePosition": "дк /дк /нк / /нф /нк /"
-            },
-            {
-                "racePosition": " /нк / / /нф / /"
-            }
-        ]
-    },
-    {
-        "id": "2a850810-3370-4499-bc78-6eaaa5025801",
-        "name": "McLaren",
-        "points": 66,
-        "position": 0,
-        "result": [
-            {
-                "racePosition": " /нф /"
-            },
-            {
-                "racePosition": " / /"
-            },
-            {
-                "racePosition": "нф /нс / /"
-            },
-            {
-                "racePosition": " /нс / /"
-            },
-            {
-                "racePosition": " /нс / /"
-            },
-            {
-                "racePosition": " /нс / /"
-            },
-            {
-                "racePosition": " / /"
-            },
-            {
-                "racePosition": "нф / /"
-            },
-            {
-                "racePosition": " /нс / /нс /"
-            },
-            {
-                "racePosition": " /нс / /нс /"
-            },
-            {
-                "racePosition": " /нс / /нс /"
-            },
-            {
-                "racePosition": " /нф / /"
-            }
-        ]
-    },
-    {
-        "id": "7c58cc9a-f25f-493f-868e-8146367300dd",
+        "id": "993bd174-0c40-4616-b51b-00174dfa4516",
         "name": "Tecno",
+        "points": 1,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": ""
+            },
+            {
+                "racePosition": ""
+            },
+            {
+                "racePosition": ""
+            },
+            {
+                "racePosition": ""
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": ""
+            },
+            {
+                "racePosition": ""
+            },
+            {
+                "racePosition": "нф/нс"
+            },
+            {
+                "racePosition": "нф/нс"
+            },
+            {
+                "racePosition": ""
+            },
+            {
+                "racePosition": "нс/нс"
+            },
+            {
+                "racePosition": ""
+            },
+            {
+                "racePosition": ""
+            },
+            {
+                "racePosition": ""
+            }
+        ]
+    },
+    {
+        "id": "c8a06031-9d7e-4722-a8cd-2b25f63fd5ed",
+        "name": "Iso Marlboro",
+        "points": 2,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "нф/нк"
+            },
+            {
+                "racePosition": "7/9"
+            },
+            {
+                "racePosition": "нф/10"
+            },
+            {
+                "racePosition": "нф/11"
+            },
+            {
+                "racePosition": "нф/нф"
+            },
+            {
+                "racePosition": "нф/нф"
+            },
+            {
+                "racePosition": "11/нс"
+            },
+            {
+                "racePosition": "14/нф"
+            },
+            {
+                "racePosition": "9/нф"
+            },
+            {
+                "racePosition": "9/6"
+            },
+            {
+                "racePosition": "нс/10"
+            },
+            {
+                "racePosition": "нк/9"
+            },
+            {
+                "racePosition": "нк/нф"
+            },
+            {
+                "racePosition": "6/14"
+            },
+            {
+                "racePosition": "12/7"
+            }
+        ]
+    },
+    {
+        "id": "314a6de5-4793-4a0a-abe6-187574027a59",
+        "name": "March",
+        "points": 14,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "нф/нф"
+            },
+            {
+                "racePosition": "нф/нф"
+            },
+            {
+                "racePosition": "нк/нк"
+            },
+            {
+                "racePosition": "8/7"
+            },
+            {
+                "racePosition": "нф/нф"
+            },
+            {
+                "racePosition": "нф/нф/нф/нф"
+            },
+            {
+                "racePosition": "нф/8/нс"
+            },
+            {
+                "racePosition": "нф/6/нф"
+            },
+            {
+                "racePosition": "нс/11/нс/4"
+            },
+            {
+                "racePosition": "нф/нф/нф/3"
+            },
+            {
+                "racePosition": "16/15"
+            },
+            {
+                "racePosition": "нф/нф/нф"
+            },
+            {
+                "racePosition": "нф/нс/9"
+            },
+            {
+                "racePosition": "нф/нк/7"
+            },
+            {
+                "racePosition": "10/нф/2"
+            }
+        ]
+    },
+    {
+        "id": "045c07ac-a2e7-4ea2-84ed-ca291d1ab4d6",
+        "name": "Ensign",
         "points": 0,
         "position": 0,
         "result": [
@@ -10272,28 +10592,196 @@ export const SEASONCHAMPIONSHIPTEAMS_MOCK = [
                 "racePosition": ""
             },
             {
-                "racePosition": "нф /"
+                "racePosition": ""
             },
             {
-                "racePosition": "нкв /"
+                "racePosition": ""
             },
             {
-                "racePosition": "нф /"
+                "racePosition": ""
             },
             {
-                "racePosition": "нф /"
+                "racePosition": "15"
             },
             {
-                "racePosition": "нк /"
+                "racePosition": "13"
             },
             {
-                "racePosition": "нф /нкв /"
+                "racePosition": "нс"
             },
             {
-                "racePosition": "нс /"
+                "racePosition": ""
             },
             {
-                "racePosition": "нф /"
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нк"
+            },
+            {
+                "racePosition": "нф"
+            }
+        ]
+    },
+    {
+        "id": "a197b8f0-2fb9-4f6d-83b9-7c5b55b23581",
+        "name": "McLaren",
+        "points": 68,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "5/8"
+            },
+            {
+                "racePosition": "3/нф"
+            },
+            {
+                "racePosition": "5/2/нф"
+            },
+            {
+                "racePosition": "6/4"
+            },
+            {
+                "racePosition": "7/нф"
+            },
+            {
+                "racePosition": "6/5"
+            },
+            {
+                "racePosition": "1/7"
+            },
+            {
+                "racePosition": "8/нф"
+            },
+            {
+                "racePosition": "3/1/нс"
+            },
+            {
+                "racePosition": "нф/4"
+            },
+            {
+                "racePosition": "12/9/3"
+            },
+            {
+                "racePosition": "8/нф"
+            },
+            {
+                "racePosition": "15/3"
+            },
+            {
+                "racePosition": "нф/13/1"
+            },
+            {
+                "racePosition": "нф/4/5"
+            }
+        ]
+    },
+    {
+        "id": "42932c77-2200-4831-9eb0-b671b94d71b4",
+        "name": "Ferrari",
+        "points": 14,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "4/9"
+            },
+            {
+                "racePosition": "5/4"
+            },
+            {
+                "racePosition": "нф/4"
+            },
+            {
+                "racePosition": "12"
+            },
+            {
+                "racePosition": "нф"
+            },
+            {
+                "racePosition": "нф/нф"
+            },
+            {
+                "racePosition": "6"
+            },
+            {
+                "racePosition": "5/7"
+            },
+            {
+                "racePosition": "8"
+            },
+            {
+                "racePosition": ""
+            },
+            {
+                "racePosition": ""
+            },
+            {
+                "racePosition": "7"
+            },
+            {
+                "racePosition": "8/нф"
+            },
+            {
+                "racePosition": "15"
+            },
+            {
+                "racePosition": "16"
+            }
+        ]
+    },
+    {
+        "id": "51d1bc22-8e61-40db-802d-516b02e4df5f",
+        "name": "Tyrrell",
+        "points": 118,
+        "position": 0,
+        "result": [
+            {
+                "racePosition": "3/2"
+            },
+            {
+                "racePosition": "2/10"
+            },
+            {
+                "racePosition": "нс/1/нк/нс/нк"
+            },
+            {
+                "racePosition": "нф/нс/2"
+            },
+            {
+                "racePosition": "1/2"
+            },
+            {
+                "racePosition": "нс/1/4"
+            },
+            {
+                "racePosition": "нс/5/нс/3"
+            },
+            {
+                "racePosition": "нс/4/2"
+            },
+            {
+                "racePosition": "нс/10/нс/5"
+            },
+            {
+                "racePosition": "нс/1/2"
+            },
+            {
+                "racePosition": "нс/1/2"
+            },
+            {
+                "racePosition": "2/нф/нс"
+            },
+            {
+                "racePosition": "4/нс/5"
+            },
+            {
+                "racePosition": "5/нф/10"
+            },
+            {
+                "racePosition": "нс/нс/нс"
             }
         ]
     }

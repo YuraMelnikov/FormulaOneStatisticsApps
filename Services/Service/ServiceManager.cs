@@ -17,7 +17,6 @@ namespace Services.Service
         private IManufacturersService _manufacturers;
         private ISeasonService _season;
         private IGrandPrixResultService _grandPrixResult;
-        private ITeamSeasonService _teamSeason;
 
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
@@ -83,16 +82,6 @@ namespace Services.Service
                 if (_grandPrixResult == null)
                     _grandPrixResult = new GrandPrixResultService(_repoContext, _mapper);
                 return _grandPrixResult;
-            }
-        }
-
-        public ITeamSeasonService TeamSeason
-        {
-            get
-            {
-                if (_teamSeason == null)
-                    _teamSeason = new TeamSeasonService(_repoContext);
-                return _teamSeason;
             }
         }
 
