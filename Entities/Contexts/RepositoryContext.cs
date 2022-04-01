@@ -24,6 +24,7 @@ namespace Entities.Contexts
             //modelBuilder.Entity<Phone>().Property(p => p.Name).HasMaxLength(50);
         }
 
+        public DbSet<SeasonRacersClassification> SeasonRacersClassification { get; set; }
         public DbSet<Chassis> Chassis { get; set; }
         public DbSet<ChassisImg> ChassisImgs { get; set; }
         public DbSet<Country> Countries { get; set; }

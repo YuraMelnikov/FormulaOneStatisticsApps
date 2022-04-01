@@ -1,5 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AngleSharp;
+using AngleSharp.Dom;
+using AngleSharp.Html.Dom;
+using Microsoft.AspNetCore.Mvc;
+using RestSharp;
 using Services.IService;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace FormulaOneStatistics.Controllers
 {
@@ -17,6 +23,45 @@ namespace FormulaOneStatistics.Controllers
         [HttpGet("calendar/{id}")]
         public async Task<IActionResult> GetCalendar(Guid id)
         {
+            //https://ergast.com/api/f1/1950/7/driverStandings
+            //https://ergast.com/api/f1/1950/7/constructorStandings
+
+            for (var i = 1950; i <= 2019; i++)
+            {
+                string startPage = "https://ergast.com/api/f1/1950/7/driverStandings";
+
+                var config = Configuration.Default.WithDefaultLoader();
+                var context = BrowsingContext.New(config);
+                IDocument document = await context.OpenAsync(startPage);
+
+
+
+                var xml = document.Source.Text;
+
+
+
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(xml);
+
+                XmlSerializer ser = new XmlSerializer(typeof(object));
+                using (StreamReader sr = new StreamReader(xml))
+                {
+                    var n = ser.Deserialize(sr);
+                }
+
+
+                //var tableRacers = document.QuerySelectorAll("#links > div > a").ToList().Cast<IHtmlAnchorElement>().Select(m => m.Href).ToList();
+                //var tableRacers = document.QuerySelectorAll("#mw-content-text > div > div.table-wide > div > table").ToList();
+                var tableRacers = document.QuerySelectorAll("#content > div > div > div > table > tbody > tr").ToList();
+                ////*[@id="mw-content-text"]/div/div[3]/div/table
+                ///
+            }
+
+
+
+
+
+
             var calendar = await _service.Season.GetClendar(id);
             return Ok(calendar);
         }
