@@ -17,7 +17,7 @@ namespace FormulaOneStatistics.Controllers
         [HttpGet("calendar/{id}")]
         public async Task<IActionResult> GetCalendar(Guid id)
         {
-            var calendar = await _service.Season.GetClendarSeason(id);
+            var calendar = await _service.Season.GetClendar(id);
             return Ok(calendar);
         }
 
