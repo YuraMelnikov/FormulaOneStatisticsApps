@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Servic
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactfrontend", "reactfrontend\reactfrontend.esproj", "{DAD350A9-FE01-4D67-BB8F-FF581F68C6D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTestProject", "XTestProject\XTestProject.csproj", "{35E71071-0A86-492B-8B59-8A520B24E6C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XTestProject", "XTestProject\XTestProject.csproj", "{35E71071-0A86-492B-8B59-8A520B24E6C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parser", "Parser\Parser.csproj", "{BC2CCDC4-B251-442D-AD5A-A581FAEE1C8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{35E71071-0A86-492B-8B59-8A520B24E6C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35E71071-0A86-492B-8B59-8A520B24E6C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35E71071-0A86-492B-8B59-8A520B24E6C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC2CCDC4-B251-442D-AD5A-A581FAEE1C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC2CCDC4-B251-442D-AD5A-A581FAEE1C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC2CCDC4-B251-442D-AD5A-A581FAEE1C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC2CCDC4-B251-442D-AD5A-A581FAEE1C8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
