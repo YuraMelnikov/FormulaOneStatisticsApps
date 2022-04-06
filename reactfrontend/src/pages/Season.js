@@ -7,7 +7,6 @@ import TableSeasonChampConstructors from '../components/TableSeasonChampConstruc
 import Title from "../components/Title";
 
 const Season = (name) => {
-
     return (
         <Container>
             <Title name={ name.location.state +  " Formula One Season"}/>

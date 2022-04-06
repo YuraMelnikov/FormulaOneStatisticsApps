@@ -7,16 +7,14 @@ namespace Entities.Models
     [Table("TeamName")]
     public class TeamName : Entity
     {
-        [Required(ErrorMessage = "Team is required")]
-        public Guid IdTeam { get; set; }
-        [Required(ErrorMessage = "Season is required")]
-        public Guid IdSeason { get; set; }
-        [Required(ErrorMessage = "FullName is required")]
-        public string FullName { get; set; }
+        [Required(ErrorMessage = "Name is required")]
+        public string Name { get; set; }
 
-        [ForeignKey("IdTeam")]
-        public Team Team { get; set; }
-        [ForeignKey("IdSeason")]
-        public Season Season { get; set; }
+        [Required(ErrorMessage = "IdCountry is required")]
+        public Guid IdCountry { get; set; }
+        [ForeignKey("IdCountry")]
+        public Country Country { get; set; }
+
+        public string TimeApiId { get; set; }
     }
 }

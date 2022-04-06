@@ -1,9 +1,12 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import Title from "../components/Title";
 
 const GrandPrix = () => {
     return (
-        <Title name="Grand Prix"/>
+        <Container>
+                <Title name="Grand Prix"/>
+        </Container>
     );
 }
 

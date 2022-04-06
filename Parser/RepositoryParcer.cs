@@ -7,7 +7,7 @@ namespace Parser
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("User ID =postgres;Password=Cosworth3_;Server=localhost;Port=5432;Database=postgres;Integrated Security=true;Pooling=true;");
+            optionsBuilder.UseNpgsql("User ID =postgres;Password=3Opelkadett3_;Server=localhost;Port=5432;Database=postgres;Integrated Security=true;Pooling=true;");
         }
     }
 }

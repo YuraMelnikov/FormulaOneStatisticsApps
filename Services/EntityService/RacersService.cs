@@ -17,7 +17,7 @@ namespace Services.EntityService
         public async Task<IEnumerable<RacersDto>> GetRacersList() =>
             await _repositoryContext.Racers
                 .AsNoTracking()
-                .Select(a => new RacersDto { Id = a.Id, Name = a.SecondName, ImageLink = a.Image.Link })
+                .Select(a => new RacersDto { Id = a.Id, Name = a.FirstName + " " + a.SecondName, ImageLink = a.Image.Link })
                 .OrderBy(a => a.Name)
                 .ToArrayAsync();
     }

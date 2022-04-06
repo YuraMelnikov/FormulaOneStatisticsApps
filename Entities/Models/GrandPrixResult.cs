@@ -26,5 +26,12 @@ namespace Entities.Models
 
         [ForeignKey("IdParticipant")]
         public  Participant Participant { get; set; }
+
+        [Required(ErrorMessage = "NoteRus is required")]
+        public string NoteRus { get; set; }
+
+        [Required(ErrorMessage = "ClassificationRus is required")]
+        public string ClassificationRus { get; set; }
+
     }
 }

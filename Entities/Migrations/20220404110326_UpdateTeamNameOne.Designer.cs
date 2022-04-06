@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220328161404_AddedIndexYearSeason")]
-    partial class AddedIndexYearSeason
+    [Migration("20220404110326_UpdateTeamNameOne")]
+    partial class UpdateTeamNameOne
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -504,6 +504,10 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("TimeApiId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdCountry");
@@ -556,16 +560,64 @@ namespace Entities.Migrations
                     b.ToTable("Season");
                 });
 
-            modelBuilder.Entity("Entities.Models.Team", b =>
+            modelBuilder.Entity("Entities.Models.SeasonManufacturersClassification", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("IdCountry")
+                    b.Property<Guid>("IdSeason")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("IdImage")
+                    b.Property<Guid>("IdTeamName")
+                        .HasColumnType("uuid");
+
+                    b.Property<float>("Points")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdSeason");
+
+                    b.HasIndex("IdTeamName");
+
+                    b.ToTable("SeasonManufacturersClassification");
+                });
+
+            modelBuilder.Entity("Entities.Models.SeasonRacersClassification", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("IdRacer")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("IdSeason")
+                        .HasColumnType("uuid");
+
+                    b.Property<float>("Points")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdRacer");
+
+                    b.HasIndex("IdSeason");
+
+                    b.ToTable("SeasonRacersClassification");
+                });
+
+            modelBuilder.Entity("Entities.Models.Team", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
@@ -573,10 +625,6 @@ namespace Entities.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdCountry");
-
-                    b.HasIndex("IdImage");
 
                     b.ToTable("Team");
                 });
@@ -587,21 +635,18 @@ namespace Entities.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("FullName")
+                    b.Property<Guid?>("IdCountry")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("IdSeason")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("IdTeam")
-                        .HasColumnType("uuid");
+                    b.Property<string>("TimeApiId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdSeason");
-
-                    b.HasIndex("IdTeam");
 
                     b.ToTable("TeamName");
                 });
@@ -1022,26 +1067,7 @@ namespace Entities.Migrations
                     b.Navigation("Image");
                 });
 
-            modelBuilder.Entity("Entities.Models.Team", b =>
-                {
-                    b.HasOne("Entities.Models.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("IdCountry")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Models.Image", "Image")
-                        .WithMany()
-                        .HasForeignKey("IdImage")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
-
-                    b.Navigation("Image");
-                });
-
-            modelBuilder.Entity("Entities.Models.TeamName", b =>
+            modelBuilder.Entity("Entities.Models.SeasonManufacturersClassification", b =>
                 {
                     b.HasOne("Entities.Models.Season", "Season")
                         .WithMany()
@@ -1049,15 +1075,34 @@ namespace Entities.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.Team", "Team")
+                    b.HasOne("Entities.Models.TeamName", "TeamName")
                         .WithMany()
-                        .HasForeignKey("IdTeam")
+                        .HasForeignKey("IdTeamName")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Season");
 
-                    b.Navigation("Team");
+                    b.Navigation("TeamName");
+                });
+
+            modelBuilder.Entity("Entities.Models.SeasonRacersClassification", b =>
+                {
+                    b.HasOne("Entities.Models.Racer", "Racer")
+                        .WithMany()
+                        .HasForeignKey("IdRacer")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Season", "Season")
+                        .WithMany()
+                        .HasForeignKey("IdSeason")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Racer");
+
+                    b.Navigation("Season");
                 });
 
             modelBuilder.Entity("Entities.Models.Track", b =>

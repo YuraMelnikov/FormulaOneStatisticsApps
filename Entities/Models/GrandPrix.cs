@@ -36,5 +36,8 @@ namespace Entities.Models
         public TrackСonfiguration TrackСonfiguration { get; set; }
         [ForeignKey("IdImage")]
         public  Image Image { get; set; }
+
+        [Required(ErrorMessage = "NameRus of lan is required")]
+        public string NameRus { get; set; }
     }
 }

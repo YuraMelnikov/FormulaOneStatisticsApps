@@ -30,8 +30,19 @@ namespace Entities.Models
         public string TextData { get; set; }
 
         [ForeignKey("IdCountry")]
-        public  Country Country { get; set; }
+        public Country Country { get; set; }
         [ForeignKey("IdImage")]
-        public  Image Image { get; set; }
+        public Image Image { get; set; }
+
+        public string TimeApiId { get; set; }
+
+        [NotMapped]
+        public string RacerNameEng 
+        { 
+            get 
+            { 
+                return FirstName + " " + SecondName;
+            }
+        }
     }
 }

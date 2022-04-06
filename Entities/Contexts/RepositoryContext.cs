@@ -7,6 +7,8 @@ namespace Entities.Contexts
     {
         public RepositoryContext()
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
         }
         public RepositoryContext(DbContextOptions<RepositoryContext> options)
             : base(options)
@@ -51,6 +53,7 @@ namespace Entities.Contexts
         public DbSet<TeamName> TeamNames { get; set; }
         public DbSet<Track> Tracks { get; set; }
         public DbSet<TrackСonfiguration> TrackСonfigurations { get; set; }
+        public DbSet<SeasonManufacturersClassification> SeasonManufacturersClassification { get; set; }
         public DbSet<Tyre> Tyres { get; set; }
     }
 }

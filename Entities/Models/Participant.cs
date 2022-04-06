@@ -34,5 +34,7 @@ namespace Entities.Models
         public  Racer Racer { get; set; }
         [ForeignKey("IdTyre")]
         public  Tyre Tyre { get; set; }
+
+        public Guid? IdTeamName { get; set; }
     }
 }

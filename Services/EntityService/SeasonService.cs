@@ -84,7 +84,7 @@ namespace Services.EntityService
 
             foreach (var racer in racers)
             {
-                racer.Name = _repositoryContext.Racers.Find(racer.Id).SecondName;
+                racer.Name = _repositoryContext.Racers.Find(racer.Id).RacerNameEng;
                 racer.Result = new List<SeasonChampColumnDto>();
 
                 foreach (var grandPrix in grandPrixes)
@@ -98,38 +98,40 @@ namespace Services.EntityService
                         racer.Result.Add(new SeasonChampColumnDto { RacePosition = result.Classification });
                 }
 
-                racer.Points = _repositoryContext.GrandPrixResults
-                    .AsNoTracking()
-                    .Where(a => a.Participant.IdRacer == racer.Id & a.Participant.GrandPrix.IdSeason == seasonId)
-                    .Sum(a => a.Points);
+                var seasonRacersClassification = _repositoryContext.SeasonRacersClassification
+                    .FirstOrDefault(a => a.IdRacer == racer.Id && a.IdSeason == seasonId);
+                if(seasonRacersClassification != null)
+                {
+                    racer.Position = seasonRacersClassification.Position;
+                    racer.Points = seasonRacersClassification.Points;
+                }
             }
 
-            return racers;
+            return racers.OrderBy(a => a.Position);
         }
 
         public async Task<IEnumerable<ChampionshipResultDto>> GetChampionshipTeams(Guid seasonId)
         {
             var grandPrixes = await GetGrandPrixes(seasonId);
 
-            var teamsInSeason = _repositoryContext.Participants
+            var teamsInSeason = _repositoryContext.SeasonManufacturersClassification
                 .AsNoTracking()
-                .Where(a => a.GrandPrix.IdSeason == seasonId)
-                .GroupBy(x => x.Chassis.IdManufacturer)
-                .Select(a => new ChampionshipResultDto { Id = a.Key });
+                .Where(a => a.IdSeason == seasonId)
+                .Select(a => new ChampionshipResultDto { Id = a.IdTeamName, Name = a.TeamName.Name, Points = a.Points, Position = a.Position });
             var teams = await teamsInSeason.ToArrayAsync();
 
             foreach (var team in teams)
             {
-                team.Name = _repositoryContext.Manufacturers.Find(team.Id).Name;
                 team.Result = new List<SeasonChampColumnDto>();
 
                 foreach (var grandPrix in grandPrixes)
                 {
                     var result = await _repositoryContext.GrandPrixResults
                         .AsNoTracking()
-                        .Where(a => a.Participant.Chassis.IdManufacturer == team.Id & a.Participant.IdGrandPrix == grandPrix.Id)
+                        .Include(a => a.Participant)
+                        .Where(a => a.Participant.IdTeamName == team.Id & a.Participant.IdGrandPrix == grandPrix.Id)
                         .ToArrayAsync();
-                    if (result is null)
+                    if (result.Count() == 0)
                         team.Result.Add(new SeasonChampColumnDto { RacePosition = "-" });
                     else
                     {
@@ -138,16 +140,10 @@ namespace Services.EntityService
                             recePosition.Append(res.Classification + "/");
                         team.Result.Add(new SeasonChampColumnDto { RacePosition = recePosition.ToString().Trim('/') });
                     }
-
                 }
-
-                team.Points = _repositoryContext.GrandPrixResults
-                    .AsNoTracking()
-                    .Where(a => a.Participant.Chassis.IdManufacturer == team.Id & a.Participant.GrandPrix.IdSeason == seasonId)
-                    .Sum(a => a.Points);
             }
 
-            return teams;
+            return teams.OrderBy(a => a.Position);
         }
 
         public async Task<IEnumerable<LabelItemWhisId>> GetChassisTeamOnSeason(Guid idSeason, Guid idTeam)
@@ -190,7 +186,7 @@ namespace Services.EntityService
             var racers = await query.ToListAsync();
 
             foreach (var racer in racers)
-                racer.Name = _repositoryContext.Racers.Find(racer.Id).SecondName;
+                racer.Name = _repositoryContext.Racers.Find(racer.Id).RacerNameEng;
 
             return racers;
         }

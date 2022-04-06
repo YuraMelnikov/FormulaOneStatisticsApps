@@ -12,7 +12,7 @@ namespace Services.DTO.Common
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Racer, LabelItemWhisId>()
-                .ForMember(to => to.Name, from => from.MapFrom(a => a.SecondName));
+                .ForMember(to => to.Name, from => from.MapFrom(a => a.RacerNameEng));
             profile.CreateMap<Tyre, LabelItemWhisId>();
             profile.CreateMap<Engine, LabelItemWhisId>();
             profile.CreateMap<Chassis, LabelItemWhisId>();

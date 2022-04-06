@@ -3,6 +3,7 @@ using System;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20220404110235_InitialDB")]
+    partial class InitialDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,10 +195,6 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("NameRus")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<int>("Number")
                         .HasColumnType("integer");
 
@@ -279,10 +277,6 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("ClassificationRus")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<Guid>("IdParticipant")
                         .HasColumnType("uuid");
 
@@ -290,10 +284,6 @@ namespace Entities.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Note")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NoteRus")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -395,9 +385,6 @@ namespace Entities.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("IdTeam")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("IdTeamName")
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("IdTyre")
@@ -648,20 +635,11 @@ namespace Entities.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("IdCountry")
-                        .HasColumnType("uuid");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("TimeApiId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("IdCountry");
 
                     b.ToTable("TeamName");
                 });
@@ -1118,17 +1096,6 @@ namespace Entities.Migrations
                     b.Navigation("Racer");
 
                     b.Navigation("Season");
-                });
-
-            modelBuilder.Entity("Entities.Models.TeamName", b =>
-                {
-                    b.HasOne("Entities.Models.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("IdCountry")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
                 });
 
             modelBuilder.Entity("Entities.Models.Track", b =>
