@@ -10,6 +10,7 @@ namespace Services.IService
         ITracksServices Tracks { get; }
         IRacersService Racers { get; }
         IGrandPrixResultService GrandPrixResult { get; }
+        IRacerService Racer { get; }
         Task SaveAsync();
     }
 }

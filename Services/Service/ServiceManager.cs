@@ -17,12 +17,22 @@ namespace Services.Service
         private IManufacturersService _manufacturers;
         private ISeasonService _season;
         private IGrandPrixResultService _grandPrixResult;
-
+        private IRacerService _racerService;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+        public IRacerService Racer
+        {
+            get
+            {
+                if (_racerService == null)
+                    _racerService = new RacerService(_repoContext);
+                return _racerService;
+            }
         }
 
         public ISeasonService Season
