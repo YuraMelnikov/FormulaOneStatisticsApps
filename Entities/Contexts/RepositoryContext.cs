@@ -30,6 +30,7 @@ namespace Entities.Contexts
         }
 
         public DbSet<SeasonRacersClassification> SeasonRacersClassification { get; set; }
+        public DbSet<SeasonImg> SeasonImg { get; set; }
         public DbSet<Chassis> Chassis { get; set; }
         public DbSet<ChassisImg> ChassisImgs { get; set; }
         public DbSet<Country> Countries { get; set; }

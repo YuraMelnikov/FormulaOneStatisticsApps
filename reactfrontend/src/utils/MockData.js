@@ -10110,3 +10110,219 @@ export const GPCLASSIFICATION_MOCK = [
         "note": "Gearbox"
     }
 ];
+
+export const RACERRESULT_MOCK = [
+    {
+        "idSeason": "02348de9-2c7f-40fc-8661-b2dd660e4f06",
+        "season": 1997,
+        "chassies": [
+            {
+                "idChassies": "ef67fca9-31bd-4360-907b-854e0f49ceaf",
+                "chassies": "Jordan 197",
+                "liveryLink": "/assets/livery/7bc62b70-aeff-4d65-a4cb-828e7f0541f7Jordan 197.gif"
+            }
+        ],
+        "points": "13",
+        "positions": "11",
+        "win": 0,
+        "polePosition": 0,
+        "fastLap": 0,
+        "topFinish": "3",
+        "grandPrixes": 17
+    },
+    {
+        "idSeason": "63018152-4cc9-43c5-bb3b-0c8c7994184c",
+        "season": 1998,
+        "chassies": [
+            {
+                "idChassies": "37c4b59f-b23d-4bae-b8e0-887d5ea9efa4",
+                "chassies": "Jordan 198",
+                "liveryLink": "/assets/livery/e867eb3f-12bd-43ef-bbea-768cef269e8dJordan 198.gif"
+            }
+        ],
+        "points": "14",
+        "positions": "10",
+        "win": 0,
+        "polePosition": 0,
+        "fastLap": 0,
+        "topFinish": "2",
+        "grandPrixes": 16
+    },
+    {
+        "idSeason": "537e29ea-46e4-464d-8466-949575747707",
+        "season": 1999,
+        "chassies": [
+            {
+                "idChassies": "9779cc07-391f-4af7-aa62-05c1d241da45",
+                "chassies": "Williams FW21",
+                "liveryLink": "/assets/livery/429eb5be-488f-448f-8d8e-394418e1017eWilliams FW21.gif"
+            }
+        ],
+        "points": "35",
+        "positions": "6",
+        "win": 0,
+        "polePosition": 0,
+        "fastLap": 1,
+        "topFinish": "2",
+        "grandPrixes": 16
+    },
+    {
+        "idSeason": "fc8201f4-0c81-4305-8c88-7f5a165bd43c",
+        "season": 2000,
+        "chassies": [
+            {
+                "idChassies": "630fdc2e-5183-4325-b61c-dfd10695a5e2",
+                "chassies": "Williams FW22",
+                "liveryLink": "/assets/livery/67caf840-62d5-4fdb-a901-0e7f9ce0bd5fWilliams FW22.gif"
+            }
+        ],
+        "points": "24",
+        "positions": "5",
+        "win": 0,
+        "polePosition": 0,
+        "fastLap": 0,
+        "topFinish": "3",
+        "grandPrixes": 17
+    },
+    {
+        "idSeason": "a21696f6-da1c-4f7c-a74b-219a2dfb1da0",
+        "season": 2001,
+        "chassies": [
+            {
+                "idChassies": "4dc17bee-cefc-4c42-acb2-a9fcc164e81f",
+                "chassies": "Williams FW23",
+                "liveryLink": "/assets/livery/51f50fdd-0363-40ea-88e6-7328788ee71aWilliams FW23.gif"
+            },
+            {
+                "idChassies": "d88a3109-394e-4a46-aa80-b60cb472322b",
+                "chassies": "Williams FW23B",
+                "liveryLink": "/assets/img/cnt_empty.gif"
+            }
+        ],
+        "points": "49",
+        "positions": "4",
+        "win": 3,
+        "polePosition": 0,
+        "fastLap": 5,
+        "topFinish": "1",
+        "grandPrixes": 17
+    },
+    {
+        "idSeason": "78a81b9a-f22d-4445-b1f4-cb20c2fb8fcb",
+        "season": 2002,
+        "chassies": [
+            {
+                "idChassies": "7a15c128-2eb7-45cb-9529-b2829fca2ad7",
+                "chassies": "Williams FW24",
+                "liveryLink": "/assets/livery/36d208b7-e26f-4a53-8631-a38184a33895Williams FW24.gif"
+            }
+        ],
+        "points": "42",
+        "positions": "4",
+        "win": 1,
+        "polePosition": 0,
+        "fastLap": 0,
+        "topFinish": "1",
+        "grandPrixes": 17
+    },
+    {
+        "idSeason": "a704a4f4-3b42-47ab-8d0a-62cd56d80b87",
+        "season": 2003,
+        "chassies": [
+            {
+                "idChassies": "d81b02fe-3346-44dd-91d2-9eba6d043772",
+                "chassies": "Williams FW25",
+                "liveryLink": "/assets/livery/326e419d-5b5b-4b95-804e-49c36bf0c2cbWilliams FW25.gif"
+            }
+        ],
+        "points": "58",
+        "positions": "5",
+        "win": 2,
+        "polePosition": 0,
+        "fastLap": 1,
+        "topFinish": "1",
+        "grandPrixes": 16
+    },
+    {
+        "idSeason": "1c3c58c1-3780-49a1-9dbf-ed7a1c779bb5",
+        "season": 2004,
+        "chassies": [
+            {
+                "idChassies": "3cb72503-b4a0-4421-a05f-e19b2e32217c",
+                "chassies": "Williams FW26",
+                "liveryLink": "/assets/livery/d1b10adb-d321-4663-8761-32cc980079ecWilliams FW26.gif"
+            }
+        ],
+        "points": "24",
+        "positions": "9",
+        "win": 0,
+        "polePosition": 0,
+        "fastLap": 0,
+        "topFinish": "2",
+        "grandPrixes": 12
+    },
+    {
+        "idSeason": "7a4c4f39-3ae0-4986-bf8a-647d9460df9d",
+        "season": 2005,
+        "chassies": [
+            {
+                "idChassies": "6f2b4bf6-7fd3-4493-85aa-a78e79093c12",
+                "chassies": "Toyota TF105B",
+                "liveryLink": "/assets/img/cnt_empty.gif"
+            },
+            {
+                "idChassies": "c40963af-8bcb-4944-9e38-981274cb1527",
+                "chassies": "Toyota TF105",
+                "liveryLink": "/assets/livery/23657ab7-fa56-4c97-83ef-57e5f0c6be55Toyota TF105.gif"
+            }
+        ],
+        "points": "45",
+        "positions": "6",
+        "win": 0,
+        "polePosition": 0,
+        "fastLap": 1,
+        "topFinish": "3",
+        "grandPrixes": 19
+    },
+    {
+        "idSeason": "e8abbc74-c2af-41e4-bf11-e35281768193",
+        "season": 2006,
+        "chassies": [
+            {
+                "idChassies": "c48ae16e-dc4b-432d-b1ba-f64e0c0a5682",
+                "chassies": "Toyota TF106",
+                "liveryLink": "/assets/livery/19b63c9b-62a8-4607-8636-f3f771e5aa80Toyota TF106.gif"
+            },
+            {
+                "idChassies": "e18b6d6e-9932-41a7-a7aa-ee545a862da9",
+                "chassies": "Toyota TF106B",
+                "liveryLink": "/assets/img/cnt_empty.gif"
+            }
+        ],
+        "points": "20",
+        "positions": "10",
+        "win": 0,
+        "polePosition": 0,
+        "fastLap": 0,
+        "topFinish": "3",
+        "grandPrixes": 18
+    },
+    {
+        "idSeason": "30ca3401-5483-4d61-8d85-28a6cc033b75",
+        "season": 2007,
+        "chassies": [
+            {
+                "idChassies": "7b426afa-b039-40f5-bcbf-ae57664f5829",
+                "chassies": "Toyota TF107",
+                "liveryLink": "/assets/livery/616fa289-4b47-4add-b9c0-ba87936390aaToyota TF107.gif"
+            }
+        ],
+        "points": "5",
+        "positions": "16",
+        "win": 0,
+        "polePosition": 0,
+        "fastLap": 0,
+        "topFinish": "6",
+        "grandPrixes": 17
+    }
+];

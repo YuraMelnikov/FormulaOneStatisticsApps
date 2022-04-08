@@ -4,6 +4,6 @@ namespace Services.IEntityService
 {
     public interface IRacerService
     {
-        Task<IEnumerable<RacerResultsByYears>> GetResultBySeason(Guid racerId);
+        Task<IEnumerable<RacerSeasonsDto>> GetResultBySeason(Guid racerId);
     }
 }

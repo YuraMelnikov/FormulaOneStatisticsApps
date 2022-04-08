@@ -573,6 +573,27 @@ namespace Entities.Migrations
                     b.ToTable("Season");
                 });
 
+            modelBuilder.Entity("Entities.Models.SeasonImg", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("IdImage")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("IdSeason")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdImage");
+
+                    b.HasIndex("IdSeason");
+
+                    b.ToTable("SeasonImg");
+                });
+
             modelBuilder.Entity("Entities.Models.SeasonManufacturersClassification", b =>
                 {
                     b.Property<Guid>("Id")
@@ -1080,6 +1101,25 @@ namespace Entities.Migrations
                         .IsRequired();
 
                     b.Navigation("Image");
+                });
+
+            modelBuilder.Entity("Entities.Models.SeasonImg", b =>
+                {
+                    b.HasOne("Entities.Models.Image", "Image")
+                        .WithMany()
+                        .HasForeignKey("IdImage")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Season", "Season")
+                        .WithMany()
+                        .HasForeignKey("IdSeason")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Image");
+
+                    b.Navigation("Season");
                 });
 
             modelBuilder.Entity("Entities.Models.SeasonManufacturersClassification", b =>

@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { MANUFACTURERS_MOCK, RACERS_MOCK, SEASONS_MOCK, TRACKS_MOCK, SEASONCALENDAR_MOCK,
     SEASONPARCIPIENT_MOCK, SEASONCHAMPIONSIPRACERS_MOCK, SEASONCHAMPIONSHIPTEAMS_MOCK,
-    GPPARTICIPANT_MOCK, GPQUALIFICATION_MOCK, GPCLASSIFICATION_MOCK
+    GPPARTICIPANT_MOCK, GPQUALIFICATION_MOCK, GPCLASSIFICATION_MOCK, RACERRESULT_MOCK
 
  } from "../utils/MockData";
 
@@ -18,7 +18,16 @@ export default class MockStore {
         this._gpParticipant = GPPARTICIPANT_MOCK
         this._gpQualification = GPQUALIFICATION_MOCK
         this._gpClassification = GPCLASSIFICATION_MOCK
+        this._racerResult = RACERRESULT_MOCK
         makeAutoObservable(this)
+    }
+
+    setRacerResult(racerResult) {
+        this._racerResult = racerResult
+    }
+
+    get racerResult () {
+        return this._racerResult
     }
 
     setGpClassification(gpClassification) {
