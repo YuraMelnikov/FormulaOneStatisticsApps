@@ -50,7 +50,7 @@ namespace Entities.Contexts
         public DbSet<RacerImg> RacerImgs { get; set; }
         public DbSet<Season> Seasons { get; set; }
         public DbSet<Team> Teams { get; set; }
-        public DbSet<ParticipantImg> TeamImgs { get; set; }
+        public DbSet<ParticipantImg> ParticipantImg { get; set; }
         public DbSet<TeamName> TeamNames { get; set; }
         public DbSet<Track> Tracks { get; set; }
         public DbSet<TrackСonfiguration> TrackСonfigurations { get; set; }

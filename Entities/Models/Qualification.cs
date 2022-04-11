@@ -13,10 +13,9 @@ namespace Entities.Models
         public int Position { get; set; }
         [Required(ErrorMessage = "Time is required")]
         public string Time { get; set; }
-        [Required(ErrorMessage = "Points is required")]
-        public float Points { get; set; }
 
         [ForeignKey("IdParticipant")]
         public  Participant Participant { get; set; }
+        public bool? IsUpdate { get; set; }
     }
 }

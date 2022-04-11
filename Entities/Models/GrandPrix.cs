@@ -25,8 +25,7 @@ namespace Entities.Models
         public Guid IdImage { get; set; }
         [Required(ErrorMessage = "Weather is required")]
         public string Weather { get; set; }
-        [Required(ErrorMessage = "Percent distance is required")]
-        public float PercentDistance { get; set; }
+
         [Required(ErrorMessage = "Number of lan is required")]
         public int NumberOfLap { get; set; }
 

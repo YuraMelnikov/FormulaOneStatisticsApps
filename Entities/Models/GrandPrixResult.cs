@@ -33,5 +33,7 @@ namespace Entities.Models
         [Required(ErrorMessage = "ClassificationRus is required")]
         public string ClassificationRus { get; set; }
 
+        public bool? IsUpdate { get; set; }
+
     }
 }

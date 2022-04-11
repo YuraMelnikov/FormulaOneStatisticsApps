@@ -35,6 +35,7 @@ namespace Entities.Models
         public Image Image { get; set; }
 
         public string TimeApiId { get; set; }
+        public bool? IsUpdate { get; set; }
 
         [NotMapped]
         public string RacerNameEng 

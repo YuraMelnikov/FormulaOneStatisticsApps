@@ -36,5 +36,7 @@ namespace Entities.Models
         public  Tyre Tyre { get; set; }
 
         public Guid? IdTeamName { get; set; }
+
+        public bool? IsUpdate { get; set; }
     }
 }
