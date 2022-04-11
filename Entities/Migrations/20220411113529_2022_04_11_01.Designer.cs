@@ -3,6 +3,7 @@ using System;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20220411113529_2022_04_11_01")]
+    partial class _2022_04_11_01
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -289,9 +291,6 @@ namespace Entities.Migrations
                     b.Property<int?>("Lap")
                         .HasColumnType("integer");
 
-                    b.Property<float?>("Miles")
-                        .HasColumnType("real");
-
                     b.Property<string>("Note")
                         .IsRequired()
                         .HasColumnType("text");
@@ -308,9 +307,6 @@ namespace Entities.Migrations
 
                     b.Property<string>("Time")
                         .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("TimeN")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -489,8 +485,16 @@ namespace Entities.Migrations
                     b.Property<DateTime>("Born")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("BornIn")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime?>("Dead")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("DeadIn")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -510,6 +514,10 @@ namespace Entities.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("SecondName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SecondNameRus")
                         .IsRequired()
                         .HasColumnType("text");
 
