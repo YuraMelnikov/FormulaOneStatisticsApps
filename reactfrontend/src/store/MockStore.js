@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { MANUFACTURERS_MOCK, RACERS_MOCK, SEASONS_MOCK, TRACKS_MOCK, SEASONCALENDAR_MOCK,
+import { MANUFACTURERS_MOCK, RACERS_MOCK, TRACKS_MOCK, SEASONCALENDAR_MOCK,
     SEASONPARCIPIENT_MOCK, SEASONCHAMPIONSIPRACERS_MOCK, SEASONCHAMPIONSHIPTEAMS_MOCK,
     GPPARTICIPANT_MOCK, GPQUALIFICATION_MOCK, GPCLASSIFICATION_MOCK, RACERRESULT_MOCK
 
@@ -7,7 +7,7 @@ import { MANUFACTURERS_MOCK, RACERS_MOCK, SEASONS_MOCK, TRACKS_MOCK, SEASONCALEN
 
 export default class MockStore {
     constructor() {
-        this._seasons = SEASONS_MOCK
+        this._seasons = []
         this._manufacturers = MANUFACTURERS_MOCK
         this._racers = RACERS_MOCK
         this._tracks = TRACKS_MOCK
@@ -20,6 +20,13 @@ export default class MockStore {
         this._gpClassification = GPCLASSIFICATION_MOCK
         this._racerResult = RACERRESULT_MOCK
         makeAutoObservable(this)
+    }
+
+    setSeasons(seasons) {
+        this._seasons = seasons
+    }
+    get seasons() {
+        return this._seasons
     }
 
     setRacerResult(racerResult) {
@@ -84,14 +91,6 @@ export default class MockStore {
 
     get seasonCalendar() {
         return this._seasonCalendar
-    }
-
-    setSeasons(seasons) {
-        this._seasons = seasons
-    }
-
-    get seasons() {
-        return this._seasons
     }
 
     setManufacturers(manufacturers) {
