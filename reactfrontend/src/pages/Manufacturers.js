@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-import ManufacturersList from "../components/ManufacturersList";
+import ManufacturersList from "../components/Lists/ManufacturersList";
 import Title from "../components/Title";
 
 const Manufacturers = () => {

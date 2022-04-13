@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-import TracksList from "../components/TracksList";
+import TracksList from "../components/Lists/TracksList";
 import Title from "../components/Title";
 
 const Tracks = () => {

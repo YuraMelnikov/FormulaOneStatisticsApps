@@ -1,24 +1,17 @@
-import { observer } from "mobx-react-lite";
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
-import { Context } from "../index";
-import SeasonsList from "../components/SeasonsList";
+import SeasonsList from "../components/Lists/SeasonsList";
 import Title from "../components/Title";
-import { fetchSeasons } from "../http/SeasonsAPI";
+import { SEASONS_TITLE } from "../utils/TitleNameConst";
 
-const Seasons = observer( () => {
-    const {seasons} = useContext(Context)
-
-    useEffect(() => {
-        fetchSeasons().than(data => seasons.setSeasons(data))
-    }, [])
+const Seasons = () => {
 
     return (
         <Container fluid>
-            <Title name="Seasons"/>
+            <Title name={SEASONS_TITLE}/>
             <SeasonsList/>
         </Container>
     );
-});
+};
 
 export default Seasons;

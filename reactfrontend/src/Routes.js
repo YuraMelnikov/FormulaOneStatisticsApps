@@ -2,7 +2,7 @@ import { ABOUTAPI_ROUTE, ABOUTUS_ROUTE, GRANDPRIX_ROUTE, MANUFACTURERS_ROUTE, MA
 import AboutAPI from './pages/AboutAPI';
 import AboutUs from './pages/AboutUs';
 import GrandPrix from './pages/GrandPrix';
-import Manufacrurer from './pages/Manufacrurer';
+import Manufacturer from './pages/Manufacturer';
 import Manufacturers from './pages/Manufacturers';
 import Racer from './pages/Racer';
 import Racers from './pages/Racers';
@@ -28,7 +28,7 @@ export const publicRoutes = [
     },
     {
         path: MANUFACTURER_ROUTE + '/:id',
-        Component: Manufacrurer
+        Component: Manufacturer
     },
     {
         path: MANUFACTURERS_ROUTE,

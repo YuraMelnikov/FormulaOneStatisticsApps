@@ -11,7 +11,35 @@ using static Parser.ChampXML;
 
 RepositoryParcer repository = new RepositoryParcer();
 
-for(var i = 1969; i <= 2022; i++)
+
+
+string[] allfiles = Directory.GetFiles(@"C:\Users\myi\source\repos\YuraMelnikov\FormulaOneStatisticsApps\reactfrontend\public\assets\img");
+
+var tracks = repository.TrackСonfigurations.AsNoTracking().Include(a => a.Image).ToArray();
+foreach (var track in tracks)
+{
+    
+}
+
+
+//List<string> myImg = new List<string>();
+
+//
+//foreach(var racer in racers)
+//{
+//    var link = racer.Image.Link;
+//    foreach (string filename in allfiles)
+//    {
+//        if (filename.Contains(link) == true)
+//            myImg.Add(filename);
+//    }
+//}
+
+
+
+
+
+for (var i = 1969; i <= 2022; i++)
 {
     Console.WriteLine(i.ToString());
     var seasonId = repository.Seasons.First(a => a.Year == i).Id;

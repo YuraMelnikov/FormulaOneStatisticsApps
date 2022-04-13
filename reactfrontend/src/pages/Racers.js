@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-import RacersList from "../components/RacersList";
+import RacersList from "../components/Lists/RacersList";
 import Title from "../components/Title";
 
 const Racers = () => {

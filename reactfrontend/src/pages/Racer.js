@@ -1,9 +1,9 @@
 import React from "react";
 import Title from "../components/Title";
 import { Container } from 'react-bootstrap';
-import TableRacerSeasons from "../components/TableRacerSeasons";
+import TableRacerSeasons from "../components/Tables/TableRacerSeasons";
 
-const Racer = () => {
+const Racer = () => { 
     return (
         <Container>
             <Title name="Racer"/>

@@ -7,7 +7,6 @@ import { MANUFACTURERS_MOCK, RACERS_MOCK, TRACKS_MOCK, SEASONCALENDAR_MOCK,
 
 export default class MockStore {
     constructor() {
-        this._seasons = []
         this._manufacturers = MANUFACTURERS_MOCK
         this._racers = RACERS_MOCK
         this._tracks = TRACKS_MOCK
@@ -20,13 +19,6 @@ export default class MockStore {
         this._gpClassification = GPCLASSIFICATION_MOCK
         this._racerResult = RACERRESULT_MOCK
         makeAutoObservable(this)
-    }
-
-    setSeasons(seasons) {
-        this._seasons = seasons
-    }
-    get seasons() {
-        return this._seasons
     }
 
     setRacerResult(racerResult) {

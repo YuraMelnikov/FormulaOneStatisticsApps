@@ -1,9 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import TableSeasonCalendar from '../components/TableSeasonCalendar';
-import TableSeasonPercipient from '../components/TableSeasonPercipient';
-import TableSeasonChampRacers from '../components/TableSeasonChampRacers';
-import TableSeasonChampConstructors from '../components/TableSeasonChampConstructors';
+import TableSeasonCalendar from '../components/Tables/TableSeasonCalendar';
+import TableSeasonPercipient from '../components/Tables/TableSeasonPercipient';
+import TableSeasonChampRacers from '../components/Tables/TableSeasonChampRacers';
+import TableSeasonChampConstructors from '../components/Tables/TableSeasonChampConstructors';
 import Title from "../components/Title";
 
 const Season = (name) => {
