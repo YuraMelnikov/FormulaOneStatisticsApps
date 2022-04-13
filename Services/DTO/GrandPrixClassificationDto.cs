@@ -3,6 +3,7 @@
     public record GrandPrixClassificationDto
     {
         public string Position { get; set; }
+        public int? PositionNum { get; set; }
         public Guid IdRacer { get; set; }
         public string Racer { get; set; }
         public Guid IdChassis { get; set; }

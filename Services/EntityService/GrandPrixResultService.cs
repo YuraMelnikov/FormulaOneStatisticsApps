@@ -24,6 +24,7 @@ namespace Services.EntityService
                 .Where(a => a.Participant.IdGrandPrix == idGrandPrix)
                 .Select(a => new GrandPrixClassificationDto
                 {
+                    PositionNum = a.Position,
                     Position = a.Classification, 
                     IdRacer = a.Participant.IdRacer, 
                     Racer = a.Participant.Racer.RacerNameEng, 
@@ -34,7 +35,7 @@ namespace Services.EntityService
                 });
 
             return await partisipants
-                .OrderBy(a => a.Position)
+                .OrderBy(a => a.PositionNum)
                 .ThenByDescending(a => a.Circles.Length)
                 .ThenByDescending(a => a.Circles)
                 .ToArrayAsync();
@@ -59,7 +60,8 @@ namespace Services.EntityService
                 });
 
             return await participant
-                .OrderBy(a => a.No.Length)
+                .OrderBy(a => a.TeamName)
+                .ThenBy(a => a.No.Length)
                 .ThenBy(a => a.No)
                 .ToArrayAsync();
         }

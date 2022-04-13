@@ -10,7 +10,32 @@ export default class OpenApiStore {
         this._seasonPercipient = []
         this._seasonRacersResult = []
         this._seasonConstResult = []
+        this._gpClassification = []
+        this._gpQualification = []
+        this._gpParticipant = []
+
         makeAutoObservable(this)
+    }
+
+    setGpParticipant(gpParticipant) {
+        this._gpParticipant = gpParticipant
+    }
+    get gpParticipant() {
+        return this._gpParticipant
+    }
+
+    setGpQualification(gpQualification) {
+        this._gpQualification = gpQualification
+    }
+    get gpQualification() {
+        return this._gpQualification
+    }
+
+    setGpClassification(gpClassification) {
+        this._gpClassification = gpClassification
+    }
+    get gpClassification() {
+        return this._gpClassification
     }
 
     setSeasonConstResult(seasonConstResult) {

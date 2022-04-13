@@ -47,3 +47,21 @@ export const fetchSeasonConstResult = async (id) => {
     console.log(data);
     return data
 }
+
+export const fetchGpClassification = async (id) => {
+    const {data} = await $host.get('api/grandprix/classification/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchGpQualification = async (id) => {
+    const {data} = await $host.get('api/grandprix/qualification/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchGpParticipant = async (id) => {
+    const {data} = await $host.get('api/grandprix/participants/' + id)
+    console.log(data);
+    return data
+}

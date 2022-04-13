@@ -1,14 +1,22 @@
-import React, {useContext} from 'react';
+import React, { useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { observer } from "mobx-react-lite";
 import Table from 'react-bootstrap/Table';
 import { Context } from "../../index";
 import { Container, Row } from 'react-bootstrap';
+import TitleSmall from '../TitleSmall';
+import { fetchGpClassification } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { RACER_ROUTE, MANUFACTURER_ROUTE } from '../../utils/Constants';
-import TitleSmall from '../TitleSmall';
 
-const TableGrandClassification = () => {
-    const {mockData} = useContext(Context)
+const TableGrandClassification = observer(() => {
     const history = useHistory()
+    const {openApiData} = useContext(Context)
+    const {id} = useParams()
+
+    useEffect(() => {
+        fetchGpClassification(id).then(data => openApiData.setGpClassification(data))
+    }, [id, openApiData])
 
     return (
         <Container>
@@ -28,16 +36,16 @@ const TableGrandClassification = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {mockData.gpClassification.map(mockData =>
-                            <tr>
-                                <td className="text-center">{mockData.position}</td>
-                                <td style={{cursor: 'pointer'}} onClick={() => history.push(RACER_ROUTE + '/' + mockData.idRacer)}>{mockData.racer}</td>
-                                <td style={{cursor: 'pointer'}} onClick={() => history.push(MANUFACTURER_ROUTE + '/' + mockData.idChassis)}>{mockData.chassis}</td>
-                                <td>{mockData.circles}</td>
-                                <td>{mockData.time}</td>
-                                <td>{mockData.avrSpeed}</td>
-                                <td>{mockData.points}</td>
-                                <td>{mockData.note}</td>
+                        {openApiData.gpClassification.map(result =>
+                            <tr key={result.idRacer}>
+                                <td className="text-center">{result.position}</td>
+                                <td style={{cursor: 'pointer'}} onClick={() => history.push(RACER_ROUTE + '/' + result.idRacer)}>{result.racer}</td>
+                                <td style={{cursor: 'pointer'}} onClick={() => history.push(MANUFACTURER_ROUTE + '/' + result.idChassis)}>{result.chassis}</td>
+                                <td>{result.circles}</td>
+                                <td>{result.time}</td>
+                                <td>{result.avrSpeed}</td>
+                                <td>{result.points}</td>
+                                <td>{result.note}</td>
                             </tr>
                         )}
                     </tbody>
@@ -45,6 +53,6 @@ const TableGrandClassification = () => {
             </Row>
         </Container>
     );
-}
+});
 
 export default TableGrandClassification;

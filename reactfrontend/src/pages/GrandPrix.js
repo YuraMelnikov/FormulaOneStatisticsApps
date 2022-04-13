@@ -9,9 +9,9 @@ const GrandPrix = () => {
     return (
         <Container>
                 <Title name="Grand Prix"/>
+                <TableGrandClassification/>
                 <TableGrandPrixParticipant/>
                 <TableGrandPrixQualification/>
-                <TableGrandClassification/>
         </Container>
     );
 }
