@@ -13,15 +13,6 @@ RepositoryParcer repository = new RepositoryParcer();
 
 
 
-string[] allfiles = Directory.GetFiles(@"C:\Users\myi\source\repos\YuraMelnikov\FormulaOneStatisticsApps\reactfrontend\public\assets\img");
-
-var tracks = repository.TrackСonfigurations.AsNoTracking().Include(a => a.Image).ToArray();
-foreach (var track in tracks)
-{
-    
-}
-
-
 //List<string> myImg = new List<string>();
 
 //
@@ -39,7 +30,7 @@ foreach (var track in tracks)
 
 
 
-for (var i = 1969; i <= 2022; i++)
+for (var i = 1971; i <= 2022; i++)
 {
     Console.WriteLine(i.ToString());
     var seasonId = repository.Seasons.First(a => a.Year == i).Id;
@@ -92,6 +83,10 @@ for (var i = 1969; i <= 2022; i++)
 
                     if(resultDb is null)
                     {
+                        Console.WriteLine("where "IdGrandPrix" = '" + parcipiantDb.IdGrandPrix + "'");
+                        Console.WriteLine("and "IdRacer" = '" + parcipiantDb.IdRacer + "'");
+
+
                         GrandPrixResult newResult = new GrandPrixResult
                         {
                             IdParticipant = parcipiantDb.Id, 
