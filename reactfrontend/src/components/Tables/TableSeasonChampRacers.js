@@ -1,15 +1,24 @@
-import React, {useContext} from 'react';
+import React, { useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { observer } from "mobx-react-lite";
 import Table from 'react-bootstrap/Table';
-import {Context} from "../../index";
+import { Context } from "../../index";
 import { Container, Row } from 'react-bootstrap';
-import { useHistory } from "react-router-dom";
-import {RACER_ROUTE, GRANDPRIX_ROUTE } from '../../utils/Constants';
 import TitleSmall from '../TitleSmall';
+import { fetchSeasonRacersResult } from "../../http/API";
+import { useHistory } from "react-router-dom";
+import { RACER_ROUTE, GRANDPRIX_ROUTE } from '../../utils/Constants';
 
-const TableSeasonChampRacers = () => {
-    const {mockData} = useContext(Context)
+const TableSeasonChampRacers = observer(() => {
+    let numGrandPrix = 0
+
     const history = useHistory()
-    let step = 0
+    const {openApiData} = useContext(Context)
+    const {id} = useParams()
+
+    useEffect(() => {
+        fetchSeasonRacersResult(id).then(data => openApiData.setSeasonRacersResult(data))
+    }, [id, openApiData])
 
     return(
         <Container>
@@ -20,21 +29,21 @@ const TableSeasonChampRacers = () => {
                         <tr className="text-center">
                             <th>Position</th>
                             <th>Driver</th>
-                            {mockData.seasonCalendar.map(mockData => 
-                                <th style={{cursor: 'pointer'}} onClick={() => history.push(GRANDPRIX_ROUTE + '/' + mockData.idGrandPrix)} className="text-center">{step += 1}</th>
+                            {openApiData.seasonCalendar.map(season => 
+                                <th style={{cursor: 'pointer'}} onClick={() => history.push(GRANDPRIX_ROUTE + '/' + season.idGrandPrix)} className="text-center">{numGrandPrix += 1}</th>
                             )}
                             <th>Points</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {mockData.seasonChampRacers.map(mockData =>
-                            <tr key={ mockData.id }>
-                                <td className="text-center">{mockData.position}</td>
-                                <td style={{cursor: 'pointer'}} onClick={() => history.push(RACER_ROUTE + '/' + mockData.id)}>{mockData.name}</td>
-                                {mockData.result.map(mockDataResult =>
-                                    <td className="text-center">{mockDataResult.racePosition}</td>
+                        {openApiData.seasonRacersResult.map(racer =>
+                            <tr key={ racer.id }>
+                                <td className="text-center">{racer.position}</td>
+                                <td style={{cursor: 'pointer'}} onClick={() => history.push(RACER_ROUTE + '/' + racer.id)}>{racer.name}</td>
+                                {racer.result.map(resultGrandPrix =>
+                                    <td className="text-center">{resultGrandPrix.racePosition}</td>
                                 )}
-                                <td className="text-center">{mockData.points}</td>
+                                <td className="text-center">{racer.points}</td>
                             </tr>
                         )}
                     </tbody>
@@ -42,6 +51,6 @@ const TableSeasonChampRacers = () => {
             </Row>
         </Container>
     );
-}
+});
 
 export default TableSeasonChampRacers;

@@ -1,15 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { observer } from "mobx-react-lite";
 import Table from 'react-bootstrap/Table';
 import { Context } from "../../index";
 import { Container, Row } from 'react-bootstrap';
+import TitleSmall from '../TitleSmall';
+import { fetchSeasonConstResult } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { GRANDPRIX_ROUTE } from '../../utils/Constants';
-import TitleSmall from '../TitleSmall';
 
-const TableSeasonChampConstructors = () => {
-    const {mockData} = useContext(Context)
+const TableSeasonChampConstructors = observer(() => {
+    let numGrandPrix = 0
+
     const history = useHistory()
-    let step = 0
+    const {openApiData} = useContext(Context)
+    const {id} = useParams()
+
+    useEffect(() => {
+        fetchSeasonConstResult(id).then(data => openApiData.setSeasonConstResult(data))
+    }, [id, openApiData])
 
     return(
         <Container>
@@ -20,21 +29,21 @@ const TableSeasonChampConstructors = () => {
                         <tr className="text-center">
                             <th>Position</th>
                             <th>Constructor</th>
-                            {mockData.seasonCalendar.map(mockData => 
-                                <th  style={{cursor: 'pointer'}} onClick={() => history.push(GRANDPRIX_ROUTE + '/' + mockData.idGrandPrix)} className="text-center">{step += 1}</th>
+                            {openApiData.seasonCalendar.map(mockData => 
+                                <th  style={{cursor: 'pointer'}} onClick={() => history.push(GRANDPRIX_ROUTE + '/' + mockData.idGrandPrix)} className="text-center">{numGrandPrix += 1}</th>
                             )}
                             <th>Points</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {mockData.seasonChampTeams.map(mockData =>
-                            <tr key={ mockData.id }>
-                                <td className="text-center">{mockData.position}</td>
-                                <td>{mockData.name}</td>
-                                {mockData.result.map(mockDataResult =>
-                                    <td className="text-center">{mockDataResult.racePosition}</td>
+                        {openApiData.seasonConstResult.map(constructor =>
+                            <tr key={ constructor.id }>
+                                <td className="text-center">{constructor.position}</td>
+                                <td>{constructor.name}</td>
+                                {constructor.result.map(constResult =>
+                                    <td className="text-center">{constResult.racePosition}</td>
                                 )}
-                                <td className="text-center">{mockData.points}</td>
+                                <td className="text-center">{constructor.points}</td>
                             </tr>
                         )}
                     </tbody>
@@ -42,6 +51,6 @@ const TableSeasonChampConstructors = () => {
             </Row>
         </Container>
     );
-}
+});
 
 export default TableSeasonChampConstructors;

@@ -68,7 +68,7 @@ namespace Services.EntityService
                 team.Chassis = await GetChassisTeamOnSeason(seasonId, team.IdTeam);
             }
 
-            return teams;
+            return teams.OrderBy(a => a.Name);
         }
 
         public async Task<IEnumerable<ChampionshipResultDto>> GetChampionshipRacers(Guid seasonId)
@@ -102,12 +102,17 @@ namespace Services.EntityService
                     .FirstOrDefault(a => a.IdRacer == racer.Id && a.IdSeason == seasonId);
                 if(seasonRacersClassification != null)
                 {
-                    racer.Position = seasonRacersClassification.Position;
+                    racer.Position = seasonRacersClassification.Position.ToString();
                     racer.Points = seasonRacersClassification.Points;
+                }
+                else
+                {
+                    racer.Position = "    ";
+                    racer.Points = 0;
                 }
             }
 
-            return racers.OrderBy(a => a.Position);
+            return racers.OrderBy(a => a.Position.Length).ThenBy(a => a.Position);
         }
 
         public async Task<IEnumerable<ChampionshipResultDto>> GetChampionshipTeams(Guid seasonId)
@@ -117,7 +122,7 @@ namespace Services.EntityService
             var teamsInSeason = _repositoryContext.SeasonManufacturersClassification
                 .AsNoTracking()
                 .Where(a => a.IdSeason == seasonId)
-                .Select(a => new ChampionshipResultDto { Id = a.IdTeamName, Name = a.TeamName.Name, Points = a.Points, Position = a.Position });
+                .Select(a => new ChampionshipResultDto { Id = a.IdTeamName, Name = a.TeamName.Name, Points = a.Points, Position = a.Position.ToString() });
             var teams = await teamsInSeason.ToArrayAsync();
 
             foreach (var team in teams)
@@ -143,7 +148,7 @@ namespace Services.EntityService
                 }
             }
 
-            return teams.OrderBy(a => a.Position);
+            return teams.OrderBy(a => a.Position.Length).ThenBy(a => a.Position);
         }
 
         public async Task<IEnumerable<LabelItemWhisId>> GetChassisTeamOnSeason(Guid idSeason, Guid idTeam)

@@ -21,7 +21,7 @@ namespace FormulaOneStatistics.Controllers
             return Ok(calendar);
         }
 
-        [HttpGet("teams/{id}")]
+        [HttpGet("percipient/{id}")]
         public async Task<IActionResult> GetTeams(Guid id)
         {
             var teams = await _service.Season.GetPercipient(id);

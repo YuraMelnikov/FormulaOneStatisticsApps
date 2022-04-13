@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Container } from "react-bootstrap";
 import TableSeasonCalendar from '../components/Tables/TableSeasonCalendar';
 import TableSeasonPercipient from '../components/Tables/TableSeasonPercipient';
@@ -7,6 +7,7 @@ import TableSeasonChampConstructors from '../components/Tables/TableSeasonChampC
 import Title from "../components/Title";
 
 const Season = (name) => {
+
     return (
         <Container>
             <Title name={ name.location.state +  " Formula One Season"}/>

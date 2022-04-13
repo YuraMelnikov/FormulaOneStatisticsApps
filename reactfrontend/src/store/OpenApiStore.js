@@ -6,7 +6,39 @@ export default class OpenApiStore {
         this._tracks = []
         this._racers = []
         this._manufacturers = []
+        this._seasonCalendar = []
+        this._seasonPercipient = []
+        this._seasonRacersResult = []
+        this._seasonConstResult = []
         makeAutoObservable(this)
+    }
+
+    setSeasonConstResult(seasonConstResult) {
+        this._seasonConstResult = seasonConstResult
+    }
+    get seasonConstResult() {
+        return this._seasonConstResult
+    }
+
+    setSeasonRacersResult(seasonRacersResult) {
+        this._seasonRacersResult = seasonRacersResult
+    }
+    get seasonRacersResult() {
+        return this._seasonRacersResult
+    }
+
+    setSeasonPercipient(seasonPercipient) {
+        this._seasonPercipient = seasonPercipient
+    }
+    get seasonPercipient() {
+        return this._seasonPercipient
+    }
+
+    setSeasonCalendar(seasonCalendar) {
+        this._seasonCalendar = seasonCalendar
+    }
+    get seasonCalendar() {
+        return this._seasonCalendar
     }
 
     setManufacturers(manufacturers) {
