@@ -14,8 +14,78 @@ using System.Text.Json.Serialization;
 RepositoryParcer repository = new RepositoryParcer();
 
 
-
 #region Update 2020-2022
+
+//for(var i = 2020; i <= 2019; i++)
+//{
+//    Console.WriteLine(i.ToString());
+//    var seasonId = repository.Seasons.First(a => a.Year == i).Id;
+//    var countGp = repository.GrandPrixes.Count(a => a.IdSeason == seasonId);
+//    //http://ergast.com/api/f1/{{year}}/{{round}}/qualifying
+//    for (var j = 1; j <= countGp; j++)
+//    {
+//        var grandPrixId = repository.GrandPrixes.FirstOrDefault(a => a.IdSeason == seasonId && a.NumberInSeason == j).Id;
+//        for (var k = 0; k < 900; k += 30)
+//        {
+//            Console.WriteLine(j.ToString());
+//            string path = "http://ergast.com/api/f1/" + i.ToString() + "/" + j.ToString() + "/qualifying?limit=30&offset=" + k.ToString();
+//            var config = Configuration.Default.WithDefaultLoader();
+//            var context = BrowsingContext.New(config);
+//            IDocument document = await context.OpenAsync(path);
+//            XmlSerializer serializer = new XmlSerializer(typeof(MRDataQual));
+//            using (StringReader reader = new StringReader(document.Source.Text))
+//            {
+//                var result = (MRDataQual)serializer.Deserialize(reader);
+//                if(result.RaceTable.Race is null)
+//                {
+//                    k = 1000;
+//                }
+//                else
+//                {
+//                    var results = result.RaceTable.Race.QualifyingList.QualifyingResult;
+//                    foreach (var driver in results)
+//                    {
+//                        var racer = repository.Racers.FirstOrDefault(a => a.TimeApiId == driver.Driver.DriverId);
+//                        var participant = repository.Participants
+//                            .FirstOrDefault(a => a.IdGrandPrix == grandPrixId && a.IdRacer == racer.Id);
+//                        var qua = repository.Qualifications.FirstOrDefault(a => a.IdParticipant == participant.Id);
+
+//                        if(qua is null)
+//                        {
+//                            string time = "";
+//                            if (driver.Q3 != null)
+//                                time = driver.Q3;
+//                            else if (driver.Q2 != null)
+//                                time = driver.Q2;
+//                            else
+//                                time = driver.Q1;
+//                            if (time is null)
+//                                time = "";
+
+//                            var newQua = new Qualification
+//                            {
+//                                IdParticipant = participant.Id,
+//                                IsUpdate = true,
+//                                Position = Convert.ToInt32(driver.Position),
+//                                Time = time
+//                            };
+//                            repository.Add(newQua);
+//                            repository.SaveChanges();
+//                        }
+//                        else
+//                        {
+//                            qua.IsUpdate = true;
+//                            if (qua.Position != Convert.ToInt32(driver.Position))
+//                                qua.Position = Convert.ToInt32(driver.Position);
+//                            repository.Update(qua);
+//                            repository.SaveChanges();
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 
 //for (int i = 2020; i <= 2022; i++)
 //{
@@ -101,7 +171,7 @@ RepositoryParcer repository = new RepositoryParcer();
 
 #endregion
 
-for (var i = 1994; i <= 2022; i++)
+for (var i = 1951; i <= 2022; i++)
 {
     Console.WriteLine(i.ToString());
     var seasonId = repository.Seasons.First(a => a.Year == i).Id;
@@ -109,98 +179,101 @@ for (var i = 1994; i <= 2022; i++)
 
     for (var numGp = 1; numGp <= countGp; numGp++)
     {
-        var grandPrixDb = repository.GrandPrixes
-            .FirstOrDefault(a => a.IdSeason == seasonId && a.NumberInSeason == numGp);
-
-        string path = "http://ergast.com/api/f1/" + i.ToString() + "/" + numGp.ToString() + "/results";
-        var config = Configuration.Default.WithDefaultLoader();
-        var context = BrowsingContext.New(config);
-        IDocument document = await context.OpenAsync(path);
-
-        XmlSerializer serializer = new XmlSerializer(typeof(MRData));
-        using (StringReader reader = new StringReader(document.Source.Text))
+        Console.WriteLine(numGp.ToString());
+        var grandPrixDb = repository.GrandPrixes.FirstOrDefault(a => a.IdSeason == seasonId && a.NumberInSeason == numGp);
+        for (var j = 0; j < 900; j += 30)
         {
-            var result = (MRData)serializer.Deserialize(reader);
-            var participants = result.RaceTable.Race.ResultsList.Result;
+            string path = "http://ergast.com/api/f1/" + i.ToString() + "/" + numGp.ToString() + "/results?limit=30&offset=" + j.ToString();
+            var config = Configuration.Default.WithDefaultLoader();
+            var context = BrowsingContext.New(config);
+            IDocument document = await context.OpenAsync(path);
 
-            foreach (var parcipiant in participants)
+            XmlSerializer serializer = new XmlSerializer(typeof(MRData));
+            using (StringReader reader = new StringReader(document.Source.Text))
             {
-                var racerDb = repository.Racers
-                    .Where(a => a.TimeApiId == parcipiant.Driver.DriverId)
-                    .FirstOrDefault();
-                var parcipiantDb = repository.Participants
-                    .Include(a => a.Racer)
-                    .Include(a => a.Tyre)
-                    .Include(a => a.Chassis)
-                    .Include(a => a.Engine)
-                    .FirstOrDefault(a => a.IdGrandPrix == grandPrixDb.Id
-                        && a.Racer.TimeApiId == parcipiant.Driver.DriverId
-                        && a.Number == parcipiant.Number
-                    );
-
-                if(parcipiantDb != null)
+                var result = (MRData)serializer.Deserialize(reader);
+                if(result.RaceTable.Race != null)
                 {
-                    var resultDb = repository.GrandPrixResults
-                        .FirstOrDefault(a => a.IdParticipant == parcipiantDb.Id);
-                    var teamNameId = repository.TeamNames
-                        .FirstOrDefault(a => a.TimeApiId == parcipiant.Constructor.ConstructorId).Id;
-                    parcipiantDb.IdTeamName = teamNameId;
-                    repository.Update(parcipiantDb);
-                    repository.SaveChanges();
+                    var participants = result.RaceTable.Race.ResultsList.Result;
+                    foreach(var participant in participants)
+                    {
+                        var racer = repository.Racers.FirstOrDefault(a => a.TimeApiId == participant.Driver.DriverId);
+                        var participantDb = repository.Participants
+                            .FirstOrDefault(a => a.IdGrandPrix == grandPrixDb.Id && a.IdRacer == racer.Id && a.Number == participant.Number);
+                        var gpResult = repository.GrandPrixResults.Where(a => a.IdParticipant == participantDb.Id).ToArray();
+                        var qua = repository.Qualifications
+                            .Where(a => a.IdParticipant == participantDb.Id && a.Participant.Number == participant.Number).ToArray();
+                        if(gpResult.Length == 1)
+                        {
+                            foreach (var res in gpResult)
+                            {
+                                if (res.Classification != participant.Status.Text)
+                                    res.Classification = participant.Status.Text;
+                                if (res.Position != Convert.ToInt32(participant.Position))
+                                    res.Position = Convert.ToInt32(participant.Position);
+                                if (res.Points != (float)Convert.ToDecimal(participant.Points))
+                                    res.Points = (float)Convert.ToDecimal(participant.Points);
+                                repository.Update(res);
+                                repository.SaveChanges();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                        }
 
-                    if(resultDb is null)
-                    {
-                        Console.WriteLine("where \"IdGrandPrix\" = '" + parcipiantDb.IdGrandPrix + "'");
-                        Console.WriteLine("and \"IdRacer\" = '" + parcipiantDb.IdRacer + "'");
+                        if (qua.Length == 1)
+                        {
+                            foreach (var q in qua)
+                            {
+                                if (q.Position != Convert.ToInt32(participant.Grid))
+                                    q.Position = Convert.ToInt32(participant.Grid);
+                                q.IsUpdate = true;
+                                repository.Update(q);
+                                repository.SaveChanges();
+                            }
+                        }
+                        else if (qua.Length > 1)
+                        {
+                            bool isRemove = false;
+                            foreach (var qu in qua)
+                            {
+                                if(isRemove == false)
+                                {
+                                    if (qu.Position != Convert.ToInt32(participant.Grid))
+                                        qu.Position = Convert.ToInt32(participant.Grid);
+                                    qu.IsUpdate = true;
+                                    repository.Update(qu);
+                                    repository.SaveChanges();
+                                    isRemove = true;
+                                }
+                                else
+                                {
+                                    repository.Remove(qu);
+                                    repository.SaveChanges();
+                                }
+                            }
+                        }
+                        else if(gpResult[0].Lap == Convert.ToInt32(participant.Laps) && qua.Length == 0)
+                        {
+                            var newQua = new Qualification
+                            {
+                                IdParticipant = participantDb.Id,
+                                IsUpdate = true,
+                                Position = Convert.ToInt32(participant.Grid),
+                                Time = ""
+                            };
+                            repository.Add(newQua);
+                            repository.SaveChanges();
+                        }
                     }
-                    else
-                    {
-                        if (resultDb.Time == "" & parcipiant.Time != null)
-                            resultDb.Time = parcipiant.Time.Text;
-                        repository.Update(resultDb);
-                        repository.SaveChanges();
-                    }
-                    racerDb.Born = Convert.ToDateTime(parcipiant.Driver.DateOfBirth);
-                    repository.Update(racerDb);
-                    repository.SaveChanges();
                 }
                 else
                 {
-                    var listPart = repository.Participants
-                        .Include(a => a.Racer)
-                        .Include(a => a.Tyre)
-                        .Include(a => a.Chassis)
-                        .Include(a => a.Engine)
-                        .Where(a => a.IdGrandPrix == grandPrixDb.Id
-                            && a.Racer.TimeApiId == parcipiant.Driver.DriverId
-                        ).ToArray();
-
-                    if(listPart.Length == 1)
-                    {
-                        parcipiantDb = listPart[0];
-
-                        var teamNameId = repository.TeamNames
-    .FirstOrDefault(a => a.TimeApiId == parcipiant.Constructor.ConstructorId).Id;
-
-                        var resultDb = repository.GrandPrixResults
-                            .FirstOrDefault(a => a.IdParticipant == parcipiantDb.Id);
-
-
-
-                        parcipiantDb.IdTeamName = teamNameId;
-                        repository.Update(parcipiantDb);
-                        repository.SaveChanges();
-
-                        if (resultDb.Time == "" & parcipiant.Time != null)
-                            resultDb.Time = parcipiant.Time.Text;
-                        repository.Update(resultDb);
-                        repository.SaveChanges();
-
-                        racerDb.Born = Convert.ToDateTime(parcipiant.Driver.DateOfBirth);
-                        repository.Update(racerDb);
-                        repository.SaveChanges();
-                    }
+                    j = 1000;
                 }
+
+                
 
             }
         }
