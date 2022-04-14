@@ -8,29 +8,100 @@ using Microsoft.EntityFrameworkCore;
 using Parser;
 using System.Xml.Serialization;
 using static Parser.ChampXML;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 RepositoryParcer repository = new RepositoryParcer();
 
 
 
-//List<string> myImg = new List<string>();
+#region Update 2020-2022
 
-//
-//foreach(var racer in racers)
+//for (int i = 2020; i <= 2022; i++)
 //{
-//    var link = racer.Image.Link;
-//    foreach (string filename in allfiles)
+//    var seasonIdDb = repository.Seasons.FirstOrDefault(s => s.Year == i).Id;
+//    for (int j = 0; j < 800; j += 30)
 //    {
-//        if (filename.Contains(link) == true)
-//            myImg.Add(filename);
+//        var numLastGp = repository.GrandPrixes.Where(a => a.Season.Year == i).Max(a => a.NumberInSeason);
+//        var link = "http://ergast.com/api/f1/" + i.ToString() + "/" + numLastGp.ToString() + "/constructorStandings?limit=30&offset=" + j.ToString();
+//        var config = Configuration.Default.WithDefaultLoader();
+//        var context = BrowsingContext.New(config);
+//        IDocument document = await context.OpenAsync(link);
+//        XmlSerializer serializer = new XmlSerializer(typeof(MRDataChampTeam));
+//        using (StringReader reader = new StringReader(document.Source.Text))
+//        {
+//            var result = (MRDataChampTeam)serializer.Deserialize(reader);
+//            if (result.StandingsTable.StandingsList is null)
+//            {
+//                j = 900;
+//            }
+//            else
+//            {
+//                var drivers = result.StandingsTable.StandingsList.ConstructorStanding;
+//                foreach (var driver in drivers)
+//                {
+//                    var team = repository.TeamNames.FirstOrDefault(a => a.TimeApiId == driver.Constructor.ConstructorId);
+//                    var points = driver.Points.Replace(".", ",");
+//                    SeasonManufacturersClassification classification = new SeasonManufacturersClassification
+//                    {
+//                        IdSeason = seasonIdDb,
+//                        IdTeamName = team.Id,
+//                        Points = (float)Convert.ToDecimal(points),
+//                        Position = Convert.ToInt32(driver.Position)
+//                    };
+//                    repository.Add(classification);
+//                    repository.SaveChanges();
+//                }
+//            }
+//        }
 //    }
 //}
 
+//for (int i = 1950; i <= 2019; i++)
+//{
+//    var seasonIdDb = repository.Seasons.FirstOrDefault(s => s.Year == i).Id;
+//    for (int j = 0; j < 800; j += 30)
+//    {
+//        var numLastGp = repository.GrandPrixes.Where(a => a.Season.Year == i).Max(a => a.NumberInSeason);
+//        var link = "http://ergast.com/api/f1/" + i.ToString() + "/" + numLastGp.ToString() + "/driverStandings?limit=30&offset=" + j.ToString();
+//        var config = Configuration.Default.WithDefaultLoader();
+//        var context = BrowsingContext.New(config);
+//        IDocument document = await context.OpenAsync(link);
 
+//        XmlSerializer serializer = new XmlSerializer(typeof(MRDataChampRacers));
+//        using (StringReader reader = new StringReader(document.Source.Text))
+//        {
+//            var result = (MRDataChampRacers)serializer.Deserialize(reader);
+//            if (result.StandingsTable.StandingsList is null)
+//            {
+//                j = 900;
+//            }
+//            else
+//            {
+//                var drivers = result.StandingsTable.StandingsList.DriverStanding;
+//                foreach (var driver in drivers)
+//                {
+//                    var racer = repository.Racers.FirstOrDefault(a => a.TimeApiId == driver.Driver.DriverId);
+//                    var points = driver.Points.Replace(".", ",");
 
+//                    SeasonRacersClassification classification = new SeasonRacersClassification
+//                    {
+//                        IdSeason = seasonIdDb,
+//                        IdRacer = racer.Id,
+//                        Points = (float)Convert.ToDecimal(points),
+//                        Position = Convert.ToInt32(driver.Position)
+//                    };
+//                    repository.Add(classification);
+//                    repository.SaveChanges();
+//                }
+//            }
+//        }
+//    }
+//}
 
+#endregion
 
-for (var i = 1971; i <= 2022; i++)
+for (var i = 1994; i <= 2022; i++)
 {
     Console.WriteLine(i.ToString());
     var seasonId = repository.Seasons.First(a => a.Year == i).Id;
@@ -73,55 +144,22 @@ for (var i = 1971; i <= 2022; i++)
                         .FirstOrDefault(a => a.IdParticipant == parcipiantDb.Id);
                     var teamNameId = repository.TeamNames
                         .FirstOrDefault(a => a.TimeApiId == parcipiant.Constructor.ConstructorId).Id;
-
-
                     parcipiantDb.IdTeamName = teamNameId;
-                    parcipiantDb.IsUpdate = true;
                     repository.Update(parcipiantDb);
                     repository.SaveChanges();
 
-
                     if(resultDb is null)
                     {
-                        Console.WriteLine("where "IdGrandPrix" = '" + parcipiantDb.IdGrandPrix + "'");
-                        Console.WriteLine("and "IdRacer" = '" + parcipiantDb.IdRacer + "'");
-
-
-                        GrandPrixResult newResult = new GrandPrixResult
-                        {
-                            IdParticipant = parcipiantDb.Id, 
-                            AverageSpeed = "", 
-                            Classification = parcipiant.PositionText, 
-                            ClassificationRus = parcipiant.PositionText, 
-                            IsUpdate = true, 
-                            Lap = Convert.ToInt32(parcipiant.Laps), 
-                            Note = parcipiant.Status.Text, 
-                            NoteRus = parcipiant.Status.Text, 
-                            Points = (float)Convert.ToDecimal(parcipiant.Points), 
-                            Position = Convert.ToInt32(parcipiant.Position)
-                        };
-
-                        if (newResult.Time == "" & parcipiant.Time != null)
-                            newResult.Time = parcipiant.Time.Text;
-                        newResult.IsUpdate = true;
-                        if (newResult.Time is null)
-                            newResult.Time = "";
-                        repository.Add(newResult);
-                        repository.SaveChanges();
+                        Console.WriteLine("where \"IdGrandPrix\" = '" + parcipiantDb.IdGrandPrix + "'");
+                        Console.WriteLine("and \"IdRacer\" = '" + parcipiantDb.IdRacer + "'");
                     }
                     else
                     {
                         if (resultDb.Time == "" & parcipiant.Time != null)
                             resultDb.Time = parcipiant.Time.Text;
-                        resultDb.IsUpdate = true;
                         repository.Update(resultDb);
                         repository.SaveChanges();
                     }
-
-
-
-
-                    racerDb.IsUpdate = true;
                     racerDb.Born = Convert.ToDateTime(parcipiant.Driver.DateOfBirth);
                     repository.Update(racerDb);
                     repository.SaveChanges();
@@ -150,17 +188,14 @@ for (var i = 1971; i <= 2022; i++)
 
 
                         parcipiantDb.IdTeamName = teamNameId;
-                        parcipiantDb.IsUpdate = true;
                         repository.Update(parcipiantDb);
                         repository.SaveChanges();
 
                         if (resultDb.Time == "" & parcipiant.Time != null)
                             resultDb.Time = parcipiant.Time.Text;
-                        resultDb.IsUpdate = true;
                         repository.Update(resultDb);
                         repository.SaveChanges();
 
-                        racerDb.IsUpdate = true;
                         racerDb.Born = Convert.ToDateTime(parcipiant.Driver.DateOfBirth);
                         repository.Update(racerDb);
                         repository.SaveChanges();
