@@ -9,8 +9,10 @@ namespace Entities.Models
     {
         [Required(ErrorMessage = "Participant is required")]
         public Guid IdParticipant { get; set; }
+
         [Required(ErrorMessage = "Classification is required")]
         public string Classification { get; set; }
+
         [Required(ErrorMessage = "Time is required")]
         public string Time { get; set; }
         [Required(ErrorMessage = "Average speed is required")]

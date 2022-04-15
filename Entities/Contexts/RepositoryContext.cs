@@ -22,13 +22,10 @@ namespace Entities.Contexts
                 entity.Property(p => p.Year).IsRequired();
                 entity.Property(p => p.IdImage).IsRequired();
             });
-
-
-
-            //modelBuilder.Entity<Phone>().Property(p => p.Name).HasColumnType("varchar");
-            //modelBuilder.Entity<Phone>().Property(p => p.Name).HasMaxLength(50);
         }
 
+        public DbSet<ChampConstructorPastRace> ChampConstructorPastRace { get; set; }
+        public DbSet<ChampRacersPastRace> ChampRacersPastRace { get; set; }
         public DbSet<SeasonRacersClassification> SeasonRacersClassification { get; set; }
         public DbSet<SeasonImg> SeasonImg { get; set; }
         public DbSet<Chassis> Chassis { get; set; }
