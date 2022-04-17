@@ -18,7 +18,7 @@ const TableSeasonChampConstructors = observer(() => {
 
     useEffect(() => {
         fetchSeasonConstResult(id).then(data => openApiData.setSeasonConstResult(data))
-    }, [id, openApiData])
+    }, [])
 
     return(
         <Container>

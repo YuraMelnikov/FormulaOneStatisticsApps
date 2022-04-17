@@ -17,7 +17,7 @@ const TableSeasonCalendar = observer(() => {
 
     useEffect(() => {
         fetchSeasonCalendar(id).then(data => openApiData.setSeasonCalendar(data))
-    }, [id, openApiData])
+    }, [])
 
     return (
         <Container>

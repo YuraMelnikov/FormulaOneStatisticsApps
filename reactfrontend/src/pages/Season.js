@@ -11,12 +11,16 @@ const Season = (name) => {
     return (
         <Container>
             <Title name={ name.location.state +  " Formula One Season"}/>
-            <TableSeasonCalendar/>
+
             <TableSeasonPercipient/>
-            <TableSeasonChampRacers/>
-            <TableSeasonChampConstructors/>
         </Container>
     );
 }
 
 export default Season;
+
+
+//<TableSeasonCalendar/>
+
+//<TableSeasonChampRacers/>
+//<TableSeasonChampConstructors/>

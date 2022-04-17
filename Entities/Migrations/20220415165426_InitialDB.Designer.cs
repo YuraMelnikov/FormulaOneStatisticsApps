@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220408140228_2022_04_08_01")]
-    partial class _2022_04_08_01
+    [Migration("20220415165426_InitialDB")]
+    partial class InitialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,60 @@ namespace Entities.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("Entities.Models.ChampConstructorPastRace", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("IdGrandPrix")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("IdTeamName")
+                        .HasColumnType("uuid");
+
+                    b.Property<float>("Points")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdGrandPrix");
+
+                    b.HasIndex("IdTeamName");
+
+                    b.ToTable("ChampConstructorPastRace");
+                });
+
+            modelBuilder.Entity("Entities.Models.ChampRacersPastRace", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("IdGrandPrix")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("IdRacer")
+                        .HasColumnType("uuid");
+
+                    b.Property<float>("Points")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdGrandPrix");
+
+                    b.HasIndex("IdRacer");
+
+                    b.ToTable("ChampRacersPastRace");
+                });
 
             modelBuilder.Entity("Entities.Models.Chassis", b =>
                 {
@@ -207,9 +261,6 @@ namespace Entities.Migrations
 
                     b.Property<int>("NumberOfLap")
                         .HasColumnType("integer");
-
-                    b.Property<float>("PercentDistance")
-                        .HasColumnType("real");
 
                     b.Property<string>("Weather")
                         .IsRequired()
@@ -456,8 +507,8 @@ namespace Entities.Migrations
                     b.Property<Guid>("IdParticipant")
                         .HasColumnType("uuid");
 
-                    b.Property<float>("Points")
-                        .HasColumnType("real");
+                    b.Property<bool?>("IsUpdate")
+                        .HasColumnType("boolean");
 
                     b.Property<int>("Position")
                         .HasColumnType("integer");
@@ -482,16 +533,8 @@ namespace Entities.Migrations
                     b.Property<DateTime>("Born")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("BornIn")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<DateTime?>("Dead")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("DeadIn")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -508,10 +551,6 @@ namespace Entities.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("SecondName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("SecondNameRus")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -769,6 +808,44 @@ namespace Entities.Migrations
                     b.HasIndex("IdManufacturer");
 
                     b.ToTable("Tyre");
+                });
+
+            modelBuilder.Entity("Entities.Models.ChampConstructorPastRace", b =>
+                {
+                    b.HasOne("Entities.Models.GrandPrix", "GrandPrix")
+                        .WithMany()
+                        .HasForeignKey("IdGrandPrix")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.TeamName", "TeamName")
+                        .WithMany()
+                        .HasForeignKey("IdTeamName")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GrandPrix");
+
+                    b.Navigation("TeamName");
+                });
+
+            modelBuilder.Entity("Entities.Models.ChampRacersPastRace", b =>
+                {
+                    b.HasOne("Entities.Models.GrandPrix", "GrandPrix")
+                        .WithMany()
+                        .HasForeignKey("IdGrandPrix")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Racer", "Racer")
+                        .WithMany()
+                        .HasForeignKey("IdRacer")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GrandPrix");
+
+                    b.Navigation("Racer");
                 });
 
             modelBuilder.Entity("Entities.Models.Chassis", b =>

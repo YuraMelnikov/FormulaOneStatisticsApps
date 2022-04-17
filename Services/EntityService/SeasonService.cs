@@ -23,34 +23,49 @@ namespace Services.EntityService
             _manager = new ServiceManager(_repositoryContext, _mapper);
         }
 
-        public async Task<IEnumerable<CalendarSeasonDto>> GetClendar(Guid seasonId)
-        {
-            var calendar = await _repositoryContext.GrandPrixes
+        public async Task<IEnumerable<CalendarSeasonDto>> GetClendar(Guid seasonId) =>
+             await _repositoryContext.GrandPrixResults
                 .AsNoTracking()
-                .Where(a => a.IdSeason == seasonId)
+                .Where(a => a.Participant.GrandPrix.IdSeason == seasonId && a.Position == 1)
                 .Select(a => new CalendarSeasonDto
                 {
-                    Date = a.Date.ToString().Substring(0, 10),
-                    Distance = (decimal)a.TrackСonfiguration.Length * a.NumberOfLap,
-                    IdGrandPrix = a.Id,
-                    IdTrack = a.TrackСonfiguration.IdTrack,
-                    Lap = a.NumberOfLap,
-                    TrackName = a.TrackСonfiguration.Track.Name
+                    Date = a.Participant.GrandPrix.Date.ToString().Substring(0, 10),
+                    Distance = (decimal)a.Participant.GrandPrix.TrackСonfiguration.Length * a.Participant.GrandPrix.NumberOfLap,
+                    IdGrandPrix = a.Participant.IdGrandPrix,
+                    IdTrack = a.Participant.GrandPrix.TrackСonfiguration.IdTrack,
+                    Lap = a.Participant.GrandPrix.NumberOfLap,
+                    TrackName = a.Participant.GrandPrix.TrackСonfiguration.Track.Name,
+                    IdWinnerRacer = a.Participant.IdRacer, 
+                    IdWinnerTeam = a.Participant.Chassis.Id, 
+                    RacerWinner = a.Participant.Racer.RacerNameEng, 
+                    TeamWinner = a.Participant.Chassis.Name 
                 })
                 .OrderBy(a => a.Date)
                 .ToArrayAsync();
-
-            foreach (var grandPrix in calendar)
-            {
-                var winner = await _manager.GrandPrixResult.GetWinner(grandPrix.IdGrandPrix);
-                _mapper.Map(winner, grandPrix);
-            }
-
-            return calendar;
-        }
+        
 
         public async Task<IEnumerable<TeamsSeasonDto>> GetPercipient(Guid seasonId)
         {
+            var allResults = _repositoryContext
+                .Participants
+                .AsNoTracking()
+                .Where(a => a.GrandPrix.IdSeason == seasonId)
+                .Select(a => new 
+                { 
+                    a.IdTeam, a.Team.Name, 
+                    a.IdChassis, 
+                    a.Chassis.Name, 
+                    a.IdRacer, 
+                    a.Racer.RacerNameEng, 
+                    a.IdEngine, 
+                    a.Engine.Name, 
+                    a.IdTyre,
+                    a.Tyre.Name
+                    
+                })
+                .ToArrayAsync();
+
+
 
             var query = _repositoryContext.Participants
                 .AsNoTracking()

@@ -9,15 +9,14 @@ namespace FormulaOneStatistics.Controllers
     {
         private readonly IServiceManager _service;
 
-        public SeasonsController(IServiceManager service)
-        {
+        public SeasonsController(IServiceManager service) => 
             _service = service;
-        }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var seasons = await _service.Seasons.GetSeasonsList();
+
             return Ok(seasons);
         }
     }

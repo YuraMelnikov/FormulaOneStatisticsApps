@@ -16,7 +16,7 @@ namespace Services.Service
         private IRacersService _racers;
         private IManufacturersService _manufacturers;
         private ISeasonService _season;
-        private IGrandPrixResultService _grandPrixResult;
+        private IGrandPrixService _grandPrixResult;
         private IRacerService _racerService;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
@@ -85,12 +85,12 @@ namespace Services.Service
             }
         }
 
-        public IGrandPrixResultService GrandPrixResult
+        public IGrandPrixService GrandPrixResult
         {
             get
             {
                 if (_grandPrixResult == null)
-                    _grandPrixResult = new GrandPrixResultService(_repoContext, _mapper);
+                    _grandPrixResult = new GrandPrixService(_repoContext, _mapper);
                 return _grandPrixResult;
             }
         }

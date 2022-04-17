@@ -1,0 +1,8 @@
+SELECT "Id", "Qualification"."IdParticipant", "Position", "Time", "IsUpdate", "T1"."IdParticipant"
+	FROM public."Qualification"
+	left join (SELECT "IdParticipant"
+	FROM public."Qualification"
+	group by "IdParticipant") as "T1" on "T1"."IdParticipant" = "Qualification"."IdParticipant"
+	where "IsUpdate" is null and "T1"."IdParticipant" is not null
+	order by "T1"."IdParticipant"
+	;

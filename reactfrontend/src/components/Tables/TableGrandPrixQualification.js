@@ -16,7 +16,7 @@ const TableGrandPrixQualification = observer(() => {
 
     useEffect(() => {
         fetchGpQualification(id).then(data => openApiData.setGpQualification(data))
-    }, [id, openApiData])
+    }, [])
 
     return (
         <Container>

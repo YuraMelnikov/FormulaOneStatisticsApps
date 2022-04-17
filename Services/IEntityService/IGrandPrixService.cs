@@ -2,9 +2,8 @@
 
 namespace Services.IEntityService
 {
-    public interface IGrandPrixResultService
+    public interface IGrandPrixService
     {
-        Task<WinnerDto> GetWinner(Guid idGrandPrix);
         Task<GrandPrixResultRacerDto> GetRacerResult(Guid idParticipant);
         Task<IEnumerable<GrandPrixParticipantDto>> GetParticipant(Guid idGrandPrix);
         Task<IEnumerable<GrandPrixQualificationDto>> GetQualification(Guid idGrandPrix);

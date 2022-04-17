@@ -18,7 +18,7 @@ const TableSeasonChampRacers = observer(() => {
 
     useEffect(() => {
         fetchSeasonRacersResult(id).then(data => openApiData.setSeasonRacersResult(data))
-    }, [id, openApiData])
+    }, [])
 
     return(
         <Container>

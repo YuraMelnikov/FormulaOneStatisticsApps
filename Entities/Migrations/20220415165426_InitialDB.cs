@@ -34,18 +34,6 @@ namespace Entities.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TeamName",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TeamName", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Country",
                 columns: table => new
                 {
@@ -117,13 +105,10 @@ namespace Entities.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     IdCountry = table.Column<Guid>(type: "uuid", nullable: false),
                     Born = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    BornIn = table.Column<string>(type: "text", nullable: false),
                     Dead = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    DeadIn = table.Column<string>(type: "text", nullable: false),
                     FirstName = table.Column<string>(type: "text", nullable: false),
                     SecondName = table.Column<string>(type: "text", nullable: false),
                     FirstNameRus = table.Column<string>(type: "text", nullable: false),
-                    SecondNameRus = table.Column<string>(type: "text", nullable: false),
                     IdImage = table.Column<Guid>(type: "uuid", nullable: false),
                     TextData = table.Column<string>(type: "text", nullable: false),
                     TimeApiId = table.Column<string>(type: "text", nullable: false)
@@ -141,6 +126,26 @@ namespace Entities.Migrations
                         name: "FK_Racer_Image_IdImage",
                         column: x => x.IdImage,
                         principalTable: "Image",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TeamName",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    IdCountry = table.Column<Guid>(type: "uuid", nullable: false),
+                    TimeApiId = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TeamName", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TeamName_Country_IdCountry",
+                        column: x => x.IdCountry,
+                        principalTable: "Country",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -173,28 +178,26 @@ namespace Entities.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SeasonManufacturersClassification",
+                name: "SeasonImg",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     IdSeason = table.Column<Guid>(type: "uuid", nullable: false),
-                    IdTeamName = table.Column<Guid>(type: "uuid", nullable: false),
-                    Position = table.Column<int>(type: "integer", nullable: false),
-                    Points = table.Column<float>(type: "real", nullable: false)
+                    IdImage = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SeasonManufacturersClassification", x => x.Id);
+                    table.PrimaryKey("PK_SeasonImg", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SeasonManufacturersClassification_Season_IdSeason",
-                        column: x => x.IdSeason,
-                        principalTable: "Season",
+                        name: "FK_SeasonImg_Image_IdImage",
+                        column: x => x.IdImage,
+                        principalTable: "Image",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SeasonManufacturersClassification_TeamName_IdTeamName",
-                        column: x => x.IdTeamName,
-                        principalTable: "TeamName",
+                        name: "FK_SeasonImg_Season_IdSeason",
+                        column: x => x.IdSeason,
+                        principalTable: "Season",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -337,6 +340,33 @@ namespace Entities.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SeasonManufacturersClassification",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    IdSeason = table.Column<Guid>(type: "uuid", nullable: false),
+                    IdTeamName = table.Column<Guid>(type: "uuid", nullable: false),
+                    Position = table.Column<int>(type: "integer", nullable: false),
+                    Points = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SeasonManufacturersClassification", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SeasonManufacturersClassification_Season_IdSeason",
+                        column: x => x.IdSeason,
+                        principalTable: "Season",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SeasonManufacturersClassification_TeamName_IdTeamName",
+                        column: x => x.IdTeamName,
+                        principalTable: "TeamName",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TrackСonfiguration",
                 columns: table => new
                 {
@@ -427,8 +457,8 @@ namespace Entities.Migrations
                     FullName = table.Column<string>(type: "text", nullable: false),
                     IdImage = table.Column<Guid>(type: "uuid", nullable: false),
                     Weather = table.Column<string>(type: "text", nullable: false),
-                    PercentDistance = table.Column<float>(type: "real", nullable: false),
-                    NumberOfLap = table.Column<int>(type: "integer", nullable: false)
+                    NumberOfLap = table.Column<int>(type: "integer", nullable: false),
+                    NameRus = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -449,6 +479,60 @@ namespace Entities.Migrations
                         name: "FK_GrandPrix_TrackСonfiguration_IdTrackСonfiguration",
                         column: x => x.IdTrackСonfiguration,
                         principalTable: "TrackСonfiguration",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ChampConstructorPastRace",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    IdGrandPrix = table.Column<Guid>(type: "uuid", nullable: false),
+                    IdTeamName = table.Column<Guid>(type: "uuid", nullable: false),
+                    Position = table.Column<int>(type: "integer", nullable: false),
+                    Points = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChampConstructorPastRace", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ChampConstructorPastRace_GrandPrix_IdGrandPrix",
+                        column: x => x.IdGrandPrix,
+                        principalTable: "GrandPrix",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChampConstructorPastRace_TeamName_IdTeamName",
+                        column: x => x.IdTeamName,
+                        principalTable: "TeamName",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ChampRacersPastRace",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    IdGrandPrix = table.Column<Guid>(type: "uuid", nullable: false),
+                    IdRacer = table.Column<Guid>(type: "uuid", nullable: false),
+                    Position = table.Column<int>(type: "integer", nullable: false),
+                    Points = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChampRacersPastRace", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ChampRacersPastRace_GrandPrix_IdGrandPrix",
+                        column: x => x.IdGrandPrix,
+                        principalTable: "GrandPrix",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChampRacersPastRace_Racer_IdRacer",
+                        column: x => x.IdRacer,
+                        principalTable: "Racer",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -508,7 +592,8 @@ namespace Entities.Migrations
                     IdChassis = table.Column<Guid>(type: "uuid", nullable: false),
                     IdEngine = table.Column<Guid>(type: "uuid", nullable: false),
                     IdRacer = table.Column<Guid>(type: "uuid", nullable: false),
-                    IdTyre = table.Column<Guid>(type: "uuid", nullable: false)
+                    IdTyre = table.Column<Guid>(type: "uuid", nullable: false),
+                    IdTeamName = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -583,7 +668,9 @@ namespace Entities.Migrations
                     Lap = table.Column<int>(type: "integer", nullable: true),
                     Points = table.Column<float>(type: "real", nullable: false),
                     Position = table.Column<int>(type: "integer", nullable: true),
-                    Note = table.Column<string>(type: "text", nullable: false)
+                    Note = table.Column<string>(type: "text", nullable: false),
+                    NoteRus = table.Column<string>(type: "text", nullable: false),
+                    ClassificationRus = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -649,7 +736,7 @@ namespace Entities.Migrations
                     IdParticipant = table.Column<Guid>(type: "uuid", nullable: false),
                     Position = table.Column<int>(type: "integer", nullable: false),
                     Time = table.Column<string>(type: "text", nullable: false),
-                    Points = table.Column<float>(type: "real", nullable: false)
+                    IsUpdate = table.Column<bool>(type: "boolean", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -661,6 +748,26 @@ namespace Entities.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChampConstructorPastRace_IdGrandPrix",
+                table: "ChampConstructorPastRace",
+                column: "IdGrandPrix");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChampConstructorPastRace_IdTeamName",
+                table: "ChampConstructorPastRace",
+                column: "IdTeamName");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChampRacersPastRace_IdGrandPrix",
+                table: "ChampRacersPastRace",
+                column: "IdGrandPrix");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChampRacersPastRace_IdRacer",
+                table: "ChampRacersPastRace",
+                column: "IdRacer");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Chassis_IdImage",
@@ -844,6 +951,16 @@ namespace Entities.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_SeasonImg_IdImage",
+                table: "SeasonImg",
+                column: "IdImage");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeasonImg_IdSeason",
+                table: "SeasonImg",
+                column: "IdSeason");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_SeasonManufacturersClassification_IdSeason",
                 table: "SeasonManufacturersClassification",
                 column: "IdSeason");
@@ -862,6 +979,11 @@ namespace Entities.Migrations
                 name: "IX_SeasonRacersClassification_IdSeason",
                 table: "SeasonRacersClassification",
                 column: "IdSeason");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TeamName_IdCountry",
+                table: "TeamName",
+                column: "IdCountry");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Track_IdCountry",
@@ -897,6 +1019,12 @@ namespace Entities.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "ChampConstructorPastRace");
+
+            migrationBuilder.DropTable(
+                name: "ChampRacersPastRace");
+
+            migrationBuilder.DropTable(
                 name: "ChassisImg");
 
             migrationBuilder.DropTable(
@@ -925,6 +1053,9 @@ namespace Entities.Migrations
 
             migrationBuilder.DropTable(
                 name: "RacerImg");
+
+            migrationBuilder.DropTable(
+                name: "SeasonImg");
 
             migrationBuilder.DropTable(
                 name: "SeasonManufacturersClassification");

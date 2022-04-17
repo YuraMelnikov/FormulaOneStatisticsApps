@@ -16,7 +16,7 @@ const TableGrandClassification = observer(() => {
 
     useEffect(() => {
         fetchGpClassification(id).then(data => openApiData.setGpClassification(data))
-    }, [id, openApiData])
+    }, [])
 
     return (
         <Container>

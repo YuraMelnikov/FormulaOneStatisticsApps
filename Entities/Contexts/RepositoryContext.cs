@@ -15,6 +15,7 @@ namespace Entities.Contexts
         {
         }
 
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Season>(entity => { 

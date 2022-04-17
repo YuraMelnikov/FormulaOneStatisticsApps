@@ -16,7 +16,7 @@ const TableGrandPrixParticipant = observer(() => {
 
     useEffect(() => {
         fetchGpParticipant(id).then(data => openApiData.setGpParticipant(data))
-    }, [id, openApiData])
+    }, [])
 
     return (
         <Container>

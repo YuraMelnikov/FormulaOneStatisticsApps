@@ -18,7 +18,7 @@ const SeasonsList = observer(() => {
     return (
         <Row className="d-flex">
             {openApiData.seasons.map(season =>
-                <CardItem key={season.id} data={season} route={SEASON_ROUTE}/>
+                <CardItem key={season.name} data={season} route={SEASON_ROUTE}/>
             )}
         </Row>
     );

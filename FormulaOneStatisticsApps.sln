@@ -13,7 +13,12 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactfrontend", "reactfront
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XTestProject", "XTestProject\XTestProject.csproj", "{35E71071-0A86-492B-8B59-8A520B24E6C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parser", "Parser\Parser.csproj", "{BC2CCDC4-B251-442D-AD5A-A581FAEE1C8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parser", "Parser\Parser.csproj", "{BC2CCDC4-B251-442D-AD5A-A581FAEE1C8C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{9F4DEA42-02D4-4FE5-8702-9A64D9415241}"
+	ProjectSection(SolutionItems) = preProject
+		ScriptIncorrectQua.txt = ScriptIncorrectQua.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

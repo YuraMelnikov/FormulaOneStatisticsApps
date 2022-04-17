@@ -16,7 +16,7 @@ const TableSeasonPercipient = observer(() => {
 
     useEffect(() => {
         fetchSeasonPercipient(id).then(data => openApiData.setSeasonPercipient(data))
-    }, [id, openApiData])
+    }, [])
 
     return (
         <Container>
