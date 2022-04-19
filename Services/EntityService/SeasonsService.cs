@@ -9,10 +9,8 @@ namespace Services.EntityService
     {
         private readonly RepositoryContext _repositoryContext;
 
-        public SeasonsService(RepositoryContext repositoryContext)
-        {
+        public SeasonsService(RepositoryContext repositoryContext) =>
             _repositoryContext = repositoryContext;
-        }
 
         public async Task<IEnumerable<SeasonsDto>> GetSeasonsList() => 
             await _repositoryContext.Seasons

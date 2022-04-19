@@ -13,8 +13,40 @@ export default class OpenApiStore {
         this._gpClassification = []
         this._gpQualification = []
         this._gpParticipant = []
+        this._gpImages = []
+        this._gpInfo = []
+        this._gpChampRacers = []
+        this._gpChampConstructors = []
 
         makeAutoObservable(this)
+    }
+
+    setGpChampConstructors(gpChampConstructors) {
+        this._gpChampConstructors = gpChampConstructors
+    }
+    get gpChampConstructors() {
+        return this._gpChampConstructors
+    }
+
+    setGpChampRacers(gpChampRacers) {
+        this._gpChampRacers = gpChampRacers
+    }
+    get gpChampRacers() {
+        return this._gpChampRacers
+    }
+
+    setGpInfo(gpInfo) {
+        this._gpInfo = gpInfo
+    }
+    get gpInfo() {
+        return this._gpInfo
+    }
+
+    setGpImages(gpImages) {
+        this._gpImages = gpImages
+    }
+    get gpImages() {
+        return this._gpImages
     }
 
     setGpParticipant(gpParticipant) {

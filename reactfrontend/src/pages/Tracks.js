@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import TracksList from "../components/Lists/TracksList";
-import Title from "../components/Title";
+import Title from "../components/Titles/Title";
 
 const Tracks = () => {
     return (

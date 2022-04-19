@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import Table from 'react-bootstrap/Table';
 import { Context } from "../../index";
 import { Container, Row } from 'react-bootstrap';
-import TitleSmall from '../TitleSmall';
+import TitleSmall from '../Titles/TitleSmall';
 import { fetchGpParticipant } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { RACER_ROUTE, MANUFACTURER_ROUTE } from '../../utils/Constants';
@@ -16,6 +16,7 @@ const TableGrandPrixParticipant = observer(() => {
 
     useEffect(() => {
         fetchGpParticipant(id).then(data => openApiData.setGpParticipant(data))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

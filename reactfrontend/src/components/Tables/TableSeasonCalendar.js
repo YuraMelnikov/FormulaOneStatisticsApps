@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 import { Context } from "../../index";
 import { Container, Row } from 'react-bootstrap';
 import NumberFormat from 'react-number-format';
-import TitleSmall from '../TitleSmall';
+import TitleSmall from '../Titles/TitleSmall';
 import { fetchSeasonCalendar } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { RACER_ROUTE, MANUFACTURER_ROUTE, TRACK_ROUTE, GRANDPRIX_ROUTE } from '../../utils/Constants';
@@ -17,6 +17,7 @@ const TableSeasonCalendar = observer(() => {
 
     useEffect(() => {
         fetchSeasonCalendar(id).then(data => openApiData.setSeasonCalendar(data))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -27,6 +28,7 @@ const TableSeasonCalendar = observer(() => {
                     <thead>
                         <tr className="text-center">
                             <th>Date</th>
+                            <th>Name</th>
                             <th>Track</th>
                             <th>Lap</th>
                             <th>Distance</th>
@@ -38,6 +40,7 @@ const TableSeasonCalendar = observer(() => {
                         {openApiData.seasonCalendar.map(calendar =>
                             <tr key={calendar.idGrandPrix}>
                                 <td style={{cursor: 'pointer'}} onClick={() => history.push(GRANDPRIX_ROUTE + '/' + calendar.idGrandPrix)} className="text-center">{calendar.date}</td>
+                                <td >{calendar.name}</td>
                                 <td style={{cursor: 'pointer'}} onClick={() => history.push(TRACK_ROUTE + '/' + calendar.idTrack)}>{calendar.trackName}</td>
                                 <td className="text-center">{calendar.lap}</td>
                                 <td className="text-center">

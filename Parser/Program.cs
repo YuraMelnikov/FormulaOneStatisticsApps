@@ -62,51 +62,51 @@ RepositoryParcer repository = new RepositoryParcer();
 #endregion
 
 #region ChampRacersByGp
-for (var i = 2011; i <= 2019; i++)
-{
-    Console.WriteLine(i.ToString());
-    var seasonId = repository.Seasons.First(a => a.Year == i).Id;
-    var countGp = repository.GrandPrixes.Count(a => a.IdSeason == seasonId);
-    //http://ergast.com/api/f1/{{year}}/{{round}}/driverStandings
-    for (var j = 1; j <= countGp; j++)
-    {
-        var grandPrixId = repository.GrandPrixes.FirstOrDefault(a => a.IdSeason == seasonId && a.NumberInSeason == j).Id;
-        for (var k = 0; k < 900; k += 30)
-        {
-            Console.WriteLine(j.ToString());
-            string path = "http://ergast.com/api/f1/" + i.ToString() + "/" + j.ToString() + "/driverStandings?limit=30&offset=" + k.ToString();
-            var config = Configuration.Default.WithDefaultLoader();
-            var context = BrowsingContext.New(config);
-            IDocument document = await context.OpenAsync(path);
-            XmlSerializer serializer = new XmlSerializer(typeof(MRDataChampRacers));
-            using (StringReader reader = new StringReader(document.Source.Text))
-            {
-                var result = (MRDataChampRacers)serializer.Deserialize(reader);
-                if (result.StandingsTable.StandingsList is null)
-                {
-                    k = 1000;
-                }
-                else
-                {
-                    var resList = result.StandingsTable.StandingsList.DriverStanding;
-                    foreach (var r in resList)
-                    {
-                        var racerId = repository.Racers.FirstOrDefault(a => a.TimeApiId == r.Driver.DriverId).Id;
-                        var newCl = new ChampRacersPastRace
-                        {
-                            IdGrandPrix = grandPrixId,
-                            Position = Convert.ToInt32(r.Position),
-                            Points = (float)Convert.ToDecimal(r.Points.Replace(".", ",")),
-                            IdRacer = racerId
-                        };
-                        repository.Add(newCl);
-                        repository.SaveChanges();
-                    }
-                }
-            }
-        }
-    }
-}
+//for (var i = 2011; i <= 2019; i++)
+//{
+//    Console.WriteLine(i.ToString());
+//    var seasonId = repository.Seasons.First(a => a.Year == i).Id;
+//    var countGp = repository.GrandPrixes.Count(a => a.IdSeason == seasonId);
+//    //http://ergast.com/api/f1/{{year}}/{{round}}/driverStandings
+//    for (var j = 1; j <= countGp; j++)
+//    {
+//        var grandPrixId = repository.GrandPrixes.FirstOrDefault(a => a.IdSeason == seasonId && a.NumberInSeason == j).Id;
+//        for (var k = 0; k < 900; k += 30)
+//        {
+//            Console.WriteLine(j.ToString());
+//            string path = "http://ergast.com/api/f1/" + i.ToString() + "/" + j.ToString() + "/driverStandings?limit=30&offset=" + k.ToString();
+//            var config = Configuration.Default.WithDefaultLoader();
+//            var context = BrowsingContext.New(config);
+//            IDocument document = await context.OpenAsync(path);
+//            XmlSerializer serializer = new XmlSerializer(typeof(MRDataChampRacers));
+//            using (StringReader reader = new StringReader(document.Source.Text))
+//            {
+//                var result = (MRDataChampRacers)serializer.Deserialize(reader);
+//                if (result.StandingsTable.StandingsList is null)
+//                {
+//                    k = 1000;
+//                }
+//                else
+//                {
+//                    var resList = result.StandingsTable.StandingsList.DriverStanding;
+//                    foreach (var r in resList)
+//                    {
+//                        var racerId = repository.Racers.FirstOrDefault(a => a.TimeApiId == r.Driver.DriverId).Id;
+//                        var newCl = new ChampRacersPastRace
+//                        {
+//                            IdGrandPrix = grandPrixId,
+//                            Position = Convert.ToInt32(r.Position),
+//                            Points = (float)Convert.ToDecimal(r.Points.Replace(".", ",")),
+//                            IdRacer = racerId
+//                        };
+//                        repository.Add(newCl);
+//                        repository.SaveChanges();
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 #endregion
 
 #region SeasonManufChamp
@@ -639,6 +639,65 @@ for (var i = 2011; i <= 2019; i++)
 //                else
 //                {
 //                    j = 1000;
+//                }
+//            }
+//        }
+//    }
+//}
+#endregion
+
+#region Qua 1994 - 2019
+//for (var i = 1994; i <= 2019; i++)
+//{
+//    Console.WriteLine(i.ToString());
+//    var seasonId = repository.Seasons.First(a => a.Year == i).Id;
+//    var countGp = repository.GrandPrixes.Count(a => a.IdSeason == seasonId);
+
+//    for (var numGp = 1; numGp <= countGp; numGp++)
+//    {
+//        Console.WriteLine(numGp.ToString());
+//        var grandPrixDb = repository.GrandPrixes.FirstOrDefault(a => a.IdSeason == seasonId && a.NumberInSeason == numGp);
+//        for (var j = 0; j < 900; j += 30)
+//        {
+//            string path = "http://ergast.com/api/f1/" + i.ToString() + "/" + numGp.ToString() + "/qualifying?limit=30&offset=" + j.ToString();
+//            var config = Configuration.Default.WithDefaultLoader();
+//            var context = BrowsingContext.New(config);
+//            IDocument document = await context.OpenAsync(path);
+//            XmlSerializer serializer = new XmlSerializer(typeof(MRDataQual));
+//            using (StringReader reader = new StringReader(document.Source.Text))
+//            {
+//                var result = (MRDataQual)serializer.Deserialize(reader);
+//                if (result.RaceTable.Race is null)
+//                {
+//                    j = 1000;
+//                }
+//                else
+//                {
+//                    var results = result.RaceTable.Race.QualifyingList.QualifyingResult;
+//                    foreach (var driver in results)
+//                    {
+//                        var racer = repository.Racers.FirstOrDefault(a => a.TimeApiId == driver.Driver.DriverId);
+//                        var participant = repository.Participants.FirstOrDefault(a => a.IdGrandPrix == grandPrixDb.Id && a.IdRacer == racer.Id);
+//                        string time = "";
+//                        if (driver.Q3 != null)
+//                            time = driver.Q3;
+//                        else if (driver.Q2 != null)
+//                            time = driver.Q2;
+//                        else
+//                            time = driver.Q1;
+//                        if (time is null)
+//                            time = "";
+
+//                        var newQua = new Qualification
+//                        {
+//                            IdParticipant = participant.Id,
+//                            IsUpdate = true,
+//                            Position = Convert.ToInt32(driver.Position),
+//                            Time = time
+//                        };
+//                        repository.Add(newQua);
+//                        repository.SaveChanges();
+//                    }
 //                }
 //            }
 //        }

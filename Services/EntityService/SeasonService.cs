@@ -1,34 +1,25 @@
-﻿using AutoMapper;
-using Entities.Contexts;
+﻿using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Services.DTO;
 using Services.DTO.Common;
 using Services.IEntityService;
-using Services.IService;
-using Services.Service;
-using System.Text;
 
 namespace Services.EntityService
 {
     public class SeasonService : ISeasonService
     {
         private readonly RepositoryContext _repositoryContext;
-        private readonly IMapper _mapper;
-        private readonly IServiceManager _manager;
 
-        public SeasonService(RepositoryContext repositoryContext, IMapper mapper)
-        {
+        public SeasonService(RepositoryContext repositoryContext) =>
             _repositoryContext = repositoryContext;
-            _mapper = mapper;
-            _manager = new ServiceManager(_repositoryContext, _mapper);
-        }
 
-        public async Task<IEnumerable<CalendarSeasonDto>> GetClendar(Guid seasonId) =>
+        public async Task<IEnumerable<SeasonCalendarDto>> GetCalendar(Guid seasonId) =>
              await _repositoryContext.GrandPrixResults
                 .AsNoTracking()
                 .Where(a => a.Participant.GrandPrix.IdSeason == seasonId && a.Position == 1)
-                .Select(a => new CalendarSeasonDto
+                .Select(a => new SeasonCalendarDto
                 {
+                    Name = a.Participant.GrandPrix.Name,
                     Date = a.Participant.GrandPrix.Date.ToString().Substring(0, 10),
                     Distance = (decimal)a.Participant.GrandPrix.TrackСonfiguration.Length * a.Participant.GrandPrix.NumberOfLap,
                     IdGrandPrix = a.Participant.IdGrandPrix,
@@ -43,198 +34,118 @@ namespace Services.EntityService
                 .OrderBy(a => a.Date)
                 .ToArrayAsync();
         
-
-        public async Task<IEnumerable<TeamsSeasonDto>> GetPercipient(Guid seasonId)
+        public async Task<IEnumerable<SeasonParticipientDto>> GetPercipient(Guid seasonId)
         {
-            var allResults = _repositoryContext
+            var participients = await _repositoryContext
                 .Participants
                 .AsNoTracking()
                 .Where(a => a.GrandPrix.IdSeason == seasonId)
                 .Select(a => new 
                 { 
-                    a.IdTeam, a.Team.Name, 
-                    a.IdChassis, 
-                    a.Chassis.Name, 
+                    a.IdTeam, 
+                    a.Team.Name, 
+                    a.IdChassis,
+                    Chassis = a.Chassis.Name, 
                     a.IdRacer, 
                     a.Racer.RacerNameEng, 
-                    a.IdEngine, 
-                    a.Engine.Name, 
+                    a.IdEngine,
+                    Engine = a.Engine.Name, 
                     a.IdTyre,
-                    a.Tyre.Name
+                    Tyre = a.Tyre.Name
                     
                 })
+                .Distinct()
+                .OrderBy(a => a.Name)
                 .ToArrayAsync();
 
-
-
-            var query = _repositoryContext.Participants
-                .AsNoTracking()
-                .Where(a => a.GrandPrix.IdSeason == seasonId)
-                .GroupBy(a => a.IdTeam)
-                .Select(a => new TeamsSeasonDto { IdTeam = a.Key });
-            var teams = await query.ToArrayAsync();
-
-            foreach (var team in teams)
-            {
-                team.Name = _repositoryContext.Teams.Find(team.IdTeam).Name;
-                team.Tyres = await GetTyreTeamOnSeason(seasonId, team.IdTeam);
-                team.Racers = await GetRacersTeamOnSeason(seasonId, team.IdTeam);
-                team.Engines = await GetEngineTeamOnSeason(seasonId, team.IdTeam);
-                team.Chassis = await GetChassisTeamOnSeason(seasonId, team.IdTeam);
-            }
-
-            return teams.OrderBy(a => a.Name);
+            return participients.DistinctBy(a => a.IdTeam)
+                .Select(a => new SeasonParticipientDto 
+                {
+                    IdTeam = a.IdTeam, 
+                    Name = a.Name, 
+                    Chassis = participients
+                                .Where(b => b.IdTeam == a.IdTeam)
+                                .DistinctBy(b => b.IdChassis)
+                                .Select(b => new LabelItemWhisId
+                                {
+                                    Id = b.IdChassis, Name = b.Chassis
+                                }),
+                    Engines = participients
+                                .Where(b => b.IdTeam == a.IdTeam)
+                                .DistinctBy(b => b.IdEngine)
+                                .Select(b => new LabelItemWhisId
+                                {
+                                    Id = b.IdEngine,
+                                    Name = b.Engine
+                                }), 
+                    Racers = participients
+                                .Where(b => b.IdTeam == a.IdTeam)
+                                .DistinctBy(b => b.IdRacer)
+                                .Select(b => new LabelItemWhisId
+                                {
+                                    Id = b.IdRacer,
+                                    Name = b.RacerNameEng
+                                }), 
+                    Tyres = participients
+                                .Where(b => b.IdTeam == a.IdTeam)
+                                .DistinctBy(b => b.IdTyre)
+                                .Select(b => new LabelItemWhisId
+                                {
+                                    Id = b.IdTyre,
+                                    Name = b.Tyre
+                                })
+                });
         }
 
-        public async Task<IEnumerable<ChampionshipResultDto>> GetChampionshipRacers(Guid seasonId)
-        {
-            var grandPrixes = await GetGrandPrixes(seasonId);
-
-            var parcipiantsInSeason = _repositoryContext.Participants
-                .AsNoTracking()
-                .Where(a => a.GrandPrix.IdSeason == seasonId)
-                .GroupBy(x => x.IdRacer)
-                .Select(a => new ChampionshipResultDto { Id = a.Key });
-            var racers = await parcipiantsInSeason.ToArrayAsync();
-
-            foreach (var racer in racers)
-            {
-                racer.Name = _repositoryContext.Racers.Find(racer.Id).RacerNameEng;
-                racer.Result = new List<SeasonChampColumnDto>();
-
-                foreach (var grandPrix in grandPrixes)
-                {
-                    var result = _repositoryContext.GrandPrixResults
-                        .AsNoTracking()
-                        .FirstOrDefault(a => a.Participant.IdRacer == racer.Id & a.Participant.IdGrandPrix == grandPrix.Id);
-                    if (result is null)
-                        racer.Result.Add(new SeasonChampColumnDto { RacePosition = "-" });
-                    else
-                        racer.Result.Add(new SeasonChampColumnDto { RacePosition = result.Classification });
-                }
-
-                var seasonRacersClassification = _repositoryContext.SeasonRacersClassification
-                    .FirstOrDefault(a => a.IdRacer == racer.Id && a.IdSeason == seasonId);
-                if(seasonRacersClassification != null)
-                {
-                    racer.Position = seasonRacersClassification.Position.ToString();
-                    racer.Points = seasonRacersClassification.Points;
-                }
-                else
-                {
-                    racer.Position = "    ";
-                    racer.Points = 0;
-                }
-            }
-
-            return racers.OrderBy(a => a.Position.Length).ThenBy(a => a.Position);
-        }
-
-        public async Task<IEnumerable<ChampionshipResultDto>> GetChampionshipTeams(Guid seasonId)
-        {
-            var grandPrixes = await GetGrandPrixes(seasonId);
-
-            var teamsInSeason = _repositoryContext.SeasonManufacturersClassification
+        public async Task<IEnumerable<SeasonChampionshipDto>> GetChampionshipRacers(Guid seasonId) =>
+            await _repositoryContext.SeasonRacersClassification
                 .AsNoTracking()
                 .Where(a => a.IdSeason == seasonId)
-                .Select(a => new ChampionshipResultDto { Id = a.IdTeamName, Name = a.TeamName.Name, Points = a.Points, Position = a.Position.ToString() });
-            var teams = await teamsInSeason.ToArrayAsync();
-
-            foreach (var team in teams)
-            {
-                team.Result = new List<SeasonChampColumnDto>();
-
-                foreach (var grandPrix in grandPrixes)
+                .Select(a => new SeasonChampionshipDto
                 {
-                    var result = await _repositoryContext.GrandPrixResults
-                        .AsNoTracking()
-                        .Include(a => a.Participant)
-                        .Where(a => a.Participant.IdTeamName == team.Id & a.Participant.IdGrandPrix == grandPrix.Id)
-                        .ToArrayAsync();
-                    if (result.Count() == 0)
-                        team.Result.Add(new SeasonChampColumnDto { RacePosition = "-" });
-                    else
-                    {
-                        var recePosition = new StringBuilder();
-                        foreach (var res in result)
-                            recePosition.Append(res.Classification + "/");
-                        team.Result.Add(new SeasonChampColumnDto { RacePosition = recePosition.ToString().Trim('/') });
-                    }
-                }
-            }
+                    Id = a.IdRacer,
+                    Name = a.Racer.RacerNameEng,
+                    Points = a.Points,
+                    Position = a.Position, 
+                    Result = _repositoryContext.GrandPrixes.AsNoTracking()
+                                .Where(b => b.IdSeason == seasonId)
+                                .OrderBy(b => b.NumberInSeason)
+                                .Select(b => new SeasonChampColumnDto { 
+                                    RacePosition = _repositoryContext.GrandPrixResults.AsNoTracking()
+                                                                            .Where(c => c.Participant.IdGrandPrix == b.Id && c.Participant.IdRacer == a.IdRacer)
+                                                                            .Select(c => new {c.Position, c.Classification})
+                                                                            .OrderBy(c => c.Position)
+                                                                            .First().Classification
+                                })
+                                .ToArray()
+                })
+                .OrderBy(a => a.Position)
+                .ToArrayAsync();
 
-            return teams.OrderBy(a => a.Position.Length).ThenBy(a => a.Position);
-        }
-
-        public async Task<IEnumerable<LabelItemWhisId>> GetChassisTeamOnSeason(Guid idSeason, Guid idTeam)
-        {
-            var query = _repositoryContext.Participants
-                .AsNoTracking()
-                .Where(a => a.IdTeam == idTeam && a.GrandPrix.IdSeason == idSeason)
-                .GroupBy(x => x.IdChassis)
-                .Select(a => new LabelItemWhisId { Id = a.Key });
-            var chassies = await query.ToListAsync();
-
-            foreach (var chassi in chassies)
-                chassi.Name = _repositoryContext.Chassis.Find(chassi.Id).Name;
-
-            return chassies;
-        }
-
-        public async Task<IEnumerable<LabelItemWhisId>> GetEngineTeamOnSeason(Guid idSeason, Guid idTeam)
-        {
-            var query = _repositoryContext.Participants
-                .AsNoTracking()
-                .Where(a => a.IdTeam == idTeam && a.GrandPrix.IdSeason == idSeason)
-                .GroupBy(x => x.IdEngine)
-                .Select(a => new LabelItemWhisId { Id = a.Key });
-            var engines = await query.ToListAsync();
-
-            foreach (var engine in engines)
-                engine.Name = _repositoryContext.Engines.Find(engine.Id).Name;
-
-            return engines;
-        }
-
-        public async Task<IEnumerable<LabelItemWhisId>> GetRacersTeamOnSeason(Guid idSeason, Guid idTeam)
-        {
-            var query = _repositoryContext.Participants
-                .AsNoTracking()
-                .Where(a => a.IdTeam == idTeam && a.GrandPrix.IdSeason == idSeason)
-                .GroupBy(x => x.IdRacer)
-                .Select(a => new LabelItemWhisId { Id = a.Key });
-            var racers = await query.ToListAsync();
-
-            foreach (var racer in racers)
-                racer.Name = _repositoryContext.Racers.Find(racer.Id).RacerNameEng;
-
-            return racers;
-        }
-
-        public async Task<IEnumerable<LabelItemWhisId>> GetTyreTeamOnSeason(Guid idSeason, Guid idTeam)
-        {
-            var query = _repositoryContext.Participants
-                .AsNoTracking()
-                .Where(a => a.IdTeam == idTeam && a.GrandPrix.IdSeason == idSeason)
-                .GroupBy(x => x.IdTyre)
-                .Select(a => new LabelItemWhisId { Id = a.Key });
-            var tyres = await query.ToListAsync();
-
-            foreach (var tyre in tyres)
-                tyre.Name = _repositoryContext.Tyres.Find(tyre.Id).Name;
-
-            return tyres;
-        }
-
-        public async Task<IEnumerable<LabelItemWhisId>> GetGrandPrixes(Guid seasonId)
-        {
-            var granpPrixesInSeason = _repositoryContext.GrandPrixes
-                .AsNoTracking()
-                .Where(a => a.IdSeason == seasonId)
-                .OrderBy(a => a.NumberInSeason)
-                .Select(a => new LabelItemWhisId { Id = a.Id, Name = a.Name });
-
-            return await granpPrixesInSeason.ToArrayAsync();
-        }
+        public async Task<IEnumerable<SeasonChampionshipDto>> GetChampionshipTeams(Guid seasonId) =>
+            await _repositoryContext.SeasonManufacturersClassification
+                                            .AsNoTracking()
+                                            .Where(a => a.IdSeason == seasonId)
+                                            .Select(a => new SeasonChampionshipDto
+                                            {
+                                                Id = a.IdTeamName,
+                                                Name = a.TeamName.Name,
+                                                Points = a.Points,
+                                                Position = a.Position,
+                                                Result = _repositoryContext.GrandPrixes.AsNoTracking()
+                                                            .Where(b => b.IdSeason == seasonId)
+                                                            .OrderBy(b => b.NumberInSeason)
+                                                            .Select(b => new SeasonChampColumnDto
+                                                            {
+                                                                RacePosition = string.Concat(_repositoryContext.GrandPrixResults.AsNoTracking()
+                                                                                                        .Where(c => c.Participant.IdGrandPrix == b.Id && c.Participant.IdTeamName == a.IdTeamName)
+                                                                                                        .OrderBy(c => c.Position)
+                                                                                                        .Select(c => c.Classification + " ")
+                                                                                                        .ToList()).TrimEnd(' ')
+                                                            })
+                                                            .ToArray()
+                                            })
+                                            .OrderBy(a => a.Position)
+                                            .ToArrayAsync();
     }
 }

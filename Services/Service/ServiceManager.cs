@@ -40,7 +40,7 @@ namespace Services.Service
             get
             {
                 if(_season == null)
-                    _season = new SeasonService(_repoContext, _mapper);
+                    _season = new SeasonService(_repoContext);
                 return _season;
             }
         }
@@ -90,7 +90,7 @@ namespace Services.Service
             get
             {
                 if (_grandPrixResult == null)
-                    _grandPrixResult = new GrandPrixService(_repoContext, _mapper);
+                    _grandPrixResult = new GrandPrixService(_repoContext);
                 return _grandPrixResult;
             }
         }

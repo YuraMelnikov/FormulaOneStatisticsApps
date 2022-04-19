@@ -9,10 +9,8 @@ namespace FormulaOneStatistics.Controllers
     {
         private readonly IServiceManager _service;
 
-        public RacerController(IServiceManager service)
-        {
+        public RacerController(IServiceManager service) =>
             _service = service;
-        }
 
         [HttpGet("seasons/{id}")]
         public async Task<IActionResult> GetSeasonsResult(Guid id)

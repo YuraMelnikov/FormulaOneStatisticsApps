@@ -9,10 +9,8 @@ namespace FormulaOneStatistics.Controllers
     {
         private readonly IServiceManager _service;
 
-        public TracksController(IServiceManager service)
-        {
+        public TracksController(IServiceManager service) =>
             _service = service;
-        }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()

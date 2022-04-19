@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import Table from 'react-bootstrap/Table';
 import { Context } from "../../index";
 import { Container, Row } from 'react-bootstrap';
-import TitleSmall from '../TitleSmall';
+import TitleSmall from '../Titles/TitleSmall';
 import { fetchSeasonConstResult } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { GRANDPRIX_ROUTE } from '../../utils/Constants';
@@ -18,6 +18,7 @@ const TableSeasonChampConstructors = observer(() => {
 
     useEffect(() => {
         fetchSeasonConstResult(id).then(data => openApiData.setSeasonConstResult(data))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return(

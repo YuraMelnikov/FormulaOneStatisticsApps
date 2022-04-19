@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import SeasonsList from "../components/Lists/SeasonsList";
-import Title from "../components/Title";
+import Title from "../components/Titles/Title";
 import { SEASONS_TITLE } from "../utils/TitleNameConst";
 
 const Seasons = () => {

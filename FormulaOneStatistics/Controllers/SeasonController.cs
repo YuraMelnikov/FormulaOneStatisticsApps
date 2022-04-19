@@ -9,15 +9,13 @@ namespace FormulaOneStatistics.Controllers
     {
         private readonly IServiceManager _service;
 
-		public SeasonController(IServiceManager service)
-        {
+		public SeasonController(IServiceManager service) =>
             _service = service;
-        }
 
         [HttpGet("calendar/{id}")]
         public async Task<IActionResult> GetCalendar(Guid id)
         {
-            var calendar = await _service.Season.GetClendar(id);
+            var calendar = await _service.Season.GetCalendar(id);
             return Ok(calendar);
         }
 

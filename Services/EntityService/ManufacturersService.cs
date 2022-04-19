@@ -9,10 +9,8 @@ namespace Services.EntityService
     {
         private readonly RepositoryContext _repositoryContext;
 
-        public ManufacturersService(RepositoryContext repositoryContext)
-        {
+        public ManufacturersService(RepositoryContext repositoryContext) =>
             _repositoryContext = repositoryContext;
-        }
 
         public async Task<IEnumerable<ManufacturersDto>> GetManufacturersList() =>
             await _repositoryContext.Manufacturers

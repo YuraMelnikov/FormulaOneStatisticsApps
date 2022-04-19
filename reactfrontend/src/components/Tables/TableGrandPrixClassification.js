@@ -4,18 +4,19 @@ import { observer } from "mobx-react-lite";
 import Table from 'react-bootstrap/Table';
 import { Context } from "../../index";
 import { Container, Row } from 'react-bootstrap';
-import TitleSmall from '../TitleSmall';
+import TitleSmall from '../Titles/TitleSmall';
 import { fetchGpClassification } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { RACER_ROUTE, MANUFACTURER_ROUTE } from '../../utils/Constants';
 
-const TableGrandClassification = observer(() => {
+const TableGrandPrixClassification = observer(() => {
     const history = useHistory()
     const {openApiData} = useContext(Context)
     const {id} = useParams()
 
     useEffect(() => {
         fetchGpClassification(id).then(data => openApiData.setGpClassification(data))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -55,4 +56,4 @@ const TableGrandClassification = observer(() => {
     );
 });
 
-export default TableGrandClassification;
+export default TableGrandPrixClassification;

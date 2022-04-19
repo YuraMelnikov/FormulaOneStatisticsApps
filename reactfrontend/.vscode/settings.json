@@ -2,17 +2,27 @@
     "cSpell.words": [
         "ABOUTAPI",
         "ABOUTUS",
+        "aspnetcore",
+        "browserslist",
+        "champconstructors",
         "championshipracers",
         "championshipteams",
+        "champracers",
         "GPCLASSIFICATION",
         "GPPARTICIPANT",
         "GPQUALIFICATION",
         "GRANDPRIX",
+        "imglink",
+        "imgtracklink",
+        "numberinseason",
+        "prestart",
         "Prixes",
         "RACERRESULT",
         "SEASONCALENDAR",
         "SEASONCHAMPIONSHIPTEAMS",
         "SEASONCHAMPIONSIPRACERS",
-        "SEASONPARCIPIENT"
+        "SEASONPARCIPIENT",
+        "trackname",
+        "TTFB"
     ]
 }

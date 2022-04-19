@@ -1,21 +1,8 @@
-﻿using AutoMapper;
-using Entities.Models;
-using Services.Mapping;
-
-namespace Services.DTO.Common
+﻿namespace Services.DTO.Common
 {
-    public class LabelItemWhisId : IMapFrom
+    public class LabelItemWhisId
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-
-        public void Mapping(Profile profile)
-        {
-            profile.CreateMap<Racer, LabelItemWhisId>()
-                .ForMember(to => to.Name, from => from.MapFrom(a => a.RacerNameEng));
-            profile.CreateMap<Tyre, LabelItemWhisId>();
-            profile.CreateMap<Engine, LabelItemWhisId>();
-            profile.CreateMap<Chassis, LabelItemWhisId>();
-        }
     }
 }

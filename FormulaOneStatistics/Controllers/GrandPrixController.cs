@@ -9,10 +9,8 @@ namespace FormulaOneStatistics.Controllers
     {
         private readonly IServiceManager _service;
 
-        public GrandPrixController(IServiceManager service)
-        {
+        public GrandPrixController(IServiceManager service) =>
             _service = service;
-        }
 
         [HttpGet("participants/{id}")]
         public async Task<IActionResult> GetParticipants(Guid id)
@@ -33,6 +31,35 @@ namespace FormulaOneStatistics.Controllers
         {
             var classification = await _service.GrandPrixResult.GetClassification(id);
             return Ok(classification);
+        }
+
+
+        [HttpGet("images/{id}")]
+        public async Task<IActionResult> GetImages(Guid id)
+        {
+            var images = await _service.GrandPrixResult.GetImages(id);
+            return Ok(images);
+        }
+
+        [HttpGet("info/{id}")]
+        public async Task<IActionResult> GetInfo(Guid id)
+        {
+            var info = await _service.GrandPrixResult.GetInfo(id);
+            return Ok(info);
+        }
+
+        [HttpGet("champracers/{id}")]
+        public async Task<IActionResult> GetChampRacers(Guid id)
+        {
+            var state = await _service.GrandPrixResult.GetChampRacers(id);
+            return Ok(state);
+        }
+
+        [HttpGet("champconstructors/{id}")]
+        public async Task<IActionResult> GetChampConstructors(Guid id)
+        {
+            var state = await _service.GrandPrixResult.GetChampConstructors(id);
+            return Ok(state);
         }
     }
 }

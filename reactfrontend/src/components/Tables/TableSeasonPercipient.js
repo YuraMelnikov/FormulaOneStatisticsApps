@@ -5,7 +5,7 @@ import { Context } from "../../index";
 import { Container, Row } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import { RACER_ROUTE, MANUFACTURER_ROUTE } from '../../utils/Constants';
-import TitleSmall from '../TitleSmall';
+import TitleSmall from '../Titles/TitleSmall';
 import { fetchSeasonPercipient } from "../../http/API";
 import { observer } from "mobx-react-lite";
 
@@ -16,6 +16,7 @@ const TableSeasonPercipient = observer(() => {
 
     useEffect(() => {
         fetchSeasonPercipient(id).then(data => openApiData.setSeasonPercipient(data))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

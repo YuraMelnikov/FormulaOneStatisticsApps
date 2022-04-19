@@ -65,3 +65,27 @@ export const fetchGpParticipant = async (id) => {
     console.log(data);
     return data
 }
+
+export const fetchGpImages = async (id) => {
+    const {data} = await $host.get('api/grandprix/images/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchGpInfo = async (id) => {
+    const {data} = await $host.get('api/grandprix/info/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchGpChampRacers = async (id) => {
+    const {data} = await $host.get('api/grandprix/champracers/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchGpChampConstructors = async (id) => {
+    const {data} = await $host.get('api/grandprix/champconstructors/' + id)
+    console.log(data);
+    return data
+}

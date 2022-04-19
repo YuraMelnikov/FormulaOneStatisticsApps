@@ -9,10 +9,8 @@ namespace FormulaOneStatistics.Controllers
     {
         private readonly IServiceManager _service;
 
-        public ManufacturersController(IServiceManager service)
-        {
+        public ManufacturersController(IServiceManager service) =>
             _service = service;
-        }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()

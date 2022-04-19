@@ -38,5 +38,8 @@ namespace Entities.Models
 
         [Required(ErrorMessage = "NameRus of lan is required")]
         public string NameRus { get; set; }
+
+        [Required(ErrorMessage = "Text of lan is required")]
+        public string Text { get; set; }
     }
 }

@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-using Entities.Contexts;
+﻿using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Services.DTO;
+using Services.DTO.Common;
 using Services.IEntityService;
 
 namespace Services.EntityService
@@ -9,13 +9,35 @@ namespace Services.EntityService
     public class GrandPrixService : IGrandPrixService
     {
         private readonly RepositoryContext _repositoryContext;
-        private readonly IMapper _mapper;
 
-        public GrandPrixService(RepositoryContext repositoryContext, IMapper mapper)
-        {
+        public GrandPrixService(RepositoryContext repositoryContext) =>
             _repositoryContext = repositoryContext;
-            _mapper = mapper;
-        }
+
+        public async Task<IEnumerable<GrandPrixChampStateDto>> GetChampConstructors(Guid idGrandPrix) =>
+            await _repositoryContext.ChampConstructorPastRace
+                .AsNoTracking()
+                .Where(a => a.IdGrandPrix == idGrandPrix)
+                .OrderBy(a => a.Position)
+                .Select(a => new GrandPrixChampStateDto
+                {
+                    Name = a.TeamName.Name,
+                    Points = a.Points,
+                    Position = a.Position
+                })
+                .ToArrayAsync();
+
+        public async Task<IEnumerable<GrandPrixChampStateDto>> GetChampRacers(Guid idGrandPrix) =>
+            await _repositoryContext.ChampRacersPastRace
+                .AsNoTracking()
+                .Where(a => a.IdGrandPrix == idGrandPrix)
+                .OrderBy(a => a.Position)
+                .Select(a => new GrandPrixChampStateDto
+                {
+                    Name = a.Racer.RacerNameEng,
+                    Points = a.Points,
+                    Position = a.Position
+                })
+                .ToArrayAsync();
 
         public async Task<IEnumerable<GrandPrixClassificationDto>> GetClassification(Guid idGrandPrix)
         {
@@ -25,12 +47,15 @@ namespace Services.EntityService
                 .Select(a => new GrandPrixClassificationDto
                 {
                     PositionNum = a.Position,
-                    Position = a.Classification, 
-                    IdRacer = a.Participant.IdRacer, 
-                    Racer = a.Participant.Racer.RacerNameEng, 
-                    IdChassis = a.Participant.Chassis.IdManufacturer, Chassis = a.Participant.Chassis.Name, 
-                    Circles = a.Lap.ToString(), Time = a.Time, AvrSpeed = a.AverageSpeed, 
-                    Points = a.Points.ToString(), 
+                    Position = a.Classification,
+                    IdRacer = a.Participant.IdRacer,
+                    Racer = a.Participant.Racer.RacerNameEng,
+                    IdChassis = a.Participant.Chassis.IdManufacturer,
+                    Chassis = a.Participant.Chassis.Name,
+                    Circles = a.Lap.ToString(),
+                    Time = a.Time,
+                    AvrSpeed = a.AverageSpeed,
+                    Points = a.Points.ToString(),
                     Note = a.Note
                 });
 
@@ -41,27 +66,59 @@ namespace Services.EntityService
                 .ToArrayAsync();
         }
 
+        public async Task<IEnumerable<ImageDto>> GetImages(Guid idGrandPrix) =>
+            await _repositoryContext.GrandPrixImgs
+                .AsNoTracking()
+                .Where(a => a.IdGrandPrix == idGrandPrix)
+                .Select(a => new ImageDto
+                {
+                    Link = a.Image.Link, 
+                    Text = string.Concat(_repositoryContext.ParticipantImg
+                        .Where(b => b.IdImage == a.IdImage)
+                        .Select(b => b.Participant.Racer.RacerNameEng + ", " + b.Participant.Chassis.Name + " ")
+                        .ToList())
+                    .TrimEnd(' ')
+                })
+                .ToArrayAsync();
+
+        public async Task<GrandPrixInfoDto> GetInfo(Guid idGrandPrix) =>
+            await _repositoryContext.GrandPrixes
+                    .AsNoTracking()
+                    .Where(a => a.Id == idGrandPrix)
+                    .Select(a => new GrandPrixInfoDto
+                    {
+                        Name = a.FullName, 
+                        ImgLink = a.Image.Link, 
+                        Date = a.Date.ToShortDateString(), 
+                        ImgTrackLink = a.TrackСonfiguration.Image.Link, 
+                        NumberInSeason = a.NumberInSeason, 
+                        Text = a.Text, 
+                        TrackName = a.TrackСonfiguration.Track.Name, 
+                        Weather = a.Weather
+                    })
+                    .FirstAsync();
+
         public async Task<IEnumerable<GrandPrixParticipantDto>> GetParticipant(Guid idGrandPrix)
         {
             var participant = _repositoryContext.Participants
                 .AsNoTracking()
                 .Where(a => a.IdGrandPrix == idGrandPrix)
-                .Select(a => new GrandPrixParticipantDto { 
-                    No = a.Number, 
-                    TeamName = a.Team.Name, 
-                    IdRacer = a.IdRacer, 
-                    Racer = a.Racer.RacerNameEng, 
-                    IdChassis = a.IdChassis, 
-                    Chassis = a.Chassis.Name, 
-                    IdEngine = a.Engine.IdManufacturer, 
-                    Engine = a.Engine.Name, 
-                    IdTyre = a.Tyre.IdManufacturer, 
+                .Select(a => new GrandPrixParticipantDto
+                {
+                    No = a.Number,
+                    TeamName = a.Team.Name,
+                    IdRacer = a.IdRacer,
+                    Racer = a.Racer.RacerNameEng,
+                    IdChassis = a.IdChassis,
+                    Chassis = a.Chassis.Name,
+                    IdEngine = a.Engine.IdManufacturer,
+                    Engine = a.Engine.Name,
+                    IdTyre = a.Tyre.IdManufacturer,
                     Tyre = a.Tyre.Name
                 });
 
             return await participant
-                .OrderBy(a => a.TeamName)
-                .ThenBy(a => a.No.Length)
+                .OrderBy(a => a.No.Length)
                 .ThenBy(a => a.No)
                 .ToArrayAsync();
         }
@@ -75,11 +132,13 @@ namespace Services.EntityService
                 {
                     Position = a.Position.ToString(),
                     IdRacer = a.Participant.IdRacer,
-                    Racer = a.Participant.Racer.RacerNameEng, 
-                    IdChassis = a.Participant.Chassis.IdManufacturer, 
-                    Chassis = a.Participant.Chassis.Name, 
+                    Racer = a.Participant.Racer.RacerNameEng,
+                    IdChassis = a.Participant.Chassis.IdManufacturer,
+                    Chassis = a.Participant.Chassis.Name,
                     IdEngine = a.Participant.Engine.IdManufacturer,
-                    Engine = a.Participant.Engine.Name, Time = a.Time, Gap = ""
+                    Engine = a.Participant.Engine.Name,
+                    Time = a.Time,
+                    Gap = ""
                 });
 
             return await qualification
@@ -88,13 +147,8 @@ namespace Services.EntityService
                 .ToArrayAsync();
         }
 
-        public async Task<GrandPrixResultRacerDto> GetRacerResult(Guid idParticipant)
-        {
-            var participant = await _repositoryContext.GrandPrixResults
-                .AsNoTracking()
-                .FirstOrDefaultAsync(a => a.IdParticipant == idParticipant);
-            var p = _mapper.Map<GrandPrixResultRacerDto>(participant);
-            return _mapper.Map<GrandPrixResultRacerDto>(participant);
-        }
+
+
+
     }
 }

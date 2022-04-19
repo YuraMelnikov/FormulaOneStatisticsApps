@@ -5,7 +5,7 @@ using Services.Mapping;
 
 namespace Services.DTO
 {
-    public class TeamsSeasonDto : IMapFrom
+    public class SeasonParticipientDto : IMapFrom
     {
         public Guid IdTeam { get; set; }
         public string Name { get; set; }
@@ -16,7 +16,7 @@ namespace Services.DTO
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Participant, TeamsSeasonDto>()
+            profile.CreateMap<Participant, SeasonParticipientDto>()
                 .ForMember(to => to.IdTeam, from => from.MapFrom(x => x.IdTeam))
                 .ForMember(to => to.Name, from => from.MapFrom(x => x.Team.Name));
         }

@@ -1,13 +1,10 @@
-﻿using AutoMapper;
-using Entities.Models;
-using Services.Mapping;
-
-namespace Services.DTO
+﻿namespace Services.DTO
 {
-    public record CalendarSeasonDto
+    public record SeasonCalendarDto
     {
         public Guid IdGrandPrix { get;set; }
         public string Date { get; set; }
+        public string Name { get; set; }
         public Guid IdTrack { get; set; }
         public string TrackName { get; set; }
         public int Lap { get; set; }

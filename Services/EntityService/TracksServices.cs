@@ -9,10 +9,8 @@ namespace Services.EntityService
     {
         private readonly RepositoryContext _repositoryContext;
 
-        public TracksServices(RepositoryContext repositoryContext)
-        {
+        public TracksServices(RepositoryContext repositoryContext) => 
             _repositoryContext = repositoryContext;
-        }
 
         public async Task<IEnumerable<TracksDto>> GetTracksList() =>
             await _repositoryContext.Tracks

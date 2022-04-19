@@ -9,10 +9,8 @@ namespace Services.EntityService
     {
         private readonly RepositoryContext _repositoryContext;
 
-        public RacersService(RepositoryContext repositoryContext)
-        {
+        public RacersService(RepositoryContext repositoryContext) => 
             _repositoryContext = repositoryContext;
-        }
 
         public async Task<IEnumerable<RacersDto>> GetRacersList() =>
             await _repositoryContext.Racers

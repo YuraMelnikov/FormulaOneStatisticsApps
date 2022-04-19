@@ -4,7 +4,7 @@ import { Context } from "../../index";
 import { Container, Row } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import { MANUFACTURER_ROUTE, SEASONS_ROUTE } from '../../utils/Constants';
-import TitleSmall from '../TitleSmall';
+import TitleSmall from '../Titles/TitleSmall';
 
 const TableRacerSeasons = () => {
     const {mockData} = useContext(Context)
