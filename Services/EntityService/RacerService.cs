@@ -15,12 +15,31 @@ namespace Services.EntityService
 
         public Task<IEnumerable<SeasonChampionshipDto>> GetClassifications(Guid racerId)
         {
+            var result = _repositoryContext.GrandPrixResults
+                .AsNoTracking()
+                .Select()
+
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<ImageDto>> GetImages(Guid racerId)
+        public async Task<IEnumerable<ImageDto>> GetImages(Guid racerId) =>
+            await _repositoryContext.RacerImgs
+                .AsNoTracking()
+                .Where(a => a.IdRacer == racerId)
+                .Select(a => new ImageDto
+                {
+                    Link = a.Image.Link
+                })
+                .ToArrayAsync();
+
+        public async Task<RacerInfoDto> GetInfo(Guid racerId)
         {
-            throw new NotImplementedException();
+            var racer = await _repositoryContext.Racers.FindAsync(racerId);
+            return new RacerInfoDto
+            {
+                Name = racer.RacerNameEng, 
+                BirdthDay = racer.Born.ToShortDateString()
+            };
         }
 
         public async Task<IEnumerable<RacerSeasonsDto>> GetResultBySeason(Guid racerId)

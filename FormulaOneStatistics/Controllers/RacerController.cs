@@ -18,5 +18,26 @@ namespace FormulaOneStatistics.Controllers
             var results = await _service.Racer.GetResultBySeason(id);
             return Ok(results);
         }
+
+        [HttpGet("info/{id}")]
+        public async Task<IActionResult> GetInfo(Guid id)
+        {
+            var results = await _service.Racer.GetInfo(id);
+            return Ok(results);
+        }
+
+        [HttpGet("images/{id}")]
+        public async Task<IActionResult> GetImages(Guid id)
+        {
+            var results = await _service.Racer.GetImages(id);
+            return Ok(results);
+        }
+
+        [HttpGet("classifications/{id}")]
+        public async Task<IActionResult> GetClassifications(Guid id)
+        {
+            var results = await _service.Racer.GetClassifications(id);
+            return Ok(results);
+        }
     }
 }
