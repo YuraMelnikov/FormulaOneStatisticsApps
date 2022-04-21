@@ -1,6 +1,7 @@
 ﻿using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Services.DTO;
+using Services.DTO.Common;
 using Services.IEntityService;
 
 namespace Services.EntityService
@@ -9,62 +10,80 @@ namespace Services.EntityService
     {
         private readonly RepositoryContext _repositoryContext;
 
-        public RacerService(RepositoryContext repositoryContext)
-        {
+        public RacerService(RepositoryContext repositoryContext) =>
             _repositoryContext = repositoryContext;
+
+        public Task<IEnumerable<SeasonChampionshipDto>> GetClassifications(Guid racerId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<ImageDto>> GetImages(Guid racerId)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<RacerSeasonsDto>> GetResultBySeason(Guid racerId)
         {
-            var seasons = _repositoryContext.Participants
+            var query = await _repositoryContext.Participants
                 .AsNoTracking()
                 .Where(a => a.IdRacer == racerId)
-                .GroupBy(a => a.GrandPrix.IdSeason)
-                .Select(a => new RacerSeasonsDto { IdSeason = a.Key });
-            var resultsBySeason = await seasons.ToArrayAsync();
-
-            foreach(var result in resultsBySeason)
-            {
-                result.Season = _repositoryContext.Seasons.Find(result.IdSeason).Year;
-                var chassies = _repositoryContext.Participants
-                    .AsNoTracking()
-                    .Where(a => a.IdRacer == racerId && a.GrandPrix.IdSeason == result.IdSeason)
-                    .GroupBy(a => a.IdChassis)
-                    .Select(a => a.Key);
-                var chassiesList = await chassies.ToArrayAsync();
-                var listRacerTeamsAndChassies = new List<RacerTeamsAndChassies>();
-                foreach (var ch in chassiesList)
+                .Select(a => new
                 {
-                    var newCh = _repositoryContext.Chassis
-                        .Include(a => a.Livery)
-                        .FirstOrDefault(a => a.Id == ch);
-                    listRacerTeamsAndChassies.Add(new RacerTeamsAndChassies { IdChassies = newCh.Id, Chassies = newCh.Name, LiveryLink = newCh.Livery.Link });
-                }
-                result.Chassies = listRacerTeamsAndChassies;
-                var seasonResult = _repositoryContext.SeasonRacersClassification
-                    .AsNoTracking()
-                    .FirstOrDefault(a => a.IdSeason == result.IdSeason && a.IdRacer == racerId);
-                result.Positions = seasonResult.Position.ToString();
-                result.Points = seasonResult.Points.ToString();
-                var gpResults = await _repositoryContext.GrandPrixResults
-                    .AsNoTracking()
-                    .Where(a => a.Participant.GrandPrix.IdSeason == result.IdSeason && a.Participant.IdRacer == racerId)
-                    .ToArrayAsync();
-                result.Win = gpResults.Count(a => a.Position == 1);
-                result.PolePosition = _repositoryContext.Qualifications
-                    .AsNoTracking()
-                    .Where(a => a.Participant.GrandPrix.IdSeason == result.IdSeason && a.Participant.IdRacer == racerId)
-                    .Count(a => a.Position == 1);
-                result.FastLap = _repositoryContext.FastLaps
-                    .AsNoTracking()
-                    .Count(a => a.Participant.GrandPrix.IdSeason == result.IdSeason && a.Participant.IdRacer == racerId);
-                result.TopFinish = gpResults.Min(a => a.Position).ToString();
-                result.GrandPrixes = _repositoryContext.Participants
-                    .AsNoTracking()
-                    .Count(a => a.GrandPrix.IdSeason == result.IdSeason && a.IdRacer == racerId);
-            }
+                    IdSeason = a.GrandPrix.IdSeason,
+                    Season = a.GrandPrix.Season.Year,
+                    IdChassis = a.Chassis.Id,
+                    NameChassis = a.Chassis.Name,
+                    SeasonCllasification = _repositoryContext.SeasonRacersClassification
+                        .AsNoTracking()
+                        .Where(b => b.IdRacer == racerId && b.IdSeason == a.GrandPrix.IdSeason)
+                        .Select(b => new
+                        {
+                            b.Position,
+                            b.Points
+                        }).FirstOrDefault(),
+                    RacePosition = _repositoryContext.GrandPrixResults
+                                .AsNoTracking()
+                                .Where(b => b.IdParticipant == a.Id)
+                                .Select(b => b.Position)
+                                .Where(b => b != 0)
+                                .OrderBy(b => b)
+                                .FirstOrDefault(),
+                    QuaPosition = _repositoryContext.Qualifications
+                                .AsNoTracking()
+                                .Where(b => b.IdParticipant == a.Id)
+                                .Select(b => b.Position)
+                                .Where(b => b != 0)
+                                .OrderBy(b => b)
+                                .FirstOrDefault(),
 
-            return resultsBySeason.OrderBy(a => a.Season);
+                    FastLap = _repositoryContext.FastLaps
+                                .AsNoTracking()
+                                .Count(b => b.IdParticipant == a.Id)
+                })
+                .ToArrayAsync();
+
+            return (from season in query
+                            group season by season.IdSeason into g
+                            select new RacerSeasonsDto
+                            {
+                                IdSeason = g.Key,
+                                Season = (from p in g select p.Season).Max(),
+                                Chassies = (from p in g
+                                           select new RacerTeamsAndChassies
+                                           {
+                                               IdChassies = p.IdChassis,
+                                               Chassies = p.NameChassis
+                                           }).Distinct(),
+                                Points = (from p in g select p.SeasonCllasification.Points).Max(),
+                                Position = (from p in g select p.SeasonCllasification.Position).Max(),
+                                Win = (from p in g select p.RacePosition).Count(a => a == 1),
+                                PolePosition = (from p in g select p.QuaPosition).Count(a => a == 1),
+                                FastLap = (from p in g select p.FastLap).Count(),
+                                TopStart = (from p in g select p.QuaPosition).Where(a => a != 0).Min(a => a.ToString()),
+                                TopFinish = (from p in g select p.RacePosition).Where(a => a != null).Min(a => a.ToString()),
+                                GrandPrixes = (from p in g select p.RacePosition).Count()
+                            }).ToArray();
         }
     }
 }

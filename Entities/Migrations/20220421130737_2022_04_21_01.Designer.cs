@@ -3,6 +3,7 @@ using System;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20220421130737_2022_04_21_01")]
+    partial class _2022_04_21_01
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -234,9 +236,6 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("IdGrandPrixNames")
-                        .HasColumnType("uuid");
-
                     b.Property<Guid>("IdImage")
                         .HasColumnType("uuid");
 
@@ -245,6 +244,14 @@ namespace Entities.Migrations
 
                     b.Property<Guid>("IdTrackСonfiguration")
                         .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameRus")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("Number")
                         .HasColumnType("integer");
@@ -264,8 +271,6 @@ namespace Entities.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdGrandPrixNames");
 
                     b.HasIndex("IdImage");
 
@@ -974,12 +979,6 @@ namespace Entities.Migrations
 
             modelBuilder.Entity("Entities.Models.GrandPrix", b =>
                 {
-                    b.HasOne("Entities.Models.GrandPrixNames", "GrandPrixName")
-                        .WithMany()
-                        .HasForeignKey("IdGrandPrixNames")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Entities.Models.Image", "Image")
                         .WithMany()
                         .HasForeignKey("IdImage")
@@ -997,8 +996,6 @@ namespace Entities.Migrations
                         .HasForeignKey("IdTrackСonfiguration")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("GrandPrixName");
 
                     b.Navigation("Image");
 

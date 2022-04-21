@@ -19,7 +19,7 @@ namespace Services.EntityService
                 .Where(a => a.Participant.GrandPrix.IdSeason == seasonId && a.Position == 1)
                 .Select(a => new SeasonCalendarDto
                 {
-                    Name = a.Participant.GrandPrix.Name,
+                    Name = a.Participant.GrandPrix.GrandPrixName.FullName,
                     Date = a.Participant.GrandPrix.Date.ToString().Substring(0, 10),
                     Distance = (decimal)a.Participant.GrandPrix.TrackСonfiguration.Length * a.Participant.GrandPrix.NumberOfLap,
                     IdGrandPrix = a.Participant.IdGrandPrix,

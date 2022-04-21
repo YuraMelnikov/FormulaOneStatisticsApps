@@ -24,6 +24,7 @@ const TableRacerSeasons = () => {
                             <th>Wins</th>
                             <th>Pole positions</th>
                             <th>Fast laps</th>
+                            <th>Top start</th>
                             <th>Top finished</th>
                             <th>Grand prix</th>
                         </tr>
@@ -42,6 +43,7 @@ const TableRacerSeasons = () => {
                                 <td>{mockData.win}</td>
                                 <td>{mockData.polePosition}</td>
                                 <td>{mockData.fastLap}</td>
+                                <td>{mockData.topStart}</td>
                                 <td>{mockData.topFinish}</td>
                                 <td>{mockData.grandPrixes}</td>
                             </tr>

@@ -15,7 +15,6 @@ namespace Entities.Contexts
         {
         }
 
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Season>(entity => { 
@@ -54,5 +53,6 @@ namespace Entities.Contexts
         public DbSet<TrackСonfiguration> TrackСonfigurations { get; set; }
         public DbSet<SeasonManufacturersClassification> SeasonManufacturersClassification { get; set; }
         public DbSet<Tyre> Tyres { get; set; }
+        public DbSet<GrandPrixNames> GrandPrixNames { get; set; }
     }
 }

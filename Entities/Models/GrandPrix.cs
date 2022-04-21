@@ -17,8 +17,7 @@ namespace Entities.Models
         public int NumberInSeason { get; set; }
         [Required(ErrorMessage = "Date is required")]
         public DateTime Date { get; set; }
-        [Required(ErrorMessage = "Name is required")]
-        public string Name { get; set; }
+
         [Required(ErrorMessage = "Fullname is required")]
         public string FullName { get; set; }
         [Required(ErrorMessage = "Image is required")]
@@ -36,10 +35,12 @@ namespace Entities.Models
         [ForeignKey("IdImage")]
         public  Image Image { get; set; }
 
-        [Required(ErrorMessage = "NameRus of lan is required")]
-        public string NameRus { get; set; }
-
         [Required(ErrorMessage = "Text of lan is required")]
         public string Text { get; set; }
+
+        [Required(ErrorMessage = "GrandPrixName is required")]
+        public Guid IdGrandPrixNames { get; set; }
+        [ForeignKey("IdGrandPrixNames")]
+        public GrandPrixNames GrandPrixName { get; set; }
     }
 }

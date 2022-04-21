@@ -3,6 +3,7 @@ using System;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20220421131053_2022_04_21_02")]
+    partial class _2022_04_21_02
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -234,7 +236,7 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("IdGrandPrixNames")
+                    b.Property<Guid?>("IdGrandPrixNames")
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("IdImage")
@@ -245,6 +247,14 @@ namespace Entities.Migrations
 
                     b.Property<Guid>("IdTrackСonfiguration")
                         .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameRus")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("Number")
                         .HasColumnType("integer");
@@ -976,9 +986,7 @@ namespace Entities.Migrations
                 {
                     b.HasOne("Entities.Models.GrandPrixNames", "GrandPrixName")
                         .WithMany()
-                        .HasForeignKey("IdGrandPrixNames")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdGrandPrixNames");
 
                     b.HasOne("Entities.Models.Image", "Image")
                         .WithMany()
