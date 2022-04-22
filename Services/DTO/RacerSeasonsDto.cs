@@ -4,7 +4,7 @@
     {
         public Guid IdSeason { get; set; }
         public int Season { get; set; }
-        public IEnumerable<RacerTeamsAndChassies> Chassies { get; set; }
+        public IEnumerable<RacerTeamsAndChassies> Chassis { get; set; }
         public float Points { get; set; }
         public int Position { get; set; }
         public int Win { get; set; }

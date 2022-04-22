@@ -2,7 +2,7 @@
 {
     public record RacerTeamsAndChassies
     {
-        public Guid IdChassies { get; set; }
-        public string Chassies { get; set; }
+        public Guid IdChassis { get; set; }
+        public string Chassis { get; set; }
     }
 }

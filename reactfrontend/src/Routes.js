@@ -1,4 +1,20 @@
-import { ABOUTAPI_ROUTE, ABOUTUS_ROUTE, GRANDPRIX_ROUTE, MANUFACTURERS_ROUTE, MANUFACTURER_ROUTE, RACERS_ROUTE, RACER_ROUTE, SEASONS_ROUTE, SEASON_ROUTE, STATISTICS_ROUTE, TRACKS_ROUTE, TRACK_ROUTE } from "./utils/Constants";
+import { 
+    ABOUTAPI_ROUTE, 
+    ABOUTUS_ROUTE, 
+    GRANDPRIX_ROUTE, 
+    MANUFACTURERS_ROUTE, 
+    MANUFACTURER_ROUTE, 
+    RACERS_ROUTE, 
+    RACER_ROUTE, 
+    SEASONS_ROUTE, 
+    SEASON_ROUTE, 
+    STATISTICS_ROUTE, 
+    TRACKS_ROUTE, 
+    TRACK_ROUTE, 
+    CONSTRUCTOR_ROUTE, 
+    CONSTRUCTORS_ROUTE, 
+    CHASSIS_ROUTE
+} from "./utils/Constants";
 import AboutAPI from './pages/AboutAPI';
 import AboutUs from './pages/AboutUs';
 import GrandPrix from './pages/GrandPrix';
@@ -11,9 +27,23 @@ import Seasons from './pages/Seasons';
 import Statistics from './pages/Statistics';
 import Track from './pages/Track';
 import Tracks from './pages/Tracks';
-
+import Chassis from './pages/Chassis';
+import Constructor from './pages/Constructor';
+import Constructors from './pages/Constructors';
 
 export const publicRoutes = [
+    {
+        path: CONSTRUCTOR_ROUTE + '/:id',
+        Component: Constructor
+    },
+    {
+        path: CONSTRUCTORS_ROUTE,
+        Component: Constructors
+    },
+    {
+        path: CHASSIS_ROUTE + '/:id',
+        Component: Chassis
+    },
     {
         path: ABOUTAPI_ROUTE,
         Component: AboutAPI

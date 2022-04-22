@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220421130737_2022_04_21_01")]
-    partial class _2022_04_21_01
+    [Migration("20220422142018_InitialDB")]
+    partial class InitialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -236,6 +236,9 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<Guid>("IdGrandPrixNames")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid>("IdImage")
                         .HasColumnType("uuid");
 
@@ -244,14 +247,6 @@ namespace Entities.Migrations
 
                     b.Property<Guid>("IdTrackСonfiguration")
                         .HasColumnType("uuid");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameRus")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<int>("Number")
                         .HasColumnType("integer");
@@ -271,6 +266,8 @@ namespace Entities.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdGrandPrixNames");
 
                     b.HasIndex("IdImage");
 
@@ -736,6 +733,12 @@ namespace Entities.Migrations
                     b.Property<Guid>("IdCountry")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("IdImage")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("IdImageLogo")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -747,6 +750,10 @@ namespace Entities.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("IdCountry");
+
+                    b.HasIndex("IdImage");
+
+                    b.HasIndex("IdImageLogo");
 
                     b.ToTable("TeamName");
                 });
@@ -979,6 +986,12 @@ namespace Entities.Migrations
 
             modelBuilder.Entity("Entities.Models.GrandPrix", b =>
                 {
+                    b.HasOne("Entities.Models.GrandPrixNames", "GrandPrixName")
+                        .WithMany()
+                        .HasForeignKey("IdGrandPrixNames")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Entities.Models.Image", "Image")
                         .WithMany()
                         .HasForeignKey("IdImage")
@@ -996,6 +1009,8 @@ namespace Entities.Migrations
                         .HasForeignKey("IdTrackСonfiguration")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("GrandPrixName");
 
                     b.Navigation("Image");
 
@@ -1270,7 +1285,23 @@ namespace Entities.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.Image", "Image")
+                        .WithMany()
+                        .HasForeignKey("IdImage")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Image", "ImageLogo")
+                        .WithMany()
+                        .HasForeignKey("IdImageLogo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Country");
+
+                    b.Navigation("Image");
+
+                    b.Navigation("ImageLogo");
                 });
 
             modelBuilder.Entity("Entities.Models.Track", b =>

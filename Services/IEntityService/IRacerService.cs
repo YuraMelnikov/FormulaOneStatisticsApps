@@ -8,6 +8,6 @@ namespace Services.IEntityService
         Task<IEnumerable<RacerSeasonsDto>> GetResultBySeason(Guid racerId);
         Task<IEnumerable<ImageDto>> GetImages(Guid racerId);
         Task<RacerInfoDto> GetInfo(Guid racerId);
-        Task<IEnumerable<SeasonChampionshipDto>> GetClassifications(Guid racerId);
+        Task<IEnumerable<RacerChampionshipDto>> GetClassifications(Guid racerId);
     }
 }

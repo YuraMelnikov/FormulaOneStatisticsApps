@@ -10,3 +10,6 @@ export const SEASONS_ROUTE = '/seasons';
 export const STATISTICS_ROUTE = '/statistics';
 export const TRACK_ROUTE = '/track';
 export const TRACKS_ROUTE = '/tracks';
+export const CONSTRUCTOR_ROUTE = '/constructor';
+export const CONSTRUCTORS_ROUTE = '/constructors';
+export const CHASSIS_ROUTE = '/chassis';

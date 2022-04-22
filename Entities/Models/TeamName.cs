@@ -15,6 +15,16 @@ namespace Entities.Models
         [ForeignKey("IdCountry")]
         public Country Country { get; set; }
 
+        [Required(ErrorMessage = "IdImage is required")]
+        public Guid IdImage { get; set; }
+        [ForeignKey("IdImage")]
+        public Image Image { get; set; }
+
+        [Required(ErrorMessage = "IdImageLogo is required")]
+        public Guid IdImageLogo { get; set; }
+        [ForeignKey("IdImageLogo")]
+        public Image ImageLogo { get; set; }
+
         public string TimeApiId { get; set; }
     }
 }

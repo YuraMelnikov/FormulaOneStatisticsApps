@@ -5,7 +5,7 @@ using Services.IEntityService;
 
 namespace Services.EntityService
 {
-    public class RacersService :  IRacersService
+    public class RacersService : IRacersService
     {
         private readonly RepositoryContext _repositoryContext;
 

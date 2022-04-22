@@ -731,6 +731,12 @@ namespace Entities.Migrations
                     b.Property<Guid>("IdCountry")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("IdImage")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("IdImageLogo")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -742,6 +748,10 @@ namespace Entities.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("IdCountry");
+
+                    b.HasIndex("IdImage");
+
+                    b.HasIndex("IdImageLogo");
 
                     b.ToTable("TeamName");
                 });
@@ -1273,7 +1283,23 @@ namespace Entities.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.Image", "Image")
+                        .WithMany()
+                        .HasForeignKey("IdImage")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Image", "ImageLogo")
+                        .WithMany()
+                        .HasForeignKey("IdImageLogo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Country");
+
+                    b.Navigation("Image");
+
+                    b.Navigation("ImageLogo");
                 });
 
             modelBuilder.Entity("Entities.Models.Track", b =>

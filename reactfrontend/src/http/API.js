@@ -89,3 +89,33 @@ export const fetchGpChampConstructors = async (id) => {
     console.log(data);
     return data
 }
+
+export const fetchRacerImages = async (id) => {
+    const {data} = await $host.get('api/racer/images/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchRacerInfo = async (id) => {
+    const {data} = await $host.get('api/racer/info/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchRacerClassifications = async (id) => {
+    const {data} = await $host.get('api/racer/classifications/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchRacerSeasons = async (id) => {
+    const {data} = await $host.get('api/racer/seasons/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchConstructors = async () => {
+    const {data} = await $host.get('api/constructors')
+    console.log(data);
+    return data
+}

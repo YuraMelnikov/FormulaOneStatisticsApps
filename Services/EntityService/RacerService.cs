@@ -13,13 +13,46 @@ namespace Services.EntityService
         public RacerService(RepositoryContext repositoryContext) =>
             _repositoryContext = repositoryContext;
 
-        public Task<IEnumerable<SeasonChampionshipDto>> GetClassifications(Guid racerId)
+        public async Task<IEnumerable<RacerChampionshipDto>> GetClassifications(Guid racerId)
         {
-            var result = _repositoryContext.GrandPrixResults
+            var query = await _repositoryContext.GrandPrixResults
                 .AsNoTracking()
-                .Select()
+                .Where(a => a.Participant.IdRacer == racerId)
+                .OrderBy(a => a.Participant.GrandPrix.Number)
+                .Select(a => new 
+                {
+                    Id = a.Participant.IdGrandPrix, 
+                    Name = a.Participant.GrandPrix.GrandPrixName.ShortName, 
+                    Classification = a.Classification,
+                    Season = a.Participant.GrandPrix.Season.Year,
+                    SeasonCllasification = _repositoryContext.SeasonRacersClassification
+                        .AsNoTracking()
+                        .Where(b => b.IdRacer == racerId && b.IdSeason == a.Participant.GrandPrix.IdSeason)
+                        .Select(b => new
+                        {
+                            b.Position,
+                            b.Points
+                        }).FirstOrDefault(),
+                })
+                .ToArrayAsync();
 
-            throw new NotImplementedException();
+            return (from season in query
+                    group season by season.Season into g
+                    select new RacerChampionshipDto
+                    {
+                        Season = g.Key,
+
+                        Points = (from p in g select p.SeasonCllasification.Points).Max(),
+                        Position = (from p in g select p.SeasonCllasification.Position).Max(),
+
+                        Result = (from p in g
+                                  select new RacerChampColumnDto
+                                  {
+                                      Id = p.Id,
+                                      RacePosition = p.Classification,
+                                      Name = p.Name
+                                  })
+                    }).ToArray();
         }
 
         public async Task<IEnumerable<ImageDto>> GetImages(Guid racerId) =>
@@ -34,11 +67,14 @@ namespace Services.EntityService
 
         public async Task<RacerInfoDto> GetInfo(Guid racerId)
         {
-            var racer = await _repositoryContext.Racers.FindAsync(racerId);
+            var racer = await _repositoryContext.Racers
+                .Include(a => a.Image)
+                .FirstOrDefaultAsync(a => a.Id == racerId);
             return new RacerInfoDto
             {
                 Name = racer.RacerNameEng, 
-                BirdthDay = racer.Born.ToShortDateString()
+                BirthDay = racer.Born.ToShortDateString(),
+                ImgLink = racer.Image.Link
             };
         }
 
@@ -47,6 +83,7 @@ namespace Services.EntityService
             var query = await _repositoryContext.Participants
                 .AsNoTracking()
                 .Where(a => a.IdRacer == racerId)
+                .OrderBy(a => a.GrandPrix.Season.Year)
                 .Select(a => new
                 {
                     IdSeason = a.GrandPrix.IdSeason,
@@ -88,11 +125,11 @@ namespace Services.EntityService
                             {
                                 IdSeason = g.Key,
                                 Season = (from p in g select p.Season).Max(),
-                                Chassies = (from p in g
+                                Chassis = (from p in g
                                            select new RacerTeamsAndChassies
                                            {
-                                               IdChassies = p.IdChassis,
-                                               Chassies = p.NameChassis
+                                               IdChassis = p.IdChassis,
+                                               Chassis = p.NameChassis
                                            }).Distinct(),
                                 Points = (from p in g select p.SeasonCllasification.Points).Max(),
                                 Position = (from p in g select p.SeasonCllasification.Position).Max(),

@@ -17,8 +17,48 @@ export default class OpenApiStore {
         this._gpInfo = []
         this._gpChampRacers = []
         this._gpChampConstructors = []
+        this._racerImages = []
+        this._racerInfo = []
+        this._racerClassifications = []
+        this._racerSeasons = []
+        this._constructors = []
 
         makeAutoObservable(this)
+    }
+
+    setConstructors(constructors) {
+        this._constructors = constructors
+    }
+    get constructors() {
+        return this._constructors
+    }
+
+    setRacerImages(racerImages) {
+        this._racerImages = racerImages
+    }
+    get racerImages() {
+        return this._racerImages
+    }
+
+    setRacerInfo(racerInfo) {
+        this._racerInfo = racerInfo
+    }
+    get racerInfo() {
+        return this._racerInfo
+    }
+
+    setRacerClassifications(racerClassifications) {
+        this._racerClassifications = racerClassifications
+    }
+    get racerClassifications() {
+        return this._racerClassifications
+    }
+
+    setRacerSeasons(racerSeasons) {
+        this._racerSeasons = racerSeasons
+    }
+    get racerSeasons() {
+        return this._racerSeasons
     }
 
     setGpChampConstructors(gpChampConstructors) {

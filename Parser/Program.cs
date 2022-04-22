@@ -16,7 +16,6 @@ RepositoryParcer repository = new RepositoryParcer();
 
 
 
-
 #region ChampContsByGp
 //for (var i = 1958; i <= 2019; i++)
 //{
