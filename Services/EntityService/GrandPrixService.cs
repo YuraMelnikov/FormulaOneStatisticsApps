@@ -146,9 +146,5 @@ namespace Services.EntityService
                 .ThenBy(a => a.Position)
                 .ToArrayAsync();
         }
-
-
-
-
     }
 }

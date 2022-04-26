@@ -19,11 +19,33 @@ namespace Services.Service
         private IGrandPrixService _grandPrixResult;
         private IRacerService _racerService;
         private IConstructorsService _constructorsService;
+        private IConstructorService _constructorService;
+        private IChassisService _chassisService;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+        public IChassisService Chassis
+        {
+            get
+            {
+                if (_chassisService == null)
+                    _chassisService = new ChassisService(_repoContext);
+                return _chassisService;
+            }
+        }
+
+        public IConstructorService Constructor
+        {
+            get
+            {
+                if (_constructorService == null)
+                    _constructorService = new ConstructorService(_repoContext);
+                return _constructorService;
+            }
         }
 
         public IConstructorsService Constructors

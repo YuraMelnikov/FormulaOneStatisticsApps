@@ -119,3 +119,51 @@ export const fetchConstructors = async () => {
     console.log(data);
     return data
 }
+
+export const fetchConstructorImages = async (id) => {
+    const {data} = await $host.get('api/constructor/images/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchConstructorInfo = async (id) => {
+    const {data} = await $host.get('api/constructor/info/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchConstructorClassifications = async (id) => {
+    const {data} = await $host.get('api/constructor/classifications/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchConstructorSeasons = async (id) => {
+    const {data} = await $host.get('api/constructor/seasons/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchChassisImages = async (id) => {
+    const {data} = await $host.get('api/chassis/images/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchChassisInfo = async (id) => {
+    const {data} = await $host.get('api/chassis/info/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchChassisClassifications = async (id) => {
+    const {data} = await $host.get('api/chassis/classifications/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchChassisSeasons = async (id) => {
+    const {data} = await $host.get('api/chassis/seasons/' + id)
+    console.log(data);
+    return data
+}

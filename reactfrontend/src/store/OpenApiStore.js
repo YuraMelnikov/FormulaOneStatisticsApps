@@ -22,8 +22,72 @@ export default class OpenApiStore {
         this._racerClassifications = []
         this._racerSeasons = []
         this._constructors = []
+        this._constructorImages = []
+        this._constructorInfo = []
+        this._constructorClassifications = []
+        this._constructorSeasons = []
+        this._chassisImages = []
+        this._chassisInfo = []
+        this._chassisClassifications = []
+        this._chassisSeasons = []
 
         makeAutoObservable(this)
+    }
+
+    setChassisSeasons(chassisSeasons) {
+        this._chassisSeasons = chassisSeasons
+    }
+    get chassisSeasons() {
+        return this._chassisSeasons
+    }
+
+    setChassisClassifications(chassisClassifications) {
+        this._chassisClassifications = chassisClassifications
+    }
+    get chassisClassifications() {
+        return this._chassisClassifications
+    }
+
+    setChassisInfo(chassisInfo) {
+        this._chassisInfo = chassisInfo
+    }
+    get chassisInfo() {
+        return this._chassisInfo
+    }
+
+    setChassisImages(chassisImages) {
+        this._chassisImages = chassisImages
+    }
+    get chassisImages() {
+        return this._chassisImages
+    }
+
+    setConstructorSeasons(constructorSeasons) {
+        this._constructorSeasons = constructorSeasons
+    }
+    get constructorSeasons() {
+        return this._constructorSeasons
+    }
+
+    setConstructorClassifications(constructorClassifications) {
+        this._constructorClassifications = constructorClassifications
+    }
+    get constructorClassifications() {
+        return this._constructorClassifications
+    }
+
+    setConstructorInfo(constructorInfo) {
+        this._constructorInfo = constructorInfo
+    }
+    get constructorInfo() {
+        return this._constructorInfo
+    }
+
+    setConstructorImages(constructorImages) {
+        this._constructorImages = constructorImages
+    }
+    get constructorImages() {
+        return this._constructorImages
     }
 
     setConstructors(constructors) {

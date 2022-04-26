@@ -13,6 +13,18 @@ using System.Text.Json.Serialization;
 
 RepositoryParcer repository = new RepositoryParcer();
 
+var livery = repository.Chassis.ToArray();
+foreach(var ch in livery)
+{
+    var img = repository.Images.Find(ch.IdLivery);
+    if(img.Link.Length > 36)
+    {
+        Console.WriteLine("/assets/livery/" + img.Link.Substring(51));
+        img.Link = "/assets/livery/" + img.Link.Substring(51);
+        repository.Update(img);
+        repository.SaveChanges();
+    }
+}
 
 
 

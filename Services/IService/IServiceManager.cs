@@ -12,6 +12,8 @@ namespace Services.IService
         IGrandPrixService GrandPrixResult { get; }
         IRacerService Racer { get; }
         IConstructorsService Constructors { get; }
+        IConstructorService Constructor { get; }
+        IChassisService Chassis { get; }
         Task SaveAsync();
     }
 }
