@@ -15,6 +15,8 @@ namespace Services.IService
         IConstructorsService Constructors { get; }
         IConstructorService Constructor { get; }
         IChassisService Chassis { get; }
+        IManufacturerService Manufacturer { get; }
+
         Task SaveAsync();
     }
 }

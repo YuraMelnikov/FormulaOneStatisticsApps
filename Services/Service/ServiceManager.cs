@@ -16,6 +16,7 @@ namespace Services.Service
         private ITracksService _tracks;
         private IRacersService _racers;
         private IManufacturersService _manufacturers;
+        private IManufacturerService _manufacturer;
         private ISeasonService _season;
         private IGrandPrixService _grandPrixResult;
         private IRacerService _racerService;
@@ -27,6 +28,16 @@ namespace Services.Service
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+        public IManufacturerService Manufacturer
+        {
+            get
+            {
+                if (_manufacturer == null)
+                    _manufacturer = new ManufacturerService(_repoContext);
+                return _manufacturer;
+            }
         }
 
         public ITrackService Track
