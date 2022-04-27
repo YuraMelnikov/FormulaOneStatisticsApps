@@ -30,8 +30,32 @@ export default class OpenApiStore {
         this._chassisInfo = []
         this._chassisClassifications = []
         this._chassisSeasons = []
+        this._trackConfigurations = []
+        this._trackImages = []
+        this._trackGrandPrix = []
 
         makeAutoObservable(this)
+    }
+
+    setTrackGrandPrix(trackGrandPrix) {
+        this._trackGrandPrix = trackGrandPrix
+    }
+    get trackGrandPrix() {
+        return this._trackGrandPrix
+    }
+
+    setTrackImages(trackImages) {
+        this._trackImages = trackImages
+    }
+    get trackImages() {
+        return this._trackImages
+    }
+
+    setTrackConfigurations(trackConfigurations) {
+        this._trackConfigurations = trackConfigurations
+    }
+    get trackConfigurations() {
+        return this._trackConfigurations
     }
 
     setChassisSeasons(chassisSeasons) {

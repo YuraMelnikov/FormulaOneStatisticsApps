@@ -5,7 +5,7 @@ using Services.IEntityService;
 
 namespace Services.EntityService
 {
-    public class TracksServices :  ITracksServices
+    public class TracksServices :  ITracksService
     {
         private readonly RepositoryContext _repositoryContext;
 

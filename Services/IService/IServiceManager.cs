@@ -7,7 +7,8 @@ namespace Services.IService
         ISeasonService Season { get; }
         ISeasonsService Seasons { get; }
         IManufacturersService Manufacturers { get; }
-        ITracksServices Tracks { get; }
+        ITrackService Track { get; }
+        ITracksService Tracks { get; }
         IRacersService Racers { get; }
         IGrandPrixService GrandPrixResult { get; }
         IRacerService Racer { get; }

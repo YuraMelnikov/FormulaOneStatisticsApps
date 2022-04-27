@@ -12,7 +12,8 @@ namespace Services.Service
         private readonly IMapper _mapper;
 
         private ISeasonsService _seasons;
-        private ITracksServices _tracks;
+        private ITrackService _track;
+        private ITracksService _tracks;
         private IRacersService _racers;
         private IManufacturersService _manufacturers;
         private ISeasonService _season;
@@ -26,6 +27,16 @@ namespace Services.Service
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+        public ITrackService Track
+        {
+            get
+            {
+                if (_track == null)
+                    _track = new TrackService(_repoContext);
+                return _track;
+            }
         }
 
         public IChassisService Chassis
@@ -98,7 +109,7 @@ namespace Services.Service
             }
         }
 
-        public ITracksServices Tracks
+        public ITracksService Tracks
         {
             get
             {

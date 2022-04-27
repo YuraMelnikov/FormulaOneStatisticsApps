@@ -2,7 +2,7 @@
 
 namespace Services.IEntityService
 {
-    public interface ITracksServices
+    public interface ITracksService
     {
         Task<IEnumerable<TracksDto>> GetTracksList();
     }

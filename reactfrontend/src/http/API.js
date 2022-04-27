@@ -167,3 +167,21 @@ export const fetchChassisSeasons = async (id) => {
     console.log(data);
     return data
 }
+
+export const fetchTrackConfigurations = async (id) => {
+    const {data} = await $host.get('api/track/configurations/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchTrackImages = async (id) => {
+    const {data} = await $host.get('api/track/images/' + id)
+    console.log(data);
+    return data
+}
+
+export const fetchTrackGrandPrix = async (id) => {
+    const {data} = await $host.get('api/track/grandPrix/' + id)
+    console.log(data);
+    return data
+}
