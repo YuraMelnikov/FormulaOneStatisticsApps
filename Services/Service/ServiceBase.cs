@@ -18,9 +18,11 @@ namespace Services.Service
             _mapper = mapper;
         }
 
-        public IQueryable<TDto> GetAll()
+        public async Task<IQueryable<TDto>> GetAll()
         {
-            var entity = _repositoryContext.Set<TEntity>().AsNoTracking();
+            var entity = await _repositoryContext.Set<TEntity>()
+                .AsNoTracking()
+                .ToArrayAsync();
             var res = _mapper.Map<IEnumerable<TDto>>(entity);
             return res.AsQueryable();
         }

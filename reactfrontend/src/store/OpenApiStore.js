@@ -33,8 +33,24 @@ export default class OpenApiStore {
         this._trackConfigurations = []
         this._trackImages = []
         this._trackGrandPrix = []
+        this._images = []
+        this._selectedImage = {}
 
         makeAutoObservable(this)
+    }
+
+    setSelectedImage(image) {
+        this._selectedImage = image
+    }
+    get selectedImage() {
+        return this._selectedBrand
+    }
+
+    setImages(images) {
+        this._images = images
+    }
+    get images() {
+        return this._images
     }
 
     setTrackGrandPrix(trackGrandPrix) {

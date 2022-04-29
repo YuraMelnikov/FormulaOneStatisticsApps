@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Entities.Contexts;
+using Services.DTOCRUD;
 using Services.EntityService;
 using Services.IEntityService;
 using Services.IService;
@@ -23,11 +24,34 @@ namespace Services.Service
         private IConstructorsService _constructorsService;
         private IConstructorService _constructorService;
         private IChassisService _chassisService;
+        private IAdminCRU<SeasonDto> _adminSeason;
+        private IAdminImagesService _adminImages;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+
+        public IAdminImagesService AdminImages
+        {
+            get
+            {
+                if (_adminImages == null)
+                    _adminImages = new AdminImagesService(_repoContext);
+                return _adminImages;
+            }
+        }
+
+        public IAdminCRU<SeasonDto> AdminSeason
+        {
+            get
+            {
+                if (_adminSeason == null)
+                    _adminSeason = new AdminSeasonService(_repoContext);
+                return _adminSeason;
+            }
         }
 
         public IManufacturerService Manufacturer

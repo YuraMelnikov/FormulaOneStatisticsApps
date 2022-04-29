@@ -1,4 +1,5 @@
-﻿using Services.IEntityService;
+﻿using Services.DTOCRUD;
+using Services.IEntityService;
 
 namespace Services.IService
 {
@@ -16,6 +17,8 @@ namespace Services.IService
         IConstructorService Constructor { get; }
         IChassisService Chassis { get; }
         IManufacturerService Manufacturer { get; }
+        IAdminCRU<SeasonDto> AdminSeason { get; }
+        IAdminImagesService AdminImages { get; }
 
         Task SaveAsync();
     }

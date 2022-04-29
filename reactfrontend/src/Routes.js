@@ -13,7 +13,8 @@ import {
     TRACK_ROUTE, 
     CONSTRUCTOR_ROUTE, 
     CONSTRUCTORS_ROUTE, 
-    CHASSIS_ROUTE
+    CHASSIS_ROUTE,
+    ADMIN_ROUTE
 } from "./utils/Constants";
 import AboutAPI from './pages/AboutAPI';
 import AboutUs from './pages/AboutUs';
@@ -30,8 +31,13 @@ import Tracks from './pages/Tracks';
 import Chassis from './pages/Chassis';
 import Constructor from './pages/Constructor';
 import Constructors from './pages/Constructors';
+import Admin from './pages/Admin';
 
 export const publicRoutes = [
+    {
+        path: ADMIN_ROUTE,
+        Component: Admin
+    },
     {
         path: CONSTRUCTOR_ROUTE + '/:id',
         Component: Constructor

@@ -15,10 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XTestProject", "XTestProjec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parser", "Parser\Parser.csproj", "{BC2CCDC4-B251-442D-AD5A-A581FAEE1C8C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{9F4DEA42-02D4-4FE5-8702-9A64D9415241}"
-	ProjectSection(SolutionItems) = preProject
-		ScriptIncorrectQua.txt = ScriptIncorrectQua.txt
-	EndProjectSection
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactprojectadm", "reactprojectadm\reactprojectadm.esproj", "{4C12B513-2B81-41F7-83DA-0C48ACBB1E93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +49,12 @@ Global
 		{BC2CCDC4-B251-442D-AD5A-A581FAEE1C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC2CCDC4-B251-442D-AD5A-A581FAEE1C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC2CCDC4-B251-442D-AD5A-A581FAEE1C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C12B513-2B81-41F7-83DA-0C48ACBB1E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C12B513-2B81-41F7-83DA-0C48ACBB1E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C12B513-2B81-41F7-83DA-0C48ACBB1E93}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4C12B513-2B81-41F7-83DA-0C48ACBB1E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C12B513-2B81-41F7-83DA-0C48ACBB1E93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C12B513-2B81-41F7-83DA-0C48ACBB1E93}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
