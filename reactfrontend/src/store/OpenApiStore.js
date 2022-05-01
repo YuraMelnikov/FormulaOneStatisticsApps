@@ -43,7 +43,7 @@ export default class OpenApiStore {
         this._selectedImage = image
     }
     get selectedImage() {
-        return this._selectedBrand
+        return this._selectedImage
     }
 
     setImages(images) {

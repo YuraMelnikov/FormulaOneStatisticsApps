@@ -10,15 +10,17 @@ import { Pencil } from 'react-bootstrap-icons';
 import CreateSeason from '../../components/Modals/CreateSeason';
 import UpdateSeason from '../../components/Modals/UpdateSeason';
 
-
 const TableAdminSeasons = observer(() => {
     const {openApiData} = useContext(Context)
     const [seasonVisible, setSeasonVisible] = useState(false)
+    const [seasonUpdateVisible, setSeasonUpdateVisible] = useState(false)
+    const [id, setId] = useState()
 
     useEffect(() => {
-        fetchSeasons().then(data => openApiData.setSeasons(data))
+        if(seasonUpdateVisible === false & seasonVisible === false)
+            fetchSeasons().then(data => openApiData.setSeasons(data))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [seasonVisible, seasonUpdateVisible])
 
     return (
         <Container>
@@ -26,7 +28,11 @@ const TableAdminSeasons = observer(() => {
                 <TitleSmall name="Seasons"/>
                 <Button onClick={() => setSeasonVisible(true)}> Add new Season </Button>
                 <CreateSeason show={seasonVisible} onHide={() => setSeasonVisible(false)}/>
-                <UpdateSeason show={seasonVisible} onHide={() => setSeasonVisible(false)}/>
+                <UpdateSeason 
+                    show={seasonUpdateVisible} 
+                    onHide={() => setSeasonUpdateVisible(false)}
+                    id={id}
+                />
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
@@ -40,7 +46,7 @@ const TableAdminSeasons = observer(() => {
                     <tbody>
                         {openApiData.seasons.map(season =>
                             <tr key={season.id}>
-                                <td onClick={() => setSeasonVisible(true)}><Pencil /></td>
+                                <td onClick={function(){ setSeasonUpdateVisible(true); setId(season.id)}}><Pencil /></td>
                                 <td className="text-center">{season.id}</td>
                                 <td className="text-center">{season.name}</td>
                                 <td className="text-center">{season.imageLink}</td>

@@ -17,6 +17,7 @@ export const createSeason = async (season) => {
 }
 
 export const updateSeason = async (id, season) => {
+    console.log(id)
     const {data} = await $host.put('api/adminSeason/' + id, formToJSON(season), config)
     console.log(data)
     return data
