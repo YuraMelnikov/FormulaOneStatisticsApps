@@ -13,18 +13,23 @@ using System.Text.Json.Serialization;
 
 RepositoryParcer repository = new RepositoryParcer();
 
-var livery = repository.Chassis.ToArray();
-foreach(var ch in livery)
+
+var query = repository.RacerImgs.ToArray();
+
+foreach(var item in query)
 {
-    var img = repository.Images.Find(ch.IdLivery);
-    if(img.Link.Length > 36)
+    var images = repository.RacerImgs
+        .Where(a => a.IdRacer == item.IdRacer && a.IdImage == item.IdImage)
+        .ToArray();
+
+    if(images.Length > 1)
     {
-        Console.WriteLine("/assets/livery/" + img.Link.Substring(51));
-        img.Link = "/assets/livery/" + img.Link.Substring(51);
-        repository.Update(img);
+        Console.WriteLine(item.Id);
+        repository.Remove(item);
         repository.SaveChanges();
     }
 }
+
 
 
 

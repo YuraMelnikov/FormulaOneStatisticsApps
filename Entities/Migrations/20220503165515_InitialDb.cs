@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Entities.Migrations
 {
-    public partial class InitialDB : Migration
+    public partial class InitialDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,7 +27,8 @@ namespace Entities.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Link = table.Column<string>(type: "text", nullable: false)
+                    Link = table.Column<string>(type: "text", nullable: false),
+                    Size = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {

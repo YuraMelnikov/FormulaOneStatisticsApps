@@ -39,6 +39,19 @@ namespace Services.EntityService
             return true;
         }
 
+        public async Task<bool> Delete(Guid id)
+        {
+            var season = await _repositoryContext.Seasons.FindAsync(id);
+
+            if (season is null)
+                return false;
+
+            _repositoryContext.Remove(season);
+            await _repositoryContext.SaveChangesAsync();
+
+            return true;
+        }
+
         public async Task<IEnumerable<SeasonDto>> Get() =>
             await _repositoryContext.Seasons
                 .AsNoTracking()

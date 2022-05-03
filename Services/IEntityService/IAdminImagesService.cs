@@ -5,5 +5,6 @@ namespace Services.IEntityService
     public interface IAdminImagesService : IAdminCRU<ImageDto>
     {
         Task<IEnumerable<ImageDto>> GetByIdSeason(Guid idSeason);
+        Task<IEnumerable<ImageWhisCountDto>> GetByCount();
     }
 }

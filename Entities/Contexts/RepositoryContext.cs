@@ -22,6 +22,8 @@ namespace Entities.Contexts
                 entity.Property(p => p.Year).IsRequired();
                 entity.Property(p => p.IdImage).IsRequired();
             });
+
+            builder.AddRemoveOneToManyCascadeConvention();
         }
 
         public DbSet<ChampConstructorPastRace> ChampConstructorPastRace { get; set; }

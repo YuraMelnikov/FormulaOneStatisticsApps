@@ -28,6 +28,18 @@ namespace Services.EntityService
             return true;
         }
 
+        public async Task<bool> Delete(Guid id)
+        {
+            var img = await _repositoryContext.Images.FindAsync(id);
+            if (img is null)
+                return false;
+
+            _repositoryContext.Remove(img);
+            await _repositoryContext.SaveChangesAsync();
+
+            return true;
+        }
+
         public async Task<IEnumerable<ImageDto>> Get() =>
             await _repositoryContext.Images
                 .AsNoTracking()
@@ -37,6 +49,42 @@ namespace Services.EntityService
                     Link = a.Link
                 })
                 .ToArrayAsync();
+
+        public async Task<IEnumerable<ImageWhisCountDto>> GetByCount()
+        {
+            var query = await _repositoryContext.Images
+                        .AsNoTracking()
+                        .Where(a => !a.Link.Contains("livery"))
+                        .OrderByDescending(a => a.Size)
+                        .Select(a => new ImageWhisCountDto
+                        {
+                            Id = a.Id,
+                            Link = a.Link,
+                            ManufacturersCount = _repositoryContext.Manufacturers.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            ChassisCount = _repositoryContext.Chassis.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            LiveryCount = _repositoryContext.Chassis.AsNoTracking().Where(b => b.IdLivery == a.Id).Count(),
+                            ChassisImgsCount = _repositoryContext.ChassisImgs.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            CountriesCount = _repositoryContext.Countries.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            EnginesCount = _repositoryContext.Engines.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            GrandPrixesCount = _repositoryContext.GrandPrixes.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            GrandPrixImgsCount = _repositoryContext.GrandPrixImgs.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            ParticipantImgCount = _repositoryContext.ParticipantImg.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            RacerImgsCount = _repositoryContext.RacerImgs.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            RacersCount = _repositoryContext.Racers.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            SeasonImgCount = _repositoryContext.SeasonImg.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            SeasonsCount = _repositoryContext.Seasons.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            TeamNamesCount = _repositoryContext.TeamNames.AsNoTracking().Where(b => b.IdImageLogo == a.Id).Count(),
+                            TracksCount = _repositoryContext.Tracks.AsNoTracking().Where(b => b.IdImage == a.Id).Count(),
+                            TrackСonfigurationsCount = _repositoryContext.TrackСonfigurations.AsNoTracking().Where(b => b.IdImage == a.Id).Count(), 
+                            TyresCount = _repositoryContext.Tyres.AsNoTracking().Where(b => b.IdImage == a.Id).Count()
+                        })
+                        .Take(1000)
+                        .ToArrayAsync();
+ 
+
+            return query;
+        }
+
 
         public async Task<ImageDto?> GetById(Guid Id) =>
              await _repositoryContext.Images

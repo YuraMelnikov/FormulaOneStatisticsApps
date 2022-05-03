@@ -395,6 +395,10 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Size")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.ToTable("Image");

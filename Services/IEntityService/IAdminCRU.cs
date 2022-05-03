@@ -8,5 +8,6 @@ namespace Services.IEntityService
         Task<T?> GetById(Guid Id);
         Task<bool> Create(T entity);
         Task<bool> Update(T entity);
+        Task<bool> Delete (Guid entity);
     }
 }

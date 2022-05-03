@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220422142018_InitialDB")]
-    partial class InitialDB
+    [Migration("20220503165515_InitialDb")]
+    partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -394,6 +394,10 @@ namespace Entities.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Size")
                         .IsRequired()
                         .HasColumnType("text");
 

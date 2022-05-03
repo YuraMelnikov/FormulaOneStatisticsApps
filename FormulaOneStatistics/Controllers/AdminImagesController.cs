@@ -34,7 +34,16 @@ namespace FormulaOneStatistics.Controllers
         {
             var images = await _service.AdminImages.GetByIdSeason(id);
             if (images is null)
-                return BadRequest("image not found.");
+                return BadRequest("images not found.");
+            return Ok(images);
+        }
+
+        [HttpGet("count")]
+        public async Task<IActionResult> GetByCount()
+        {
+            var images = await _service.AdminImages.GetByCount();
+            if (images is null)
+                return BadRequest("images not found.");
             return Ok(images);
         }
 
@@ -54,6 +63,14 @@ namespace FormulaOneStatistics.Controllers
             if (image is null)
                 return BadRequest("Image object is null");
             var result = await _service.AdminImages.Update(image);
+
+            return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteChassi(Guid id)
+        {
+            var result = await _service.AdminImages.Delete(id);
 
             return Ok(result);
         }

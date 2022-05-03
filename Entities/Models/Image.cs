@@ -9,5 +9,8 @@ namespace Entities.Models
     {
         [Required]
         public string Link { get; set; }
+
+        [Required]
+        public string Size { get; set; }
     }
 }
