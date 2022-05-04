@@ -51,7 +51,7 @@ const TableAdminConstructors = observer(() => {
                                 <td className="text-center">{constructor.id}</td>
                                 <td className="text-center">{constructor.name}</td>
                                 <td className="text-center">{constructor.country}</td>
-                                <td><Card.Img variant="top" src={constructor.image}/></td>
+                                <td><Card.Img variant="top" src={constructor.imageLink}/></td>
                                 <td><Card.Img variant="top" src={constructor.logo}/></td>
                             </tr>
                         )}

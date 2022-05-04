@@ -9,6 +9,11 @@ import TableAdminConstructors from '../components/Tables/TableAdminConstructors'
 import TableAdminManufacturers from '../components/Tables/TableAdminManufacturers';
 import TableAdminTracks from '../components/Tables/TableAdminTracks';
 
+//<TableAdminManufacturers/>
+//<TableAdminTracks/>
+
+//<TableAdminRacers/>
+
 const Admin = () =>{
 
     return (
@@ -18,10 +23,8 @@ const Admin = () =>{
             <TableAdminSeasons/>
 
 
-            <TableAdminRacers/>
             <TableAdminConstructors/>
-            <TableAdminManufacturers/>
-            <TableAdminTracks/>
+ 
         </Container>
     );
 }
