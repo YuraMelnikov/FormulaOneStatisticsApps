@@ -27,13 +27,22 @@ namespace Services.Service
         private IAdminCRU<SeasonDto> _adminSeason;
         private IAdminImagesService _adminImages;
         private IAdminCRU<ConstructorDto> _adminConstructor;
-
-        //AdminConstructorService
+        private IAdminCRU<CountryDto> _adminCountry;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+        public IAdminCRU<CountryDto> AdminCountry
+        {
+            get
+            {
+                if (_adminCountry == null)
+                    _adminCountry = new AdminCountryService(_repoContext);
+                return _adminCountry;
+            }
         }
 
         public IAdminCRU<ConstructorDto> AdminConstructor

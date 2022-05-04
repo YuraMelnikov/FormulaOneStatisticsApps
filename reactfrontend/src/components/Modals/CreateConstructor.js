@@ -1,37 +1,39 @@
 import React, { useState } from 'react';
 import Modal from "react-bootstrap/Modal";
 import { Button, Form } from "react-bootstrap";
-import { createSeason } from "../../http/API";
+import { createConstructor } from "../../http/API";
 import { observer } from "mobx-react-lite";
 
 const CreateConstructor = observer(({ show, onHide }) => {
-    const [year, setYear] = useState()
+    const [name, setName] = useState('')
+    const [idCountry, setIdCountry] = useState('')
 
-    const addSeason = () => {
+    const addCountry = () => {
         const formData  = new FormData()
-        formData.append('year', year)
-        createSeason(formData).then(data => data === false ? setYear() : onHide())
+        formData.append('name', name)
+        formData.append('idCountry', idCountry)
+        createConstructor(formData).then(data => data === false ? setName() : onHide())
     }
 
     return (
         <Modal show={show} onHide={onHide} centered>
             <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">Added season</Modal.Title>
+                <Modal.Title id="contained-modal-title-vcenter">Added constructor</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
                     <Form.Control
-                        value={year}
-                        onChange={e => setYear(Number(e.target.value))}
+                        value={name}
+                        onChange={e => setName(e.target.value)}
                         className="mt-3"
-                        placeholder="Input year"
-                        type="number"
+                        placeholder="Input name"
+                        type="text"
                     />
                 </Form>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={onHide}>Close</Button>
-                <Button variant="outline-success" onClick={addSeason}>Added</Button>
+                <Button variant="outline-success" onClick={addCountry}>Added</Button>
             </Modal.Footer>
         </Modal>
     );

@@ -41,12 +41,6 @@ export const fetchImagesByConstructor = async (id) => {
     return data
 }
 
-export const fetchImagesByCount = async () => {
-    const {data} = await $host.get('api/adminImages/count/')
-    console.log(data)
-    return data
-}
-
 export const deleteImage = async (id) => {
     console.log('APi')
     const {data} = await $host.delete('api/adminImages/' + id)

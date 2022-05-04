@@ -36,8 +36,24 @@ export default class OpenApiStore {
         this._images = []
         this._selectedImage = {}
         this._selectedLogo = {}
+        this._selectedCountry = {}
+        this._country = []
 
         makeAutoObservable(this)
+    }
+
+    setCountry(country) {
+        this._country = country
+    }
+    get country() {
+        return this._country
+    }
+
+    setSelectedCountry(country) {
+        this._selectedCountry = country
+    }
+    get selectedCountry() {
+        return this._selectedCountry
     }
 
     setSelectedLogo(image) {

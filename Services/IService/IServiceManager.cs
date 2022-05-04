@@ -20,7 +20,7 @@ namespace Services.IService
         IAdminCRU<SeasonDto> AdminSeason { get; }
         IAdminImagesService AdminImages { get; }
         IAdminCRU<ConstructorDto> AdminConstructor{ get; }
-
+        IAdminCRU<CountryDto> AdminCountry { get; }
 
         Task SaveAsync();
     }
