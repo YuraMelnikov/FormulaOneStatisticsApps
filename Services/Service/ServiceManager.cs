@@ -26,6 +26,9 @@ namespace Services.Service
         private IChassisService _chassisService;
         private IAdminCRU<SeasonDto> _adminSeason;
         private IAdminImagesService _adminImages;
+        private IAdminCRU<ConstructorDto> _adminConstructor;
+
+        //AdminConstructorService
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
@@ -33,6 +36,15 @@ namespace Services.Service
             _mapper = mapper;
         }
 
+        public IAdminCRU<ConstructorDto> AdminConstructor
+        {
+            get
+            {
+                if (_adminConstructor == null)
+                    _adminConstructor = new AdminConstructorService(_repoContext);
+                return _adminConstructor;
+            }
+        }
 
         public IAdminImagesService AdminImages
         {

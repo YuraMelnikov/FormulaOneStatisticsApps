@@ -19,6 +19,8 @@ namespace Services.IService
         IManufacturerService Manufacturer { get; }
         IAdminCRU<SeasonDto> AdminSeason { get; }
         IAdminImagesService AdminImages { get; }
+        IAdminCRU<ConstructorDto> AdminConstructor{ get; }
+
 
         Task SaveAsync();
     }

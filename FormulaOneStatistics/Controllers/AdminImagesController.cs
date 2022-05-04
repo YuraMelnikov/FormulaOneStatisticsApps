@@ -38,10 +38,10 @@ namespace FormulaOneStatistics.Controllers
             return Ok(images);
         }
 
-        [HttpGet("count")]
-        public async Task<IActionResult> GetByCount()
+        [HttpGet("constructor/{id}")]
+        public async Task<IActionResult> GetByIdConstructor(Guid id)
         {
-            var images = await _service.AdminImages.GetByCount();
+            var images = await _service.AdminImages.GetByIdConstructor(id);
             if (images is null)
                 return BadRequest("images not found.");
             return Ok(images);
@@ -68,7 +68,7 @@ namespace FormulaOneStatistics.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteChassi(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             var result = await _service.AdminImages.Delete(id);
 

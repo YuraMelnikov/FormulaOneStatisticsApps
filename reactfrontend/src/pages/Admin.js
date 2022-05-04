@@ -3,18 +3,25 @@ import Title from "../components/Titles/Title";
 import TitleSmall from "../components/Titles/TitleSmall";
 import { Container } from "react-bootstrap";
 import TableAdminSeasons from '../components/Tables/TableAdminSeasons';
-import TableAdminImages from '../components/Tables/TableAdminImages';
+
+import TableAdminRacers from '../components/Tables/TableAdminRacers';
+import TableAdminConstructors from '../components/Tables/TableAdminConstructors';
+import TableAdminManufacturers from '../components/Tables/TableAdminManufacturers';
+import TableAdminTracks from '../components/Tables/TableAdminTracks';
 
 const Admin = () =>{
-    
-    //<TitleSmall name="Seasons"/>
-    //<TableAdminSeasons/>
+
     return (
         <Container className="d-flex flex-column">
             <Title name="Admin panel"/>
+            <TitleSmall name="Seasons"/>
+            <TableAdminSeasons/>
 
-            <TitleSmall name="Images"/>
-            <TableAdminImages/>
+
+            <TableAdminRacers/>
+            <TableAdminConstructors/>
+            <TableAdminManufacturers/>
+            <TableAdminTracks/>
         </Container>
     );
 }

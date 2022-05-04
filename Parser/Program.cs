@@ -10,25 +10,31 @@ using System.Xml.Serialization;
 using static Parser.ChampXML;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using static System.Console;
 
 RepositoryParcer repository = new RepositoryParcer();
 
+int step = 0;
+DirectoryInfo directoryInfo = new DirectoryInfo(@"C:\Users\myi\source\repos\YuraMelnikov\FormulaOneStatisticsApps\reactfrontend\src\assets\img");
 
-var query = repository.RacerImgs.ToArray();
-
-foreach(var item in query)
+foreach (var file in directoryInfo.GetFiles()) 
 {
-    var images = repository.RacerImgs
-        .Where(a => a.IdRacer == item.IdRacer && a.IdImage == item.IdImage)
-        .ToArray();
-
-    if(images.Length > 1)
+    var link = @"/assets/img/" + file.Name;
+    var query = repository.Images.AsNoTracking().Where(a => a.Link == link).ToArray();
+    if (query.Length == 0)
     {
-        Console.WriteLine(item.Id);
-        repository.Remove(item);
-        repository.SaveChanges();
+        step++;
+        WriteLine(step);
+        WriteLine(file.FullName.ToString());
+        File.Delete(file.FullName.ToString());
     }
+        
 }
+
+
+
+
+
 
 
 

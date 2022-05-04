@@ -35,6 +35,12 @@ export const fetchImagesBySeason = async (id) => {
     return data
 }
 
+export const fetchImagesByConstructor = async (id) => {
+    const {data} = await $host.get('api/adminImages/constructor/' + id)
+    console.log(data)
+    return data
+}
+
 export const fetchImagesByCount = async () => {
     const {data} = await $host.get('api/adminImages/count/')
     console.log(data)
@@ -182,6 +188,19 @@ export const fetchConstructorClassifications = async (id) => {
 
 export const fetchConstructorSeasons = async (id) => {
     const {data} = await $host.get('api/constructor/seasons/' + id)
+    console.log(data)
+    return data
+}
+
+export const createConstructor = async (constructor) => {
+    const {data} = await $host.post('api/adminConstructors/', formToJSON(constructor), config)
+    console.log(data)
+    return data
+}
+
+export const updateConstructor = async (id, constructor) => {
+    console.log(id)
+    const {data} = await $host.put('api/adminConstructors/' + id, formToJSON(constructor), config)
     console.log(data)
     return data
 }
