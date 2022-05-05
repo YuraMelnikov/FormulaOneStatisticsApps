@@ -86,6 +86,12 @@ export const fetchImagesByConstructor = async (id) => {
     return data
 }
 
+export const createImage = async (image) =>{
+    const {data} = await $host.post('api/AdminImages/', formToJSON(image), config)
+    console.log(data)
+    return data
+}
+
 export const deleteImage = async (id) => {
     console.log('APi')
     const {data} = await $host.delete('api/adminImages/' + id)
@@ -161,6 +167,12 @@ export const fetchManufacturers = async () => {
 //#endregion
 
 //#region GP
+export const fetchGrandPrix = async () => {
+    const {data} = await $host.get('api/adminGrandPrix/')
+    console.log(data)
+    return data
+}
+
 export const fetchGpClassification = async (id) => {
     const {data} = await $host.get('api/grandprix/classification/' + id)
     console.log(data)

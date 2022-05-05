@@ -2,6 +2,7 @@
 {
     public record GrandPrixParticipantDto
     {
+        public Guid Id { get; set; }
         public string No { get; set; }
         public string TeamName { get; set; }
         public Guid IdChassis { get; set; }

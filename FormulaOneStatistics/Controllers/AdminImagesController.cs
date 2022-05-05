@@ -48,13 +48,14 @@ namespace FormulaOneStatistics.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ImageDto image)
+        public async Task<IActionResult> Create([FromBody] ImageCreateDto image)
         {
-            if (image is null)
-                return BadRequest("Create image object is null.");
-            var result = await _service.AdminImages.Create(image);
+            //if (image is null)
+            //    return BadRequest("Create image object is null.");
+            //var result = await _service.AdminImages.Create(image);
 
-            return Ok(result);
+            //return Ok(result);
+            return Ok();
         }
 
         [HttpPut("{id}")]

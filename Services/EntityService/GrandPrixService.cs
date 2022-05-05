@@ -105,6 +105,7 @@ namespace Services.EntityService
                 .Where(a => a.IdGrandPrix == idGrandPrix)
                 .Select(a => new GrandPrixParticipantDto
                 {
+                    Id = a.Id,
                     No = a.Number,
                     TeamName = a.Team.Name,
                     IdRacer = a.IdRacer,

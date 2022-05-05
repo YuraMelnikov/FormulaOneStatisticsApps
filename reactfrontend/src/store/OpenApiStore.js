@@ -28,7 +28,7 @@ export default class OpenApiStore {
         this._gpInfo = []
         this._gpChampRacers = []
         this._gpChampConstructors = []
-
+        this._grandPrix = []
 
         this._constructors = []
         this._constructorImages = []
@@ -49,6 +49,7 @@ export default class OpenApiStore {
         this._selectedImage = {}
         this._selectedLogo = {}
         this._selectedCountry = {}
+        this._selectItem = {}
 
         makeAutoObservable(this)
     }
@@ -168,6 +169,13 @@ get manufacturers() {
 //#endregion
 
 //#region GP
+setGrandPrix(grandPrix) {
+    this._grandPrix = grandPrix
+}
+get grandPrix() {
+    return this._grandPrix
+}
+
 setGpChampConstructors(gpChampConstructors) {
     this._gpChampConstructors = gpChampConstructors
 }
@@ -304,6 +312,13 @@ get country() {
 //#endregion
 
 //#region SELECT
+setSelectItem(item) {
+    this._selectItem = item
+}
+get selectItem() {
+    return this._selectItem
+}
+
 setSelectedCountry(country) {
     this._selectedCountry = country
 }

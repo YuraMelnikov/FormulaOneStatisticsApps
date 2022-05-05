@@ -28,11 +28,22 @@ namespace Services.Service
         private IAdminImagesService _adminImages;
         private IAdminCRU<ConstructorDto> _adminConstructor;
         private IAdminCRU<CountryDto> _adminCountry;
+        private IAdminCRU<GrandPrixDto> _adminGrandPrix;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+        public IAdminCRU<GrandPrixDto> AdminGrandPrix
+        {
+            get
+            {
+                if (_adminGrandPrix == null)
+                    _adminGrandPrix = new AdminGrandPrixService(_repoContext);
+                return _adminGrandPrix;
+            }
         }
 
         public IAdminCRU<CountryDto> AdminCountry
@@ -195,6 +206,6 @@ namespace Services.Service
             }
         }
 
-        public Task SaveAsync() => _repoContext.SaveChangesAsync();
+        //public Task SaveAsync() => _repoContext.SaveChangesAsync();
     }
 }

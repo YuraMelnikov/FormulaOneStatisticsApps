@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Modal from "react-bootstrap/Modal";
 import { Button, Form, Dropdown, Card } from "react-bootstrap";
 import { fetchImagesByConstructor, updateConstructor } from "../../http/API";
@@ -9,8 +9,6 @@ const UpdateConstructor = observer(({ id, show, onHide }) => {
     const{openApiData} = useContext(Context)
 
     useEffect(() => {
-        //openApiData.setSelectedImage({})
-        //openApiData.setSelectedLogo({})
         if(id !== undefined)
             fetchImagesByConstructor(id).then(data => openApiData.setImages(data))
     // eslint-disable-next-line react-hooks/exhaustive-deps
