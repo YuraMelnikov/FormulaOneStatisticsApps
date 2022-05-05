@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Modal from "react-bootstrap/Modal";
 import { Button, Form, Dropdown, Card } from "react-bootstrap";
 import { fetchImagesByConstructor, updateConstructor } from "../../http/API";
@@ -9,12 +9,12 @@ const UpdateConstructor = observer(({ id, show, onHide }) => {
     const{openApiData} = useContext(Context)
 
     useEffect(() => {
-        if(id !== undefined) {
-            openApiData.setSelectedLogo({})
+        //openApiData.setSelectedImage({})
+        //openApiData.setSelectedLogo({})
+        if(id !== undefined)
             fetchImagesByConstructor(id).then(data => openApiData.setImages(data))
-        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[id])
+    },[show])
 
     const updateThisConstructor = () => {
         const formData  = new FormData()
@@ -22,7 +22,7 @@ const UpdateConstructor = observer(({ id, show, onHide }) => {
         formData.append('image', openApiData.selectedImage.link)
         formData.append('logo', openApiData.selectedLogo.link)
         if(openApiData.selectedImage.link !== undefined & openApiData.selectedLogo.link !== undefined)
-            updateConstructor(id, formData).then(data => data === false ? openApiData.setSelectedImage({}) : onHide())
+            updateConstructor(id, formData).then(onHide)
     }
 
     return (
@@ -37,8 +37,6 @@ const UpdateConstructor = observer(({ id, show, onHide }) => {
                         <Dropdown.Menu>
                             {openApiData.images.map(image =>
                                 <Dropdown.Item onClick={() => openApiData.setSelectedImage(image)} key={image.id}>
-                                    {image.id}
-                                    {image.link}
                                     <Card.Img variant="top" src={image.link}/>
                                 </Dropdown.Item>
                             )}
@@ -51,8 +49,6 @@ const UpdateConstructor = observer(({ id, show, onHide }) => {
                         <Dropdown.Menu>
                             {openApiData.images.map(image =>
                                 <Dropdown.Item onClick={() => openApiData.setSelectedLogo(image)} key={image.id}>
-                                    {image.id}
-                                    {image.link}
                                     <Card.Img variant="top" src={image.link}/>
                                 </Dropdown.Item>
                             )}

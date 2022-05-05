@@ -3,13 +3,24 @@ import { makeAutoObservable } from "mobx";
 export default class OpenApiStore {
     constructor() {
         this._seasons = []
-        this._tracks = []
-        this._racers = []
-        this._manufacturers = []
         this._seasonCalendar = []
         this._seasonPercipient = []
         this._seasonRacersResult = []
         this._seasonConstResult = []
+
+        this._tracks = []
+        this._trackConfigurations = []
+        this._trackImages = []
+        this._trackGrandPrix = []
+
+        this._racers = []
+        this._racerImages = []
+        this._racerInfo = []
+        this._racerClassifications = []
+        this._racerSeasons = []
+
+        this._manufacturers = []
+
         this._gpClassification = []
         this._gpQualification = []
         this._gpParticipant = []
@@ -17,280 +28,301 @@ export default class OpenApiStore {
         this._gpInfo = []
         this._gpChampRacers = []
         this._gpChampConstructors = []
-        this._racerImages = []
-        this._racerInfo = []
-        this._racerClassifications = []
-        this._racerSeasons = []
+
+
         this._constructors = []
         this._constructorImages = []
         this._constructorInfo = []
         this._constructorClassifications = []
         this._constructorSeasons = []
+
         this._chassisImages = []
         this._chassisInfo = []
         this._chassisClassifications = []
         this._chassisSeasons = []
-        this._trackConfigurations = []
-        this._trackImages = []
-        this._trackGrandPrix = []
+
+
         this._images = []
+
+        this._country = []
+
         this._selectedImage = {}
         this._selectedLogo = {}
         this._selectedCountry = {}
-        this._country = []
 
         makeAutoObservable(this)
     }
 
-    setCountry(country) {
-        this._country = country
-    }
-    get country() {
-        return this._country
-    }
+//#region SEASON
+setSeasons(seasons) {
+    this._seasons = seasons
+}
+get seasons() {
+    return this._seasons
+}
 
-    setSelectedCountry(country) {
-        this._selectedCountry = country
-    }
-    get selectedCountry() {
-        return this._selectedCountry
-    }
+setSeasonConstResult(seasonConstResult) {
+    this._seasonConstResult = seasonConstResult
+}
+get seasonConstResult() {
+    return this._seasonConstResult
+}
 
-    setSelectedLogo(image) {
-        this._selectedLogo = image
-    }
-    get selectedLogo() {
-        return this._selectedLogo
-    }
+setSeasonRacersResult(seasonRacersResult) {
+    this._seasonRacersResult = seasonRacersResult
+}
+get seasonRacersResult() {
+    return this._seasonRacersResult
+}
 
-    setSelectedImage(image) {
-        this._selectedImage = image
-    }
-    get selectedImage() {
-        return this._selectedImage
-    }
+setSeasonPercipient(seasonPercipient) {
+    this._seasonPercipient = seasonPercipient
+}
+get seasonPercipient() {
+    return this._seasonPercipient
+}
 
-    setImages(images) {
-        this._images = images
-    }
-    get images() {
-        return this._images
-    }
+setSeasonCalendar(seasonCalendar) {
+    this._seasonCalendar = seasonCalendar
+}
+get seasonCalendar() {
+    return this._seasonCalendar
+}
 
-    setTrackGrandPrix(trackGrandPrix) {
-        this._trackGrandPrix = trackGrandPrix
-    }
-    get trackGrandPrix() {
-        return this._trackGrandPrix
-    }
+//#endregion
 
-    setTrackImages(trackImages) {
-        this._trackImages = trackImages
-    }
-    get trackImages() {
-        return this._trackImages
-    }
+//#region TRACK
+setTracks(tracks) {
+    this._tracks = tracks
+}
+get tracks() {
+    return this._tracks
+}
 
-    setTrackConfigurations(trackConfigurations) {
-        this._trackConfigurations = trackConfigurations
-    }
-    get trackConfigurations() {
-        return this._trackConfigurations
-    }
+setTrackGrandPrix(trackGrandPrix) {
+    this._trackGrandPrix = trackGrandPrix
+}
+get trackGrandPrix() {
+    return this._trackGrandPrix
+}
 
-    setChassisSeasons(chassisSeasons) {
-        this._chassisSeasons = chassisSeasons
-    }
-    get chassisSeasons() {
-        return this._chassisSeasons
-    }
+setTrackImages(trackImages) {
+    this._trackImages = trackImages
+}
+get trackImages() {
+    return this._trackImages
+}
 
-    setChassisClassifications(chassisClassifications) {
-        this._chassisClassifications = chassisClassifications
-    }
-    get chassisClassifications() {
-        return this._chassisClassifications
-    }
+setTrackConfigurations(trackConfigurations) {
+    this._trackConfigurations = trackConfigurations
+}
+get trackConfigurations() {
+    return this._trackConfigurations
+}
+//#endregion
 
-    setChassisInfo(chassisInfo) {
-        this._chassisInfo = chassisInfo
-    }
-    get chassisInfo() {
-        return this._chassisInfo
-    }
+//#region RACER
+setRacerImages(racerImages) {
+    this._racerImages = racerImages
+}
+get racerImages() {
+    return this._racerImages
+}
 
-    setChassisImages(chassisImages) {
-        this._chassisImages = chassisImages
-    }
-    get chassisImages() {
-        return this._chassisImages
-    }
+setRacerInfo(racerInfo) {
+    this._racerInfo = racerInfo
+}
+get racerInfo() {
+    return this._racerInfo
+}
 
-    setConstructorSeasons(constructorSeasons) {
-        this._constructorSeasons = constructorSeasons
-    }
-    get constructorSeasons() {
-        return this._constructorSeasons
-    }
+setRacerClassifications(racerClassifications) {
+    this._racerClassifications = racerClassifications
+}
+get racerClassifications() {
+    return this._racerClassifications
+}
 
-    setConstructorClassifications(constructorClassifications) {
-        this._constructorClassifications = constructorClassifications
-    }
-    get constructorClassifications() {
-        return this._constructorClassifications
-    }
+setRacerSeasons(racerSeasons) {
+    this._racerSeasons = racerSeasons
+}
+get racerSeasons() {
+    return this._racerSeasons
+}
 
-    setConstructorInfo(constructorInfo) {
-        this._constructorInfo = constructorInfo
-    }
-    get constructorInfo() {
-        return this._constructorInfo
-    }
+setRacers(racers) {
+    this._racers = racers
+}
+get racers() {
+    return this._racers
+}
+//#endregion
 
-    setConstructorImages(constructorImages) {
-        this._constructorImages = constructorImages
-    }
-    get constructorImages() {
-        return this._constructorImages
-    }
+//#region MANUFACTURER
+setManufacturers(manufacturers) {
+    this._manufacturers = manufacturers
+}
+get manufacturers() {
+    return this._manufacturers
+}
+//#endregion
 
-    setConstructors(constructors) {
-        this._constructors = constructors
-    }
-    get constructors() {
-        return this._constructors
-    }
+//#region GP
+setGpChampConstructors(gpChampConstructors) {
+    this._gpChampConstructors = gpChampConstructors
+}
+get gpChampConstructors() {
+    return this._gpChampConstructors
+}
 
-    setRacerImages(racerImages) {
-        this._racerImages = racerImages
-    }
-    get racerImages() {
-        return this._racerImages
-    }
+setGpChampRacers(gpChampRacers) {
+    this._gpChampRacers = gpChampRacers
+}
+get gpChampRacers() {
+    return this._gpChampRacers
+}
 
-    setRacerInfo(racerInfo) {
-        this._racerInfo = racerInfo
-    }
-    get racerInfo() {
-        return this._racerInfo
-    }
+setGpInfo(gpInfo) {
+    this._gpInfo = gpInfo
+}
+get gpInfo() {
+    return this._gpInfo
+}
 
-    setRacerClassifications(racerClassifications) {
-        this._racerClassifications = racerClassifications
-    }
-    get racerClassifications() {
-        return this._racerClassifications
-    }
+setGpImages(gpImages) {
+    this._gpImages = gpImages
+}
+get gpImages() {
+    return this._gpImages
+}
 
-    setRacerSeasons(racerSeasons) {
-        this._racerSeasons = racerSeasons
-    }
-    get racerSeasons() {
-        return this._racerSeasons
-    }
+setGpParticipant(gpParticipant) {
+    this._gpParticipant = gpParticipant
+}
+get gpParticipant() {
+    return this._gpParticipant
+}
 
-    setGpChampConstructors(gpChampConstructors) {
-        this._gpChampConstructors = gpChampConstructors
-    }
-    get gpChampConstructors() {
-        return this._gpChampConstructors
-    }
+setGpQualification(gpQualification) {
+    this._gpQualification = gpQualification
+}
+get gpQualification() {
+    return this._gpQualification
+}
 
-    setGpChampRacers(gpChampRacers) {
-        this._gpChampRacers = gpChampRacers
-    }
-    get gpChampRacers() {
-        return this._gpChampRacers
-    }
+setGpClassification(gpClassification) {
+    this._gpClassification = gpClassification
+}
+get gpClassification() {
+    return this._gpClassification
+}
+//#endregion
 
-    setGpInfo(gpInfo) {
-        this._gpInfo = gpInfo
-    }
-    get gpInfo() {
-        return this._gpInfo
-    }
+//#region CONSTRUCTOR
+setConstructorSeasons(constructorSeasons) {
+    this._constructorSeasons = constructorSeasons
+}
+get constructorSeasons() {
+    return this._constructorSeasons
+}
 
-    setGpImages(gpImages) {
-        this._gpImages = gpImages
-    }
-    get gpImages() {
-        return this._gpImages
-    }
+setConstructorClassifications(constructorClassifications) {
+    this._constructorClassifications = constructorClassifications
+}
+get constructorClassifications() {
+    return this._constructorClassifications
+}
 
-    setGpParticipant(gpParticipant) {
-        this._gpParticipant = gpParticipant
-    }
-    get gpParticipant() {
-        return this._gpParticipant
-    }
+setConstructorInfo(constructorInfo) {
+    this._constructorInfo = constructorInfo
+}
+get constructorInfo() {
+    return this._constructorInfo
+}
 
-    setGpQualification(gpQualification) {
-        this._gpQualification = gpQualification
-    }
-    get gpQualification() {
-        return this._gpQualification
-    }
+setConstructorImages(constructorImages) {
+    this._constructorImages = constructorImages
+}
+get constructorImages() {
+    return this._constructorImages
+}
 
-    setGpClassification(gpClassification) {
-        this._gpClassification = gpClassification
-    }
-    get gpClassification() {
-        return this._gpClassification
-    }
+setConstructors(constructors) {
+    this._constructors = constructors
+}
+get constructors() {
+    return this._constructors
+}
+//#endregion
 
-    setSeasonConstResult(seasonConstResult) {
-        this._seasonConstResult = seasonConstResult
-    }
-    get seasonConstResult() {
-        return this._seasonConstResult
-    }
+//#region CHASSIS
+setChassisSeasons(chassisSeasons) {
+    this._chassisSeasons = chassisSeasons
+}
+get chassisSeasons() {
+    return this._chassisSeasons
+}
 
-    setSeasonRacersResult(seasonRacersResult) {
-        this._seasonRacersResult = seasonRacersResult
-    }
-    get seasonRacersResult() {
-        return this._seasonRacersResult
-    }
+setChassisClassifications(chassisClassifications) {
+    this._chassisClassifications = chassisClassifications
+}
+get chassisClassifications() {
+    return this._chassisClassifications
+}
 
-    setSeasonPercipient(seasonPercipient) {
-        this._seasonPercipient = seasonPercipient
-    }
-    get seasonPercipient() {
-        return this._seasonPercipient
-    }
+setChassisInfo(chassisInfo) {
+    this._chassisInfo = chassisInfo
+}
+get chassisInfo() {
+    return this._chassisInfo
+}
 
-    setSeasonCalendar(seasonCalendar) {
-        this._seasonCalendar = seasonCalendar
-    }
-    get seasonCalendar() {
-        return this._seasonCalendar
-    }
+setChassisImages(chassisImages) {
+    this._chassisImages = chassisImages
+}
+get chassisImages() {
+    return this._chassisImages
+}
+//#endregion
 
-    setManufacturers(manufacturers) {
-        this._manufacturers = manufacturers
-    }
-    get manufacturers() {
-        return this._manufacturers
-    }
+//#region IMAGE
+setImages(images) {
+    this._images = images
+}
+get images() {
+    return this._images
+}
+//#endregion
 
-    setSeasons(seasons) {
-        this._seasons = seasons
-    }
-    get seasons() {
-        return this._seasons
-    }
+//#region COUNTRY
+setCountry(country) {
+    this._country = country
+}
+get country() {
+    return this._country
+}
+//#endregion
 
-    setTracks(tracks) {
-        this._tracks = tracks
-    }
-    get tracks() {
-        return this._tracks
-    }
+//#region SELECT
+setSelectedCountry(country) {
+    this._selectedCountry = country
+}
+get selectedCountry() {
+    return this._selectedCountry
+}
 
-    setRacers(racers) {
-        this._racers = racers
-    }
-    get racers() {
-        return this._racers
-    }
+setSelectedLogo(image) {
+    this._selectedLogo = image
+}
+get selectedLogo() {
+    return this._selectedLogo
+}
+
+setSelectedImage(image) {
+    this._selectedImage = image
+}
+get selectedImage() {
+    return this._selectedImage
+}
+//#endregion
 }

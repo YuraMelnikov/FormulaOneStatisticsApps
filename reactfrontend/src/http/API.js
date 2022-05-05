@@ -4,6 +4,25 @@ const config = {
     headers: { 'Content-Type': 'application/json'}
 };
 
+function formToJSON(elem) {
+    let output = {};
+    elem.forEach(
+      (value, key) => {
+        if (Object.prototype.hasOwnProperty.call(output, key)) {
+          let current = output[key];
+          if (!Array.isArray(current)) {
+            current = output[key] = [current];
+          }
+          current.push(value); 
+        } else {
+          output[key] = value;
+        }
+      }
+    );
+    return JSON.stringify(output);
+}
+
+//#region SEASON
 export const fetchSeasons = async () => {
     const {data} = await $host.get('api/seasons')
     console.log(data)
@@ -19,31 +38,6 @@ export const createSeason = async (season) => {
 export const updateSeason = async (id, season) => {
     console.log(id)
     const {data} = await $host.put('api/adminSeason/' + id, formToJSON(season), config)
-    console.log(data)
-    return data
-}
-
-export const fetchImages = async () => {
-    const {data} = await $host.get('api/adminImages/')
-    console.log(data)
-    return data
-}
-
-export const fetchImagesBySeason = async (id) => {
-    const {data} = await $host.get('api/adminImages/season/' + id)
-    console.log(data)
-    return data
-}
-
-export const fetchImagesByConstructor = async (id) => {
-    const {data} = await $host.get('api/adminImages/constructor/' + id)
-    console.log(data)
-    return data
-}
-
-export const deleteImage = async (id) => {
-    console.log('APi')
-    const {data} = await $host.delete('api/adminImages/' + id)
     console.log(data)
     return data
 }
@@ -71,25 +65,102 @@ export const fetchSeasonConstResult = async (id) => {
     console.log(data)
     return data
 }
+//#endregion
 
+//#region IMAGE
+export const fetchImages = async () => {
+    const {data} = await $host.get('api/adminImages/')
+    console.log(data)
+    return data
+}
+
+export const fetchImagesBySeason = async (id) => {
+    const {data} = await $host.get('api/adminImages/season/' + id)
+    console.log(data)
+    return data
+}
+
+export const fetchImagesByConstructor = async (id) => {
+    const {data} = await $host.get('api/adminImages/constructor/' + id)
+    console.log(data)
+    return data
+}
+
+export const deleteImage = async (id) => {
+    console.log('APi')
+    const {data} = await $host.delete('api/adminImages/' + id)
+    console.log(data)
+    return data
+}
+//#endregion
+
+//#region TRACK
 export const fetchTracks = async () => {
     const {data} = await $host.get('api/tracks')
     console.log(data)
     return data
 }
 
+export const fetchTrackConfigurations = async (id) => {
+    const {data} = await $host.get('api/track/configurations/' + id)
+    console.log(data)
+    return data
+}
+
+export const fetchTrackImages = async (id) => {
+    const {data} = await $host.get('api/track/images/' + id)
+    console.log(data)
+    return data
+}
+
+export const fetchTrackGrandPrix = async (id) => {
+    const {data} = await $host.get('api/track/grandPrix/' + id)
+    console.log(data)
+    return data
+}
+//#endregion
+
+//#region RACER
 export const fetchRacers = async () => {
     const {data} = await $host.get('api/racers')
     console.log(data)
     return data
 }
 
+export const fetchRacerImages = async (id) => {
+    const {data} = await $host.get('api/racer/images/' + id)
+    console.log(data)
+    return data
+}
+
+export const fetchRacerInfo = async (id) => {
+    const {data} = await $host.get('api/racer/info/' + id)
+    console.log(data)
+    return data
+}
+
+export const fetchRacerClassifications = async (id) => {
+    const {data} = await $host.get('api/racer/classifications/' + id)
+    console.log(data)
+    return data
+}
+
+export const fetchRacerSeasons = async (id) => {
+    const {data} = await $host.get('api/racer/seasons/' + id)
+    console.log(data)
+    return data
+}
+//#endregion
+
+//#region MANUFACTURER
 export const fetchManufacturers = async () => {
     const {data} = await $host.get('api/manufacturers')
     console.log(data)
     return data
 }
+//#endregion
 
+//#region GP
 export const fetchGpClassification = async (id) => {
     const {data} = await $host.get('api/grandprix/classification/' + id)
     console.log(data)
@@ -131,33 +202,17 @@ export const fetchGpChampConstructors = async (id) => {
     console.log(data)
     return data
 }
+//#endregion
 
-export const fetchRacerImages = async (id) => {
-    const {data} = await $host.get('api/racer/images/' + id)
-    console.log(data)
-    return data
-}
-
-export const fetchRacerInfo = async (id) => {
-    const {data} = await $host.get('api/racer/info/' + id)
-    console.log(data)
-    return data
-}
-
-export const fetchRacerClassifications = async (id) => {
-    const {data} = await $host.get('api/racer/classifications/' + id)
-    console.log(data)
-    return data
-}
-
-export const fetchRacerSeasons = async (id) => {
-    const {data} = await $host.get('api/racer/seasons/' + id)
-    console.log(data)
-    return data
-}
-
+//#region CONSTRUCTOR
 export const fetchConstructors = async () => {
     const {data} = await $host.get('api/constructors')
+    console.log(data)
+    return data
+}
+
+export const fetchAdminConstructors = async () => {
+    const {data} = await $host.get('api/adminConstructors')
     console.log(data)
     return data
 }
@@ -198,7 +253,9 @@ export const updateConstructor = async (id, constructor) => {
     console.log(data)
     return data
 }
+//#endregion
 
+//#region CHASSIS
 export const fetchChassisImages = async (id) => {
     const {data} = await $host.get('api/chassis/images/' + id)
     console.log(data)
@@ -222,39 +279,12 @@ export const fetchChassisSeasons = async (id) => {
     console.log(data)
     return data
 }
+//#endregion
 
-export const fetchTrackConfigurations = async (id) => {
-    const {data} = await $host.get('api/track/configurations/' + id)
+//#region COUNTRY
+export const fetchCountries = async () => {
+    const {data} = await $host.get('api/adminCountry/')
     console.log(data)
     return data
 }
-
-export const fetchTrackImages = async (id) => {
-    const {data} = await $host.get('api/track/images/' + id)
-    console.log(data)
-    return data
-}
-
-export const fetchTrackGrandPrix = async (id) => {
-    const {data} = await $host.get('api/track/grandPrix/' + id)
-    console.log(data)
-    return data
-}
-
-function formToJSON(elem) {
-    let output = {};
-    elem.forEach(
-      (value, key) => {
-        if (Object.prototype.hasOwnProperty.call(output, key)) {
-          let current = output[key];
-          if (!Array.isArray(current)) {
-            current = output[key] = [current];
-          }
-          current.push(value); 
-        } else {
-          output[key] = value;
-        }
-      }
-    );
-    return JSON.stringify(output);
-}
+//#endregion

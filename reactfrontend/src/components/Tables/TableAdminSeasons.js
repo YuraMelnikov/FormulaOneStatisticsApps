@@ -46,7 +46,7 @@ const TableAdminSeasons = observer(() => {
                     <tbody>
                         {openApiData.seasons.map(season =>
                             <tr key={season.id}>
-                                <td onClick={function(){ setSeasonUpdateVisible(true); setId(season.id)}}><Pencil /></td>
+                                <td onClick={function(){ openApiData.setSelectedImage({link: season.imageLink}); setSeasonUpdateVisible(true); setId(season.id)}}><Pencil /></td>
                                 <td className="text-center">{season.id}</td>
                                 <td className="text-center">{season.name}</td>
                                 <td className="text-center">{season.imageLink}</td>

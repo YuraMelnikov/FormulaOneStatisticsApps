@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from "react-bootstrap/Modal";
 import { Button, Form } from "react-bootstrap";
 import { createSeason } from "../../http/API";
@@ -7,10 +7,15 @@ import { observer } from "mobx-react-lite";
 const CreateSeason = observer(({ show, onHide }) => {
     const [year, setYear] = useState()
 
+    useEffect(() => {
+        setYear('')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[show])
+
     const addSeason = () => {
         const formData  = new FormData()
         formData.append('year', year)
-        createSeason(formData).then(data => data === false ? setYear() : onHide())
+        createSeason(formData).then(data => data === false ? setYear('') : onHide)
     }
 
     return (
@@ -30,7 +35,7 @@ const CreateSeason = observer(({ show, onHide }) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide}>Close</Button>
+                <Button variant="outline-danger" onClick={() => onHide} >Close</Button>
                 <Button variant="outline-success" onClick={addSeason}>Added</Button>
             </Modal.Footer>
         </Modal>

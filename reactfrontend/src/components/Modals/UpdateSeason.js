@@ -10,11 +10,10 @@ const UpdateSeason = observer(({ id, show, onHide }) => {
 
     useEffect(() => {
         if(id !== undefined) {
-            openApiData.setSelectedImage({})
             fetchImagesBySeason(id).then(data => openApiData.setImages(data))
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[id])
+    },[show])
 
     const updateThisSeason = () => {
         const formData  = new FormData()
@@ -32,12 +31,10 @@ const UpdateSeason = observer(({ id, show, onHide }) => {
             <Modal.Body>
                 <Form>
                     <Dropdown className="mt-2 mb-2">
-                        <Dropdown.Toggle>{openApiData.setSelectedImage.name || "Change image"}</Dropdown.Toggle>
+                        <Dropdown.Toggle>{"Change image"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {openApiData.images.map(image =>
                                 <Dropdown.Item onClick={() => openApiData.setSelectedImage(image)} key={image.id}>
-                                    {image.id}
-                                    {image.link}
                                     <Card.Img variant="top" src={image.link}/>
                                 </Dropdown.Item>
                             )}

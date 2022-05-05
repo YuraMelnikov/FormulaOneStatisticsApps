@@ -64,6 +64,7 @@ namespace Services.EntityService
                     Name = a.Name, 
                     Image = a.Image.Link
                 })
+                .OrderBy(a => a.Name)
                 .ToArrayAsync();
 
         public async Task<ConstructorDto?> GetById(Guid Id) =>
