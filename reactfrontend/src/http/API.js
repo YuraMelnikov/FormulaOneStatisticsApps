@@ -87,6 +87,8 @@ export const fetchImagesByConstructor = async (id) => {
 }
 
 export const createImage = async (image) =>{
+
+    console.log(formToJSON(image))
     const {data} = await $host.post('api/AdminImages/', formToJSON(image), config)
     console.log(data)
     return data
