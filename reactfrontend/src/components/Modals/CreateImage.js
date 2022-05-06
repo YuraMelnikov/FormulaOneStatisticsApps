@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Modal from "react-bootstrap/Modal";
 import { Button, Form, Dropdown } from "react-bootstrap";
-import { createImage } from "../../http/API";
+import { createImage, saveImage } from "../../http/API";
 import { observer } from "mobx-react-lite";
 import { fetchGrandPrix, fetchGpParticipant } from "../../http/API";
 import {Context} from '../../index';
@@ -19,7 +19,6 @@ const CreateImage = observer(({ show, onHide }) => {
 
     const [file, setFile] = useState(null)
     const selectFile = e => {
-        console.log(e.target.files[0])
         setFile(e.target.files[0])
     }
 
@@ -33,7 +32,6 @@ const CreateImage = observer(({ show, onHide }) => {
     },[show])
 
     useEffect(() => {
-        console.log(openApiData.selectItem)
         if(openApiData.selectItem.id !== undefined) {
             openApiData.setGpParticipant([])
             setParticipantArray([])
@@ -44,10 +42,14 @@ const CreateImage = observer(({ show, onHide }) => {
 
     const addImage = () => {
         const formData  = new FormData()
-        formData.append('participant', participantArray)
+        for (var i = 0; i < participantArray.length; i++) {
+            formData.append('participant[]', participantArray[i]);
+        }
         formData.append('grandPrix', openApiData.selectItem.id)
         formData.append('image', file)
-        createImage(formData).then(data => data === false ? setFile(null) : onHide)
+
+        saveImage(file).then(data => data === false ? setFile(null) : onHide)
+        //createImage(formData).then(data => data === false ? setFile(null) : onHide)
     }
 
     return (
@@ -76,7 +78,7 @@ const CreateImage = observer(({ show, onHide }) => {
                         <Dropdown.Toggle>{"Participant"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {openApiData.gpParticipant.map(participant =>
-                                <Dropdown.Item onClick={() => addParticipant(participant)} key={participant.id}>
+                                <Dropdown.Item onClick={() => addParticipant(participant.id)} key={participant.id}>
                                     {participant.racer}
                                     {participant.chassis}
                                     {participant.no}
@@ -87,7 +89,7 @@ const CreateImage = observer(({ show, onHide }) => {
                     <Button onClick={() => removeParticipant()} variant={"outline-danger"}>Remove</Button>
                     
                     <div className="col">
-                        {participantArray.map(part => <div>{part.id}</div>)}
+                        {participantArray.map(part => <div>{part}</div>)}
                     </div>
 
                     <Form.Control className="mt-3" type="file" onChange={selectFile} /> 

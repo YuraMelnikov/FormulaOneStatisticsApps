@@ -1,8 +1,47 @@
 import {$host} from "./index";
 
 const config = {
-    headers: { 'Content-Type': 'application/json'}
+    headers: { 
+        'Content-Type': 'application/json',
+    }
 };
+
+const configImage = {
+    headers: { 
+        'content-type': "multipart/form-data",
+    }
+};
+
+function form2json(data) {
+    let method = function (object,pair) {
+        let keys = pair[0].replace(/\]/g,'').split('[');
+        let key = keys[0];
+        let value = pair[1];
+        if (keys.length > 1) {
+            let i,x,segment;
+            let last = value;
+            let type = isNaN(keys[1]) ? {} : [];
+            value = segment = object[key] || type;
+            for (i = 1; i < keys.length; i++) {
+                x = keys[i];
+                if (i === keys.length-1) {
+                    if (Array.isArray(segment)) {
+                        segment.push(last);
+                    } else {
+                        segment[x] = last;
+                    }
+                } else if (segment[x] === undefined) {
+                    segment[x] = isNaN(keys[i+1]) ? {} : [];
+                }
+                segment = segment[x];
+            }
+        }
+        object[key] = value;
+        return object;
+    }
+    let object = Array.from(data).reduce(method,{});
+    return JSON.stringify(object);
+}
 
 function formToJSON(elem) {
     let output = {};
@@ -86,16 +125,22 @@ export const fetchImagesByConstructor = async (id) => {
     return data
 }
 
-export const createImage = async (image) =>{
+export const saveImage = async (img) => {
+    const image = img
+    console.log(image)
+    const {data} = await $host.post('api/AdminImages/save/', image)
+    return data
+}
 
-    console.log(formToJSON(image))
-    const {data} = await $host.post('api/AdminImages/', formToJSON(image), config)
-    console.log(data)
+export const createImage = async (image) => {
+    const img = image.get('image')
+    const newData = JSON.parse(form2json(image))
+    newData.image = img.name;
+    const {data} = await $host.post('api/AdminImages/', newData, config)
     return data
 }
 
 export const deleteImage = async (id) => {
-    console.log('APi')
     const {data} = await $host.delete('api/adminImages/' + id)
     console.log(data)
     return data

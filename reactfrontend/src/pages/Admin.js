@@ -8,7 +8,8 @@ import TableAdminManufacturers from '../components/Tables/TableAdminManufacturer
 import TableAdminTracks from '../components/Tables/TableAdminTracks';
 import CreateImage from '../components/Modals/CreateImage';
 
-//
+//<TableAdminSeasons/>
+//<TableAdminConstructors/>
 
 //<TableAdminManufacturers/>
 //<TableAdminTracks/>
@@ -26,8 +27,7 @@ const Admin = () =>{
                 onHide={() => setImageVisible(false)}
             />
 
-            <TableAdminSeasons/>
-            <TableAdminConstructors/>
+            
 
         </Container>
     );

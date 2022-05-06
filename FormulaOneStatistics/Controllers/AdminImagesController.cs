@@ -47,6 +47,17 @@ namespace FormulaOneStatistics.Controllers
             return Ok(images);
         }
 
+        [HttpPost("save")]
+        public async Task<IActionResult> Save([FromBody] object image)
+        {
+            //if (image is null)
+            //    return BadRequest("Create image object is null.");
+            //var result = await _service.AdminImages.Create(image);
+
+            //return Ok(result);
+            return Ok();
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] ImageCreateDto image)
         {
