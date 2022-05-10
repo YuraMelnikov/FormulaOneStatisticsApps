@@ -6,6 +6,13 @@ import { Context } from "../../index";
 import { Container, Row } from 'react-bootstrap';
 import TitleSmall from '../Titles/TitleSmall';
 import { fetchGpChampConstructors } from "../../http/API";
+import { 
+    POINTS,
+    POSITION,
+    NAME,
+    CONSTRUCTORS_TITLE,
+    STANDING_AFTER_RACE} 
+from "../../utils/TitleNameConst";
 
 const TableGrandPrixChampConstructors = observer(() => {
     const {openApiData} = useContext(Context)
@@ -19,13 +26,13 @@ const TableGrandPrixChampConstructors = observer(() => {
     return (
         <Container>
             <Row>
-                <TitleSmall name="Racers standings after race"/>
+                <TitleSmall name={CONSTRUCTORS_TITLE + STANDING_AFTER_RACE}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>Position</th>
-                            <th>Name</th>
-                            <th>Points</th>
+                            <th>{POSITION}</th>
+                            <th>{NAME}</th>
+                            <th>{POINTS}</th>
                         </tr>
                     </thead>
                     <tbody>

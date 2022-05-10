@@ -1,5 +1,6 @@
 ﻿using Entities.Contexts;
 using Entities.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Services.DTOCRUD;
 using Services.IEntityService;
@@ -93,6 +94,72 @@ namespace Services.EntityService
             image.Link = entity.Link;
             _repositoryContext.Update(image);
             await _repositoryContext.SaveChangesAsync();
+
+            return true;
+        }
+
+        public string SaveImageFile(IFormFile file)
+        {
+            try
+            {
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", file.FileName);
+                using (Stream stream = new FileStream(path, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                var image = new Image
+                {
+                    Link = @"/assets/img/" + file.FileName,
+                    Size = file.Length.ToString()
+                };
+                _repositoryContext.Add(image);
+                _repositoryContext.SaveChanges();
+
+                return image.Link;
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        public async Task<bool> Create(ImageCreateDto entity)
+        {
+            var image = await _repositoryContext.Images
+                                .AsNoTracking()
+                                .FirstOrDefaultAsync(a => a.Link == entity.Path);
+            if (image is null)
+                return false;
+
+            var grandPrix = await _repositoryContext.GrandPrixes.FindAsync(entity.GrandPrix);
+            if (grandPrix != null)
+            {
+                var grandPrixImg = new GrandPrixImg { IdGrandPrix = grandPrix.Id, IdImage = image.Id };
+                _repositoryContext.Add(grandPrixImg);
+
+                var seasonImg = new SeasonImg { IdImage = image.Id, IdSeason = grandPrix.IdSeason };
+                _repositoryContext.Add(seasonImg);
+                await _repositoryContext.SaveChangesAsync();
+            }
+
+            foreach (var participantId in entity.Participant)
+            {
+                var participant = await _repositoryContext.Participants.FindAsync(participantId);
+                if (participant != null)
+                {
+                    var participantImg = new ParticipantImg { IdImage = image.Id, IdParticipant = participant.Id };
+                    _repositoryContext.Add(participantImg);
+
+                    var chassisImg = new ChassisImg { IdChassi = participant.IdChassis, IdImage = image.Id };
+                    _repositoryContext.Add(chassisImg);
+
+                    var racerImg = new RacerImg { IdImage = image.Id, IdRacer = participant.IdRacer };
+                    _repositoryContext.Add(racerImg);
+
+                    await _repositoryContext.SaveChangesAsync();
+                }
+            }
 
             return true;
         }

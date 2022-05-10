@@ -5,11 +5,12 @@ import TableRacerSeasons from "../components/Tables/TableRacerSeasons";
 import InfoRacer from "../components/Info/InfoRacer";
 import TableRacerChamp from "../components/Tables/TableRacerChamp";
 import ImagesRacer from "../components/Carousels/ImagesRacer";
+import {RACER} from '../utils/TitleNameConst';
 
 const Racer = () => { 
     return (
         <Container>
-            <Title name="Racer"/>
+            <Title name={RACER}/>
             <InfoRacer/>
             <TableRacerSeasons/>
             <TableRacerChamp/>

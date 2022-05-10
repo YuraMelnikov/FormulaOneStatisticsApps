@@ -9,6 +9,12 @@ import { fetchTrackConfigurations } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { SEASON_ROUTE } from '../../utils/Constants';
 import { Card } from "react-bootstrap"; 
+import { 
+    TRACKS_TITLE,
+    CONFIGURATIONS,
+    LENGTH,
+    SEASONS_TITLE} 
+from "../../utils/TitleNameConst";
 
 const TableTrackConfigurations = observer(() => {
     const history = useHistory()
@@ -23,13 +29,13 @@ const TableTrackConfigurations = observer(() => {
     return(
         <Container>
             <Row>
-                <TitleSmall name="World Championship for Drivers"/>
+                <TitleSmall name={TRACKS_TITLE}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>Configuration</th>
-                            <th>Length</th>
-                            <th>Seasons</th>
+                            <th>{CONFIGURATIONS}</th>
+                            <th>{LENGTH}</th>
+                            <th>{SEASONS_TITLE}</th>
                         </tr>
                     </thead>
                     <tbody>

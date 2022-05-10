@@ -1,9 +1,10 @@
 import React from "react";
 import Title from "../components/Titles/Title";
+import { ABOUTUS_TITLE } from "../utils/TitleNameConst";
 
 const AboutUs = () =>{
     return (
-        <Title name="About us"/>
+        <Title name={ABOUTUS_TITLE}/>
     );
 }
 

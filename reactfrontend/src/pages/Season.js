@@ -10,7 +10,7 @@ const Season = (name) => {
 
     return (
         <Container>
-            <Title name={ name.location.state +  " Formula One Season"}/>
+            <Title name={ name.location.state}/>
             <TableSeasonCalendar/>
             <TableSeasonPercipient/>
             <TableSeasonChampRacers/>

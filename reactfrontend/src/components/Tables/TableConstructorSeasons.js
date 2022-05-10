@@ -9,6 +9,19 @@ import { fetchConstructorSeasons } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { SEASON_ROUTE, CHASSIS_ROUTE } from '../../utils/Constants';
 import { Card } from "react-bootstrap"; 
+import { 
+    POINTS,
+    SEASONS_TITLE,
+    POSITION,
+    SEASON,
+    WIN,
+    TOP_FINISH,
+    CHASSIS,
+    LIVERY,
+    POLE_POSITION,
+    TOP_START,
+    FAST_LAP} 
+from "../../utils/TitleNameConst";
 
 const TableConstructorSeasons = observer(() => {
     const history = useHistory()
@@ -23,20 +36,20 @@ const TableConstructorSeasons = observer(() => {
     return (
         <Container>
             <Row>
-                <TitleSmall name="Seasons"/>
+                <TitleSmall name={SEASONS_TITLE}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>Season</th>
-                            <th>Chassis</th>
-                            <th>Livery</th>
-                            <th>Points</th>
-                            <th>Position</th>
-                            <th>Win</th>
-                            <th>Pole position</th>
-                            <th>Fast lap</th>
-                            <th>Top start</th>
-                            <th>Top finish</th>
+                            <th>{SEASON}</th>
+                            <th>{CHASSIS}</th>
+                            <th>{LIVERY}</th>
+                            <th>{POINTS}</th>
+                            <th>{POSITION}</th>
+                            <th>{WIN}</th>
+                            <th>{POLE_POSITION}</th>
+                            <th>{FAST_LAP}</th>
+                            <th>{TOP_START}</th>
+                            <th>{TOP_FINISH}</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -6,12 +6,6 @@ const config = {
     }
 };
 
-const configImage = {
-    headers: { 
-        'content-type': "multipart/form-data",
-    }
-};
-
 function form2json(data) {
     let method = function (object,pair) {
         let keys = pair[0].replace(/\]/g,'').split('[');
@@ -125,17 +119,18 @@ export const fetchImagesByConstructor = async (id) => {
     return data
 }
 
-export const saveImage = async (img) => {
-    const image = img
-    console.log(image)
-    const {data} = await $host.post('api/AdminImages/save/', image)
-    return data
+export const saveImage = async (file) => {
+    try {
+        const {data} = await $host.post('api/AdminImages/save/', file)
+        return(data)
+    }
+    catch (ex){
+        console.log(ex)
+    }
 }
 
 export const createImage = async (image) => {
-    const img = image.get('image')
     const newData = JSON.parse(form2json(image))
-    newData.image = img.name;
     const {data} = await $host.post('api/AdminImages/', newData, config)
     return data
 }

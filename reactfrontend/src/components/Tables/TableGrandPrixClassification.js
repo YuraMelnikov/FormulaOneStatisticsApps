@@ -8,6 +8,17 @@ import TitleSmall from '../Titles/TitleSmall';
 import { fetchGpClassification } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { RACER_ROUTE, MANUFACTURER_ROUTE } from '../../utils/Constants';
+import { 
+    POINTS,
+    RACER,
+    POSITION,
+    LAPS,
+    TIME,
+    AVR_SPEED,
+    CHASSIS,
+    CLASSIFICATION,
+    NOTE} 
+from "../../utils/TitleNameConst";
 
 const TableGrandPrixClassification = observer(() => {
     const history = useHistory()
@@ -22,18 +33,18 @@ const TableGrandPrixClassification = observer(() => {
     return (
         <Container>
             <Row>
-                <TitleSmall name="Classification"/>
+                <TitleSmall name={CLASSIFICATION}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>Position</th>
-                            <th>Racer</th>
-                            <th>Chassis</th>
-                            <th>Circles</th>
-                            <th>Time</th>
-                            <th>Avr speed</th>
-                            <th>Points</th>
-                            <th>Note</th>
+                            <th>{POSITION}</th>
+                            <th>{RACER}</th>
+                            <th>{CHASSIS}</th>
+                            <th>{LAPS}</th>
+                            <th>{TIME}</th>
+                            <th>{AVR_SPEED}</th>
+                            <th>{POINTS}</th>
+                            <th>{NOTE}</th>
                         </tr>
                     </thead>
                     <tbody>

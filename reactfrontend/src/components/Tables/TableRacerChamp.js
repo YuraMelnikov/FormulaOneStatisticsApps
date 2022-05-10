@@ -8,6 +8,13 @@ import TitleSmall from '../Titles/TitleSmall';
 import { fetchRacerClassifications } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { GRANDPRIX_ROUTE } from '../../utils/Constants';
+import { 
+    POSITION,
+    WORLD_TITLE,
+    SEASON,
+    RACERS_TITLE,
+    POINTS} 
+from "../../utils/TitleNameConst";
 
 const TableRacerChamp = observer(() => {
     const history = useHistory()
@@ -24,11 +31,11 @@ const TableRacerChamp = observer(() => {
     return(
         <Container>
             <Row>
-                <TitleSmall name="World Championship for Drivers"/>
+                <TitleSmall name={WORLD_TITLE + RACERS_TITLE}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>Season</th>
+                            <th>{SEASON}</th>
                                 {[...new Array(max)].map((_, index) => 
                                     {
                                         return (
@@ -36,8 +43,8 @@ const TableRacerChamp = observer(() => {
                                         );
                                     }
                                 )}
-                            <th>Position</th>
-                            <th>Points</th>
+                            <th>{POSITION}</th>
+                            <th>{POINTS}</th>
                         </tr>
                     </thead>
                     <tbody>

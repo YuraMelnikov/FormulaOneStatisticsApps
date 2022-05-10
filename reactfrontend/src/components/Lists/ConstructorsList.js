@@ -1,5 +1,3 @@
-
-
 import React, { useContext, useEffect } from 'react';
 import { observer } from "mobx-react-lite";
 import { Row } from "react-bootstrap";

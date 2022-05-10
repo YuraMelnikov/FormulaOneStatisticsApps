@@ -8,6 +8,11 @@ import TitleSmall from '../Titles/TitleSmall';
 import { fetchChassisClassifications } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { GRANDPRIX_ROUTE } from '../../utils/Constants';
+import { 
+    WORLD_TITLE,
+    SEASON,
+    RACERS_TITLE} 
+from "../../utils/TitleNameConst";
 
 const TableChassisChamp = observer(() => {
     const history = useHistory()
@@ -24,11 +29,11 @@ const TableChassisChamp = observer(() => {
     return(
         <Container>
             <Row>
-                <TitleSmall name="World Championship for Drivers"/>
+                <TitleSmall name={WORLD_TITLE + RACERS_TITLE}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>Season</th>
+                            <th>{SEASON}</th>
                                 {[...new Array(max)].map((_, index) => 
                                     {
                                         return (

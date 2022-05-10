@@ -8,6 +8,14 @@ import { RACER_ROUTE, MANUFACTURER_ROUTE } from '../../utils/Constants';
 import TitleSmall from '../Titles/TitleSmall';
 import { fetchSeasonPercipient } from "../../http/API";
 import { observer } from "mobx-react-lite";
+import { 
+    RACERS_TITLE,
+    PARTICIPANT,
+    TEAM,
+    CHASSIS,
+    ENGINES,
+    TYRES} 
+from "../../utils/TitleNameConst";
 
 const TableSeasonPercipient = observer(() => {
     const history = useHistory()
@@ -22,15 +30,15 @@ const TableSeasonPercipient = observer(() => {
     return (
         <Container>
             <Row>
-                <TitleSmall name="Percipient"/>
+                <TitleSmall name={PARTICIPANT}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>Team</th>
-                            <th>Chassis</th>
-                            <th>Engines</th>
-                            <th>Racers</th>
-                            <th>Tyres</th>
+                            <th>{TEAM}</th>
+                            <th>{CHASSIS}</th>
+                            <th>{ENGINES}</th>
+                            <th>{RACERS_TITLE}</th>
+                            <th>{TYRES}</th>
                         </tr>
                     </thead>
                     <tbody >

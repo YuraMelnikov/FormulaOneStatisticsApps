@@ -8,6 +8,19 @@ import TitleSmall from '../Titles/TitleSmall';
 import { fetchRacerSeasons } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { SEASON_ROUTE, MANUFACTURER_ROUTE } from '../../utils/Constants';
+import { 
+    POSITION,
+    SEASONS_TITLE,
+    WIN,
+    POLE_POSITION,
+    FAST_LAP,
+    TOP_START,
+    TOP_FINISH,
+    GRAND_PRIX,
+    SEASON,
+    CHASSIS,
+    POINTS} 
+from "../../utils/TitleNameConst";
 
 const TableRacerSeasons = observer(() => {
     const history = useHistory()
@@ -22,20 +35,20 @@ const TableRacerSeasons = observer(() => {
     return (
         <Container>
             <Row>
-                <TitleSmall name="Seasons"/>
+                <TitleSmall name={SEASONS_TITLE}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>Season</th>
-                            <th>Chassis</th>
-                            <th>Points</th>
-                            <th>Position</th>
-                            <th>Win</th>
-                            <th>Pole position</th>
-                            <th>Fast lap</th>
-                            <th>Top start</th>
-                            <th>Top finish</th>
-                            <th>Grand prixes</th>
+                            <th>{SEASON}</th>
+                            <th>{CHASSIS}</th>
+                            <th>{POINTS}</th>
+                            <th>{POSITION}</th>
+                            <th>{WIN}</th>
+                            <th>{POLE_POSITION}</th>
+                            <th>{FAST_LAP}</th>
+                            <th>{TOP_START}</th>
+                            <th>{TOP_FINISH}</th>
+                            <th>{GRAND_PRIX}</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -8,11 +8,12 @@ import InfoGrandPrix from "../components/Info/InfoGrandPrix";
 import TableGrandPrixChampRacers from '../components/Tables/TableGrandPrixChampRacers';
 import TableGrandPrixChampConstructors from '../components/Tables/TableGrandPrixChampConstructors';
 import ImagesGrandPrix from '../components/Carousels/ImagesGrandPrix';
+import {GRAND_PRIX} from '../utils/TitleNameConst';
 
 const GrandPrix = () => {
     return (
         <Container>
-            <Title name="Grand Prix"/>
+            <Title name={GRAND_PRIX}/>
             <InfoGrandPrix/>
             <TableGrandPrixParticipant/>
             <TableGrandPrixQualification/>

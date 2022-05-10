@@ -9,6 +9,16 @@ import { Card } from "react-bootstrap";
 import { Pencil } from 'react-bootstrap-icons';
 import CreateConstructor from '../../components/Modals/CreateConstructor';
 import UpdateConstructor from '../../components/Modals/UpdateConstructor';
+import { 
+    IMAGE, 
+    NAME, 
+    LOGO,
+    COUNTRY, 
+    CONSTRUCTORS_TITLE,
+    BUTTON_ADD,
+    CONSTRUCTOR,
+    ID } 
+from "../../utils/TitleNameConst";
 
 const TableAdminConstructors = observer(() => {
     const {openApiData} = useContext(Context)
@@ -27,8 +37,8 @@ const TableAdminConstructors = observer(() => {
     return (
         <Container>
             <Row>
-                <TitleSmall name="Seasons"/>
-                <Button onClick={() => setConstructorVisible(true)}> Add new Constructor </Button>
+                <TitleSmall name={CONSTRUCTORS_TITLE}/>
+                <Button onClick={() => setConstructorVisible(true)}> {BUTTON_ADD + CONSTRUCTOR} </Button>
                 <CreateConstructor 
                     show={constructorVisible} 
                     onHide={() => setConstructorVisible(false)}
@@ -42,11 +52,11 @@ const TableAdminConstructors = observer(() => {
                     <thead>
                         <tr className="text-center">
                             <th></th>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Country</th>
-                            <th>Logo</th>
-                            <th>Image</th>
+                            <th>{ID}</th>
+                            <th>{NAME}</th>
+                            <th>{COUNTRY}</th>
+                            <th>{LOGO}</th>
+                            <th>{IMAGE}</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -48,25 +48,20 @@ namespace FormulaOneStatistics.Controllers
         }
 
         [HttpPost("save")]
-        public async Task<IActionResult> Save([FromBody] object image)
+        public async Task<IActionResult> Save(IFormFile file)
         {
-            //if (image is null)
-            //    return BadRequest("Create image object is null.");
-            //var result = await _service.AdminImages.Create(image);
-
-            //return Ok(result);
-            return Ok();
+            var result = _service.AdminImages.SaveImageFile(file);
+            return Ok(result);
         }
 
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] ImageCreateDto image)
         {
-            //if (image is null)
-            //    return BadRequest("Create image object is null.");
-            //var result = await _service.AdminImages.Create(image);
+            if (image is null)
+                return BadRequest("Create image object is null.");
+            var result = await _service.AdminImages.Create(image);
 
-            //return Ok(result);
-            return Ok();
+            return Ok(result);
         }
 
         [HttpPut("{id}")]

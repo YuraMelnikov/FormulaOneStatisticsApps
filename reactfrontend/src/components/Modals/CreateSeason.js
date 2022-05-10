@@ -3,6 +3,14 @@ import Modal from "react-bootstrap/Modal";
 import { Button, Form } from "react-bootstrap";
 import { createSeason } from "../../http/API";
 import { observer } from "mobx-react-lite";
+import { 
+    ADDED_ELEMENT, 
+    SEASON,
+    INPUT_ELEMENT,
+    YEAR,
+    BUTTON_CLOSE, 
+    BUTTON_ADDED } 
+from "../../utils/TitleNameConst";
 
 const CreateSeason = observer(({ show, onHide }) => {
     const [year, setYear] = useState()
@@ -21,7 +29,7 @@ const CreateSeason = observer(({ show, onHide }) => {
     return (
         <Modal show={show} onHide={onHide} centered>
             <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">Added season</Modal.Title>
+                <Modal.Title id="contained-modal-title-vcenter">{ADDED_ELEMENT + SEASON}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
@@ -29,14 +37,14 @@ const CreateSeason = observer(({ show, onHide }) => {
                         value={year}
                         onChange={e => setYear(Number(e.target.value))}
                         className="mt-3"
-                        placeholder="Input year"
+                        placeholder={INPUT_ELEMENT + YEAR}
                         type="number"
                     />
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={() => onHide} >Close</Button>
-                <Button variant="outline-success" onClick={addSeason}>Added</Button>
+                <Button variant="outline-danger" onClick={() => onHide} >{BUTTON_CLOSE}</Button>
+                <Button variant="outline-success" onClick={addSeason}>{BUTTON_ADDED}</Button>
             </Modal.Footer>
         </Modal>
     );

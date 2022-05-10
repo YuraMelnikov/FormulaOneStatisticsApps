@@ -9,6 +9,17 @@ import TitleSmall from '../Titles/TitleSmall';
 import { fetchSeasonCalendar } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { RACER_ROUTE, MANUFACTURER_ROUTE, TRACK_ROUTE, GRANDPRIX_ROUTE } from '../../utils/Constants';
+import { 
+    CALENDAR,
+    DATE,
+    WIN,
+    NAME,
+    TRACK,
+    LAPS,
+    DISTANCE,
+    RACER,
+    CHASSIS} 
+from "../../utils/TitleNameConst";
 
 const TableSeasonCalendar = observer(() => {
     const history = useHistory()
@@ -23,17 +34,17 @@ const TableSeasonCalendar = observer(() => {
     return (
         <Container>
             <Row>
-                <TitleSmall name="Calendar"/>
+                <TitleSmall name={CALENDAR}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Track</th>
-                            <th>Lap</th>
-                            <th>Distance</th>
-                            <th>Winner</th>
-                            <th>Team winner</th>
+                            <th>{DATE}</th>
+                            <th>{NAME}</th>
+                            <th>{TRACK}</th>
+                            <th>{LAPS}</th>
+                            <th>{DISTANCE}</th>
+                            <th>{RACER + " " + WIN}</th>
+                            <th>{CHASSIS + " " + WIN}</th>
                         </tr>
                     </thead>
                     <tbody>

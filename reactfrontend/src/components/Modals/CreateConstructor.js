@@ -4,6 +4,16 @@ import { Button, Form, Dropdown } from "react-bootstrap";
 import { createConstructor } from "../../http/API";
 import { observer } from "mobx-react-lite";
 import {Context} from '../../index';
+import { 
+    ADDED_ELEMENT, 
+    INPUT_ELEMENT,
+    BUTTON_CLOSE, 
+    BUTTON_ADDED, 
+    CONSTRUCTOR,
+    NAME, 
+    COUNTRY,
+    CHANGE_ELEMENT } 
+from "../../utils/TitleNameConst";
 
 const CreateConstructor = observer(({ show, onHide }) => {
     const{openApiData} = useContext(Context)
@@ -28,7 +38,7 @@ const CreateConstructor = observer(({ show, onHide }) => {
     return (
         <Modal show={show} onHide={onHide} centered>
             <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">Added constructor</Modal.Title>
+                <Modal.Title id="contained-modal-title-vcenter">{ADDED_ELEMENT + CONSTRUCTOR}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
@@ -36,12 +46,12 @@ const CreateConstructor = observer(({ show, onHide }) => {
                         value={name}
                         onChange={e => setName(e.target.value)}
                         className="mt-3"
-                        placeholder="Input name"
+                        placeholder={INPUT_ELEMENT + NAME}
                         type="text"
                     />
                      <h4>{labelCountry}</h4>
                     <Dropdown className="mt-2 mb-2">
-                        <Dropdown.Toggle>{"Change country"}</Dropdown.Toggle>
+                        <Dropdown.Toggle>{CHANGE_ELEMENT + COUNTRY}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {openApiData.country.map(gov =>
                                 <Dropdown.Item onClick={function(){openApiData.setSelectedCountry(gov); setLabelCountry(gov.name)}} key={gov.id}>
@@ -53,8 +63,8 @@ const CreateConstructor = observer(({ show, onHide }) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide}>Close</Button>
-                <Button variant="outline-success" onClick={addConstructor}>Added</Button>
+                <Button variant="outline-danger" onClick={onHide}>{BUTTON_CLOSE}</Button>
+                <Button variant="outline-success" onClick={addConstructor}>{BUTTON_ADDED}</Button>
             </Modal.Footer>
         </Modal>
     );

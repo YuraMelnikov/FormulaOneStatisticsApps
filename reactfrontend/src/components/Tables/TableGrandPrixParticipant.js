@@ -8,6 +8,15 @@ import TitleSmall from '../Titles/TitleSmall';
 import { fetchGpParticipant } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { RACER_ROUTE, MANUFACTURER_ROUTE } from '../../utils/Constants';
+import { 
+    NO,
+    RACER,
+    TEAM,
+    ENGINE,
+    PARTICIPANT,
+    TYRE,
+    CHASSIS} 
+from "../../utils/TitleNameConst";
 
 const TableGrandPrixParticipant = observer(() => {
     const history = useHistory()
@@ -22,16 +31,16 @@ const TableGrandPrixParticipant = observer(() => {
     return (
         <Container>
             <Row>
-                <TitleSmall name="Participant"/>
+                <TitleSmall name={PARTICIPANT}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>No</th>
-                            <th>Team</th>
-                            <th>Racer</th>
-                            <th>Chassis</th>
-                            <th>Engine</th>
-                            <th>Tyre</th>
+                            <th>{NO}</th>
+                            <th>{TEAM}</th>
+                            <th>{RACER}</th>
+                            <th>{CHASSIS}</th>
+                            <th>{ENGINE}</th>
+                            <th>{TYRE}</th>
                         </tr>
                     </thead>
                     <tbody>

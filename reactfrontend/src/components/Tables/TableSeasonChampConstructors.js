@@ -8,6 +8,12 @@ import TitleSmall from '../Titles/TitleSmall';
 import { fetchSeasonConstResult } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { GRANDPRIX_ROUTE } from '../../utils/Constants';
+import { 
+    POINTS,
+    POSITION,
+    CONSTRUCTOR,
+    WORLD_TITLE} 
+from "../../utils/TitleNameConst";
 
 const TableSeasonChampConstructors = observer(() => {
     let numGrandPrix = 0
@@ -24,16 +30,16 @@ const TableSeasonChampConstructors = observer(() => {
     return(
         <Container>
             <Row>
-                <TitleSmall name="World Championship for Constructors"/>
+                <TitleSmall name={WORLD_TITLE + CONSTRUCTOR}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>Position</th>
-                            <th>Constructor</th>
+                            <th>{POSITION}</th>
+                            <th>{CONSTRUCTOR}</th>
                             {openApiData.seasonCalendar.map(mockData => 
                                 <th  style={{cursor: 'pointer'}} onClick={() => history.push(GRANDPRIX_ROUTE + '/' + mockData.idGrandPrix)} className="text-center">{numGrandPrix += 1}</th>
                             )}
-                            <th>Points</th>
+                            <th>{POINTS}</th>
                         </tr>
                     </thead>
                     <tbody>

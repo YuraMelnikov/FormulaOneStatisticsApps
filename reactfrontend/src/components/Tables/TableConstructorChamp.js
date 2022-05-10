@@ -8,6 +8,12 @@ import TitleSmall from '../Titles/TitleSmall';
 import { fetchConstructorClassifications } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { GRANDPRIX_ROUTE } from '../../utils/Constants';
+import { 
+    WORLD_TITLE,
+    POINTS,
+    POSITION,
+    RACERS_TITLE} 
+from "../../utils/TitleNameConst";
 
 const TableConstructorChamp = observer(() => {
     const history = useHistory()
@@ -24,7 +30,7 @@ const TableConstructorChamp = observer(() => {
     return(
         <Container>
             <Row>
-                <TitleSmall name="World Championship for Drivers"/>
+                <TitleSmall name={WORLD_TITLE + RACERS_TITLE}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
@@ -36,8 +42,8 @@ const TableConstructorChamp = observer(() => {
                                         );
                                     }
                                 )}
-                            <th>Position</th>
-                            <th>Points</th>
+                            <th>{POSITION}</th>
+                            <th>{POINTS}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,8 +58,6 @@ const TableConstructorChamp = observer(() => {
                                                     <p className="text-center">{pos}</p>
                                                 )}
                                             </div>
-
-                          
                                         </td>
                                     )}
                                     

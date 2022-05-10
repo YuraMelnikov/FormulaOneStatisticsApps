@@ -4,6 +4,14 @@ import { Button, Form, Dropdown, Card } from "react-bootstrap";
 import { fetchImagesBySeason, updateSeason } from "../../http/API";
 import { observer } from "mobx-react-lite";
 import {Context} from '../../index';
+import { 
+    BUTTON_UPDATE,
+    SEASON,
+    CHANGE_ELEMENT,
+    IMAGE, 
+    BUTTON_CLOSE, 
+    UPDATE_ELEMENT } 
+from "../../utils/TitleNameConst";
 
 const UpdateSeason = observer(({ id, show, onHide }) => {
     const{openApiData} = useContext(Context)
@@ -26,12 +34,12 @@ const UpdateSeason = observer(({ id, show, onHide }) => {
     return (
         <Modal show={show} onHide={onHide} centered>
             <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">Update season</Modal.Title>
+                <Modal.Title id="contained-modal-title-vcenter">{UPDATE_ELEMENT + SEASON}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
                     <Dropdown className="mt-2 mb-2">
-                        <Dropdown.Toggle>{"Change image"}</Dropdown.Toggle>
+                        <Dropdown.Toggle>{CHANGE_ELEMENT + IMAGE}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {openApiData.images.map(image =>
                                 <Dropdown.Item onClick={() => openApiData.setSelectedImage(image)} key={image.id}>
@@ -44,8 +52,8 @@ const UpdateSeason = observer(({ id, show, onHide }) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide}>Close</Button>
-                <Button variant="outline-success" onClick={updateThisSeason}>Update</Button>
+                <Button variant="outline-danger" onClick={onHide}>{BUTTON_CLOSE}</Button>
+                <Button variant="outline-success" onClick={updateThisSeason}>{BUTTON_UPDATE}</Button>
             </Modal.Footer>
         </Modal>
     );

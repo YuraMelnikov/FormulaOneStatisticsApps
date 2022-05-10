@@ -8,6 +8,16 @@ import TitleSmall from '../Titles/TitleSmall';
 import { fetchTrackGrandPrix } from "../../http/API";
 import { useHistory } from "react-router-dom";
 import { RACER_ROUTE, CHASSIS_ROUTE, GRANDPRIX_ROUTE } from '../../utils/Constants';
+import { 
+    TRACKS_TITLE,
+    NAME,
+    WEATHER,
+    CHASSIS,
+    RACER,
+    WIN,
+    DATE,
+    NUMBER} 
+from "../../utils/TitleNameConst";
 
 const TableTrackGrandPrix = observer(() => {
     const history = useHistory()
@@ -22,16 +32,16 @@ const TableTrackGrandPrix = observer(() => {
     return(
         <Container>
             <Row>
-                <TitleSmall name="World Championship for Drivers"/>
+                <TitleSmall name={TRACKS_TITLE}/>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
-                            <th>Number</th>
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Weather</th>
-                            <th>Racer winner</th>
-                            <th>Chassis winner</th>
+                            <th>{NUMBER}</th>
+                            <th>{DATE}</th>
+                            <th>{NAME}</th>
+                            <th>{WEATHER}</th>
+                            <th>{WIN + " " + RACER}</th>
+                            <th>{WIN + " " + CHASSIS}</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -9,6 +9,14 @@ import { Card } from "react-bootstrap";
 import { Pencil } from 'react-bootstrap-icons';
 import CreateSeason from '../../components/Modals/CreateSeason';
 import UpdateSeason from '../../components/Modals/UpdateSeason';
+import { 
+    IMAGE, 
+    NAME, 
+    LINK,
+    BUTTON_ADD,
+    SEASON,
+    ID } 
+from "../../utils/TitleNameConst";
 
 const TableAdminSeasons = observer(() => {
     const {openApiData} = useContext(Context)
@@ -26,7 +34,7 @@ const TableAdminSeasons = observer(() => {
         <Container>
             <Row>
                 <TitleSmall name="Seasons"/>
-                <Button onClick={() => setSeasonVisible(true)}> Add new Season </Button>
+                <Button onClick={() => setSeasonVisible(true)}> {BUTTON_ADD + SEASON} </Button>
                 <CreateSeason show={seasonVisible} onHide={() => setSeasonVisible(false)}/>
                 <UpdateSeason 
                     show={seasonUpdateVisible} 
@@ -37,10 +45,10 @@ const TableAdminSeasons = observer(() => {
                     <thead>
                         <tr className="text-center">
                             <th></th>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Link</th>
-                            <th>Image</th>
+                            <th>{ID}</th>
+                            <th>{NAME}</th>
+                            <th>{LINK}</th>
+                            <th>{IMAGE}</th>
                         </tr>
                     </thead>
                     <tbody>

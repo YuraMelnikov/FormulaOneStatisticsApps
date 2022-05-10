@@ -4,11 +4,12 @@ import ImagesTrack from "../components/Carousels/ImagesTrack";
 import TableTrackConfigurations from "../components/Tables/TableTrackConfigurations";
 import TableTrackGrandPrix from "../components/Tables/TableTrackGrandPrix";
 import { Container } from "react-bootstrap";
+import { TRACK } from "../utils/TitleNameConst";
 
 const Track = () =>{
     return (
         <Container>
-            <Title name="Track"/>
+            <Title name={TRACK}/>
             <ImagesTrack/>
             <TableTrackConfigurations/>
             <TableTrackGrandPrix/>
