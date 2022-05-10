@@ -16,13 +16,10 @@ import {
     NAME_SHORT, 
     GRAND_PRIX,
     SEASON,
-    TRACK,
     NOTE,
     LAPS,
     NUMBER,
     WEATHER,
-    BUTTON_ADD,
-    CONSTRUCTOR,
     ID } 
 from "../../utils/TitleNameConst";
 
@@ -41,9 +38,6 @@ const TableAdminGrandPrixes = observer(() => {
                             <th>{NAME}</th>
                             <th>{NAME_SHORT}</th>
                             <th>{ID}</th>
-                            <th>{ID + " " + NAME}</th>
-                            <th>{ID + " " + SEASON}</th>
-                            <th>{ID + " " + TRACK}</th>
                             <th>{IMAGE}</th>
                             <th>{NUMBER}</th>
                             <th>{NUMBER + " " + SEASON}</th>
@@ -66,9 +60,6 @@ const TableAdminGrandPrixes = observer(() => {
                                 <td className="text-center">{gp.fullName}</td>
                                 <td className="text-center">{gp.grandPrixNames}</td>
                                 <td className="text-center">{gp.id}</td>
-                                <td className="text-center">{gp.idGrandPrixNames}</td>
-                                <td className="text-center">{gp.idSeason}</td>
-                                <td className="text-center">{gp.idTrackСonfiguration}</td>
                                 <td><Card.Img variant="top" src={gp.image}/></td>
                                 <td className="text-center">{gp.number}</td>
                                 <td className="text-center">{gp.numberInSeason}</td>
@@ -76,8 +67,6 @@ const TableAdminGrandPrixes = observer(() => {
                                 <td className="text-center">{gp.season}</td>
                                 <td className="text-center">{gp.text}</td>
                                 <td className="text-center">{gp.weather}</td>
-
-                                
                             </tr>
                         )}
                     </tbody>

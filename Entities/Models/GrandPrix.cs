@@ -25,6 +25,9 @@ namespace Entities.Models
         [Required(ErrorMessage = "Weather is required")]
         public string Weather { get; set; }
 
+        [Required(ErrorMessage = "WeatherRus is required")]
+        public string WeatherRus { get; set; }
+
         [Required(ErrorMessage = "Number of lan is required")]
         public int NumberOfLap { get; set; }
 
