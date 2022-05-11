@@ -1,10 +1,7 @@
 import React, {useState} from 'react';
 import { Container, Button, Row, Col } from "react-bootstrap";
 import TableAdminSeasons from '../components/Tables/TableAdminSeasons';
-//import TableAdminRacers from '../components/Tables/TableAdminRacers';
 import TableAdminConstructors from '../components/Tables/TableAdminConstructors';
-//import TableAdminManufacturers from '../components/Tables/TableAdminManufacturers';
-//import TableAdminTracks from '../components/Tables/TableAdminTracks';
 import TableAdminGrandPrixes from '../components/Tables/TableAdminGrandPrixes';
 import CreateImage from '../components/Modals/CreateImage';
 import { 
@@ -16,10 +13,6 @@ import {
     SEASON, 
     CONSTRUCTOR } from "../utils/TitleNameConst";
 import Title from '../components/Titles/Title';
-
-//<TableAdminManufacturers/>
-//<TableAdminTracks/>
-//<TableAdminRacers/>
 
 const Admin = () =>{
     const [imageVisible, setImageVisible] = useState(false)
@@ -64,7 +57,6 @@ const Admin = () =>{
                             {GRAND_PRIX + LIST}
                     </Button>
                 </Col>
-                <Col></Col>
                 <Col></Col>
                 <Col></Col>
             </Row>

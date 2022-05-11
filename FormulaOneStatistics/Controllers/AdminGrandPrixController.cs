@@ -29,6 +29,15 @@ namespace FormulaOneStatistics.Controllers
             return Ok(grandPrix);
         }
 
+        [HttpGet("classification/{id}")]
+        public async Task<IActionResult> GetClassificztion(Guid id)
+        {
+            var grandPrix = await _service.AdminGrandPrix.GetClassificztion(id);
+            if (grandPrix is null)
+                return BadRequest("grandPrix not found.");
+            return Ok(grandPrix);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] GrandPrixDto grandPrix)
         {
@@ -40,13 +49,13 @@ namespace FormulaOneStatistics.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromBody] GrandPrixDto grandPrix)
+        public async Task<IActionResult> Update([FromBody] GrandPrixUpdateDto grandPrix)
         {
             if (grandPrix is null)
                 return BadRequest("grandPrix object is null");
             var result = await _service.AdminGrandPrix.Update(grandPrix);
 
-            return Ok();
+            return Ok(result);
         }
     }
 }

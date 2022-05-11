@@ -1,6 +1,8 @@
 import { 
     ABOUTAPI_ROUTE, 
     ABOUTUS_ROUTE, 
+    ADMINSEASON_ROUTE,
+    ADMIN_ROUTE,
     GRANDPRIX_ROUTE, 
     MANUFACTURERS_ROUTE, 
     MANUFACTURER_ROUTE, 
@@ -13,8 +15,7 @@ import {
     TRACK_ROUTE, 
     CONSTRUCTOR_ROUTE, 
     CONSTRUCTORS_ROUTE, 
-    CHASSIS_ROUTE,
-    ADMIN_ROUTE
+    CHASSIS_ROUTE
 } from "./utils/Constants";
 import AboutAPI from './pages/AboutAPI';
 import AboutUs from './pages/AboutUs';
@@ -32,11 +33,16 @@ import Chassis from './pages/Chassis';
 import Constructor from './pages/Constructor';
 import Constructors from './pages/Constructors';
 import Admin from './pages/Admin';
+import AdminSeason from './pages/AdminSeason';
 
 export const publicRoutes = [
     {
         path: ADMIN_ROUTE,
         Component: Admin
+    },
+    {
+        path: ADMINSEASON_ROUTE,
+        Component: AdminSeason
     },
     {
         path: CONSTRUCTOR_ROUTE + '/:id',

@@ -7,7 +7,7 @@ using Services.IEntityService;
 
 namespace Services.EntityService
 {
-    public class AdminGrandPrixService : IAdminCRU<GrandPrixDto>
+    public class AdminGrandPrixService : IAdminGrandPrixService
     {
         private readonly RepositoryContext _repositoryContext;
 
@@ -104,6 +104,42 @@ namespace Services.EntityService
                 })
                 .FirstOrDefaultAsync();
 
+        public async Task<IEnumerable<GrandPrixClassificationReadDto?>> GetClassificztion(Guid id)
+        {
+            var partisipants = _repositoryContext.GrandPrixResults
+                .AsNoTracking()
+                .Where(a => a.Participant.IdGrandPrix == id)
+                .Select(a => new GrandPrixClassificationReadDto
+                {
+                    PositionNum = a.Position,
+                    Position = a.Classification,
+                    IdRacer = a.Participant.IdRacer,
+                    Racer = a.Participant.Racer.RacerNameEng,
+                    IdChassis = a.Participant.Chassis.IdManufacturer,
+                    Chassis = a.Participant.Chassis.Name,
+                    Circles = a.Lap.Value.ToString(),
+                    Time = a.Time,
+                    AvrSpeed = a.AverageSpeed,
+                    Points = a.Points.ToString(),
+                    Note = a.Note, 
+                    ClassificationRus = a.ClassificationRus, 
+                    NoteRus = a.NoteRus, 
+                    IdTyre = a.Participant.IdTyre, 
+                    IdEngine = a.Participant.IdEngine, 
+                    Engine = a.Participant.Engine.Name, 
+                    Tyre = a.Participant.Tyre.Name
+                });
+
+            return await partisipants
+                .OrderBy(a => a.PositionNum)
+                .ThenByDescending(a => a.Circles.Length)
+                .ThenByDescending(a => a.Circles)
+                .ToArrayAsync();
+
+
+            throw new NotImplementedException();
+        }
+
         public async Task<bool> Update(GrandPrixDto entity)
         {
             var grandPrix = await _repositoryContext.GrandPrixes
@@ -120,6 +156,28 @@ namespace Services.EntityService
             grandPrix.IdImage = newImage.Id;
             _repositoryContext.Update(grandPrix);
             await _repositoryContext.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> Update(GrandPrixUpdateDto entity)
+        {
+            var grandPrix = await _repositoryContext.GrandPrixes
+                .FirstOrDefaultAsync(a => a.Id == entity.Id);
+            if (grandPrix is null)
+                return false;
+
+            var newImage = await _repositoryContext.Images
+                .AsNoTracking()
+                .FirstOrDefaultAsync(a => a.Link == entity.Image);
+            if (newImage is null)
+                return false;
+
+            grandPrix.IdImage = newImage.Id;
+            if(entity.Text != null)
+                grandPrix.Text = entity.Text;
+            _repositoryContext.Update(grandPrix);
+            _repositoryContext.SaveChanges();
 
             return true;
         }

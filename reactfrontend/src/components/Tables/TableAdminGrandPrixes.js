@@ -2,13 +2,13 @@ import React, { useEffect, useContext, useState } from 'react';
 import { observer } from "mobx-react-lite";
 import Table from 'react-bootstrap/Table';
 import { Context } from "../../index";
-import { Container, Row, Button } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import TitleSmall from '../Titles/TitleSmall';
-import { fetchAdminConstructors, fetchCountries } from "../../http/API";
+import { fetchGrandPrix } from "../../http/API";
 import { Card } from "react-bootstrap"; 
 import { Pencil } from 'react-bootstrap-icons';
-import CreateConstructor from '../../components/Modals/CreateConstructor';
-import UpdateConstructor from '../../components/Modals/UpdateConstructor';
+import UpdateGrandPrix from '../../components/Modals/UpdateGrandPrix';
+
 import { 
     IMAGE, 
     NAME, 
@@ -26,10 +26,25 @@ from "../../utils/TitleNameConst";
 const TableAdminGrandPrixes = observer(() => {
     const {openApiData} = useContext(Context)
 
+    const [grandPrixVisible, setGrandPrixVisible] = useState(false)
+    const [id, setId] = useState()
+
+    useEffect(() => {
+        if(grandPrixVisible === false) {
+            fetchGrandPrix().then(data => openApiData.setGrandPrix(data))
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [grandPrixVisible])
+
     return (
         <Container>
             <Row>
                 <TitleSmall name={GRAND_PRIX}/>
+                <UpdateGrandPrix
+                    show={grandPrixVisible} 
+                    onHide={() => setGrandPrixVisible(false)}
+                    id={id}
+                />
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr className="text-center">
@@ -51,10 +66,9 @@ const TableAdminGrandPrixes = observer(() => {
                         {openApiData.grandPrix.map(gp =>
                             <tr key={constructor.id}>
                                 <td onClick={function(){ 
-                                    //setConstructorUpdateVisible(true); 
-                                    //setId(constructor.id);
-                                    //openApiData.setSelectedImage({link: constructor.image});
-                                    //openApiData.setSelectedLogo({link: constructor.logo});
+                                    setGrandPrixVisible(true); 
+                                    setId(gp.id);
+                                    openApiData.setSelectedImage({link: gp.image});
                                 }}><Pencil /></td>
                                 <td className="text-center">{gp.date}</td>
                                 <td className="text-center">{gp.fullName}</td>

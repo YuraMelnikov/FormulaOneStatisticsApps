@@ -215,6 +215,12 @@ export const fetchGrandPrix = async () => {
     return data
 }
 
+export const fetchGpAdminClassification = async (id) => {
+    const {data} = await $host.get('api/adminGrandPrix/classification/' + id)
+    console.log(data)
+    return data
+}
+
 export const fetchGpClassification = async (id) => {
     const {data} = await $host.get('api/grandprix/classification/' + id)
     console.log(data)
@@ -253,6 +259,12 @@ export const fetchGpChampRacers = async (id) => {
 
 export const fetchGpChampConstructors = async (id) => {
     const {data} = await $host.get('api/grandprix/champconstructors/' + id)
+    console.log(data)
+    return data
+}
+
+export const updateGrandPrix = async (id, grandPrix) => {
+    const {data} = await $host.put('api/adminGrandPrix/' + id, formToJSON(grandPrix), config)
     console.log(data)
     return data
 }

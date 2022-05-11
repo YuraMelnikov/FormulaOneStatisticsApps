@@ -28,7 +28,7 @@ namespace Services.Service
         private IAdminImagesService _adminImages;
         private IAdminCRU<ConstructorDto> _adminConstructor;
         private IAdminCRU<CountryDto> _adminCountry;
-        private IAdminCRU<GrandPrixDto> _adminGrandPrix;
+        private IAdminGrandPrixService _adminGrandPrix;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
@@ -36,7 +36,7 @@ namespace Services.Service
             _mapper = mapper;
         }
 
-        public IAdminCRU<GrandPrixDto> AdminGrandPrix
+        public IAdminGrandPrixService AdminGrandPrix
         {
             get
             {

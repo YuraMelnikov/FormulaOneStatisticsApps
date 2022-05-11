@@ -14,3 +14,4 @@ export const CONSTRUCTOR_ROUTE = '/constructor';
 export const CONSTRUCTORS_ROUTE = '/constructors';
 export const CHASSIS_ROUTE = '/chassis';
 export const ADMIN_ROUTE = '/admin';
+export const ADMINSEASON_ROUTE = '/adminseason';
