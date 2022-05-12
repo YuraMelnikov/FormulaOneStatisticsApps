@@ -36,5 +36,7 @@ namespace Entities.Models
         public  Tyre Tyre { get; set; }
 
         public Guid? IdTeamName { get; set; }
+        [ForeignKey("IdTeamName")]
+        public TeamName? TeamName { get; set; }
     }
 }

@@ -10,8 +10,9 @@ import {
 import TitleSmall from '../components/Titles/TitleSmall';
 import { fetchGrandPrix } from "../http/API";
 import UpdateGrandPrix from '../components/Modals/UpdateGrandPrix';
+import TableAdminParticipant from '../components/Tables/TableAdminParticipant';
+import TableAdminQualification from '../components/Tables/TableAdminQualification';
 import TableAdminClassification from '../components/Tables/TableAdminClassification';
-
 
 const AdminSeason = observer(() => {
     const{openApiData} = useContext(Context)
@@ -37,19 +38,19 @@ const AdminSeason = observer(() => {
             <Dropdown className="mt-2 mb-2">
                 <Dropdown.Toggle>{CHANGE_ELEMENT + GRAND_PRIX}</Dropdown.Toggle>
                 <Dropdown.Menu>
-                    {openApiData.grandPrix.map(gp =>
-                        <Dropdown.Item onClick={function(){openApiData.setSelectItem(gp); }} key={gp.id}>
-                            <Table striped bordered hover size="sm">
-                                <tbody>
+                    <Table striped bordered hover size="sm">
+                        <tbody>
+                            {openApiData.grandPrix.map(gp =>
+                                <Dropdown.Item onClick={function(){openApiData.setSelectItem(gp); }} key={gp.id}>
                                     <tr>
                                         <td className="text-center">{gp.number}</td>
-                                        <td className="text-center">{gp.season}</td>
-                                        <td className="text-center">{gp.grandPrixNames}</td>
+                                        <td>{gp.season}</td>
+                                        <td>{gp.grandPrixNames}</td>
                                     </tr>
-                                </tbody>
-                            </Table>
-                        </Dropdown.Item>
-                    )}
+                                </Dropdown.Item>
+                            )}
+                        </tbody>
+                    </Table>
                 </Dropdown.Menu>
             </Dropdown>
             <Row>
@@ -73,8 +74,9 @@ const AdminSeason = observer(() => {
                 </Col>
             </Row>
            
+            <TableAdminParticipant id={openApiData.selectItem.id}/>
+            <TableAdminQualification id={openApiData.selectItem.id}/>
             <TableAdminClassification id={openApiData.selectItem.id}/>
-
         </Container>
     );
 });

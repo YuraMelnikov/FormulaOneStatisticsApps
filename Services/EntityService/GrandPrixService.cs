@@ -115,7 +115,8 @@ namespace Services.EntityService
                     IdEngine = a.Engine.IdManufacturer,
                     Engine = a.Engine.Name,
                     IdTyre = a.Tyre.IdManufacturer,
-                    Tyre = a.Tyre.Name
+                    Tyre = a.Tyre.Name, 
+                    Constructor = a.TeamName.Name
                 });
 
             return await participant
