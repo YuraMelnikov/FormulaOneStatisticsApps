@@ -373,6 +373,7 @@ export const fetchQualification = async (id) => {
 }
 
 export const updateQualification = async (qualification) => {
+    console.log(formToJSON(qualification))
     const {data} = await $host.put('api/adminQualification/', formToJSON(qualification), config)
     return data
 }

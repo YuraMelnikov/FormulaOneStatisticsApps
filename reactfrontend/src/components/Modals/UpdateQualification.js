@@ -14,13 +14,16 @@ from "../../utils/TitleNameConst";
 
 const UpdateQualification = observer(({ id, show, onHide }) => {
     const [time, setTime] = useState('')
+    const [thisId, setThisId] = useState('')
 
     useEffect(() => {
+        console.log(id)
         setTime('')
         if(show === true){
             const fetch = async (id) => {
                 const json = await fetchQualification(id)
                 setTime(json.time)
+                setThisId(id)
             }
             fetch(id)
         }
@@ -29,8 +32,9 @@ const UpdateQualification = observer(({ id, show, onHide }) => {
 
     const updateThisQualification = () => {
         const formData  = new FormData()
-        formData.append('id', id)
-        formData.append('Time', time)
+        console.log(id)
+        formData.append('id', thisId)
+        formData.append('time', time)
         updateQualification(formData).then(data => data === true ? onHide() : setTime(''))
     }
 
