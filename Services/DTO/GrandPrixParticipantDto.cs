@@ -14,5 +14,6 @@
         public Guid IdRacer { get; set; }
         public string Racer { get; set; }
         public string Constructor { get; set; }
+        public string Livery { get; set; }
     }
 }

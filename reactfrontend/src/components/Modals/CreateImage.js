@@ -52,7 +52,9 @@ const CreateImage = observer(({ show, onHide }) => {
         openApiData.setSelectItem({})
         openApiData.setGpParticipant([])
         setFile('')
-        fetchGrandPrix().then(data => openApiData.setGrandPrix(data))
+        if(show === true){
+            fetchGrandPrix().then(data => openApiData.setGrandPrix(data))
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[show])
 

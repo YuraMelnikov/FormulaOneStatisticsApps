@@ -14,26 +14,6 @@ using static System.Console;
 
 RepositoryParcer repository = new RepositoryParcer();
 
-int step = 0;
-DirectoryInfo directoryInfo = new DirectoryInfo(@"C:\Users\myi\source\repos\YuraMelnikov\FormulaOneStatisticsApps\reactfrontend\src\assets\img");
-
-foreach (var file in directoryInfo.GetFiles()) 
-{
-    var link = @"/assets/img/" + file.Name;
-    var query = repository.Images.AsNoTracking().Where(a => a.Link == link).ToArray();
-    if (query.Length == 0)
-    {
-        step++;
-        WriteLine(step);
-        WriteLine(file.FullName.ToString());
-        File.Delete(file.FullName.ToString());
-    }
-        
-}
-
-
-
-
 
 
 
@@ -673,7 +653,7 @@ foreach (var file in directoryInfo.GetFiles())
 #endregion
 
 #region Qua 1994 - 2019
-//for (var i = 1994; i <= 2019; i++)
+//for (var i = 2020; i <= 2022; i++)
 //{
 //    Console.WriteLine(i.ToString());
 //    var seasonId = repository.Seasons.First(a => a.Year == i).Id;

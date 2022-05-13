@@ -13,11 +13,15 @@ import UpdateGrandPrix from '../components/Modals/UpdateGrandPrix';
 import TableAdminParticipant from '../components/Tables/TableAdminParticipant';
 import TableAdminQualification from '../components/Tables/TableAdminQualification';
 import TableAdminClassification from '../components/Tables/TableAdminClassification';
+import CreateImage from '../components/Modals/CreateImage';
+import InfoAdminFastLap from '../components/Info/InfoAdminFastLap';
+import TableAdminGrandPrixLeaderLap from '../components/Tables/TableAdminGrandPrixLeaderLap';
 
 const AdminSeason = observer(() => {
     const{openApiData} = useContext(Context)
 
     const [grandPrixVisible, setGrandPrixVisible] = useState(false)
+    const [imageVisible, setImageVisible] = useState(false)
 
     useEffect(() => {
         if(grandPrixVisible === false) {
@@ -30,11 +34,17 @@ const AdminSeason = observer(() => {
     return (
         <Container className="d-flex flex-column">
             <TitleSmall name={ADMIN_TITLE}/>
+            <CreateImage
+                show={imageVisible}
+                onHide={() => setImageVisible(false)}
+            />
             <UpdateGrandPrix
                     show={grandPrixVisible} 
                     onHide={() => setGrandPrixVisible(false)}
                     id={openApiData.selectItem.id}
             />
+            <InfoAdminFastLap id={openApiData.selectItem.id}/>
+            <TableAdminGrandPrixLeaderLap id={openApiData.selectItem.id}/>
             <Dropdown className="mt-2 mb-2">
                 <Dropdown.Toggle>{CHANGE_ELEMENT + GRAND_PRIX}</Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -73,7 +83,6 @@ const AdminSeason = observer(() => {
                     <Card.Img variant="top" src={openApiData.selectItem.image}/>
                 </Col>
             </Row>
-           
             <TableAdminParticipant id={openApiData.selectItem.id}/>
             <TableAdminQualification id={openApiData.selectItem.id}/>
             <TableAdminClassification id={openApiData.selectItem.id}/>

@@ -29,11 +29,33 @@ namespace Services.Service
         private IAdminCRU<ConstructorDto> _adminConstructor;
         private IAdminCRU<CountryDto> _adminCountry;
         private IAdminGrandPrixService _adminGrandPrix;
+        private IAdminQualification _adminQualification;
+        private IAdminGrandPrixResult _adminGrandPrixResult;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+        public IAdminGrandPrixResult AdminGrandPrixResult
+        {
+            get
+            {
+                if (_adminGrandPrixResult == null)
+                    _adminGrandPrixResult = new AdminGrandPrixResult(_repoContext);
+                return _adminGrandPrixResult;
+            }
+        }
+
+        public IAdminQualification AdminQualification
+        {
+            get
+            {
+                if (_adminQualification == null)
+                    _adminQualification = new AdminQualification(_repoContext);
+                return _adminQualification;
+            }
         }
 
         public IAdminGrandPrixService AdminGrandPrix

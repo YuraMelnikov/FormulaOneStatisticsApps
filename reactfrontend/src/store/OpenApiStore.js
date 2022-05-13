@@ -26,9 +26,11 @@ export default class OpenApiStore {
         this._gpParticipant = []
         this._gpImages = []
         this._gpInfo = []
+        this._gpFastLap = []
         this._gpChampRacers = []
         this._gpChampConstructors = []
         this._grandPrix = []
+        this._gpLeaderLap = []
 
         this._constructors = []
         this._constructorImages = []
@@ -197,6 +199,13 @@ get gpInfo() {
     return this._gpInfo
 }
 
+setGpFastLap(gpFastLap) {
+    this._gpFastLap = gpFastLap
+}
+get gpFastLap() {
+    return this._gpFastLap
+}
+
 setGpImages(gpImages) {
     this._gpImages = gpImages
 }
@@ -223,6 +232,13 @@ setGpClassification(gpClassification) {
 }
 get gpClassification() {
     return this._gpClassification
+}
+
+setGpLeaderLap(gpLeaderLap) {
+    this._gpLeaderLap = gpLeaderLap
+}
+get gpLeaderLap() {
+    return this._gpLeaderLap
 }
 //#endregion
 

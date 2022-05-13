@@ -22,6 +22,8 @@ namespace Services.IService
         IAdminCRU<ConstructorDto> AdminConstructor{ get; }
         IAdminCRU<CountryDto> AdminCountry { get; }
         IAdminGrandPrixService AdminGrandPrix { get; }
+        IAdminQualification AdminQualification { get; }
+        IAdminGrandPrixResult AdminGrandPrixResult { get; }
 
         //Task SaveAsync();
     }

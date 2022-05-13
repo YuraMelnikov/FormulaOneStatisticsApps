@@ -4,6 +4,7 @@ namespace Services.DTOCRUD
 {
     public record GrandPrixClassificationReadDto : GrandPrixClassificationDto
     {
+        public Guid Id { get; set; }
         public Guid IdEngine { get; set; }
         public string? Engine { get; set; }
         public Guid IdTyre { get; set; }

@@ -66,7 +66,19 @@ namespace Services.EntityService
                 .ToArrayAsync();
         }
 
-        public async Task<IEnumerable<ImageDto>> GetImages(Guid idGrandPrix) =>
+        public async Task<GrandPrixFastLapDto> GetFastLap(Guid idGrandPrix) =>
+            await _repositoryContext.FastLaps
+                    .AsNoTracking()
+                    .Where(a => a.Participant.IdGrandPrix == idGrandPrix)
+                    .Select(a => new GrandPrixFastLapDto
+                    {
+                        Racer = a.Participant.Racer.RacerNameEng, 
+                        Time = a.Time, 
+                        AverageSpeed = a.AverageSpeed
+                    })
+                    .FirstAsync();
+
+    public async Task<IEnumerable<ImageDto>> GetImages(Guid idGrandPrix) =>
             await _repositoryContext.GrandPrixImgs
                 .AsNoTracking()
                 .Where(a => a.IdGrandPrix == idGrandPrix)
@@ -98,6 +110,18 @@ namespace Services.EntityService
                     })
                     .FirstAsync();
 
+        public async Task<IEnumerable<GrandPrixLeaderLapDto>> GetLeaderLap(Guid idGrandPrix) =>
+            await _repositoryContext.LeaderLaps
+                .AsNoTracking()
+                .Where(a => a.Participant.IdGrandPrix == idGrandPrix)
+                .Select(a => new GrandPrixLeaderLapDto
+                {
+                    Racer = a.Participant.Racer.RacerNameEng,
+                    First = a.First,
+                    Last = a.Last
+                })
+                .ToArrayAsync();
+
         public async Task<IEnumerable<GrandPrixParticipantDto>> GetParticipant(Guid idGrandPrix)
         {
             var participant = _repositoryContext.Participants
@@ -116,7 +140,8 @@ namespace Services.EntityService
                     Engine = a.Engine.Name,
                     IdTyre = a.Tyre.IdManufacturer,
                     Tyre = a.Tyre.Name, 
-                    Constructor = a.TeamName.Name
+                    Constructor = a.TeamName.Name, 
+                    Livery = a.Chassis.Livery.Link
                 });
 
             return await participant
@@ -132,6 +157,7 @@ namespace Services.EntityService
                 .Where(a => a.Participant.IdGrandPrix == idGrandPrix)
                 .Select(a => new GrandPrixQualificationDto
                 {
+                    Id = a.Id,
                     Position = a.Position.ToString(),
                     IdRacer = a.Participant.IdRacer,
                     Racer = a.Participant.Racer.RacerNameEng,

@@ -8,7 +8,9 @@ namespace Services.IEntityService
         Task<IEnumerable<GrandPrixParticipantDto>> GetParticipant(Guid idGrandPrix);
         Task<IEnumerable<GrandPrixQualificationDto>> GetQualification(Guid idGrandPrix);
         Task<IEnumerable<GrandPrixClassificationDto>> GetClassification(Guid idGrandPrix);
+        Task<IEnumerable<GrandPrixLeaderLapDto>> GetLeaderLap(Guid idGrandPrix);
         Task<GrandPrixInfoDto> GetInfo(Guid idGrandPrix);
+        Task<GrandPrixFastLapDto> GetFastLap(Guid idGrandPrix);
         Task<IEnumerable<GrandPrixChampStateDto>> GetChampRacers(Guid idGrandPrix);
         Task<IEnumerable<GrandPrixChampStateDto>> GetChampConstructors(Guid idGrandPrix);
         Task<IEnumerable<ImageDto>> GetImages(Guid idGrandPrix);

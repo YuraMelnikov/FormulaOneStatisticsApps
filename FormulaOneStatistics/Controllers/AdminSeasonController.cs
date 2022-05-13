@@ -46,7 +46,7 @@ namespace FormulaOneStatistics.Controllers
                 return BadRequest("SeasonUpdateDto object is null");
             var result = await _service.AdminSeason.Update(season);
 
-            return Ok();
+            return Ok(result);
         }
     }
 }

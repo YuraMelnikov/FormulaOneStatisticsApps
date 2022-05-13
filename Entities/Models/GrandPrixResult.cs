@@ -34,5 +34,16 @@ namespace Entities.Models
 
         [Required(ErrorMessage = "ClassificationRus is required")]
         public string ClassificationRus { get; set; }
+
+        [Required(ErrorMessage = "TimeLag is required")]
+        public string TimeLag { get; set; }
+
+        public int? FastestLap { get; set; }
+
+        [Required(ErrorMessage = "FastestLapSpeed is required")]
+        public string FastestLapSpeed { get; set; }
+
+        [Required(ErrorMessage = "FastestLapTime is required")]
+        public string FastestLapTime { get; set; }
     }
 }

@@ -69,7 +69,6 @@ export const createSeason = async (season) => {
 }
 
 export const updateSeason = async (id, season) => {
-    console.log(id)
     const {data} = await $host.put('api/adminSeason/' + id, formToJSON(season), config)
     console.log(data)
     return data
@@ -251,6 +250,18 @@ export const fetchGpInfo = async (id) => {
     return data
 }
 
+export const fetchGpFastLap = async (id) => {
+    const {data} = await $host.get('api/grandprix/fastLap/' + id)
+    console.log(data)
+    return data
+}
+
+export const fetchGpLeaderLap = async (id) => {
+    const {data} = await $host.get('api/grandprix/leaderLap/' + id)
+    console.log(data)
+    return data
+}
+
 export const fetchGpChampRacers = async (id) => {
     const {data} = await $host.get('api/grandprix/champracers/' + id)
     console.log(data)
@@ -350,6 +361,32 @@ export const fetchChassisSeasons = async (id) => {
 //#region COUNTRY
 export const fetchCountries = async () => {
     const {data} = await $host.get('api/adminCountry/')
+    console.log(data)
+    return data
+}
+//#endregion
+
+//#region QUALIFICATION
+export const fetchQualification = async (id) => {
+    const {data} = await $host.get('api/adminQualification/' + id)
+    return data
+}
+
+export const updateQualification = async (qualification) => {
+    const {data} = await $host.put('api/adminQualification/', formToJSON(qualification), config)
+    return data
+}
+//#endregion
+
+//#region GRANDPRIXRESULT
+export const fetchGrandPrixResult = async (id) => {
+    const {data} = await $host.get('api/adminGrandPrixResult/' + id)
+    console.log(data)
+    return data
+}
+
+export const updateGrandPrixResult = async (result) => {
+    const {data} = await $host.put('api/adminGrandPrixResult/', formToJSON(result), config)
     console.log(data)
     return data
 }

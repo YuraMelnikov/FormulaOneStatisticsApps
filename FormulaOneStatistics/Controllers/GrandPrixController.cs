@@ -33,6 +33,12 @@ namespace FormulaOneStatistics.Controllers
             return Ok(classification);
         }
 
+        [HttpGet("leaderLap/{id}")]
+        public async Task<IActionResult> GetLeaderLap(Guid id)
+        {
+            var images = await _service.GrandPrixResult.GetLeaderLap(id);
+            return Ok(images);
+        }
 
         [HttpGet("images/{id}")]
         public async Task<IActionResult> GetImages(Guid id)
@@ -46,6 +52,13 @@ namespace FormulaOneStatistics.Controllers
         {
             var info = await _service.GrandPrixResult.GetInfo(id);
             return Ok(info);
+        }
+
+        [HttpGet("fastLap/{id}")]
+        public async Task<IActionResult> GetFastLap(Guid id)
+        {
+            var fastLap = await _service.GrandPrixResult.GetFastLap(id);
+            return Ok(fastLap);
         }
 
         [HttpGet("champracers/{id}")]
