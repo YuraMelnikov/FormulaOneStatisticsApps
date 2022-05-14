@@ -584,7 +584,7 @@ RepositoryParcer repository = new RepositoryParcer();
 //                        else
 //                        {
 //                            participantDb = repository.Participants
-//    .FirstOrDefault(a => a.IdGrandPrix == grandPrixDb.Id && a.IdRacer == racer.Id && a.Number == participant.Number);
+//                                                .FirstOrDefault(a => a.IdGrandPrix == grandPrixDb.Id && a.IdRacer == racer.Id && a.Number == participant.Number);
 //                        }
 
 //                        if (participantDb is null)
@@ -710,3 +710,98 @@ RepositoryParcer repository = new RepositoryParcer();
 //    }
 //}
 #endregion
+
+
+for (var i = 1994; i <= 2019; i++)
+{
+    Console.WriteLine(i.ToString());
+    var seasonId = repository.Seasons.First(a => a.Year == i).Id;
+    var countGp = repository.GrandPrixes.Count(a => a.IdSeason == seasonId);
+
+    for (var numGp = 1; numGp <= countGp; numGp++)
+    {
+        Console.WriteLine(numGp.ToString());
+        var grandPrixDb = repository.GrandPrixes.FirstOrDefault(a => a.IdSeason == seasonId && a.NumberInSeason == numGp);
+        for (var j = 0; j < 900; j += 30)
+        {
+            string path = "http://ergast.com/api/f1/" + i.ToString() + "/" + numGp.ToString() + "/results?limit=30&offset=" + j.ToString();
+            var config = Configuration.Default.WithDefaultLoader();
+            var context = BrowsingContext.New(config);
+            IDocument document = await context.OpenAsync(path);
+
+            XmlSerializer serializer = new XmlSerializer(typeof(MRData));
+            using (StringReader reader = new StringReader(document.Source.Text))
+            {
+                var result = (MRData)serializer.Deserialize(reader);
+                if (result.RaceTable.Race != null)
+                {
+                    var participants = result.RaceTable.Race.ResultsList.Result;
+                    foreach (var participant in participants)
+                    {
+                        var racer = repository.Racers.FirstOrDefault(a => a.TimeApiId == participant.Driver.DriverId);
+                        Guid participantId = default;
+                        var participantDbArrForClear = repository.Participants
+                            .Where(a => a.IdGrandPrix == grandPrixDb.Id && a.IdRacer == racer.Id && a.Number == participant.Number)
+                            .ToArray();
+
+                        if (participantDbArrForClear.Length > 1)
+                        {
+                            foreach (var p in participantDbArrForClear)
+                            {
+                                if (repository.GrandPrixResults.FirstOrDefault(a => a.IdParticipant == p.Id && a.ClassificationRus != "нс") != null)
+                                {
+                                    participantId = p.Id;
+                                }
+                            }
+                        }
+                        Participant participantDb;
+                        if (participantId != default)
+                            participantDb = repository.Participants.Find(participantId);
+                        else
+                            participantDb = repository.Participants.FirstOrDefault(a => a.IdGrandPrix == grandPrixDb.Id && a.IdRacer == racer.Id && a.Number == participant.Number);
+                        
+                        try
+                        {
+                            var gpResult = repository.GrandPrixResults.Where(a => a.IdParticipant == participantDb.Id && a.ClassificationRus != "нс").ToArray();
+                            if (gpResult.Length == 1)
+                            {
+                                foreach (var res in gpResult)
+                                {
+                                    if (res.TimeLag != participant.Time.Text)
+                                        res.TimeLag = participant.Time.Text;
+                                    if (res.FastestLap != participant.)
+                                        res.TimeLag = participant.Time.Text;
+
+                                    repository.Update(res);
+                                    repository.SaveChanges();
+                                }
+                            }
+                            else if (gpResult.Length > 1)
+                            {
+                                //	where "IdGrandPrix" = '857f6704-e651-47b9-b99c-43f2a6dfdc5c'
+                                //  and "IdRacer" = '89f41d06-31c5-450f-bc24-80f7a7556103'
+                                Console.WriteLine("where \"IdGrandPrix\" = '" + participantDb.IdGrandPrix + "'");
+                                Console.WriteLine("and \"IdRacer\" = '" + participantDb.IdRacer + "'");
+                                Console.WriteLine();
+                            }
+                        }
+                        catch
+                        {
+                            if (participant.Status.Text != "Withdrew" && participant.Laps != "0")
+                            {
+                                Console.WriteLine("where \"IdGrandPrix\" = '" + participantDb.IdGrandPrix + "'");
+                                Console.WriteLine("and \"IdRacer\" = '" + participantDb.IdRacer + "'");
+                                Console.WriteLine();
+                            }
+
+                        }
+                    }
+                }
+                else
+                {
+                    j = 1000;
+                }
+            }
+        }
+    }
+}

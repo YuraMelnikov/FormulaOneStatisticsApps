@@ -48,9 +48,7 @@ const TableAdminClassification = observer((id) => {
                     <thead>
                         <tr className="text-center">
                             <th></th>
-
                             <th>{POSITION}</th>
-                            
                             <th>{RACER}</th>
                             <th>{CHASSIS}</th>
                             <th>{ENGINE}</th>
