@@ -13,27 +13,48 @@ using System.Text.Json.Serialization;
 using static System.Console;
 
 RepositoryParcer repository = new RepositoryParcer();
+int step = 0;
 
+var results = repository.mytable.ToArray();
 
-var results = repository.Mytable.ToArray();
-foreach (var result in results)
+Parallel.ForEach(results, (result) =>
 {
-    var grandPrixResultDB = repository.GrandPrixResults
-        .Where(a => a.Participant.GrandPrix.Season.Year == result.raceYear)
-        .Where(a => a.Participant.GrandPrix.NumberInSeason == result.raceRound)
-        .Where(a => a.Participant.Racer.TimeApiId == result.driver)
-        .Where(a => a.Participant.TeamName.TimeApiId == result.constructor)
-        .Where(a => a.Participant.Number == result.number).ToArray();
+    var newRepository = new RepositoryParcer();
+
+    var grandPrixResultDB = newRepository.GrandPrixResults
+    .Where(a => a.Participant.GrandPrix.Season.Year == result.raceYear)
+    .Where(a => a.Participant.GrandPrix.NumberInSeason == result.raceRound)
+    .Where(a => a.Participant.Racer.TimeApiId == result.driver)
+    .Where(a => a.Participant.TeamName.TimeApiId == result.constructor)
+    .Where(a => a.Participant.Number == result.number).ToArray();
     if (grandPrixResultDB.Length != 1)
         Console.WriteLine("Stop");
     else
     {
-        grandPrixResultDB[0].FastestLap = result.fastestLap.ToString();
-        grandPrixResultDB[0].FastestLap = result.fastestLap;
-        grandPrixResultDB[0].FastestLap = result.fastestLap;
-        grandPrixResultDB[0].FastestLap = result.fastestLap;
+        try
+        {
+            grandPrixResultDB[0].FastestLap = Convert.ToInt32(result.fastestLap);
+        }
+        catch
+        {
+            grandPrixResultDB[0].FastestLap = 0;
+        }
+
+        grandPrixResultDB[0].FastestLapSpeed = result.fastestLapSpeed;
+        grandPrixResultDB[0].FastestLapTime = result.fastestLapTime;
+        grandPrixResultDB[0].TimeLag = result.time;
+        newRepository.Update(grandPrixResultDB[0]);
+        newRepository.SaveChanges();
+        step++;
+        Console.WriteLine(step);
     }
-}
+
+
+
+});
+
+
+
 
 
 

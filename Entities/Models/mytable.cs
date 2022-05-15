@@ -1,7 +1,10 @@
-﻿namespace Entities.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Entities.Models
 {
     public class mytable
     {
+        [Key]
         public int resultId { get; set; }
         public int raceId { get; set; }
         public int raceYear { get; set; }

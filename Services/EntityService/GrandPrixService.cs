@@ -53,7 +53,7 @@ namespace Services.EntityService
                     IdChassis = a.Participant.Chassis.IdManufacturer,
                     Chassis = a.Participant.Chassis.Name,
                     Circles = a.Lap.ToString(),
-                    Time = a.Time,
+                    Time = a.TimeLag,
                     AvrSpeed = a.AverageSpeed,
                     Points = a.Points.ToString(),
                     Note = a.Note
