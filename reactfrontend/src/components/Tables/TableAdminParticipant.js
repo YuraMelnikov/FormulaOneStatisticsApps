@@ -22,6 +22,7 @@ const TableAdminParticipant = observer((id) => {
 
     useEffect(() => {
         if(id.id !== undefined){
+            openApiData.setGpParticipant([])
             fetchGpParticipant(id.id).then(data => openApiData.setGpParticipant(data))
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps

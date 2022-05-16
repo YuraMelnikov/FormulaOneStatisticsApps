@@ -31,11 +31,22 @@ namespace Services.Service
         private IAdminGrandPrixService _adminGrandPrix;
         private IAdminQualification _adminQualification;
         private IAdminGrandPrixResult _adminGrandPrixResult;
+        private IAdminManufacturer _adminManufacturer;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+        public IAdminManufacturer AdminManufacturer
+        {
+            get
+            {
+                if (_adminManufacturer == null)
+                    _adminManufacturer = new AdminManufacturer(_repoContext);
+                return _adminManufacturer;
+            }
         }
 
         public IAdminGrandPrixResult AdminGrandPrixResult

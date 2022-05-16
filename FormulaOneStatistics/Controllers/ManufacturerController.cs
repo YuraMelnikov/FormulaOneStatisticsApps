@@ -12,24 +12,10 @@ namespace FormulaOneStatistics.Controllers
         public ManufacturerController(IServiceManager service) =>
             _service = service;
 
-        [HttpGet("chassis/{id}")]
-        public async Task<IActionResult> GetChassis(Guid id)
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
-            var results = await _service.Manufacturer.GetChassis(id);
-            return Ok(results);
-        }
-
-        [HttpGet("engines/{id}")]
-        public async Task<IActionResult> GetEngines(Guid id)
-        {
-            var results = await _service.Manufacturer.GetEngines(id);
-            return Ok(results);
-        }
-
-        [HttpGet("tyres/{id}")]
-        public async Task<IActionResult> GetTyres(Guid id)
-        {
-            var results = await _service.Manufacturer.GetTyres(id);
+            var results = await _service.Manufacturer.Get();
             return Ok(results);
         }
     }

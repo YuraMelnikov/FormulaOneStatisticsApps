@@ -12,5 +12,6 @@
         public string Engine { get; set; }
         public string Time { get; set; }
         public string Gap { get; set; }
+        public string IsUpdate { get; set; }
     }
 }

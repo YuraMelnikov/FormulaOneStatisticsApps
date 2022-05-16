@@ -26,5 +26,12 @@ namespace FormulaOneStatistics.Controllers
             var result = await _service.AdminQualification.Update(qualification);
             return Ok(result);
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody] QualificationDto qualification)
+        {
+            var result = await _service.AdminQualification.Delete(qualification);
+            return Ok(result);
+        }
     }
 }

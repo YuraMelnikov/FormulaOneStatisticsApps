@@ -12,6 +12,18 @@ namespace Services.EntityService
         public AdminQualification(RepositoryContext repositoryContext) =>
             _repositoryContext = repositoryContext;
 
+        public async Task<bool> Delete(QualificationDto qualification)
+        {
+            var entity = await _repositoryContext.Qualifications.FindAsync(qualification.Id);
+            if (entity is null)
+                return false;
+
+            _repositoryContext.Remove(entity);
+            await _repositoryContext.SaveChangesAsync();
+
+            return true;
+        }
+
         public async Task<QualificationDto> Get(Guid id) =>
             await _repositoryContext.Qualifications
                     .AsNoTracking()

@@ -30,6 +30,7 @@ const TableAdminClassification = observer((id) => {
 
     useEffect(() => {
         if(id.id !== undefined){
+            openApiData.setGpClassification([])
             fetchGpAdminClassification(id.id).then(data => openApiData.setGpClassification(data))
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps

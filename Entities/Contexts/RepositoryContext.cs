@@ -56,6 +56,5 @@ namespace Entities.Contexts
         public DbSet<SeasonManufacturersClassification> SeasonManufacturersClassification { get; set; }
         public DbSet<Tyre> Tyres { get; set; }
         public DbSet<GrandPrixNames> GrandPrixNames { get; set; }
-        public DbSet<mytable> mytable { get; set; }
     }
 }

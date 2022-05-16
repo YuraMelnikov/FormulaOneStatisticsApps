@@ -205,6 +205,11 @@ export const fetchManufacturers = async () => {
     console.log(data)
     return data
 }
+
+export const createManufacturer = async (manufacturer) => {
+    const {data} = await $host.post('api/adminManufacturer/', formToJSON(manufacturer), config)
+    return data
+}
 //#endregion
 
 //#region GP
@@ -356,6 +361,11 @@ export const fetchChassisSeasons = async (id) => {
     console.log(data)
     return data
 }
+
+export const createChassis = async (chassis) => {
+    const {data} = await $host.post('api/adminChassis/', formToJSON(chassis), config)
+    return data
+}
 //#endregion
 
 //#region COUNTRY
@@ -374,6 +384,11 @@ export const fetchQualification = async (id) => {
 
 export const updateQualification = async (qualification) => {
     console.log(formToJSON(qualification))
+    const {data} = await $host.put('api/adminQualification/', formToJSON(qualification), config)
+    return data
+}
+
+export const deleteQualification = async (qualification) => {
     const {data} = await $host.put('api/adminQualification/', formToJSON(qualification), config)
     return data
 }

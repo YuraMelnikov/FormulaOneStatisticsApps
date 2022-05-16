@@ -24,7 +24,6 @@ namespace Services.IService
         IAdminGrandPrixService AdminGrandPrix { get; }
         IAdminQualification AdminQualification { get; }
         IAdminGrandPrixResult AdminGrandPrixResult { get; }
-
-        //Task SaveAsync();
+        IAdminManufacturer AdminManufacturer { get; }
     }
 }

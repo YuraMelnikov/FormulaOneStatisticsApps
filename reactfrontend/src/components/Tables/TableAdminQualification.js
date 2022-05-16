@@ -6,6 +6,7 @@ import { Container, Row } from 'react-bootstrap';
 import TitleSmall from '../Titles/TitleSmall';
 import { fetchGpQualification } from "../../http/API";
 import { Pencil } from 'react-bootstrap-icons';
+import { Trash } from 'react-bootstrap-icons';
 import { 
     GAP,
     RACER,
@@ -16,16 +17,19 @@ import {
     CHASSIS} 
 from "../../utils/TitleNameConst";
 import UpdateQualification from '../Modals/UpdateQualification';
+import DeleteQualification from '../Modals/DeleteQualification';
 
 const TableAdminQualification = observer((id) => {
     const {openApiData} = useContext(Context)
 
     const [qualificationVisible, setQualificationVisible] = useState(false)
+    const [qualificationDeleteVisible, setQualificationDeleteVisible] = useState(false)
     const [idQualification, setIdQualification] = useState(undefined)
 
     useEffect(() => {
         if(id.id !== undefined){
             setIdQualification(undefined)
+            openApiData.setGpQualification([])
             fetchGpQualification(id.id).then(data => openApiData.setGpQualification(data))
         }
         else if(qualificationVisible === false & id.id !== undefined) {
@@ -41,6 +45,11 @@ const TableAdminQualification = observer((id) => {
                 show={qualificationVisible}
                 onHide={() => setQualificationVisible(false)}
             />
+            <DeleteQualification 
+                id={idQualification}
+                show={qualificationDeleteVisible}
+                onHide={() => setQualificationDeleteVisible(false)}
+            />
             <Row>
                 <TitleSmall name={QUALIFICATION}/>
                 <Table striped bordered hover size="sm">
@@ -53,6 +62,8 @@ const TableAdminQualification = observer((id) => {
                             <th>{ENGINE}</th>
                             <th>{TIME}</th>
                             <th>{GAP}</th>
+                            <th>{GAP}</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,6 +76,8 @@ const TableAdminQualification = observer((id) => {
                                 <td>{result.engine}</td>
                                 <td>{result.time}</td>
                                 <td>{result.gap}</td>
+                                <td>{result.isUpdate?.toString()}</td>
+                                <td onClick={function(){setQualificationDeleteVisible(true); setIdQualification(result.id)}}><Trash /></td>
                             </tr>
                         )}
                     </tbody>
