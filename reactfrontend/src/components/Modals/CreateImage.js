@@ -43,7 +43,7 @@ const CreateImage = observer(({ show, onHide }) => {
             }
             formData.append('grandPrix', openApiData.selectItem.id)
             formData.append('path', file);
-            createImage(formData).then(data => data === false ? removeParticipant() : onHide)
+            createImage(formData).then(data => data === false ? removeParticipant() : onHide())
         }
     }
 

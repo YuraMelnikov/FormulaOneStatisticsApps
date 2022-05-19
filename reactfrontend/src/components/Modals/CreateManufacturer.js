@@ -19,14 +19,18 @@ const CreateManufacturer = observer(({ show, onHide }) => {
     const{openApiData} = useContext(Context)
 
     const [name, setName] = useState('')
-    const [country, setCountry] = useState({})
+    const [idCountry, setIdCountry] = useState('')
 
     useEffect(() => {
         if(show === true){
             setName('')
-            setCountry({})
+            setIdCountry('')
             if(openApiData.country.length === 0){
-                fetchCountries().than(data => openApiData.setCountry(data))
+                const fetch = async () => {
+                    const json = await fetchCountries()
+                    openApiData.setCountry(json)
+                }
+                fetch()
             }
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,8 +39,8 @@ const CreateManufacturer = observer(({ show, onHide }) => {
     const addManufacturer = () => {
         const formData  = new FormData()
         formData.append('name', name)
-        formData.append('idCountry', country.id)
-        createManufacturer(formData).then(data => data === false ? setName('') : onHide)
+        formData.append('idCountry', idCountry)
+        createManufacturer(formData).then(data => data === false ? setName('') : onHide())
     }
 
     return (
@@ -57,13 +61,13 @@ const CreateManufacturer = observer(({ show, onHide }) => {
                         <Dropdown.Toggle>{CHANGE_ELEMENT + COUNTRY}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {openApiData.country.map(cou =>
-                                <Dropdown.Item onClick={() => setCountry(cou)} key={cou.id}>
+                                <Dropdown.Item onClick={() => setIdCountry(cou.id)} key={cou.id}>
                                     {cou.name}
                                 </Dropdown.Item>
                             )}
                         </Dropdown.Menu>
                     </Dropdown>
-                    <h4>{country.name}</h4>
+                    <h4>{idCountry}</h4>
                 </Form>
             </Modal.Body>
             <Modal.Footer>

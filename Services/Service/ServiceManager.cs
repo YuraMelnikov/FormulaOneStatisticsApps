@@ -29,9 +29,13 @@ namespace Services.Service
         private IAdminCRU<ConstructorDto> _adminConstructor;
         private IAdminCRU<CountryDto> _adminCountry;
         private IAdminGrandPrixService _adminGrandPrix;
-        private IAdminQualification _adminQualification;
-        private IAdminGrandPrixResult _adminGrandPrixResult;
-        private IAdminManufacturer _adminManufacturer;
+        private IAdminQualificationService _adminQualification;
+        private IAdminGrandPrixResultService _adminGrandPrixResult;
+        private IAdminManufacturerService _adminManufacturer;
+        private IAdminChassisService _adminChassis;
+        private IAdminEngineService _adminEngineService;
+        private IAdminTeamNameService _adminTeamName;
+        private IAdminTeamService _adminTeam;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
@@ -39,32 +43,71 @@ namespace Services.Service
             _mapper = mapper;
         }
 
-        public IAdminManufacturer AdminManufacturer
+        public IAdminTeamNameService AdminTeamName
+        {
+            get
+            {
+                if (_adminTeamName == null)
+                    _adminTeamName = new AdminTeamNameService(_repoContext);
+                return _adminTeamName;
+            }
+        }
+        public IAdminTeamService AdminTeam
+        {
+            get
+            {
+                if (_adminTeam == null)
+                    _adminTeam = new AdminTeamService(_repoContext);
+                return _adminTeam;
+            }
+        }
+
+        public IAdminEngineService AdminEngine
+        {
+            get
+            {
+                if (_adminEngineService == null)
+                    _adminEngineService = new AdminEngineService(_repoContext);
+                return _adminEngineService;
+            }
+        }
+
+        public IAdminChassisService AdminChassis
+        {
+            get
+            {
+                if (_adminChassis == null)
+                    _adminChassis = new AdminChassisService(_repoContext);
+                return _adminChassis;
+            }
+        }
+
+        public IAdminManufacturerService AdminManufacturer
         {
             get
             {
                 if (_adminManufacturer == null)
-                    _adminManufacturer = new AdminManufacturer(_repoContext);
+                    _adminManufacturer = new AdminManufacturerService(_repoContext);
                 return _adminManufacturer;
             }
         }
 
-        public IAdminGrandPrixResult AdminGrandPrixResult
+        public IAdminGrandPrixResultService AdminGrandPrixResult
         {
             get
             {
                 if (_adminGrandPrixResult == null)
-                    _adminGrandPrixResult = new AdminGrandPrixResult(_repoContext);
+                    _adminGrandPrixResult = new AdminGrandPrixResultService(_repoContext);
                 return _adminGrandPrixResult;
             }
         }
 
-        public IAdminQualification AdminQualification
+        public IAdminQualificationService AdminQualification
         {
             get
             {
                 if (_adminQualification == null)
-                    _adminQualification = new AdminQualification(_repoContext);
+                    _adminQualification = new AdminQualificationService(_repoContext);
                 return _adminQualification;
             }
         }

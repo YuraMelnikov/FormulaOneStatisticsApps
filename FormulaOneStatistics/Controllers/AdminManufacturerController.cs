@@ -14,7 +14,7 @@ namespace FormulaOneStatistics.Controllers
             _service = service;
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ManufacturerDto manufacturer)
+        public async Task<IActionResult> Create([FromBody] ManufacturerCreateDto manufacturer)
         {
             if (manufacturer is null)
                 return BadRequest("Create manufacturer object is null.");

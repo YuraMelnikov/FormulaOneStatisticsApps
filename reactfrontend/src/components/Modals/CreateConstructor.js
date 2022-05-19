@@ -32,7 +32,7 @@ const CreateConstructor = observer(({ show, onHide }) => {
         const formData  = new FormData()
         formData.append('name', name)
         formData.append('idCountry', openApiData.selectedCountry.id)
-        createConstructor(formData).then(data => data === false ? setName('') : onHide)
+        createConstructor(formData).then(data => data === false ? setName('') : onHide())
     }
 
     return (

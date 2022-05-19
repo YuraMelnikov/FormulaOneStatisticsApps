@@ -25,6 +25,7 @@
         "SEASONCHAMPIONSHIPTEAMS",
         "SEASONCHAMPIONSIPRACERS",
         "SEASONPARCIPIENT",
+        "TEAMNAME",
         "trackname",
         "TTFB"
     ]

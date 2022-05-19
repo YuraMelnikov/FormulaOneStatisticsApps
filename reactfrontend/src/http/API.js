@@ -407,3 +407,24 @@ export const updateGrandPrixResult = async (result) => {
     return data
 }
 //#endregion
+
+//#region ENGINE
+export const createEngine = async (engine) => {
+    const {data} = await $host.post('api/adminEngine/', formToJSON(engine), config)
+    return data
+}
+//#endregion
+
+//#region TEAM
+export const createTeam = async (team) => {
+    const {data} = await $host.post('api/adminTeam/', formToJSON(team), config)
+    return data
+}
+//#endregion
+
+//#region TEAMNAME
+export const createTeamName = async (teamName) => {
+    const {data} = await $host.post('api/adminTeamName/', formToJSON(teamName), config)
+    return data
+}
+//#endregion

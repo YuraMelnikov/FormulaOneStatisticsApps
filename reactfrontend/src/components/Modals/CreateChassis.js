@@ -19,14 +19,18 @@ const CreateChassis = observer(({ show, onHide }) => {
     const{openApiData} = useContext(Context)
 
     const [name, setName] = useState('')
-    const [manufacturer, setManufacturer] = useState({})
+    const [idManufacturer, setIdManufacturer] = useState('')
 
     useEffect(() => {
         if(show === true){
             setName('')
-            setManufacturer({})
+            setIdManufacturer('')
             if(openApiData.manufacturers.length === 0){
-                fetchManufacturers().than(data => openApiData.setManufacturers(data))
+                const fetch = async () => {
+                    const json = await fetchManufacturers()
+                    openApiData.setManufacturers(json)
+                }
+                fetch()
             }
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,8 +39,8 @@ const CreateChassis = observer(({ show, onHide }) => {
     const addChassis = () => {
         const formData  = new FormData()
         formData.append('name', name)
-        formData.append('idManufacturer', manufacturer.id)
-        createChassis(formData).then(data => data === false ? setName('') : onHide)
+        formData.append('idManufacturer', idManufacturer)
+        createChassis(formData).then(data => data === false ? setName('') : onHide())
     }
 
     return (
@@ -57,13 +61,13 @@ const CreateChassis = observer(({ show, onHide }) => {
                         <Dropdown.Toggle>{CHANGE_ELEMENT + MANUFACTURER}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {openApiData.manufacturers.map(manufacturer =>
-                                <Dropdown.Item onClick={() => setManufacturer(manufacturer)} key={manufacturer.id}>
+                                <Dropdown.Item onClick={() => setIdManufacturer(manufacturer.id)} key={manufacturer.id}>
                                     {manufacturer.name}
                                 </Dropdown.Item>
                             )}
                         </Dropdown.Menu>
                     </Dropdown>
-                    <h4>{manufacturer.name}</h4>
+                    <h4>{idManufacturer}</h4>
                 </Form>
             </Modal.Body>
             <Modal.Footer>

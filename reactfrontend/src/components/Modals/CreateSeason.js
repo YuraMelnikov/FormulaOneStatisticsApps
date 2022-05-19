@@ -23,7 +23,7 @@ const CreateSeason = observer(({ show, onHide }) => {
     const addSeason = () => {
         const formData  = new FormData()
         formData.append('year', year)
-        createSeason(formData).then(data => data === false ? setYear('') : onHide)
+        createSeason(formData).then(data => data === false ? setYear('') : onHide())
     }
 
     return (

@@ -1,10 +1,17 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { observer } from "mobx-react-lite";
-import { Container, Dropdown, Table, Card, Col, Row } from "react-bootstrap";
+import { Container, Dropdown, Table, Card, Col, Row, Button } from "react-bootstrap";
 import { Pencil } from 'react-bootstrap-icons';
 import {Context} from '../index';
 import { 
     GRAND_PRIX,
+    BUTTON_ADD,
+    IMAGE,
+    TEAM,
+    NAME,
+    ENGINE,
+    CHASSIS,
+    MANUFACTURER,
     ADMIN_TITLE, 
     CHANGE_ELEMENT } from "../utils/TitleNameConst";
 import TitleSmall from '../components/Titles/TitleSmall';
@@ -14,6 +21,11 @@ import TableAdminParticipant from '../components/Tables/TableAdminParticipant';
 import TableAdminQualification from '../components/Tables/TableAdminQualification';
 import TableAdminClassification from '../components/Tables/TableAdminClassification';
 import CreateImage from '../components/Modals/CreateImage';
+import CreateManufacturer from '../components/Modals/CreateManufacturer';
+import CreateEngine from '../components/Modals/CreateEngine';
+import CreateChassis from '../components/Modals/CreateChassis';
+import CreateTeam from '../components/Modals/CreateTeam';
+import CreateTeamName from '../components/Modals/CreateTeamName';
 import InfoAdminFastLap from '../components/Info/InfoAdminFastLap';
 import TableAdminGrandPrixLeaderLap from '../components/Tables/TableAdminGrandPrixLeaderLap';
 
@@ -22,6 +34,11 @@ const AdminSeason = observer(() => {
 
     const [grandPrixVisible, setGrandPrixVisible] = useState(false)
     const [imageVisible, setImageVisible] = useState(false)
+    const [manufacturerVisible, setManufacturerVisible] = useState(false)
+    const [chassisVisible, setChassisVisible] = useState(false)
+    const [engineVisible, setEngineVisible] = useState(false)
+    const [teamVisible, setTeamVisible] = useState(false)
+    const [teamNameVisible, setTeamNameVisible] = useState(false)
 
     useEffect(() => {
         if(grandPrixVisible === false) {
@@ -34,15 +51,21 @@ const AdminSeason = observer(() => {
     return (
         <Container className="d-flex flex-column">
             <TitleSmall name={ADMIN_TITLE}/>
-            <CreateImage
-                show={imageVisible}
-                onHide={() => setImageVisible(false)}
-            />
-            <UpdateGrandPrix
-                    show={grandPrixVisible} 
-                    onHide={() => setGrandPrixVisible(false)}
-                    id={openApiData.selectItem.id}
-            />
+            <CreateManufacturer show={manufacturerVisible} onHide={() => setManufacturerVisible(false)} />
+            <CreateEngine show={engineVisible} onHide={() => setEngineVisible(false)} />
+            <CreateChassis show={chassisVisible} onHide={() => setChassisVisible(false)} />
+            <CreateImage show={imageVisible} onHide={() => setImageVisible(false)} />
+            <UpdateGrandPrix show={grandPrixVisible}  onHide={() => setGrandPrixVisible(false)} id={openApiData.selectItem.id} />
+            <CreateTeam show={teamVisible} onHide={() => setTeamVisible(false)} />
+            <CreateTeamName show={teamNameVisible} onHide={() => setTeamNameVisible(false)} />
+            <Row>
+                <Col><Button onClick={() => setImageVisible(true)}>{BUTTON_ADD + IMAGE} </Button></Col>
+                <Col><Button onClick={() => setManufacturerVisible(true)}>{BUTTON_ADD + MANUFACTURER} </Button></Col>
+                <Col><Button onClick={() => setChassisVisible(true)}>{BUTTON_ADD + CHASSIS} </Button></Col>
+                <Col><Button onClick={() => setEngineVisible(true)}>{BUTTON_ADD + ENGINE} </Button></Col>
+                <Col><Button onClick={() => setTeamVisible(true)}>{BUTTON_ADD + TEAM} </Button></Col>
+                <Col><Button onClick={() => setTeamNameVisible(true)}>{BUTTON_ADD + TEAM + NAME} </Button></Col>
+            </Row>
             <InfoAdminFastLap id={openApiData.selectItem.id}/>
             <TableAdminGrandPrixLeaderLap id={openApiData.selectItem.id}/>
             <Dropdown className="mt-2 mb-2">

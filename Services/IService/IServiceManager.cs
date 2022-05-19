@@ -22,8 +22,12 @@ namespace Services.IService
         IAdminCRU<ConstructorDto> AdminConstructor{ get; }
         IAdminCRU<CountryDto> AdminCountry { get; }
         IAdminGrandPrixService AdminGrandPrix { get; }
-        IAdminQualification AdminQualification { get; }
-        IAdminGrandPrixResult AdminGrandPrixResult { get; }
-        IAdminManufacturer AdminManufacturer { get; }
+        IAdminQualificationService AdminQualification { get; }
+        IAdminGrandPrixResultService AdminGrandPrixResult { get; }
+        IAdminManufacturerService AdminManufacturer { get; }
+        IAdminChassisService AdminChassis { get; }
+        IAdminEngineService AdminEngine { get; }
+        IAdminTeamNameService AdminTeamName { get; }
+        IAdminTeamService AdminTeam { get; }
     }
 }

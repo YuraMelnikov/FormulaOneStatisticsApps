@@ -15,9 +15,8 @@ const DeleteQualification = observer(({ id, show, onHide }) => {
     const [thisId, setThisId] = useState('')
 
     useEffect(() => {
-        console.log(id)
-        setTime('')
         if(show === true){
+            setTime('')
             const fetch = async (id) => {
                 const json = await fetchQualification(id)
                 setTime(json.time)
