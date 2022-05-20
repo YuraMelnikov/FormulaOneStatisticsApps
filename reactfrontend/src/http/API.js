@@ -165,6 +165,16 @@ export const fetchTrackGrandPrix = async (id) => {
     console.log(data)
     return data
 }
+
+export const createTrack = async (track) => {
+    const {data} = await $host.post('api/adminTrack/', formToJSON(track), config)
+    return data
+}
+
+export const createTrackConfiguration = async (conf) => {
+    const {data} = await $host.post('api/adminTrackConfiguration/', formToJSON(conf), config)
+    return data
+}
 //#endregion
 
 //#region RACER
@@ -213,6 +223,11 @@ export const createManufacturer = async (manufacturer) => {
 //#endregion
 
 //#region GP
+export const createGrandPrixName = async (name) => {
+    const {data} = await $host.post('api/adminGrandPrixNames/', formToJSON(name), config)
+    return data
+}
+
 export const fetchGrandPrix = async () => {
     const {data} = await $host.get('api/adminGrandPrix/')
     console.log(data)

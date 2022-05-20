@@ -29,5 +29,8 @@ namespace Services.IService
         IAdminEngineService AdminEngine { get; }
         IAdminTeamNameService AdminTeamName { get; }
         IAdminTeamService AdminTeam { get; }
+        IAdminTrackService AdminTrack { get; }
+        IAdminTrackConfigurationService AdminTrackConfiguration { get; }
+        IAdminGrandPrixNamesService AdminGrandPrixNames { get; }
     }
 }

@@ -10,6 +10,8 @@ import {
     TEAM,
     NAME,
     ENGINE,
+    LENGTH,
+    TRACK,
     CHASSIS,
     MANUFACTURER,
     ADMIN_TITLE, 
@@ -26,12 +28,15 @@ import CreateEngine from '../components/Modals/CreateEngine';
 import CreateChassis from '../components/Modals/CreateChassis';
 import CreateTeam from '../components/Modals/CreateTeam';
 import CreateTeamName from '../components/Modals/CreateTeamName';
+import CreateTrack from '../components/Modals/CreateTrack';
+import CreateTrackConfiguration from '../components/Modals/CreateTrackConfiguration';
+import CreateGrandPrixName from '../components/Modals/CreateGrandPrixName';
 import InfoAdminFastLap from '../components/Info/InfoAdminFastLap';
 import TableAdminGrandPrixLeaderLap from '../components/Tables/TableAdminGrandPrixLeaderLap';
 
+//
 const AdminSeason = observer(() => {
     const{openApiData} = useContext(Context)
-
     const [grandPrixVisible, setGrandPrixVisible] = useState(false)
     const [imageVisible, setImageVisible] = useState(false)
     const [manufacturerVisible, setManufacturerVisible] = useState(false)
@@ -39,6 +44,9 @@ const AdminSeason = observer(() => {
     const [engineVisible, setEngineVisible] = useState(false)
     const [teamVisible, setTeamVisible] = useState(false)
     const [teamNameVisible, setTeamNameVisible] = useState(false)
+    const [trackVisible, setTrackVisible] = useState(false)
+    const [trackConfigurationVisible, setTrackConfigurationVisible] = useState(false)
+    const [grandPrixNameVisible, setGrandPrixNameVisible] = useState(false)
 
     useEffect(() => {
         if(grandPrixVisible === false) {
@@ -58,6 +66,9 @@ const AdminSeason = observer(() => {
             <UpdateGrandPrix show={grandPrixVisible}  onHide={() => setGrandPrixVisible(false)} id={openApiData.selectItem.id} />
             <CreateTeam show={teamVisible} onHide={() => setTeamVisible(false)} />
             <CreateTeamName show={teamNameVisible} onHide={() => setTeamNameVisible(false)} />
+            <CreateTrack show={trackVisible} onHide={() => setTrackVisible(false)} />
+            <CreateTrackConfiguration show={trackConfigurationVisible} onHide={() => setTrackConfigurationVisible(false)} />
+            <CreateGrandPrixName show={grandPrixNameVisible} onHide={() => setGrandPrixNameVisible(false)} />
             <Row>
                 <Col><Button onClick={() => setImageVisible(true)}>{BUTTON_ADD + IMAGE} </Button></Col>
                 <Col><Button onClick={() => setManufacturerVisible(true)}>{BUTTON_ADD + MANUFACTURER} </Button></Col>
@@ -65,6 +76,9 @@ const AdminSeason = observer(() => {
                 <Col><Button onClick={() => setEngineVisible(true)}>{BUTTON_ADD + ENGINE} </Button></Col>
                 <Col><Button onClick={() => setTeamVisible(true)}>{BUTTON_ADD + TEAM} </Button></Col>
                 <Col><Button onClick={() => setTeamNameVisible(true)}>{BUTTON_ADD + TEAM + NAME} </Button></Col>
+                <Col><Button onClick={() => setTrackVisible(true)}>{BUTTON_ADD + TRACK } </Button></Col>
+                <Col><Button onClick={() => setTrackConfigurationVisible(true)}>{BUTTON_ADD + TRACK + LENGTH} </Button></Col>
+                <Col><Button onClick={() => setGrandPrixNameVisible(true)}>{BUTTON_ADD + GRAND_PRIX + NAME} </Button></Col>
             </Row>
             <InfoAdminFastLap id={openApiData.selectItem.id}/>
             <TableAdminGrandPrixLeaderLap id={openApiData.selectItem.id}/>

@@ -36,11 +36,44 @@ namespace Services.Service
         private IAdminEngineService _adminEngineService;
         private IAdminTeamNameService _adminTeamName;
         private IAdminTeamService _adminTeam;
+        private IAdminTrackService _adminTrack;
+        private IAdminTrackConfigurationService _adminTrackConfiguration;
+        private IAdminGrandPrixNamesService _adminGrandPrixNamesService;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+        public IAdminGrandPrixNamesService AdminGrandPrixNames
+        {
+            get
+            {
+                if (_adminGrandPrixNamesService == null)
+                    _adminGrandPrixNamesService = new AdminGrandPrixNamesService(_repoContext);
+                return _adminGrandPrixNamesService;
+            }
+        }
+
+        public IAdminTrackConfigurationService AdminTrackConfiguration
+        {
+            get
+            {
+                if (_adminTrackConfiguration == null)
+                    _adminTrackConfiguration = new AdminTrackConfigurationService(_repoContext);
+                return _adminTrackConfiguration;
+            }
+        }
+
+        public IAdminTrackService AdminTrack
+        {
+            get
+            {
+                if (_adminTrack == null)
+                    _adminTrack = new AdminTrackService(_repoContext);
+                return _adminTrack;
+            }
         }
 
         public IAdminTeamNameService AdminTeamName
@@ -52,6 +85,7 @@ namespace Services.Service
                 return _adminTeamName;
             }
         }
+
         public IAdminTeamService AdminTeam
         {
             get
