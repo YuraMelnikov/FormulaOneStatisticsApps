@@ -17,64 +17,16 @@ RepositoryParcer repository = new RepositoryParcer();
 
 
 
-var results = repository.mytable.ToArray();
-
-foreach(var gp in results)
-{
-    Guid season = repository.Seasons.First(a => a.Year == gp.year).Id;
-    Guid idGrandPrixNames;
-    try
-    {
-        idGrandPrixNames = repository.GrandPrixNames.First(a => a.FullName == gp.name).Id;
-    }
-    catch
-    {
-        Console.WriteLine(gp.name);
-        idGrandPrixNames = repository.GrandPrixNames.First().Id;
-    }
-
-
-
-    Guid idImage = repository.Images.AsNoTracking().FirstOrDefault(a => a.Link == DefaulValues.DefaultImage).Id;
-    Guid idTrack = repository.Tracks.First(b => b.Name == gp.circuitName).Id;
-    Guid idTrackСonfiguration = repository.TrackСonfigurations.First(a => a.IdTrack == idTrack).Id;
-
-
-    var newGrandPrix = new GrandPrix
-    {
-        IdSeason = season,
-        Date = gp.date, 
-        FullName = gp.name, 
-        IdGrandPrixNames  = idGrandPrixNames, 
-        IdImage = idImage, 
-        IdTrackСonfiguration = idTrackСonfiguration, 
-        Number = gp.roundAll, 
-        NumberInSeason = gp.round, 
-        NumberOfLap = 0, 
-        Text = "", 
-        Weather = "", 
-        WeatherRus = ""
-    };
-    repository.Add(newGrandPrix);
-    repository.SaveChanges();
-}
-
+//var results = repository.mytable.ToArray();
+//int step = 0;
 
 
 //Parallel.ForEach(results, (result) =>
 //{
-//    var newRepository = new RepositoryParcer();
-//    result.TimeLag = result.TimeLag + " " + result.Note;
-//    result.Note = "";
-//    newRepository.Update(result);
-//    newRepository.SaveChanges();
+
 //    step++;
-//    Console.WriteLine(step);
+//    WriteLine(step);
 //});
-
-
-
-
 
 
 #region ChampContsByGp

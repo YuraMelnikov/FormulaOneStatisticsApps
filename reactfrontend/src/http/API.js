@@ -398,13 +398,13 @@ export const fetchQualification = async (id) => {
 }
 
 export const updateQualification = async (qualification) => {
-    console.log(formToJSON(qualification))
     const {data} = await $host.put('api/adminQualification/', formToJSON(qualification), config)
     return data
 }
 
 export const deleteQualification = async (qualification) => {
-    const {data} = await $host.put('api/adminQualification/', formToJSON(qualification), config)
+    const id = qualification.get('id')
+    const {data} = await $host.delete('api/adminQualification/' + id, config)
     return data
 }
 //#endregion

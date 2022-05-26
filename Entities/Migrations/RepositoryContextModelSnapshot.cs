@@ -246,6 +246,9 @@ namespace Entities.Migrations
                     b.Property<Guid>("IdTrackСonfiguration")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("IdTypeStartField")
+                        .HasColumnType("uuid");
+
                     b.Property<int>("Number")
                         .HasColumnType("integer");
 
@@ -276,6 +279,8 @@ namespace Entities.Migrations
                     b.HasIndex("IdSeason");
 
                     b.HasIndex("IdTrackСonfiguration");
+
+                    b.HasIndex("IdTypeStartField");
 
                     b.ToTable("GrandPrix");
                 });
@@ -423,6 +428,32 @@ namespace Entities.Migrations
                     b.ToTable("Image");
                 });
 
+            modelBuilder.Entity("Entities.Models.LapTimes", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("IdParticipant")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Lap")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Posotion")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdParticipant");
+
+                    b.ToTable("LapTimes");
+                });
+
             modelBuilder.Entity("Entities.Models.LeaderLap", b =>
                 {
                     b.Property<Guid>("Id")
@@ -549,9 +580,6 @@ namespace Entities.Migrations
 
                     b.Property<Guid>("IdParticipant")
                         .HasColumnType("uuid");
-
-                    b.Property<bool?>("IsUpdate")
-                        .HasColumnType("boolean");
 
                     b.Property<int>("Position")
                         .HasColumnType("integer");
@@ -732,6 +760,56 @@ namespace Entities.Migrations
                     b.ToTable("SeasonRacersClassification");
                 });
 
+            modelBuilder.Entity("Entities.Models.Sprint", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Classification")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ClassificationRus")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FastLap")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FastLapTime")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("IdParticipant")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NoteRus")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<float>("Points")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdParticipant");
+
+                    b.ToTable("Sprint");
+                });
+
             modelBuilder.Entity("Entities.Models.Team", b =>
                 {
                     b.Property<Guid>("Id")
@@ -840,6 +918,23 @@ namespace Entities.Migrations
                     b.HasIndex("IdTrack");
 
                     b.ToTable("TrackСonfiguration");
+                });
+
+            modelBuilder.Entity("Entities.Models.TypeStartField", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("FirstLine")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SecondLine")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TypeStartField");
                 });
 
             modelBuilder.Entity("Entities.Models.Tyre", b =>
@@ -1037,6 +1132,12 @@ namespace Entities.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.TypeStartField", "TypeStartField")
+                        .WithMany()
+                        .HasForeignKey("IdTypeStartField")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("GrandPrixName");
 
                     b.Navigation("Image");
@@ -1044,6 +1145,8 @@ namespace Entities.Migrations
                     b.Navigation("Season");
 
                     b.Navigation("TrackСonfiguration");
+
+                    b.Navigation("TypeStartField");
                 });
 
             modelBuilder.Entity("Entities.Models.GrandPrixImg", b =>
@@ -1077,6 +1180,17 @@ namespace Entities.Migrations
                 });
 
             modelBuilder.Entity("Entities.Models.GrandPrixResult", b =>
+                {
+                    b.HasOne("Entities.Models.Participant", "Participant")
+                        .WithMany()
+                        .HasForeignKey("IdParticipant")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Participant");
+                });
+
+            modelBuilder.Entity("Entities.Models.LapTimes", b =>
                 {
                     b.HasOne("Entities.Models.Participant", "Participant")
                         .WithMany()
@@ -1308,6 +1422,17 @@ namespace Entities.Migrations
                     b.Navigation("Racer");
 
                     b.Navigation("Season");
+                });
+
+            modelBuilder.Entity("Entities.Models.Sprint", b =>
+                {
+                    b.HasOne("Entities.Models.Participant", "Participant")
+                        .WithMany()
+                        .HasForeignKey("IdParticipant")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Participant");
                 });
 
             modelBuilder.Entity("Entities.Models.TeamName", b =>

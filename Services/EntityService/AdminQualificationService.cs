@@ -12,9 +12,9 @@ namespace Services.EntityService
         public AdminQualificationService(RepositoryContext repositoryContext) =>
             _repositoryContext = repositoryContext;
 
-        public async Task<bool> Delete(QualificationDto qualification)
+        public async Task<bool> Delete(Guid id)
         {
-            var entity = await _repositoryContext.Qualifications.FindAsync(qualification.Id);
+            var entity = await _repositoryContext.Qualifications.FindAsync(id);
             if (entity is null)
                 return false;
 

@@ -15,7 +15,6 @@ namespace Entities.Models
         public string Time { get; set; }
 
         [ForeignKey("IdParticipant")]
-        public  Participant Participant { get; set; }
-        public bool? IsUpdate { get; set; }
+        public Participant Participant { get; set; }
     }
 }

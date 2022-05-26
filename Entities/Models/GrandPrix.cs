@@ -36,7 +36,7 @@ namespace Entities.Models
         [ForeignKey("IdTrackСonfiguration")]
         public TrackСonfiguration TrackСonfiguration { get; set; }
         [ForeignKey("IdImage")]
-        public  Image Image { get; set; }
+        public Image Image { get; set; }
 
         [Required(ErrorMessage = "Text of lan is required")]
         public string Text { get; set; }
@@ -45,5 +45,10 @@ namespace Entities.Models
         public Guid IdGrandPrixNames { get; set; }
         [ForeignKey("IdGrandPrixNames")]
         public GrandPrixNames GrandPrixName { get; set; }
+
+        [Required]
+        public Guid IdTypeStartField { get; set; }
+        [ForeignKey("IdTypeStartField")]
+        public TypeStartField TypeStartField { get; set; }
     }
 }

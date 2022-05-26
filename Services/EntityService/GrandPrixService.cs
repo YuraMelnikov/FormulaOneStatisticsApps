@@ -166,8 +166,7 @@ namespace Services.EntityService
                     IdEngine = a.Participant.Engine.IdManufacturer,
                     Engine = a.Participant.Engine.Name,
                     Time = a.Time,
-                    Gap = "", 
-                    IsUpdate = a.IsUpdate.ToString()
+                    Gap = ""
                 });
 
             return await qualification

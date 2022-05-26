@@ -27,10 +27,10 @@ namespace FormulaOneStatistics.Controllers
             return Ok(result);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] QualificationDto qualification)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
         {
-            var result = await _service.AdminQualification.Delete(qualification);
+            var result = await _service.AdminQualification.Delete(id);
             return Ok(result);
         }
     }

@@ -29,7 +29,6 @@ const DeleteQualification = observer(({ id, show, onHide }) => {
 
     const deleteThisQualification = () => {
         const formData  = new FormData()
-        console.log(id)
         formData.append('id', thisId)
         deleteQualification(formData).then(data => data === true ? onHide() : setTime(''))
     }

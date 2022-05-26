@@ -4,15 +4,13 @@ namespace Entities.Models
 {
     public class mytable
     {
-        public int raceId { get; set; }
         public int year { get; set; }
         public int round { get; set; }
+        public string driver { get; set; }
+        public int lap { get; set; }
+        public int position { get; set; }
+        public string time { get; set; }
         [Key]
-        public int roundAll { get; set; }
-        public int circuitId { get; set; }
-        public string name { get; set; }
-        public DateTime date { get; set; }
-        public string circuitRef { get; set; }
-        public string circuitName { get; set; }
+        public int id { get; set; }
     }
 }
