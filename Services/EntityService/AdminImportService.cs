@@ -19,8 +19,6 @@ namespace Services.EntityService
         {
             try
             {
-
-
                 string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Import", file.FileName);
                 using (Stream stream = new FileStream(path, FileMode.Create))
                 {
