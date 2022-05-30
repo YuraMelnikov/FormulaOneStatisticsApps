@@ -12,6 +12,9 @@ namespace Entities.Models
         [Required(ErrorMessage = "Note is required")]
         public string Note { get; set; }
 
+        [Required(ErrorMessage = "NoteRus is required")]
+        public string NoteRus { get; set; }
+
         [ForeignKey("IdGrandPrix")]
         public GrandPrix GrandPrix { get; set; }
     }

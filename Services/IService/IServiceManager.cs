@@ -32,5 +32,6 @@ namespace Services.IService
         IAdminTrackService AdminTrack { get; }
         IAdminTrackConfigurationService AdminTrackConfiguration { get; }
         IAdminGrandPrixNamesService AdminGrandPrixNames { get; }
+        IAdminImportService AdminImport { get; }
     }
 }

@@ -443,3 +443,13 @@ export const createTeamName = async (teamName) => {
     return data
 }
 //#endregion
+
+export const importData = async (file) => {
+    try {
+        const {data} = await $host.post('api/AdminImport/save/', file)
+        return(data)
+    }
+    catch (ex){
+        console.log(ex)
+    }
+}

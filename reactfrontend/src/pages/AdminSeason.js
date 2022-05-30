@@ -10,6 +10,7 @@ import {
     TEAM,
     NAME,
     ENGINE,
+    IMPORT,
     LENGTH,
     TRACK,
     CHASSIS,
@@ -33,8 +34,8 @@ import CreateTrackConfiguration from '../components/Modals/CreateTrackConfigurat
 import CreateGrandPrixName from '../components/Modals/CreateGrandPrixName';
 import InfoAdminFastLap from '../components/Info/InfoAdminFastLap';
 import TableAdminGrandPrixLeaderLap from '../components/Tables/TableAdminGrandPrixLeaderLap';
+import LoadingExcel from '../components/Modals/LoadingExcel';
 
-//
 const AdminSeason = observer(() => {
     const{openApiData} = useContext(Context)
     const [grandPrixVisible, setGrandPrixVisible] = useState(false)
@@ -47,6 +48,7 @@ const AdminSeason = observer(() => {
     const [trackVisible, setTrackVisible] = useState(false)
     const [trackConfigurationVisible, setTrackConfigurationVisible] = useState(false)
     const [grandPrixNameVisible, setGrandPrixNameVisible] = useState(false)
+    const [loadingExcelVisible, setLoadingExcelVisible] = useState(false)
 
     useEffect(() => {
         if(grandPrixVisible === false) {
@@ -69,6 +71,7 @@ const AdminSeason = observer(() => {
             <CreateTrack show={trackVisible} onHide={() => setTrackVisible(false)} />
             <CreateTrackConfiguration show={trackConfigurationVisible} onHide={() => setTrackConfigurationVisible(false)} />
             <CreateGrandPrixName show={grandPrixNameVisible} onHide={() => setGrandPrixNameVisible(false)} />
+            <LoadingExcel show={loadingExcelVisible} onHide={() => setLoadingExcelVisible(false)} />           
             <Row>
                 <Col><Button onClick={() => setImageVisible(true)}>{BUTTON_ADD + IMAGE} </Button></Col>
                 <Col><Button onClick={() => setManufacturerVisible(true)}>{BUTTON_ADD + MANUFACTURER} </Button></Col>
@@ -79,6 +82,7 @@ const AdminSeason = observer(() => {
                 <Col><Button onClick={() => setTrackVisible(true)}>{BUTTON_ADD + TRACK } </Button></Col>
                 <Col><Button onClick={() => setTrackConfigurationVisible(true)}>{BUTTON_ADD + TRACK + LENGTH} </Button></Col>
                 <Col><Button onClick={() => setGrandPrixNameVisible(true)}>{BUTTON_ADD + GRAND_PRIX + NAME} </Button></Col>
+                <Col><Button onClick={() => setLoadingExcelVisible(true)}>{IMPORT} </Button></Col>
             </Row>
             <InfoAdminFastLap id={openApiData.selectItem.id}/>
             <TableAdminGrandPrixLeaderLap id={openApiData.selectItem.id}/>

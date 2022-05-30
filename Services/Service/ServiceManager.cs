@@ -39,11 +39,22 @@ namespace Services.Service
         private IAdminTrackService _adminTrack;
         private IAdminTrackConfigurationService _adminTrackConfiguration;
         private IAdminGrandPrixNamesService _adminGrandPrixNamesService;
+        private IAdminImportService _adminImportService;
 
         public ServiceManager(RepositoryContext repositoryContext, IMapper mapper)
         {
             _repoContext = repositoryContext;
             _mapper = mapper;
+        }
+
+        public IAdminImportService AdminImport
+        {
+            get
+            {
+                if (_adminImportService == null)
+                    _adminImportService = new AdminImportService(_repoContext);
+                return _adminImportService;
+            }
         }
 
         public IAdminGrandPrixNamesService AdminGrandPrixNames

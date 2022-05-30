@@ -338,6 +338,10 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("NoteRus")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdGrandPrix");
