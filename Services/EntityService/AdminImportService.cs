@@ -48,8 +48,10 @@ namespace Services.EntityService
                     Guid idSeason = _repositoryContext.Seasons.AsNoTracking().First(a => a.Year == Convert.ToInt32(rows[0].Value)).Id;
                     int number = _repositoryContext.GrandPrixes.AsNoTracking().Max(a => a.Number) + 1;
                     int numberInSeason = _repositoryContext.GrandPrixes.AsNoTracking().Where(a => a.IdSeason == idSeason).Max(a => a.NumberInSeason) + 1;
+                    DateTime dateGrandPrix = Convert.ToDateTime(rows[2].ToString());
+
                     GrandPrix gp = new GrandPrix { 
-                        Date = Convert.ToDateTime(rows[2]), 
+                        Date = dateGrandPrix, 
                         FullName = rows[3].ToString(), 
                         IdGrandPrixNames = idGrandPrixName, 
                         IdImage = idImage, 
@@ -58,7 +60,7 @@ namespace Services.EntityService
                         IdTypeStartField = DefaulValues.TypeStartField, 
                         Number = number, 
                         NumberInSeason = numberInSeason, 
-                        NumberOfLap = Convert.ToInt32(rows[5]), 
+                        NumberOfLap = Convert.ToInt32(rows[5].ToString()), 
                         Text = "", 
                         Weather = rows[4].ToString(), 
                         WeatherRus = rows[7].ToString()
@@ -95,15 +97,15 @@ namespace Services.EntityService
                             AverageSpeed = rows[7].ToString(), 
                             Classification = rows[5].ToString(), 
                             ClassificationRus = rows[12].ToString(), 
-                            FastestLap = Convert.ToInt32(rows[14]), 
+                            FastestLap = Convert.ToInt32(rows[14].ToString()), 
                             FastestLapSpeed = rows[15].ToString(), 
                             FastestLapTime = rows[16].ToString(), 
-                            Lap = Convert.ToInt32(rows[8]), 
+                            Lap = Convert.ToInt32(rows[8].ToString()), 
                             IdParticipant = participant.Id,
                             Note = rows[11].ToString(), 
-                            NoteRus = rows[14].ToString(), 
-                            Points = Convert.ToInt32(rows[9]), 
-                            Position = Convert.ToInt32(rows[10]),
+                            NoteRus = rows[13].ToString(), 
+                            Points = Convert.ToInt32(rows[9].ToString()), 
+                            Position = Convert.ToInt32(rows[10].ToString()),
                             Time = rows[6].ToString(), 
                             TimeLag = rows[17].ToString()
                         };
@@ -120,8 +122,8 @@ namespace Services.EntityService
                         LapTimes lapTimes = new LapTimes 
                         { 
                             IdParticipant = idParticipantL, 
-                            Lap = Convert.ToInt32(rows[1]), 
-                            Posotion = Convert.ToInt32(rows[2]), 
+                            Lap = Convert.ToInt32(rows[1].ToString()), 
+                            Posotion = Convert.ToInt32(rows[2].ToString()), 
                             Time = rows[3].ToString()
                         };
                         _repositoryContext.Add(lapTimes);
@@ -137,7 +139,7 @@ namespace Services.EntityService
                         Qualification qualification = new Qualification
                         {
                             IdParticipant = idParticipantQ, 
-                            Position = Convert.ToInt32(rows[1]), 
+                            Position = Convert.ToInt32(rows[1].ToString()), 
                             Time = rows[2].ToString()
                         };
                         _repositoryContext.Add(qualification);
@@ -177,8 +179,8 @@ namespace Services.EntityService
                         { 
                             IdGrandPrix = gp.Id, 
                             IdTeamName = idTeamName, 
-                            Points = (float)Convert.ToDecimal(rows[2].Value), 
-                            Position = Convert.ToInt32(rows[1])
+                            Points = (float)Convert.ToDecimal(rows[2].ToString()), 
+                            Position = Convert.ToInt32(rows[1].ToString())
                         };
                         _repositoryContext.Add(champConstructor);
                         _repositoryContext.SaveChanges();
@@ -189,13 +191,13 @@ namespace Services.EntityService
                     for (int i = 1; i < col.Length; i++)
                     {
                         rows = col[i].Cells.ToArray();
-                        Guid idRacer = _repositoryContext.TeamNames.AsNoTracking().First(a => a.TimeApiId == rows[0].ToString()).Id;
+                        Guid idRacer = _repositoryContext.Racers.AsNoTracking().First(a => a.TimeApiId == rows[0].ToString()).Id;
                         ChampRacersPastRace champRacer = new ChampRacersPastRace
                         {
                             IdGrandPrix = gp.Id,
                             IdRacer = idRacer,
-                            Points = (float)Convert.ToDecimal(rows[2].Value),
-                            Position = Convert.ToInt32(rows[1])
+                            Points = (float)Convert.ToDecimal(rows[2].ToString()),
+                            Position = Convert.ToInt32(rows[1].ToString())
                         };
                         _repositoryContext.Add(champRacer);
                         _repositoryContext.SaveChanges();
