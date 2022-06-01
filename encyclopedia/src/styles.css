@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+@import url('https://db.onlinewebfonts.com/c/1dc8ecd8056a5ea7aa7de1db42b5b639?family=Gilroy');
+
+:root {
+  --ct-primary: #0077D5;
+  --ct-nav-text: #FFFFFF;
+}
+
+body {
+  font-family: 'Days One', days-one;
+}
+
+.index-image { 
+  position: relative;   
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.nav-link {
+  font-family: 'Gilroy';
+  color: var(--ct-nav-text);
+  font-style: normal;
+
+}
+
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.navbar-brand {
+
+  font-size: 1.5rem;
+}
