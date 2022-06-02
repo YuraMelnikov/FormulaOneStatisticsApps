@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import { Nav, Navbar, Container }  from "react-bootstrap";
 import { 
     CONSTRUCTORS_ROUTE, 
@@ -9,38 +9,39 @@ import {
     TRACKS_ROUTE
 } from "../utils/Links";
 import { Link } from "react-router-dom";
-import { 
-    CONSTRUCTORS,
-    MANUFACTURERS,
-    RACERS,
-    SEASONS,
-    TRACKS
-    
-} from "../utils/Constants";
+import { useTranslation } from 'react-i18next';
+import LanguageSelect from "./LanguageSelect";
 
 interface INavBar {
     children?: ReactNode;
 }
 
 const NavBar: React.FC<INavBar> = ({ children }: INavBar) => {
+        const { t } = useTranslation();
+        const [background, setBackground] = useState(false)
+
         return (
             <>
-                <Navbar collapseOnSelect expand="lg">
+                <Navbar 
+                    collapseOnSelect expand="lg" 
+                    onClick={() => background !== false ? setBackground(false) : null}
+                    style={ {backgroundColor: background ? '#000' : 'null' }}
+                >
                     <Container>
                         <Navbar.Brand>
-                            <Nav.Link as={Link} to={INDEX_ROUTE} >{SEASONS}</Nav.Link>
+                            <Nav.Link as={Link} onClick={() => background !== false ? setBackground(false) : null} to={INDEX_ROUTE} >LOGO</Nav.Link>
                         </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" className="custom-toggler"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <Nav.Link as={Link} to={SEASONS_ROUTE} >{SEASONS}</Nav.Link>
-                                <Nav.Link as={Link} to={CONSTRUCTORS_ROUTE} >{CONSTRUCTORS}</Nav.Link>
-                                <Nav.Link as={Link} to={RACERS_ROUTE} >{RACERS}</Nav.Link>
-                                <Nav.Link as={Link} to={MANUFACTURERS_ROUTE} >{MANUFACTURERS}</Nav.Link>
-                                <Nav.Link as={Link} to={TRACKS_ROUTE} >{TRACKS}</Nav.Link>
+                                <Nav.Link as={Link} onClick={() => background !== true ? setBackground(true) : null} to={SEASONS_ROUTE} >{t('seasons.label')}</Nav.Link>
+                                <Nav.Link as={Link} onClick={() => background !== true ? setBackground(true) : null} to={CONSTRUCTORS_ROUTE} >{t('constructors.label')}</Nav.Link>
+                                <Nav.Link as={Link} onClick={() => background !== true ? setBackground(true) : null} to={RACERS_ROUTE} >{t('racers.label')}</Nav.Link>
+                                <Nav.Link as={Link} onClick={() => background !== true ? setBackground(true) : null} to={MANUFACTURERS_ROUTE} >{t('manufacturers.label')}</Nav.Link>
+                                <Nav.Link as={Link} onClick={() => background !== true ? setBackground(true) : null} to={TRACKS_ROUTE} >{t('tracks.label')}</Nav.Link>
+                                <LanguageSelect/>
                             </Nav>
                         </Navbar.Collapse>
-                        <div>{children}</div>
                     </Container>
                 </Navbar>
             </>

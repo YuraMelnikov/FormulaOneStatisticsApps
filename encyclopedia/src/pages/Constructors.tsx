@@ -1,6 +1,6 @@
 const Constructors = () => {
     return(
-        <div></div>
+        <></>
     );
 }
 

@@ -1,13 +1,21 @@
 {
     "cSpell.words": [
+        "Конструкторы",
+        "Пилоты",
+        "Производители",
+        "Русский",
+        "Сезоны",
+        "Трассы",
         "ABOUTAPI",
         "ABOUTUS",
         "ADMINSEASON",
         "APPDATA",
         "aspnet",
+        "Backlang",
         "browserslist",
         "cpath",
         "csvg",
-        "GRANDPRIX"
+        "GRANDPRIX",
+        "languagedetector"
     ]
 }
