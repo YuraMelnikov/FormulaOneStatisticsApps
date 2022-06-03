@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import { Nav, Navbar, Container }  from "react-bootstrap";
 import { 
     CONSTRUCTORS_ROUTE, 
@@ -8,7 +8,7 @@ import {
     SEASONS_ROUTE,
     TRACKS_ROUTE
 } from "../utils/Links";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import LanguageSelect from "./LanguageSelect";
 
@@ -17,28 +17,35 @@ interface INavBar {
 }
 
 const NavBar: React.FC<INavBar> = ({ children }: INavBar) => {
+        let location = useLocation();
         const { t } = useTranslation();
-        const [background, setBackground] = useState(false)
+        const [background, setBackground] = useState('navbar-background-no-active')
+
+        useEffect(() => {
+            if(location.pathname !== '/'){
+                setBackground('navbar-background-is-active');
+            }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [])
 
         return (
             <>
                 <Navbar 
                     collapseOnSelect expand="lg" 
-                    onClick={() => background !== false ? setBackground(false) : null}
-                    style={ {backgroundColor: background ? '#000' : 'null' }}
+                    className={background}
                 >
                     <Container>
                         <Navbar.Brand>
-                            <Nav.Link as={Link} onClick={() => background !== false ? setBackground(false) : null} to={INDEX_ROUTE} >LOGO</Nav.Link>
+                            <Nav.Link as={Link} onClick={() => background !== 'navbar-background-no-active' ? setBackground('navbar-background-no-active') : null} to={INDEX_ROUTE} >LOGO</Nav.Link>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" className="custom-toggler"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <Nav.Link as={Link} onClick={() => background !== true ? setBackground(true) : null} to={SEASONS_ROUTE} >{t('seasons.label')}</Nav.Link>
-                                <Nav.Link as={Link} onClick={() => background !== true ? setBackground(true) : null} to={CONSTRUCTORS_ROUTE} >{t('constructors.label')}</Nav.Link>
-                                <Nav.Link as={Link} onClick={() => background !== true ? setBackground(true) : null} to={RACERS_ROUTE} >{t('racers.label')}</Nav.Link>
-                                <Nav.Link as={Link} onClick={() => background !== true ? setBackground(true) : null} to={MANUFACTURERS_ROUTE} >{t('manufacturers.label')}</Nav.Link>
-                                <Nav.Link as={Link} onClick={() => background !== true ? setBackground(true) : null} to={TRACKS_ROUTE} >{t('tracks.label')}</Nav.Link>
+                                <Nav.Link as={Link} onClick={() => background !== 'navbar-background-is-active' ? setBackground('navbar-background-is-active') : null} to={SEASONS_ROUTE} >{t('seasons.label')}</Nav.Link>
+                                <Nav.Link as={Link} onClick={() => background !== 'navbar-background-is-active' ? setBackground('navbar-background-is-active') : null} to={CONSTRUCTORS_ROUTE} >{t('constructors.label')}</Nav.Link>
+                                <Nav.Link as={Link} onClick={() => background !== 'navbar-background-is-active' ? setBackground('navbar-background-is-active') : null} to={RACERS_ROUTE} >{t('racers.label')}</Nav.Link>
+                                <Nav.Link as={Link} onClick={() => background !== 'navbar-background-is-active' ? setBackground('navbar-background-is-active') : null} to={MANUFACTURERS_ROUTE} >{t('manufacturers.label')}</Nav.Link>
+                                <Nav.Link as={Link} onClick={() => background !== 'navbar-background-is-active' ? setBackground('navbar-background-is-active') : null} to={TRACKS_ROUTE} >{t('tracks.label')}</Nav.Link>
                                 <LanguageSelect/>
                             </Nav>
                         </Navbar.Collapse>

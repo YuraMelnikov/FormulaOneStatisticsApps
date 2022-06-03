@@ -12,9 +12,27 @@ body {
   font-family: 'Days One', days-one;
 }
 
-.index-image { 
-  position: relative;   
+.bg-logo {
+  background-image: url("assets/Rectangle.png");
+
+  /*How To Make A Responsive Background Image Using CSS*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .navbar {
   position: absolute;
@@ -22,6 +40,21 @@ body {
   right: 0;
   left: 0;
   z-index: 0;
+}
+
+h1, .h1 {
+  color: var(--ct-text);
+  font-size: 3.75vw;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.navbar-background-is-active {
+  background-color: var(--ct-primary);
+}
+
+.navbar-background-no-active {
+  background-color: null;
 }
 
 .nav-link {
