@@ -9,30 +9,21 @@
 }
 
 body {
-  font-family: 'Days One', days-one;
+  font-family: 'Days One', days-one; 
+
 }
 
-.bg-logo {
-  background-image: url("assets/Rectangle.png");
-
-  /*How To Make A Responsive Background Image Using CSS*/
+.app {
+  height: 41.667vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.app-content {
+  padding-top: 12vw;
+}
 
 .navbar {
   position: absolute;

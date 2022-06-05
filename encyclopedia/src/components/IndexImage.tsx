@@ -2,25 +2,25 @@ import Rectangle from '../assets/Rectangle.png';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row, Carousel, Figure, Image } from 'react-bootstrap';
 import NavBar from './NavBar';
+import { serialize } from 'v8';
 
 const IndexImage:React.FC = () => {
     const {t} = useTranslation();
 
     return (
-            <div className='bg-logo'>
+
+        
+        <div className="app" style={{backgroundImage: `url(${Rectangle})` }}>
             <Container>
-                    <Row >
+                    <Row>
                         <Col className='col-7'>
-                            <h1>{t('siteName.label')}</h1>
+                            <h1 className='app-content'>{t('siteName.label')}</h1>
                         </Col>
                     </Row>
                 </Container>
-            </div>
-
-
-
-            
+        </div>  
     );
 }
 
 export default IndexImage;
+
