@@ -16,6 +16,8 @@
         "cpath",
         "csvg",
         "GRANDPRIX",
-        "languagedetector"
+        "languagedetector",
+        "onlinewebfonts",
+        "Verstappen"
     ]
 }
