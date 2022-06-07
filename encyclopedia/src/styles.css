@@ -1,15 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
-@import url(//db.onlinewebfonts.com/c/0744a43ed7aac352ec78c1404c890d72?family=Gilroy+Light);
+
+@font-face {
+  font-family: "Gilroy-ExtraBold";
+  src: local("Gilroy-ExtraBold"),
+    url('/src/assets/fonts/Gilroy-ExtraBold.otf') format("truetype");
+  font-weight: normal;
+  weight: 400;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy-Light"),
+    url("/src/assets/fonts/Gilroy-Light.otf") format("truetype");
+  font-weight: normal;
+  weight: 400;
+}
 
 :root {
   --ct-primary: #122E4E;
   --ct-secondary:#0077D5;
   --ct-text: #FFFFFF;
   --ct-success: #629D00;
+  --ct-border: #A5A5A5;
+  --ct-hidden: #bda4a3;
+}
+
+.hidden-text-color {
+  color: var(--ct-hidden);
+}
+
+.buttonGroup-center {
+  padding: 8px 20px;
+  text-align: center;
+}
+
+.table-bordered {
+  border-color: var(--ct-border);
 }
 
 body {
   font-family: 'Days One', days-one; 
+}
+
+.font-bold {
+  font-family: 'Gilroy-ExtraBold', sans-serif;
 }
 
 .app {
@@ -27,6 +61,11 @@ body {
   width: 100%;
 }
 
+.app-background-color {
+  background-color: var(--ct-primary);
+  color: var(--ct-text);
+}
+
 .app-content-60 {
   padding-top: 3vw;
   padding-bottom: 2vw;
@@ -42,17 +81,13 @@ body {
 }
 
 .navbar {
-  position: absolute;
   top: 0;
-  right: 0;
-  left: 0;
-  padding-right: 1%;
   z-index: 0;
 }
 
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
   font-weight: 400;
   line-height: 1.2;
 }

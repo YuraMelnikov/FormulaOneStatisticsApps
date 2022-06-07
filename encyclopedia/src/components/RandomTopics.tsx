@@ -1,8 +1,7 @@
-import LayoutResult from '../assets/LayoutResult.png';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'react-bootstrap';
-import TableLastShortResult from './tables/TableLastShortResult';
 import { IShortResult } from '../types/types';
+import CarouselsRandomTopics from './carousels/CarouselsRandomTopics';
 
 
 const result: IShortResult[] = [
@@ -18,24 +17,20 @@ const result: IShortResult[] = [
     { position:10, racerFullName:"Ma9 Verstappen", constructor:"Red Bull", timeGap:"21:37:20.475", points:1 }
 ]
 
-
-
-const LastResult:React.FC = () => {
+const RandomTopics:React.FC = () => {
     const {t} = useTranslation();
     
     return (
-        <div className="app-background-content" style={{backgroundImage: `url(${LayoutResult})` }}>
+        <div className="app-background-color">
             <Container>
                 <Row>
                     <Col>
-                        <h3 className='app-content-60'>{t('resultGrandPrix.label')}</h3>
+                        <h3 className='app-content-60'>{t('randomTopic.label')}</h3>
                     </Col>
                 </Row>
                 <Row>
-                    <Col sm='9' md='9' lg='9' xl='9' xxl="9">
-                        <TableLastShortResult result={result} />
-                    </Col>
-                    <Col sm='3' md='3' lg='3' xl='3' xxl="3">
+                    <Col>
+                        <CarouselsRandomTopics/>
                     </Col>
                 </Row>
             </Container>
@@ -43,4 +38,4 @@ const LastResult:React.FC = () => {
     );
 }
 
-export default LastResult;
+export default RandomTopics;
