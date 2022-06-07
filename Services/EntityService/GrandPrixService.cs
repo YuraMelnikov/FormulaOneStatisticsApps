@@ -110,6 +110,17 @@ namespace Services.EntityService
                     })
                     .FirstAsync();
 
+        public Task<IEnumerable<GrandPrixLastResultDto>> GetLastResult()
+        {
+            var result = _repositoryContext.GrandPrixResults
+                .Where(a => a.Participant.IdGrandPrix == _repositoryContext.GrandPrixes
+                                                        .First(a => a.Number == _repositoryContext.GrandPrixes.Max(a => a.Number)).Id))
+
+
+
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<GrandPrixLeaderLapDto>> GetLeaderLap(Guid idGrandPrix) =>
             await _repositoryContext.LeaderLaps
                 .AsNoTracking()
