@@ -14,6 +14,5 @@ namespace Services.IEntityService
         Task<IEnumerable<GrandPrixChampStateDto>> GetChampRacers(Guid idGrandPrix);
         Task<IEnumerable<GrandPrixChampStateDto>> GetChampConstructors(Guid idGrandPrix);
         Task<IEnumerable<ImageDto>> GetImages(Guid idGrandPrix);
-        Task<IEnumerable<GrandPrixLastResultDto>> GetLastResult();
     }
 }

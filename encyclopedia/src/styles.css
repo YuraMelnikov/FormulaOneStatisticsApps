@@ -25,6 +25,12 @@
   --ct-hidden: #bda4a3;
 }
 
+.flag-margin {
+  margin-right: 0.5rem;
+  width: '25px';
+  height: '17px';
+}
+
 .hidden-text-color {
   color: var(--ct-hidden);
 }
@@ -32,6 +38,7 @@
 .buttonGroup-center {
   padding: 8px 20px;
   text-align: center;
+  cursor: pointer;
 }
 
 .table-bordered {

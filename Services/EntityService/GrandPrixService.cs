@@ -110,16 +110,6 @@ namespace Services.EntityService
                     })
                     .FirstAsync();
 
-        public Task<IEnumerable<GrandPrixLastResultDto>> GetLastResult() => 
-            await _repositoryContext.GrandPrixResults
-                .Where(a => a.Participant.IdGrandPrix == _repositoryContext.GrandPrixes.First(a => a.Number == _repositoryContext.GrandPrixes.Max(a => a.Number)).Id)
-                .Where(a => a.Position < 11)
-                .Select(a => new GrandPrixLastResultDto
-                { 
-                    Position = a.Position, Constructor = a.Participant.TeamName.Name, Points = a.Points
-                })
-                .ToArrayAsync();
-
         public async Task<IEnumerable<GrandPrixLeaderLapDto>> GetLeaderLap(Guid idGrandPrix) =>
             await _repositoryContext.LeaderLaps
                 .AsNoTracking()

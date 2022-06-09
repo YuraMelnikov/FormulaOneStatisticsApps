@@ -15,13 +15,9 @@ const TableLastShortResult: React.FC<ResultsListProps> = ({result}) => {
                         <tr key={res.racerFullName}>
                             <td className='text-center'><h4 className='font-bold'>{res.position}</h4></td>
                             <td><h4>
-                                <ReactCountryFlag
+                                <ReactCountryFlag className='flag-margin'
                                     countryCode="US"
                                     svg
-                                    style={{
-                                        width: '25px',
-                                        height: '17px',
-                                    }}
                             />{res.racerFullName}</h4></td>
                             <td><h4>{res.constructor}</h4></td>
                             <td className='text-end'><h4 className='font-bold'>{res.timeGap}</h4></td>

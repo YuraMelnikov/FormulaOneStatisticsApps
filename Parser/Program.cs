@@ -13,20 +13,24 @@ using System.Text.Json.Serialization;
 using static System.Console;
 using Services.Common;
 
-RepositoryParcer repository = new RepositoryParcer();
+var repository = new RepositoryParcer();
+
+var results = repository.GrandPrixResults.ToArray();
+int step = 0;
 
 
-
-//var results = repository.mytable.ToArray();
-//int step = 0;
-
-
-//Parallel.ForEach(results, (result) =>
-//{
-
-//    step++;
-//    WriteLine(step);
-//});
+Parallel.ForEach(results, (result) =>
+{
+    var newRepository = new RepositoryParcer();
+    if(result.TimeLag != result.TimeLag.Trim(' '))
+    {
+        result.TimeLag = result.TimeLag.Trim(' ');
+        newRepository.Update(result);
+        newRepository.SaveChanges();
+        step++;
+        WriteLine(step);
+    }
+});
 
 
 #region ChampContsByGp
